@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5790ACC5-62B1-40AD-A09C-3335AC487CE4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Natsu</RootNamespace>
+    <AssemblyName>Getsu</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v16.2" />
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyDLL\DevExpress.Charts.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.2" />
+    <Reference Include="DevExpress.Utils.v16.2" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyDLL\DevExpress.XtraCharts.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.UI, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyDLL\DevExpress.XtraCharts.v16.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Wizard, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyDLL\DevExpress.XtraCharts.v16.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.2" />
+    <Reference Include="DevExpress.Printing.v16.2.Core" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyDLL\DevExpress.XtraGrid.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageGlass.ImageBox">
+      <HintPath>MyDLL\ImageGlass.ImageBox.dll</HintPath>
+    </Reference>
+    <Reference Include="LibraryLogin">
+      <HintPath>MyDLL\LibraryLogin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>MyDLL\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBPO.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBPO.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataNatsu.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataNatsu.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MyClass\Logfile.cs" />
+    <Compile Include="MyForm\FrmChangeZoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmChangeZoom.designer.cs">
+      <DependentUpon>FrmChangeZoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\frmCreateBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmCreateBatch.Designer.cs">
+      <DependentUpon>frmCreateBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmFreeTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmFreeTime.designer.cs">
+      <DependentUpon>FrmFreeTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyClass\Global.cs" />
+    <Compile Include="MyForm\frmManagerBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frmManagerBatch.Designer.cs">
+      <DependentUpon>frmManagerBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmUser.designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmCheckDeSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmCheckDeSo.designer.cs">
+      <DependentUpon>FrmCheckDeSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmNangSuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmNangSuat.designer.cs">
+      <DependentUpon>FrmNangSuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmChiTietTienDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmChiTietTienDo.designer.cs">
+      <DependentUpon>FrmChiTietTienDo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmTienDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmTienDo.designer.cs">
+      <DependentUpon>FrmTienDo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmExportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmExportExcel.designer.cs">
+      <DependentUpon>FrmExportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyForm\FrmFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\FrmFeedback.designer.cs">
+      <DependentUpon>FrmFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback.Designer.cs">
+      <DependentUpon>UcNatsuItemFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItem.Designer.cs">
+      <DependentUpon>UcNatsuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback2.Designer.cs">
+      <DependentUpon>UcNatsuItemFeedback2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsuItemFeedback3.Designer.cs">
+      <DependentUpon>UcNatsuItemFeedback3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcPictureBox.designer.cs">
+      <DependentUpon>UcPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\UcNatsu.Designer.cs">
+      <DependentUpon>UcNatsu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\uc_Natsu_Feedback.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyUserControl\uc_Natsu_Feedback.designer.cs">
+      <DependentUpon>uc_Natsu_Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="app.config" />
+    <None Include="DataBPO.dbml.layout">
+      <DependentUpon>DataBPO.dbml</DependentUpon>
+    </None>
+    <None Include="DataNatsu.dbml.layout">
+      <DependentUpon>DataNatsu.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="MyForm\FrmChangeZoom.resx">
+      <DependentUpon>FrmChangeZoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmCreateBatch.resx">
+      <DependentUpon>frmCreateBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmFreeTime.resx">
+      <DependentUpon>FrmFreeTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frmManagerBatch.resx">
+      <DependentUpon>frmManagerBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmCheckDeSo.resx">
+      <DependentUpon>FrmCheckDeSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmNangSuat.resx">
+      <DependentUpon>FrmNangSuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmChiTietTienDo.resx">
+      <DependentUpon>FrmChiTietTienDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmTienDo.resx">
+      <DependentUpon>FrmTienDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmExportExcel.resx">
+      <DependentUpon>FrmExportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\FrmFeedback.resx">
+      <DependentUpon>FrmFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcNatsuItemFeedback.resx">
+      <DependentUpon>UcNatsuItemFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcNatsu.resx">
+      <DependentUpon>UcNatsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcNatsuItem.resx">
+      <DependentUpon>UcNatsuItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcNatsuItemFeedback2.resx">
+      <DependentUpon>UcNatsuItemFeedback2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcNatsuItemFeedback3.resx">
+      <DependentUpon>UcNatsuItemFeedback3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\UcPictureBox.resx">
+      <DependentUpon>UcPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUserControl\uc_Natsu_Feedback.resx">
+      <DependentUpon>uc_Natsu_Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="DataBPO.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataBPO.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataNatsu.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataNatsu.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyDLL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportExcel.xlsx" />
+    <None Include="Resources\Productivity.xls" />
+    <None Include="Resources\svn_deleted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logoicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

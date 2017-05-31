@@ -30,5 +30,8 @@
     <Setting Name="LastSelectedFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Đà Nẵng</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

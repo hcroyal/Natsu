@@ -25,50 +25,53 @@ namespace Natsu
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
             //Application.Run(new Form1());
-
-            bool temp;
-            do
+            if (new frmChangeServer().ShowDialog() == DialogResult.OK)
             {
-                temp = false;
-                Frm_Login a = new Frm_Login();
-                a.lb_programName.Text = @"           SOKATU Project";
-
-                a.lb_vision.Text = @"Version :";
-                a.grb_1.Text = @"Information PC";
-                a.lb_machine.Text = @"PC name:";
-                a.lb_user_window.Text = @"Account window: ";
-                a.lb_ip.Text = @"Address IP :";
-                a.grb_2.Text = @"Login account information";
-                a.lb_username.Text = @"User Name:";
-                a.lb_password.Text = @"Password:";
-                a.lb_role.Text = @"Role";
-                a.lb_date.Text = @"Date: ";
-                a.lb_time.Text = @"Time: ";
-                a.lb_batchno.Text = @"BatchName: ";
-                a.btn_thoat.Text = @"Exit";
-                a.chb_hienthi.Text = @"Show";
-                a.chb_luu.Text = @"Save";
-                a.lb_version.Text = @"1.0.5";
-                a.UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
-                a.LoginEvent += a_LoginEvent;
-                a.ButtonLoginEven += a_ButtonLoginEven;
-                if (a.ShowDialog() == DialogResult.OK)
+                bool temp;
+                do
                 {
-                    Global.StrMachine = a.StrMachine;
-                    Global.StrUserWindow = a.StrUserWindow; Global.StrIpAddress = a.StrIpAddress;
-                    Global.StrUsername = a.StrUserName;
-                    Global.StrBatch = a.StrBatch;
-                    Global.StrRole = a.StrRole;
-                    Global.StrToken = a.Token;
-                    FrmMain f = new FrmMain();
-                    if (f.ShowDialog() == DialogResult.Yes)
+                    temp = false;
+                    Frm_Login a = new Frm_Login();
+                    a.lb_programName.Text = @"           SOKATU Project";
+
+                    a.lb_vision.Text = @"Version :";
+                    a.grb_1.Text = @"Information PC";
+                    a.lb_machine.Text = @"PC name:";
+                    a.lb_user_window.Text = @"Account window: ";
+                    a.lb_ip.Text = @"Address IP :";
+                    a.grb_2.Text = @"Login account information";
+                    a.lb_username.Text = @"User Name:";
+                    a.lb_password.Text = @"Password:";
+                    a.lb_role.Text = @"Role";
+                    a.lb_date.Text = @"Date: ";
+                    a.lb_time.Text = @"Time: ";
+                    a.lb_batchno.Text = @"BatchName: ";
+                    a.btn_thoat.Text = @"Exit";
+                    a.chb_hienthi.Text = @"Show";
+                    a.chb_luu.Text = @"Save";
+                    a.lb_version.Text = @"1.0.6";
+                    a.UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
+                    a.LoginEvent += a_LoginEvent;
+                    a.ButtonLoginEven += a_ButtonLoginEven;
+                    if (a.ShowDialog() == DialogResult.OK)
                     {
-                        f.Close();
-                        temp = true;
+                        Global.StrMachine = a.StrMachine;
+                        Global.StrUserWindow = a.StrUserWindow; Global.StrIpAddress = a.StrIpAddress;
+                        Global.StrUsername = a.StrUserName;
+                        Global.StrBatch = a.StrBatch;
+                        Global.StrRole = a.StrRole;
+                        Global.StrToken = a.Token;
+                        FrmMain f = new FrmMain();
+                        if (f.ShowDialog() == DialogResult.Yes)
+                        {
+                            f.Close();
+                            temp = true;
+                        }
                     }
                 }
+                while (temp);
             }
-            while (temp);
+               
         }
 
         private static void a_ButtonLoginEven(int iLogin, string strMachine, string strUserWindow, string strIpAddress, string strUsername, string password, string strBatch, string strRole, string strToken, ref bool loginOk)

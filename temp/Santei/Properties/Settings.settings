@@ -46,5 +46,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=10.10.10.248\BPOSERVER;Initial Catalog=Santei;Persist Security Info=True;User ID=sa;Password=BPO@DN#2013</Value>
     </Setting>
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

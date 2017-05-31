@@ -2,8 +2,8 @@
 {
     internal class Global
     {
-        public static DataBPODataContext DbBpo = new DataBPODataContext();
-        public static DataSanteiDataContext Db = new DataSanteiDataContext();
+        public static DataBPODataContext DbBpo;
+        public static DataSanteiDataContext Db;
         public static string StrMachine = "";
         public static string StrUserWindow = "";
         public static string StrIpAddress = "";

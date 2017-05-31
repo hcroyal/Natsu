@@ -103,6 +103,12 @@
     <Compile Include="MyForm\FrmFeedback.designer.cs">
       <DependentUpon>FrmFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frm_ChangeServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frm_ChangeServer.Designer.cs">
+      <DependentUpon>frm_ChangeServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\UcSanteiItemFeedback.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FrmTienDo.resx">
       <DependentUpon>FrmTienDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frm_ChangeServer.resx">
+      <DependentUpon>frm_ChangeServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frm_ExportExcel.resx">
       <DependentUpon>frm_ExportExcel.cs</DependentUpon>

@@ -149,7 +149,7 @@ namespace Natsu.MyForm
                         }
                         else
                         {
-                            MessageBox.Show(@"Picture is out!");
+                            MessageBox.Show(@"Finished batch '" + lb_fBatchName.Text + "'");
                             btn_Logout_ItemClick(null, null);
                         }
                     }
@@ -169,7 +169,7 @@ namespace Natsu.MyForm
                     {
                         if (UcNatsu1.IsEmpty())
                         {
-                            if (MessageBox.Show(@"You are empty one or more fields.Do you want to submit ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                            if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                                 return;
                         }
                         UcNatsu1.SaveData(lb_IdImage.Text);
@@ -201,7 +201,7 @@ namespace Natsu.MyForm
                             }
                             else
                             {
-                                MessageBox.Show(@"Picture is out!");
+                                MessageBox.Show(@"Finished batch '" + lb_fBatchName.Text + "'");
                                 btn_Logout_ItemClick(null, null);
                             }
                         }
@@ -237,7 +237,7 @@ namespace Natsu.MyForm
                 {
                     if (UcNatsu1.IsEmpty())
                     {
-                        if (MessageBox.Show(@"You are empty one or more fields.Do you want to submit ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                             return;
                     }
                     UcNatsu1.SaveData(lb_IdImage.Text);

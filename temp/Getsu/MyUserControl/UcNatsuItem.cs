@@ -352,7 +352,7 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo03_EditValueChanged(object sender, EventArgs e)
         {
-            DoiMauTextBox((TextEdit)sender, 6, 6);
+            
             Changed?.Invoke(sender, e);
         }
 
@@ -1003,5 +1003,137 @@ namespace Natsu.MyUserControl
             }
          
         }
+
+        private void txt_TruongSo03_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 6 || e.NewValue.ToString().Length < 6)
+                {
+                    ((TextEdit)sender).BackColor = Color.Red;
+                    ((TextEdit)sender).ForeColor = Color.White;
+                }
+                else
+                {
+                    if (txt_TruongSo02.Text == "5")
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            if (newValue < 100000 || newValue > 659999)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                            }
+
+                        }
+                    }
+                    else if (txt_TruongSo02.Text == "7")
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            if (newValue < 10000 || newValue > 149999)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        ((TextEdit)sender).BackColor = Color.White;
+                        ((TextEdit)sender).ForeColor = Color.Black;
+                    }
+                   
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txt_TruongSo06_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                Decimal newValue;
+                if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                {
+                    if (newValue < 0 || newValue > 12)
+                        e.Cancel = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txt_TruongSo07_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                Decimal newValue;
+                if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                {
+                    if (newValue < 0 || newValue > 31)
+                        e.Cancel = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        private void txt_TruongSo12_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                Decimal newValue;
+                if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                {
+                    if (newValue < 0 || newValue > 31)
+                        e.Cancel = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txt_TruongSo15_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                Decimal newValue;
+                if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                {
+                    if (newValue < 0 || newValue > 31)
+                        e.Cancel = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+       
     }
 }

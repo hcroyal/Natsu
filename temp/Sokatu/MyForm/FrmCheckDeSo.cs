@@ -151,7 +151,7 @@ namespace Natsu.MyForm
                 if (temp == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
-                    MessageBox.Show(@"Picture is out!");
+                    MessageBox.Show(@"Finished batch '" + cbb_Batch_Check.Text + "'");
                     return;
                 }
                 if (temp == "Error")
@@ -423,7 +423,7 @@ namespace Natsu.MyForm
                 if (temp == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
-                    MessageBox.Show(@"Picture is out!");
+                    MessageBox.Show(@"Finished batch '" + cbb_Batch_Check.Text + "'");
                     LoadBatchMoi();
                     return;
                 }
@@ -463,7 +463,7 @@ namespace Natsu.MyForm
                 if (temp == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
-                    MessageBox.Show(@"Picture is out!");
+                    MessageBox.Show(@"Finished batch '" + cbb_Batch_Check.Text + "'");
                     LoadBatchMoi();
                     return;
                 }
@@ -501,7 +501,7 @@ namespace Natsu.MyForm
                 if (GetImage_DeSo() == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
-                    MessageBox.Show(@"Picture is out!");
+                    MessageBox.Show(@"Finished batch '" + cbb_Batch_Check.Text + "'");
                     LoadBatchMoi();
                     return;
                 }
@@ -531,7 +531,7 @@ namespace Natsu.MyForm
                 if (GetImage_DeSo() == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
-                    MessageBox.Show(@"Picture is out!");
+                    MessageBox.Show(@"Finished batch '" + cbb_Batch_Check.Text + "'");
                     LoadBatchMoi();
                     return;
                 }

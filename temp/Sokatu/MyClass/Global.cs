@@ -19,5 +19,6 @@
         public static int FreeTime = 0;
         public static bool NotGoodUser;
         public static bool BatchChiaUser;
+        public static bool FlagTong = false;
     }
 }

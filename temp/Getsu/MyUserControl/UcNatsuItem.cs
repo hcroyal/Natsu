@@ -367,21 +367,24 @@ namespace Natsu.MyUserControl
 
         private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
         {
-            try
+            if (Global.FlagTong)
             {
-                double x1 = 0, x2 = 0;
-                if (!string.IsNullOrEmpty(txt1.Text))
-                    x1 = double.Parse(txt1.Text.Replace(",", ""));
-                if (!string.IsNullOrEmpty(txt2.Text))
-                    x2 = double.Parse(txt2.Text.Replace(",", ""));
-                txt3.Text = x1 + x2 + "";
-                curency(txt3);
+                try
+                {
+                    double x1 = 0, x2 = 0;
+                    if (!string.IsNullOrEmpty(txt1.Text))
+                        x1 = double.Parse(txt1.Text.Replace(",", ""));
+                    if (!string.IsNullOrEmpty(txt2.Text))
+                        x2 = double.Parse(txt2.Text.Replace(",", ""));
+                    txt3.Text = x1 + x2 + "";
+                    curency(txt3);
+                }
+                catch (Exception e)
+                {
+                    ;
+                }
             }
-            catch (Exception e)
-            {
-               ;
-            }
-          
+
         }
 
         private void Total_Truong11()

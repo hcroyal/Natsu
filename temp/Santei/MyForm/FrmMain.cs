@@ -167,10 +167,12 @@ namespace Natsu.MyForm
                 btn_Stop_Performance_Test.Enabled = false;
                 if (Global.StrRole == "DESO")
                 {
+                    Global.FlagTong = true;
                     UcNatsu1.ResetData();
                 }
                 else
                 {
+                    Global.FlagTong = false;
                     btn_Start_Submit.Enabled = false;
                     btn_Submit_Logout.Enabled = false;
                     bar_Manager.Enabled = true;
@@ -353,6 +355,7 @@ namespace Natsu.MyForm
             Global.DbBpo.UpdateTimeLogout(Global.StrToken);
             Global.DbBpo.ResetToken(Global.StrUsername, Global.StrIdProject, Global.StrToken);
             Settings.Default.Save();
+            Global.FlagTong = false;
         }
 
         private void btn_Logout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

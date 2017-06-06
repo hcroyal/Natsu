@@ -36,7 +36,7 @@ namespace Natsu
     #endregion
 		
 		public DataBPODataContext() : 
-				base(global::Natsu.Properties.Settings.Default.DatabaseDataEntryBPOConnectionString, mappingSource)
+				base(global::Natsu.Properties.Settings.Default.DatabaseDataEntryBPOConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -170,6 +170,13 @@ namespace Natsu
 		public int UpdateTimeFree([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Token", DbType="NVarChar(255)")] string token, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> freetime)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), token, freetime);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateNotGoodUser")]
+		public int updateNotGoodUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(255)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> notgooduser)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, notgooduser);
 			return ((int)(result.ReturnValue));
 		}
 	}

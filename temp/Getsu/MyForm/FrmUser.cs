@@ -10,13 +10,16 @@ namespace Natsu.MyForm
         {
             InitializeComponent();
         }
-
-        private void frm_User_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             dgv_listuser.DataSource = Global.DbBpo.GetListUser();
             cbb_idrole.DataSource = Global.DbBpo.GetListRole();
             cbb_idrole.DisplayMember = "RoleName";
             cbb_idrole.ValueMember = "RoleID";
+        }
+        private void frm_User_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void btn_suauser_Click(object sender, EventArgs e)
@@ -37,6 +40,7 @@ namespace Natsu.MyForm
             {
                 MessageBox.Show(@"Enter full information before saving !");
             }
+            LoadData();
         }
 
         private void btn_themuser_Click(object sender, EventArgs e)
@@ -64,6 +68,7 @@ namespace Natsu.MyForm
             {
                 MessageBox.Show(@"Enter full information before saving !");
             }
+            LoadData();
         }
 
         private void btn_delete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -82,6 +87,7 @@ namespace Natsu.MyForm
                     MessageBox.Show(@"Username does not exist, can not delete");
                 }
             }
+            LoadData();
         }
 
         private void gridView1_GotFocus(object sender, EventArgs e)
@@ -119,6 +125,26 @@ namespace Natsu.MyForm
             {
                 // ignored
             }
+        }
+
+        private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            string username = gridView1.GetFocusedRowCellValue("Username").ToString();
+            if (e.Column.FieldName == "NotGoodUser")
+            {
+                bool check = (bool)e.Value;
+                if (check)
+                {
+                    Global.DbBpo.updateNotGoodUser(username, true);
+
+
+                }
+                else
+                {
+                    Global.DbBpo.updateNotGoodUser(username, false);
+                }
+            }
+            LoadData();
         }
     }
 }

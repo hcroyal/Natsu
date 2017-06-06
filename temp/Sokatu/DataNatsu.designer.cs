@@ -233,11 +233,39 @@ namespace Natsu
 			return ((ISingleResult<GetBatNotFinishDeSoResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetBatNotFinishDeSo_Good")]
+		public ISingleResult<GetBatNotFinishDeSo_GoodResult> GetBatNotFinishDeSo_Good([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username);
+			return ((ISingleResult<GetBatNotFinishDeSo_GoodResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetBatNotFinishDeSo_NotGood")]
+		public ISingleResult<GetBatNotFinishDeSo_NotGoodResult> GetBatNotFinishDeSo_NotGood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username);
+			return ((ISingleResult<GetBatNotFinishDeSo_NotGoodResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage")]
 		public ISingleResult<GetImageResult> GetImage([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
 			return ((ISingleResult<GetImageResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage_Group_Good")]
+		public ISingleResult<GetImage_Group_GoodResult> GetImage_Group_Good([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
+			return ((ISingleResult<GetImage_Group_GoodResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage_Group_Notgood")]
+		public ISingleResult<GetImage_Group_NotgoodResult> GetImage_Group_Notgood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
+			return ((ISingleResult<GetImage_Group_NotgoodResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImageCheck_DeSo")]
@@ -484,6 +512,8 @@ namespace Natsu
 		
 		private string _LoaiBatch;
 		
+		private System.Nullable<bool> _ChiaUser;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -504,6 +534,8 @@ namespace Natsu
     partial void OnfSoLuongAnhChanged();
     partial void OnLoaiBatchChanging(string value);
     partial void OnLoaiBatchChanged();
+    partial void OnChiaUserChanging(System.Nullable<bool> value);
+    partial void OnChiaUserChanged();
     #endregion
 		
 		public tbl_Batch()
@@ -667,6 +699,26 @@ namespace Natsu
 					this._LoaiBatch = value;
 					this.SendPropertyChanged("LoaiBatch");
 					this.OnLoaiBatchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiaUser", DbType="Bit")]
+		public System.Nullable<bool> ChiaUser
+		{
+			get
+			{
+				return this._ChiaUser;
+			}
+			set
+			{
+				if ((this._ChiaUser != value))
+				{
+					this.OnChiaUserChanging(value);
+					this.SendPropertyChanging();
+					this._ChiaUser = value;
+					this.SendPropertyChanged("ChiaUser");
+					this.OnChiaUserChanged();
 				}
 			}
 		}
@@ -4901,6 +4953,8 @@ namespace Natsu
 		
 		private string _LoaiBatch;
 		
+		private System.Nullable<bool> _ChiaUser;
+		
 		public GetBatch_Feedback_GetsuResult()
 		{
 		}
@@ -5032,6 +5086,22 @@ namespace Natsu
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiaUser", DbType="Bit")]
+		public System.Nullable<bool> ChiaUser
+		{
+			get
+			{
+				return this._ChiaUser;
+			}
+			set
+			{
+				if ((this._ChiaUser != value))
+				{
+					this._ChiaUser = value;
+				}
+			}
+		}
 	}
 	
 	public partial class GetBatNotFinish_MissImageCheckerDESOResult
@@ -5138,12 +5208,116 @@ namespace Natsu
 		}
 	}
 	
+	public partial class GetBatNotFinishDeSo_GoodResult
+	{
+		
+		private string _fbatchname;
+		
+		public GetBatNotFinishDeSo_GoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fbatchname", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string fbatchname
+		{
+			get
+			{
+				return this._fbatchname;
+			}
+			set
+			{
+				if ((this._fbatchname != value))
+				{
+					this._fbatchname = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetBatNotFinishDeSo_NotGoodResult
+	{
+		
+		private string _fbatchname;
+		
+		public GetBatNotFinishDeSo_NotGoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fbatchname", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string fbatchname
+		{
+			get
+			{
+				return this._fbatchname;
+			}
+			set
+			{
+				if ((this._fbatchname != value))
+				{
+					this._fbatchname = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetImageResult
 	{
 		
 		private string _Column1;
 		
 		public GetImageResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(255)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetImage_Group_GoodResult
+	{
+		
+		private string _Column1;
+		
+		public GetImage_Group_GoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(255)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetImage_Group_NotgoodResult
+	{
+		
+		private string _Column1;
+		
+		public GetImage_Group_NotgoodResult()
 		{
 		}
 		

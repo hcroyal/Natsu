@@ -10,6 +10,7 @@
       <Column Name="fLocation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="fSoLuongAnh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="LoaiBatch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ChiaUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MissImage_DESO" Member="tbl_MissImage_DESOs">
@@ -276,6 +277,7 @@
       <Column Name="fLocation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="fSoLuongAnh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="LoaiBatch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ChiaUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.GetBatNotFinish_MissImageCheckerDESO" Method="GetBatNotFinish_MissImageCheckerDESO">
@@ -302,10 +304,36 @@
       <Column Name="fbatchname" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GetBatNotFinishDeSo_Good" Method="GetBatNotFinishDeSo_Good">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="GetBatNotFinishDeSo_GoodResult">
+      <Column Name="fbatchname" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetBatNotFinishDeSo_NotGood" Method="GetBatNotFinishDeSo_NotGood">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="GetBatNotFinishDeSo_NotGoodResult">
+      <Column Name="fbatchname" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GetImage" Method="GetImage">
     <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="username" Type="System.String" DbType="NVarChar(255)" />
     <ElementType Name="GetImageResult">
+      <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetImage_Group_Good" Method="GetImage_Group_Good">
+    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="GetImage_Group_GoodResult">
+      <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetImage_Group_Notgood" Method="GetImage_Group_Notgood">
+    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(255)" />
+    <ElementType Name="GetImage_Group_NotgoodResult">
       <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>

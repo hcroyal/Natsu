@@ -3,6 +3,7 @@ using Natsu.Properties;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraEditors;
 
 namespace Natsu.MyForm
@@ -25,47 +26,127 @@ namespace Natsu.MyForm
 
         public string GetImage()
         {
+
             if (Global.StrRole == "DESO")
             {
-                string temp = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
-                if (string.IsNullOrEmpty(temp))
+                if (Global.BatchChiaUser)
                 {
-                    try
+                    if (Global.NotGoodUser)
                     {
-                        var getFilename =
-                            (from w in Global.Db.LayHinhMoi_DeSo(Global.StrBatch, Global.StrUsername)
-                             select w.Column1).FirstOrDefault();
-                        if (string.IsNullOrEmpty(getFilename))
+                        string temp = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
+                        if (string.IsNullOrEmpty(temp))
                         {
-                            return "NULL";
+                            try
+                            {
+                                var getFilename = (from w in Global.Db.GetImage_Group_Notgood(Global.StrBatch, Global.StrUsername) select w.Column1).FirstOrDefault();
+                                if (string.IsNullOrEmpty(getFilename))
+                                {
+                                    return "NULL";
+                                }
+                                lb_IdImage.Text = getFilename;
+                                UcPictureBox1.imageBox1.Image = null;
+                                if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + getFilename, getFilename, Settings.Default.ZoomImage) == "Error")
+                                {
+                                    UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                                    return "Error";
+
+                                }
+                            }
+                            catch (Exception i)
+                            {
+                                //LogFile.WriteLog(Global.StrUsername + ".txt", i.Message);
+                                return "NULL";
+                            }
                         }
-                        lb_IdImage.Text = getFilename;
-                        UcPictureBox1.imageBox1.Image = null;
-                        if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + getFilename, getFilename,
-                            Settings.Default.ZoomImage) == "Error")
+                        else
                         {
-                            UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
-                            return "Error";
+                            lb_IdImage.Text = temp;
+                            UcPictureBox1.imageBox1.Image = null;
+                            if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + temp, temp, Settings.Default.ZoomImage) == "Error")
+                            {
+                                UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                                return "Error";
+                            }
                         }
-                        UcNatsu1.UcNatsuItem1.txt_TruongSo01.Focus();
                     }
-                    catch (Exception)
+                    else
                     {
-                        return "NULL";
+                        string temp = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
+                        if (string.IsNullOrEmpty(temp))
+                        {
+                            try
+                            {
+                                var getFilename = (from w in Global.Db.GetImage_Group_Good(Global.StrBatch, Global.StrUsername) select w.Column1).FirstOrDefault();
+                                if (string.IsNullOrEmpty(getFilename))
+                                {
+                                    return "NULL";
+                                }
+                                lb_IdImage.Text = getFilename;
+                                UcPictureBox1.imageBox1.Image = null;
+                                if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + getFilename, getFilename, Settings.Default.ZoomImage) == "Error")
+                                {
+                                    UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                                    return "Error";
+
+                                }
+                            }
+                            catch (Exception i)
+                            {
+                                //LogFile.WriteLog(Global.StrUsername + ".txt", i.Message);
+                                return "NULL";
+                            }
+                        }
+                        else
+                        {
+                            lb_IdImage.Text = temp;
+                            UcPictureBox1.imageBox1.Image = null;
+                            if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + temp, temp, Settings.Default.ZoomImage) == "Error")
+                            {
+                                UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                                return "Error";
+                            }
+                        }
                     }
                 }
                 else
                 {
-                    lb_IdImage.Text = temp;
-                    UcPictureBox1.imageBox1.Image = null;
-                    if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + temp, temp,
-                        Settings.Default.ZoomImage) == "Error")
+                    string temp = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
+                    if (string.IsNullOrEmpty(temp))
                     {
-                        UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
-                        return "Error";
+                        try
+                        {
+                            var getFilename = (from w in Global.Db.LayHinhMoi_DeSo(Global.StrBatch, Global.StrUsername) select w.Column1).FirstOrDefault();
+                            if (string.IsNullOrEmpty(getFilename))
+                            {
+                                return "NULL";
+                            }
+                            lb_IdImage.Text = getFilename;
+                            UcPictureBox1.imageBox1.Image = null;
+                            if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + getFilename, getFilename, Settings.Default.ZoomImage) == "Error")
+                            {
+                                UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                                return "Error";
+
+                            }
+                        }
+                        catch (Exception i)
+                        {
+                            //LogFile.WriteLog(Global.StrUsername + ".txt", i.Message);
+                            return "NULL";
+                        }
                     }
-                    UcNatsu1.UcNatsuItem1.txt_TruongSo01.Focus();
+                    else
+                    {
+                        lb_IdImage.Text = temp;
+                        UcPictureBox1.imageBox1.Image = null;
+                        if (UcPictureBox1.LoadImage(Global.Webservice + Global.StrBatch + "/" + temp, temp, Settings.Default.ZoomImage) == "Error")
+                        {
+                            UcPictureBox1.imageBox1.Image = Resources.svn_deleted;
+                            return "Error";
+                        }
+                    }
                 }
+                UcNatsu1.UcNatsuItem1.txt_TruongSo01.Focus();
             }
             return "OK";
         }
@@ -74,6 +155,8 @@ namespace Natsu.MyForm
         {
             try
             {
+                var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                Global.BatchChiaUser = ktBatch == true;
                 lb_IdImage.Text = "";
                 lb_fBatchName.Text = Global.StrBatch;
                 lb_UserName.Text = Global.StrUsername;

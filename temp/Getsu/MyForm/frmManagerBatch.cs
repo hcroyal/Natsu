@@ -84,5 +84,28 @@ namespace Natsu.MyForm
             RefreshBatch();
 
         }
+
+        private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            string batchname = gridView1.GetFocusedRowCellValue("fBatchName") + "";
+            
+            if (e.Column.FieldName == "ChiaUser")
+            {
+                bool check = (bool)e.Value;
+                if (check)
+                {
+                    var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
+                    batch.ChiaUser = true;
+                    Global.Db.SubmitChanges();
+                }
+                else
+                {
+                    var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
+                    batch.ChiaUser = false;
+                    Global.Db.SubmitChanges();
+                }
+            }
+            RefreshBatch();
+        }
     }
 }

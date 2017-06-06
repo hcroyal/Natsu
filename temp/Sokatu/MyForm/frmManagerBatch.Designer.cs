@@ -53,6 +53,7 @@
             this.btn_DeleteSelectedBatch = new DevExpress.XtraEditors.SimpleButton();
             this.btn_TaoBatch = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemButtonEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.ChiaUser = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -115,13 +116,15 @@
             this.fLocation,
             this.fSoLuongAnh,
             this.LoaiBatch,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.ChiaUser});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             // 
             // IDBatch
             // 
@@ -200,7 +203,7 @@
             this.gridColumn8.ImageAlignment = System.Drawing.StringAlignment.Center;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 88;
             // 
             // repositoryItemButtonEdit3
@@ -263,6 +266,14 @@
             this.repositoryItemButtonEdit5.Name = "repositoryItemButtonEdit5";
             this.repositoryItemButtonEdit5.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
+            // ChiaUser
+            // 
+            this.ChiaUser.Caption = "Chia user";
+            this.ChiaUser.FieldName = "ChiaUser";
+            this.ChiaUser.Name = "ChiaUser";
+            this.ChiaUser.Visible = true;
+            this.ChiaUser.VisibleIndex = 8;
+            // 
             // FrmManagerBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,5 +319,6 @@
         private DevExpress.XtraEditors.SimpleButton btn_TaoBatch;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit5;
         private DevExpress.XtraEditors.SimpleButton btn_DeleteSelectedBatch;
+        private DevExpress.XtraGrid.Columns.GridColumn ChiaUser;
     }
 }

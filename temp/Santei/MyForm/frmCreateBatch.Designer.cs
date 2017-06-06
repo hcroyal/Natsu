@@ -49,6 +49,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.ck_ChiaUser = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PathFolder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_DateCreate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_UserCreate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Location.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BatchName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ck_ChiaUser.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Browser
@@ -226,11 +228,20 @@
             this.labelControl1.TabIndex = 49;
             this.labelControl1.Text = "CREATE NEW BATCH";
             // 
+            // ck_ChiaUser
+            // 
+            this.ck_ChiaUser.Location = new System.Drawing.Point(499, 167);
+            this.ck_ChiaUser.Name = "ck_ChiaUser";
+            this.ck_ChiaUser.Properties.Caption = "Chia User";
+            this.ck_ChiaUser.Size = new System.Drawing.Size(75, 19);
+            this.ck_ChiaUser.TabIndex = 68;
+            // 
             // FrmCreateBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 413);
+            this.Controls.Add(this.ck_ChiaUser);
             this.Controls.Add(this.btn_Browser);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.txt_PathFolder);
@@ -261,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_UserCreate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Location.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BatchName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ck_ChiaUser.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +301,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.CheckEdit ck_ChiaUser;
     }
 }

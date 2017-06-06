@@ -74,7 +74,8 @@ namespace Natsu.MyForm
                         fPathPicture = txt_ImagePath.Text,
                         fLocation = txt_Location.Text+"\\"+txt_BatchName.Text+"\\",
                         fSoLuongAnh = _soluonghinh.ToString(),
-                        LoaiBatch = "Getsu"
+                        LoaiBatch = "Getsu",
+                        ChiaUser = ck_ChiaUser.Checked
                         //LoaiBatch = rg_LoaiBatch.Properties.Items[rg_LoaiBatch.SelectedIndex].Description
                     };
                     Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
@@ -112,8 +113,8 @@ namespace Natsu.MyForm
                     ReadImageDESo = 0,
                     CheckedDESo = 0,
                     TienDoDESO = "Hình chưa nhập",
-                    ReadImageDESO_Good = 1,
-                    ReadImageDESO_NotGood = 1
+                    ReadImageDESO_Good = 0,
+                    ReadImageDESO_NotGood = 0
                 };
                 Global.Db.tbl_Images.InsertOnSubmit(tempImage);
                 Global.Db.SubmitChanges();
@@ -202,9 +203,7 @@ namespace Natsu.MyForm
             progressBarControl1.Properties.PercentView = true;
             progressBarControl1.Properties.Maximum = lStrBath1.Count;
             progressBarControl1.Properties.Minimum = 0;
-
-            FileInfo myfile = new FileInfo("G:/Notes.txt");
-            StreamWriter tex = myfile.CreateText();
+            
             string pathexcel = @"X:\" + new DirectoryInfo(txt_PathFolder.Text).Name;
             string s = new DirectoryInfo(txt_PathFolder.Text).Name;
             createFolder(s);
@@ -334,7 +333,8 @@ namespace Natsu.MyForm
                 fPathPicture = location,
                 fLocation = excellocation,
                 fSoLuongAnh = Directory.GetFiles(location).Length.ToString(),
-                LoaiBatch = "Getsu"
+                LoaiBatch = "Getsu",
+                ChiaUser = ck_ChiaUser.Checked
             };
             Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
             Global.Db.SubmitChanges();
@@ -352,8 +352,8 @@ namespace Natsu.MyForm
                     ReadImageDESo = 0,
                     CheckedDESo = 0,
                     TienDoDESO = "Hình chưa nhập",
-                    ReadImageDESO_Good = 1,
-                    ReadImageDESO_NotGood = 1
+                    ReadImageDESO_Good = 0,
+                    ReadImageDESO_NotGood = 0
                 };
                 Global.Db.tbl_Images.InsertOnSubmit(tempImage);
                 Global.Db.SubmitChanges();

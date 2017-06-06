@@ -49,6 +49,7 @@
             this.btn_Browser = new DevExpress.XtraEditors.SimpleButton();
             this.txt_PathFolder = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.ck_ChiaUser = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_DateCreate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ImagePath.Properties)).BeginInit();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_Location.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BatchName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PathFolder.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ck_ChiaUser.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_DateCreate
@@ -226,11 +228,20 @@
             this.labelControl8.TabIndex = 46;
             this.labelControl8.Text = "Folder Batch (nhiều):";
             // 
+            // ck_ChiaUser
+            // 
+            this.ck_ChiaUser.Location = new System.Drawing.Point(499, 177);
+            this.ck_ChiaUser.Name = "ck_ChiaUser";
+            this.ck_ChiaUser.Properties.Caption = "Chia User";
+            this.ck_ChiaUser.Size = new System.Drawing.Size(75, 19);
+            this.ck_ChiaUser.TabIndex = 49;
+            // 
             // FrmCreateBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 424);
+            this.Controls.Add(this.ck_ChiaUser);
             this.Controls.Add(this.btn_Browser);
             this.Controls.Add(this.txt_PathFolder);
             this.Controls.Add(this.labelControl8);
@@ -261,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_Location.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BatchName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PathFolder.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ck_ChiaUser.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +300,6 @@
         private DevExpress.XtraEditors.SimpleButton btn_Browser;
         private DevExpress.XtraEditors.TextEdit txt_PathFolder;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.CheckEdit ck_ChiaUser;
     }
 }

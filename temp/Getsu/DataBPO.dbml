@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DatabaseDataEntryBPO" Class="DataBPODataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.10.248\BPOSERVER;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;User ID=sa" SettingsObjectName="Natsu.Properties.Settings" SettingsPropertyName="DatabaseDataEntryBPOConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.10.248;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;User ID=sa" SettingsObjectName="Natsu.Properties.Settings" SettingsPropertyName="DatabaseDataEntryBPOConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_TokenLogin" Member="tbl_TokenLogins">
     <Type Name="tbl_TokenLogin">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -103,6 +103,11 @@
   <Function Name="dbo.UpdateTimeFree" Method="UpdateTimeFree">
     <Parameter Name="Token" Parameter="token" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="freetime" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateNotGoodUser" Method="updateNotGoodUser">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="notgooduser" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

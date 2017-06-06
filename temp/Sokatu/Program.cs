@@ -125,6 +125,9 @@ namespace Natsu
                 iKiemtraLogin = Global.DbBpo.KiemTraLogin(username, password);
                 strVersion = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
                 role = (from w in Global.DbBpo.tbl_Users where w.Username == username select w.IDRole).FirstOrDefault();
+                var ktUser = (from w in Global.DbBpo.tbl_Users where w.Username == username select w.NotGoodUser).FirstOrDefault();
+                Global.NotGoodUser = ktUser == true;
+
                 if (!string.IsNullOrEmpty(role))
                     role = role.ToUpper();
                 if (iKiemtraLogin == 1 && role == "ADMIN")
@@ -134,8 +137,16 @@ namespace Natsu
                 }
                 else if (iKiemtraLogin == 1 && role == "DESO")
                 {
-                    cbb.DataSource = Global.Db.GetBatNotFinishDeSo(username);
-                    cbb.DisplayMember = "fBatchName";
+                    if (Global.NotGoodUser)
+                    {
+                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_NotGood(username);
+                        cbb.DisplayMember = "fBatchName";
+                    }
+                    else
+                    {
+                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_Good(username);
+                        cbb.DisplayMember = "fBatchName";
+                    }
                 }
                 else if (iKiemtraLogin == 1 && role == "CHECKERDESO")
                 {

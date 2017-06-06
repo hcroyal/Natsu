@@ -1182,140 +1182,275 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 6 || e.NewValue.ToString().Length < 6)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                }
-                else
-                {
-                    if (txt_TruongSo02.Text == "1")
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 6 || e.NewValue.ToString().Length < 6)
                     {
-                        Decimal newValue;
-                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
-                        {
-                            string s = newValue + "";
-                            int kytudau = int.Parse(s.Substring(0, 2));
-                            int kytugiua = int.Parse(s.Substring(2, 2));
-                            int kytucuoi = int.Parse(s.Substring(4, 2));
-                            if (kytudau < 1 || kytudau > 45 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
-                            {
-                                //e.Cancel = true;
-                                ((TextEdit)sender).BackColor = Color.Red;
-                                ((TextEdit)sender).ForeColor = Color.White;
-                                ((TextEdit)sender).Tag = "1";
-                            }
-                            else
-                            {
-                                ((TextEdit)sender).BackColor = Color.White;
-                                ((TextEdit)sender).ForeColor = Color.Black;
-                                ((TextEdit)sender).Tag = "0";
-                            }
-
-                        }
-                    }
-                    else if (txt_TruongSo02.Text == "3")
-                    {
-                        Decimal newValue;
-                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
-                        {
-                            string s = newValue + "";
-                            int kytudau = int.Parse(s.Substring(0, 2));
-                            int kytugiua = int.Parse(s.Substring(2, 2));
-                            int kytucuoi = int.Parse(s.Substring(4, 2));
-                            if (kytudau < 1 || kytudau > 15 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
-                            {
-                                //e.Cancel = true;
-                                ((TextEdit)sender).BackColor = Color.Red;
-                                ((TextEdit)sender).ForeColor = Color.White;
-                                ((TextEdit)sender).Tag = "1";
-                            }
-                            else
-                            {
-                                ((TextEdit)sender).BackColor = Color.White;
-                                ((TextEdit)sender).ForeColor = Color.Black;
-                                ((TextEdit)sender).Tag = "0";
-                            }
-
-                        }
-                    }
-                    else if (txt_TruongSo02.Text == "5")
-                    {
-                        Decimal newValue;
-                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
-                        {
-                            string s = newValue + "";
-                            int kytudau = int.Parse(s.Substring(0, 2));
-                            int kytugiua = int.Parse(s.Substring(2, 2));
-                            int kytucuoi = int.Parse(s.Substring(4, 2));
-                            if (kytudau < 1 || kytudau > 64 || kytugiua<0 || kytugiua>12 || kytucuoi<0 || kytucuoi>31)
-                            {
-                                //e.Cancel = true;
-                                ((TextEdit)sender).BackColor = Color.Red;
-                                ((TextEdit)sender).ForeColor = Color.White;
-                                ((TextEdit)sender).Tag = "1";
-                            }
-                            else
-                            {
-                                ((TextEdit)sender).BackColor = Color.White;
-                                ((TextEdit)sender).ForeColor = Color.Black;
-                                ((TextEdit)sender).Tag = "0";
-                            }
-
-                        }
-                    }
-                    else if (txt_TruongSo02.Text == "7")
-                    {
-                        Decimal newValue;
-                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
-                        {
-                            string s = newValue + "";
-                            int kytudau = int.Parse(s.Substring(0, 2));
-                            int kytugiua = int.Parse(s.Substring(2, 2));
-                            int kytucuoi = int.Parse(s.Substring(4, 2));
-                            if (kytudau < 1 || kytudau > 29 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
-                            {
-                                //e.Cancel = true;
-                                ((TextEdit)sender).BackColor = Color.Red;
-                                ((TextEdit)sender).ForeColor = Color.White;
-                                ((TextEdit)sender).Tag = "1";
-                            }
-                            else
-                            {
-                                ((TextEdit)sender).BackColor = Color.White;
-                                ((TextEdit)sender).ForeColor = Color.Black;
-                                ((TextEdit)sender).Tag = "0";
-                            }
-
-                        }
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
                     }
                     else
                     {
-                        Decimal newValue;
-                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        if (txt_TruongSo02.Text == "1")
                         {
-                            string s = newValue + "";
-                            int kytudau = int.Parse(s.Substring(0, 2));
-                            int kytugiua = int.Parse(s.Substring(2, 2));
-                            int kytucuoi = int.Parse(s.Substring(4, 2));
-                            if (kytudau < 1 || kytudau > 99 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                            Decimal newValue;
+                            if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
                             {
-                                //e.Cancel = true;
-                                ((TextEdit)sender).BackColor = Color.Red;
-                                ((TextEdit)sender).ForeColor = Color.White;
-                                ((TextEdit)sender).Tag = "1";
-                            }
-                            else
-                            {
-                                ((TextEdit)sender).BackColor = Color.White;
-                                ((TextEdit)sender).ForeColor = Color.Black;
-                                ((TextEdit)sender).Tag = "0";
-                            }
+                                string s = e.NewValue + "";
+                                int kytudau = int.Parse(s.Substring(0, 2));
+                                int kytugiua = int.Parse(s.Substring(2, 2));
+                                int kytucuoi = int.Parse(s.Substring(4, 2));
+                                if (kytudau==1)
+                                {
+                                    if (kytugiua<1 || kytucuoi<1)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+                                    
+                                }
+                                else if (kytudau==45)
+                                {
+                                    if (kytugiua >7 || kytucuoi > 30)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+                                }
+                                else if (kytudau < 1 || kytudau > 45 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                {
+                                    //e.Cancel = true;
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
+                                }
+                                else
+                                {
+                                    ((TextEdit)sender).BackColor = Color.White;
+                                    ((TextEdit)sender).ForeColor = Color.Black;
+                                    ((TextEdit)sender).Tag = "0";
+                                }
 
+                            }
                         }
+                        else if (txt_TruongSo02.Text == "3")
+                        {
+                            Decimal newValue;
+                            if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                            {
+                                string s = e.NewValue + "";
+                                int kytudau = int.Parse(s.Substring(0, 2));
+                                int kytugiua = int.Parse(s.Substring(2, 2));
+                                int kytucuoi = int.Parse(s.Substring(4, 2));
+                                if (kytudau == 1)
+                                {
+                                    if (kytugiua < 7 || kytucuoi < 31)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+
+                                }
+                                else if (kytudau == 15)
+                                {
+                                    if (kytugiua > 12 || kytucuoi > 25)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+                                }
+                                else if (kytudau < 1 || kytudau > 15 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                {
+                                    //e.Cancel = true;
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
+                                }
+                                else
+                                {
+                                    ((TextEdit)sender).BackColor = Color.White;
+                                    ((TextEdit)sender).ForeColor = Color.Black;
+                                    ((TextEdit)sender).Tag = "0";
+                                }
+
+                            }
+                        }
+                        else if (txt_TruongSo02.Text == "5")
+                        {
+                            Decimal newValue;
+                            if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                            {
+                                string s = e.NewValue + "";
+                                int kytudau = int.Parse(s.Substring(0, 2));
+                                int kytugiua = int.Parse(s.Substring(2, 2));
+                                int kytucuoi = int.Parse(s.Substring(4, 2));
+                                if (kytudau == 1)
+                                {
+                                    if (kytugiua < 12 || kytucuoi < 26)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+
+                                }
+                                else if (kytudau == 64)
+                                {
+                                    if (kytugiua > 1 || kytucuoi > 2)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+                                }
+                                else if (kytudau < 1 || kytudau > 64 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                {
+                                    //e.Cancel = true;
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
+                                }
+                                else
+                                {
+                                    ((TextEdit)sender).BackColor = Color.White;
+                                    ((TextEdit)sender).ForeColor = Color.Black;
+                                    ((TextEdit)sender).Tag = "0";
+                                }
+
+                            }
+                        }
+                        else if (txt_TruongSo02.Text == "7")
+                        {
+                            Decimal newValue;
+                            if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                            {
+                                string s = e.NewValue + "";
+                                int kytudau = int.Parse(s.Substring(0, 2));
+                                int kytugiua = int.Parse(s.Substring(2, 2));
+                                int kytucuoi = int.Parse(s.Substring(4, 2));
+                                if (kytudau == 1)
+                                {
+                                    if (kytugiua < 1 || kytucuoi < 8)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+
+                                }
+                                else if (kytudau == 29)
+                                {
+                                    if (kytugiua > 6 || kytucuoi > 1)
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.Red;
+                                        ((TextEdit)sender).ForeColor = Color.White;
+                                        ((TextEdit)sender).Tag = "1";
+                                    }
+                                    else
+                                    {
+                                        ((TextEdit)sender).BackColor = Color.White;
+                                        ((TextEdit)sender).ForeColor = Color.Black;
+                                        ((TextEdit)sender).Tag = "0";
+                                    }
+                                }
+                                else if (kytudau < 1 || kytudau > 29 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                {
+                                    //e.Cancel = true;
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
+                                }
+                                else
+                                {
+                                    ((TextEdit)sender).BackColor = Color.White;
+                                    ((TextEdit)sender).ForeColor = Color.Black;
+                                    ((TextEdit)sender).Tag = "0";
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            Decimal newValue;
+                            if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                            {
+                                string s = newValue + "";
+                                int kytudau = int.Parse(s.Substring(0, 2));
+                                int kytugiua = int.Parse(s.Substring(2, 2));
+                                int kytucuoi = int.Parse(s.Substring(4, 2));
+                                if (kytudau < 1 || kytudau > 99 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                {
+                                    //e.Cancel = true;
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
+                                }
+                                else
+                                {
+                                    ((TextEdit)sender).BackColor = Color.White;
+                                    ((TextEdit)sender).ForeColor = Color.Black;
+                                    ((TextEdit)sender).Tag = "0";
+                                }
+
+                            }
+                        }
+
                     }
-                   
+
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+
             }
             catch (Exception)
             {
@@ -1327,36 +1462,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
-                }
-                else
-                {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
                     {
-                        int s = int.Parse(newValue + "");
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            int s = int.Parse(newValue + "");
 
-                        if (s > 12)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
+                            if (s > 12)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
                         }
 
                     }
-
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+               
             }
             catch (Exception)
             {
@@ -1368,36 +1513,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
-                }
-                else
-                {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
                     {
-                        int s = int.Parse(newValue + "");
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            int s = int.Parse(newValue + "");
 
-                        if (s > 31)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
+                            if (s > 31)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
                         }
 
                     }
-
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+
             }
             catch (Exception)
             {
@@ -1408,36 +1563,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 4 || e.NewValue.ToString().Length < 1)
+                if (!string.IsNullOrEmpty(e.NewValue+""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 4 || e.NewValue.ToString().Length < 0)
+                    {
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            string s = newValue + "";
+                            int kytudau = int.Parse(s.Substring(0, 2));
+                            int kytucuoi = int.Parse(s.Substring(2, 2));
+                            if (kytudau < 25 || kytudau > 29 || kytucuoi < 0 || kytucuoi > 31)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
+                        }
+                    }
                 }
                 else
                 {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
-                    {
-                        string s = newValue + "";
-                        int kytudau = int.Parse(s.Substring(0, 2));
-                        int kytucuoi = int.Parse(s.Substring(2, 2));
-                        if (kytudau < 0 || kytudau > 29 || kytucuoi < 0 || kytucuoi > 12)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
-                        }
-
-                    }
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
                 }
+               
             }
             catch (Exception)
             {
@@ -1449,36 +1614,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
-                }
-                else
-                {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
                     {
-                        int s = int.Parse(newValue + "");
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            int s = int.Parse(newValue + "");
 
-                        if (s > 31)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
+                            if (s > 31)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
                         }
 
                     }
-
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+
             }
             catch (Exception)
             {
@@ -1490,36 +1665,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
-                }
-                else
-                {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
                     {
-                        int s = int.Parse(newValue + "");
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            int s = int.Parse(newValue + "");
 
-                        if (s > 12)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
+                            if (s > 12)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
                         }
 
                     }
-
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+
             }
             catch (Exception)
             {
@@ -1531,36 +1716,46 @@ namespace Natsu.MyUserControl
         {
             try
             {
-                if (e.NewValue.ToString() != "" && e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
+                if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    ((TextEdit)sender).BackColor = Color.Red;
-                    ((TextEdit)sender).ForeColor = Color.White;
-                    ((TextEdit)sender).Tag = "1";
-                }
-                else
-                {
-                    Decimal newValue;
-                    if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 2 || e.NewValue.ToString().Length < 0)
                     {
-                        int s = int.Parse(newValue + "");
+                        ((TextEdit)sender).BackColor = Color.Red;
+                        ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
+                    }
+                    else
+                    {
+                        Decimal newValue;
+                        if (Decimal.TryParse(e.NewValue.ToString(), out newValue))
+                        {
+                            int s = int.Parse(newValue + "");
 
-                        if (s > 31)
-                        {
-                            //e.Cancel = true;
-                            ((TextEdit)sender).BackColor = Color.Red;
-                            ((TextEdit)sender).ForeColor = Color.White;
-                            ((TextEdit)sender).Tag = "1";
-                        }
-                        else
-                        {
-                            ((TextEdit)sender).BackColor = Color.White;
-                            ((TextEdit)sender).ForeColor = Color.Black;
-                            ((TextEdit)sender).Tag = "0";
+                            if (s > 31)
+                            {
+                                //e.Cancel = true;
+                                ((TextEdit)sender).BackColor = Color.Red;
+                                ((TextEdit)sender).ForeColor = Color.White;
+                                ((TextEdit)sender).Tag = "1";
+                            }
+                            else
+                            {
+                                ((TextEdit)sender).BackColor = Color.White;
+                                ((TextEdit)sender).ForeColor = Color.Black;
+                                ((TextEdit)sender).Tag = "0";
+                            }
+
                         }
 
                     }
-
                 }
+                else
+                {
+                    ((TextEdit)sender).BackColor = Color.White;
+                    ((TextEdit)sender).ForeColor = Color.Black;
+                    ((TextEdit)sender).Tag = "0";
+                }
+
             }
             catch (Exception)
             {

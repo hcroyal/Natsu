@@ -17,5 +17,7 @@
         public static string Webservice = "http://10.10.10.248:8888/Natsu_Sokatu/";
         public static string StrIdProject = "Sokatu";
         public static int FreeTime = 0;
+        public static bool NotGoodUser;
+        public static bool BatchChiaUser;
     }
 }

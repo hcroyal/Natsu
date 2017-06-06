@@ -281,7 +281,7 @@
             // 
             this.lb_SoHinhLamDuoc.Appearance.ForeColor = System.Drawing.Color.DarkGreen;
             this.lb_SoHinhLamDuoc.Appearance.Options.UseForeColor = true;
-            this.lb_SoHinhLamDuoc.Location = new System.Drawing.Point(525, 6);
+            this.lb_SoHinhLamDuoc.Location = new System.Drawing.Point(678, 6);
             this.lb_SoHinhLamDuoc.Name = "lb_SoHinhLamDuoc";
             this.lb_SoHinhLamDuoc.Size = new System.Drawing.Size(6, 13);
             this.lb_SoHinhLamDuoc.TabIndex = 1;
@@ -291,7 +291,7 @@
             // 
             this.lb_SoHinhConLai.Appearance.ForeColor = System.Drawing.Color.Crimson;
             this.lb_SoHinhConLai.Appearance.Options.UseForeColor = true;
-            this.lb_SoHinhConLai.Location = new System.Drawing.Point(417, 6);
+            this.lb_SoHinhConLai.Location = new System.Drawing.Point(570, 6);
             this.lb_SoHinhConLai.Name = "lb_SoHinhConLai";
             this.lb_SoHinhConLai.Size = new System.Drawing.Size(6, 13);
             this.lb_SoHinhConLai.TabIndex = 2;
@@ -299,7 +299,7 @@
             // 
             // lb_4
             // 
-            this.lb_4.Location = new System.Drawing.Point(456, 6);
+            this.lb_4.Location = new System.Drawing.Point(609, 6);
             this.lb_4.Name = "lb_4";
             this.lb_4.Size = new System.Drawing.Size(67, 13);
             this.lb_4.TabIndex = 3;
@@ -309,7 +309,7 @@
             // 
             this.lb_TongSoHinh.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.lb_TongSoHinh.Appearance.Options.UseForeColor = true;
-            this.lb_TongSoHinh.Location = new System.Drawing.Point(266, 6);
+            this.lb_TongSoHinh.Location = new System.Drawing.Point(419, 6);
             this.lb_TongSoHinh.Name = "lb_TongSoHinh";
             this.lb_TongSoHinh.Size = new System.Drawing.Size(6, 13);
             this.lb_TongSoHinh.TabIndex = 4;
@@ -317,7 +317,7 @@
             // 
             // lb_3
             // 
-            this.lb_3.Location = new System.Drawing.Point(305, 6);
+            this.lb_3.Location = new System.Drawing.Point(458, 6);
             this.lb_3.Name = "lb_3";
             this.lb_3.Size = new System.Drawing.Size(109, 13);
             this.lb_3.TabIndex = 5;
@@ -326,7 +326,7 @@
             // lb_UserName
             // 
             this.lb_UserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_UserName.Location = new System.Drawing.Point(915, 6);
+            this.lb_UserName.Location = new System.Drawing.Point(1009, 6);
             this.lb_UserName.Name = "lb_UserName";
             this.lb_UserName.Size = new System.Drawing.Size(49, 13);
             this.lb_UserName.TabIndex = 6;
@@ -334,7 +334,7 @@
             // 
             // lb_IdImage
             // 
-            this.lb_IdImage.Location = new System.Drawing.Point(630, 6);
+            this.lb_IdImage.Location = new System.Drawing.Point(783, 6);
             this.lb_IdImage.Name = "lb_IdImage";
             this.lb_IdImage.Size = new System.Drawing.Size(6, 13);
             this.lb_IdImage.TabIndex = 7;
@@ -344,7 +344,7 @@
             // lb_6
             // 
             this.lb_6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_6.Location = new System.Drawing.Point(856, 6);
+            this.lb_6.Location = new System.Drawing.Point(950, 6);
             this.lb_6.Name = "lb_6";
             this.lb_6.Size = new System.Drawing.Size(53, 13);
             this.lb_6.TabIndex = 8;
@@ -360,7 +360,7 @@
             // 
             // lb_5
             // 
-            this.lb_5.Location = new System.Drawing.Point(580, 6);
+            this.lb_5.Location = new System.Drawing.Point(733, 6);
             this.lb_5.Name = "lb_5";
             this.lb_5.Size = new System.Drawing.Size(44, 13);
             this.lb_5.TabIndex = 10;
@@ -368,7 +368,7 @@
             // 
             // lb_2
             // 
-            this.lb_2.Location = new System.Drawing.Point(199, 6);
+            this.lb_2.Location = new System.Drawing.Point(352, 6);
             this.lb_2.Name = "lb_2";
             this.lb_2.Size = new System.Drawing.Size(66, 13);
             this.lb_2.TabIndex = 11;

@@ -205,45 +205,66 @@ namespace Natsu.MyForm
 
             FileInfo myfile = new FileInfo("G:/Notes.txt");
             StreamWriter tex = myfile.CreateText();
+            string pathexcel = @"X:\" + new DirectoryInfo(txt_PathFolder.Text).Name;
+            string s = new DirectoryInfo(txt_PathFolder.Text).Name;
+            createFolder(s);
             foreach (string item1 in lStrBath1)
             {
+                string pathexcel1 = pathexcel + @"\" + new DirectoryInfo(item1).Name;
+                string litem1 = s + @"\" + new DirectoryInfo(item1).Name;
+                createFolder(litem1);
+
                 lStrBath2.Clear();
                 lStrBath2.AddRange(Directory.GetDirectories(item1));
-                if (lStrBath2.Count>0)
+                if (lStrBath2.Count > 0)
                 {
                     foreach (string item2 in lStrBath2)
                     {
+
+                        string litem2 = litem1 + @"\" + new DirectoryInfo(item2).Name;
+                        createFolder(litem2);
+
                         lStrBath3.Clear();
                         lStrBath3.AddRange(Directory.GetDirectories(item2));
                         if (lStrBath3.Count > 0)
                         {
                             foreach (string item3 in lStrBath3)
                             {
+                                string pathexcel2 = pathexcel1 + @"\" + new DirectoryInfo(item3).Name;
+                                string litem3 = litem2 + @"\" + new DirectoryInfo(item3).Name;
+                                createFolder(litem3);
+
                                 lStrBath4.Clear();
                                 lStrBath4.AddRange(Directory.GetDirectories(item3));
                                 if (lStrBath4.Count > 0)
                                 {
                                     foreach (string item4 in lStrBath4)
                                     {
-                                        createBatch(item4);
+                                        string temp = new DirectoryInfo(item4).Name;
+                                        if (temp.Substring(0, 7) == "2229000")
+                                        {
+                                            string pathexcel3 = pathexcel2 + @"\" + new DirectoryInfo(item4).Name + @"\";
+                                            string litem4 = litem3 + @"\" + new DirectoryInfo(item4).Name;
+                                            createFolder(litem4);
+
+                                            createBatch(item4, Global.StrPath + @"\" + litem4, litem4, pathexcel3);
+                                            progressBarControl1.PerformStep();
+                                            progressBarControl1.Update();
+                                        }
+
                                     }
-                                }
-                                else
-                                {
-                                    createBatch(item3);
+                                    progressBarControl1.PerformStep();
+                                    progressBarControl1.Update();
                                 }
                             }
-                        }
-                        else
-                        {
-                            createBatch(item2);
+                            progressBarControl1.PerformStep();
+                            progressBarControl1.Update();
                         }
                     }
+                    progressBarControl1.PerformStep();
+                    progressBarControl1.Update();
                 }
-                else
-                {
-                    createBatch(item1);
-                }
+
                 progressBarControl1.PerformStep();
                 progressBarControl1.Update();
 
@@ -301,38 +322,32 @@ namespace Natsu.MyForm
             lb_SoLuongHinh.Text = "";
         }
 
-        public void createBatch(string location)
+        public void createBatch(string location, string server, string batch, string excellocation)
         {
             string batchName = new DirectoryInfo(location).Name;
             var fBatch = new tbl_Batch
             {
 
-                fBatchName = batchName,
+                fBatchName = batch,
                 fusercreate = txt_UserCreate.Text,
                 fdatecreated = DateTime.Now,
                 fPathPicture = location,
-                fLocation = txt_Location.Text + "\\" + batchName + "\\",
+                fLocation = excellocation,
                 fSoLuongAnh = Directory.GetFiles(location).Length.ToString(),
                 LoaiBatch = "Getsu"
             };
             Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
             Global.Db.SubmitChanges();
-
-            string searchFolder = txt_PathFolder.Text + "\\" + new DirectoryInfo(location).Name;
-            var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
-            string[] tmp = GetFilesFrom(searchFolder, filters, false);
-            string temp = Global.StrPath + "\\" + batchName;
-            Directory.CreateDirectory(temp);
             string imageJPG = "";
 
             var filters1 = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
             string[] tmp1 = GetFilesFrom(location, filters1, false);
             foreach (string s in tmp1)
             {
-                FileInfo fi = new FileInfo(location);
+                FileInfo fi = new FileInfo(s);
                 tbl_Image tempImage = new tbl_Image
                 {
-                    fbatchname = batchName,
+                    fbatchname = batch,
                     idimage = Path.GetFileName(fi.ToString()),
                     ReadImageDESo = 0,
                     CheckedDESo = 0,
@@ -342,10 +357,18 @@ namespace Natsu.MyForm
                 };
                 Global.Db.tbl_Images.InsertOnSubmit(tempImage);
                 Global.Db.SubmitChanges();
-                string des = location + @"\" + Path.GetFileName(fi.ToString());
+                string des = server + @"\" + Path.GetFileName(fi.ToString());
                 fi.CopyTo(des);
-                progressBarControl1.PerformStep();
-                progressBarControl1.Update();
+               
+            }
+        }
+
+        public void createFolder(string nameFolder)
+        {
+            string temp = Global.StrPath + "\\" + nameFolder;
+            if (!Directory.Exists(temp))
+            {
+                Directory.CreateDirectory(temp);
             }
         }
         public static string[] GetFilesFrom(string searchFolder, string[] filters, bool isRecursive)
@@ -414,7 +437,7 @@ namespace Natsu.MyForm
         {
             if (_multi)
             {
-                UpLoadMulti();
+                UpLoadMulti_5Folder();
             }
             else
             {

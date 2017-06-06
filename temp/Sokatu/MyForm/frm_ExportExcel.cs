@@ -181,7 +181,7 @@ namespace Natsu.MyForm
                 string savePath = "";
                 saveFileDialog1.Title = "Save Excel Files";
                 saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
-                saveFileDialog1.FileName = cbb_Batch.Text + "_Sokatu";
+                saveFileDialog1.FileName = cbb_Batch.Text.Replace(@"\","_") + "_Sokatu";
                 saveFileDialog1.RestoreDirectory = true;
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {

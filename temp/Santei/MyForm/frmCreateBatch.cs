@@ -189,7 +189,187 @@ namespace Natsu.MyForm
             txt_ImagePath.Text = "";
             lb_SoLuongHinh.Text = "";
         }
+        private void UpLoadMulti_5Folder()
+        {
+            List<string> lStrBath1 = new List<string>();
+            List<string> lStrBath2 = new List<string>();
+            List<string> lStrBath3 = new List<string>();
+            List<string> lStrBath4 = new List<string>();
+            lStrBath1.AddRange(Directory.GetDirectories(txt_PathFolder.Text));
+            progressBarControl1.EditValue = 0;
+            progressBarControl1.Properties.Step = 1;
+            progressBarControl1.Properties.PercentView = true;
+            progressBarControl1.Properties.Maximum = lStrBath1.Count;
+            progressBarControl1.Properties.Minimum = 0;
 
+            FileInfo myfile = new FileInfo("G:/Notes.txt");
+            StreamWriter tex = myfile.CreateText();
+            string pathexcel = @"X:\" + new DirectoryInfo(txt_PathFolder.Text).Name;
+            string s = new DirectoryInfo(txt_PathFolder.Text).Name;
+            createFolder(s);
+            foreach (string item1 in lStrBath1)
+            {
+                string pathexcel1 = pathexcel + @"\" + new DirectoryInfo(item1).Name;
+                string litem1 = s + @"\" + new DirectoryInfo(item1).Name;
+                createFolder(litem1);
+
+                lStrBath2.Clear();
+                lStrBath2.AddRange(Directory.GetDirectories(item1));
+                if (lStrBath2.Count > 0)
+                {
+                    foreach (string item2 in lStrBath2)
+                    {
+
+                        string litem2 = litem1 + @"\" + new DirectoryInfo(item2).Name;
+                        createFolder(litem2);
+
+                        lStrBath3.Clear();
+                        lStrBath3.AddRange(Directory.GetDirectories(item2));
+                        if (lStrBath3.Count > 0)
+                        {
+                            foreach (string item3 in lStrBath3)
+                            {
+                                string pathexcel2 = pathexcel1 + @"\" + new DirectoryInfo(item3).Name;
+                                string litem3 = litem2 + @"\" + new DirectoryInfo(item3).Name;
+                                createFolder(litem3);
+
+                                lStrBath4.Clear();
+                                lStrBath4.AddRange(Directory.GetDirectories(item3));
+                                if (lStrBath4.Count > 0)
+                                {
+                                    foreach (string item4 in lStrBath4)
+                                    {
+                                        string temp = new DirectoryInfo(item4).Name;
+                                        if (temp.Substring(0, 7) == "2225000")
+                                        {
+                                            string pathexcel3 = pathexcel2 + @"\" + new DirectoryInfo(item4).Name + @"\";
+                                            string litem4 = litem3 + @"\" + new DirectoryInfo(item4).Name;
+                                            createFolder(litem4);
+
+                                            createBatch(item4, Global.StrPath + @"\" + litem4, litem4, pathexcel3);
+                                            progressBarControl1.PerformStep();
+                                            progressBarControl1.Update();
+                                        }
+
+                                    }
+                                    progressBarControl1.PerformStep();
+                                    progressBarControl1.Update();
+                                }
+                            }
+                            progressBarControl1.PerformStep();
+                            progressBarControl1.Update();
+                        }
+                    }
+                    progressBarControl1.PerformStep();
+                    progressBarControl1.Update();
+                }
+
+                progressBarControl1.PerformStep();
+                progressBarControl1.Update();
+
+
+
+
+                //string batchName = new DirectoryInfo(item1).Name;
+                //var fBatch = new tbl_Batch
+                //{
+
+                //    fBatchName = batchName,
+                //    fusercreate = txt_UserCreate.Text,
+                //    fdatecreated = DateTime.Now,
+                //    fPathPicture = item1,
+                //    fLocation = txt_Location.Text + "\\" + batchName + "\\",
+                //    fSoLuongAnh = Directory.GetFiles(item1).Length.ToString(),
+                //    LoaiBatch = "Getsu"
+                //};
+                //Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
+                //Global.Db.SubmitChanges();
+
+                //string searchFolder = txt_PathFolder.Text + "\\" + new DirectoryInfo(item1).Name;
+                //var filters = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
+                //string[] tmp = GetFilesFrom(searchFolder, filters, false);
+                //string temp = Global.StrPath + "\\" + batchName;
+                //Directory.CreateDirectory(temp);
+                //string imageJPG = "";
+                //foreach (string i in tmp)
+                //{
+                //    FileInfo fi = new FileInfo(i);
+                //    tbl_Image tempImage = new tbl_Image
+                //    {
+                //        fbatchname = batchName,
+                //        idimage = Path.GetFileName(fi.ToString()),
+                //        ReadImageDESo = 0,
+                //        CheckedDESo = 0,
+                //        TienDoDESO = "Hình chưa nhập",
+                //        ReadImageDESO_Good = 1,
+                //        ReadImageDESO_NotGood = 1
+                //    };
+                //    Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                //    Global.Db.SubmitChanges();
+                //    string des = temp + @"\" + Path.GetFileName(fi.ToString());
+                //    fi.CopyTo(des);
+                //    progressBarControl1.PerformStep();
+                //    progressBarControl1.Update();
+                //}
+                //progressBarControl1.PerformStep();
+                //progressBarControl1.Update();
+            }
+            MessageBox.Show(@"Create a new batch successfully!");
+            progressBarControl1.EditValue = 0;
+            txt_BatchName.Text = "";
+            txt_ImagePath.Text = "";
+            lb_SoLuongHinh.Text = "";
+        }
+
+        public void createBatch(string location, string server, string batch, string excellocation)
+        {
+            string batchName = new DirectoryInfo(location).Name;
+            var fBatch = new tbl_Batch
+            {
+
+                fBatchName = batch,
+                fusercreate = txt_UserCreate.Text,
+                fdatecreated = DateTime.Now,
+                fPathPicture = location,
+                fLocation = excellocation,
+                fSoLuongAnh = Directory.GetFiles(location).Length.ToString(),
+                LoaiBatch = "Getsu"
+            };
+            Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
+            Global.Db.SubmitChanges();
+            string imageJPG = "";
+
+            var filters1 = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
+            string[] tmp1 = GetFilesFrom(location, filters1, false);
+            foreach (string s in tmp1)
+            {
+                FileInfo fi = new FileInfo(s);
+                tbl_Image tempImage = new tbl_Image
+                {
+                    fbatchname = batch,
+                    idimage = Path.GetFileName(fi.ToString()),
+                    ReadImageDESo = 0,
+                    CheckedDESo = 0,
+                    TienDoDESO = "Hình chưa nhập",
+                    ReadImageDESO_Good = 1,
+                    ReadImageDESO_NotGood = 1
+                };
+                Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                Global.Db.SubmitChanges();
+                string des = server + @"\" + Path.GetFileName(fi.ToString());
+                fi.CopyTo(des);
+               
+            }
+        }
+
+        public void createFolder(string nameFolder)
+        {
+            string temp = Global.StrPath + "\\" + nameFolder;
+            if (!Directory.Exists(temp))
+            {
+                Directory.CreateDirectory(temp);
+            }
+        }
         public static string[] GetFilesFrom(string searchFolder, string[] filters, bool isRecursive)
         {
             List<string> filesFound = new List<string>();
@@ -224,7 +404,7 @@ namespace Natsu.MyForm
         {
             if (_multi)
             {
-                UpLoadMulti();
+                UpLoadMulti_5Folder();
             }
             else
             {

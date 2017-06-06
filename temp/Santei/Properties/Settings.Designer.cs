@@ -125,5 +125,16 @@ namespace Natsu.Properties {
                 this["Server"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.10.248;Initial Catalog=Santei;Persist Security Info=True;User I" +
+            "D=sa;Password=BPO@DN#2013")]
+        public string SanteiConnectionString2 {
+            get {
+                return ((string)(this["SanteiConnectionString2"]));
+            }
+        }
     }
 }

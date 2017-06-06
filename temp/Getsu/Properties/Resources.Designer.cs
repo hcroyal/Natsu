@@ -63,6 +63,16 @@ namespace Natsu.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ErrorGetsu {
+            get {
+                object obj = ResourceManager.GetObject("ErrorGetsu", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ExportExcel {
             get {
                 object obj = ResourceManager.GetObject("ExportExcel", resourceCulture);

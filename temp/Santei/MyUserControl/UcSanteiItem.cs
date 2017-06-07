@@ -450,8 +450,6 @@ namespace Natsu.MyUserControl
                 {
                     if (!string.IsNullOrEmpty(txt2.Text))
                         x2 = double.Parse(txt2.Text.Replace(",", ""));
-                    txt3.Text = x1 + x2 + "";
-                    curency(txt3);
                 }
                 catch (Exception)
                 {
@@ -522,7 +520,6 @@ namespace Natsu.MyUserControl
             {
                 if (!string.IsNullOrEmpty(txt_TruongSo24.Text))
                     truong24 = double.Parse(txt_TruongSo24.Text.Replace(",", ""));
-                _totalTruong11 = truong08 + truong09 + truong16 + truong17 + truong23 + truong24;
             }
             catch (Exception)
             {

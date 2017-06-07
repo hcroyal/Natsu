@@ -18,6 +18,7 @@ namespace Natsu.MyUserControl
         }
 
         private double _totalTruong11 = 0;
+        private double _totalTruong11_2 = 0;
         private int _totalTruong19 = 0;
 
         public void ResetData()
@@ -369,19 +370,35 @@ namespace Natsu.MyUserControl
         {
             if (Global.FlagTong)
             {
+                double x1 = 0, x2 = 0;
                 try
                 {
-                    double x1 = 0, x2 = 0;
                     if (!string.IsNullOrEmpty(txt1.Text))
                         x1 = double.Parse(txt1.Text.Replace(",", ""));
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+                try
+                {
                     if (!string.IsNullOrEmpty(txt2.Text))
                         x2 = double.Parse(txt2.Text.Replace(",", ""));
                     txt3.Text = x1 + x2 + "";
                     curency(txt3);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    ;
+                    // ignored
+                }
+                try
+                {
+                    txt3.Text = x1 + x2 + "";
+                    curency(txt3);
+                }
+                catch (Exception)
+                {
+                    // ignored
                 }
             }
 
@@ -389,30 +406,110 @@ namespace Natsu.MyUserControl
 
         private void Total_Truong11()
         {
+            double truong08 = 0, truong09 = 0, truong16 = 0, truong17 = 0, truong23 = 0, truong24 = 0;
             try
             {
-                double truong08 = 0, truong09 = 0, truong16 = 0, truong17 = 0, truong23 = 0, truong24 = 0;
                 if (!string.IsNullOrEmpty(txt_TruongSo08.Text))
                     truong08 = double.Parse(txt_TruongSo08.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
                 if (!string.IsNullOrEmpty(txt_TruongSo09.Text))
                     truong09 = double.Parse(txt_TruongSo09.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
                 if (!string.IsNullOrEmpty(txt_TruongSo16.Text))
                     truong16 = double.Parse(txt_TruongSo16.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
                 if (!string.IsNullOrEmpty(txt_TruongSo17.Text))
                     truong17 = double.Parse(txt_TruongSo17.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            } try
+            {
                 if (!string.IsNullOrEmpty(txt_TruongSo23.Text))
                     truong23 = double.Parse(txt_TruongSo23.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
                 if (!string.IsNullOrEmpty(txt_TruongSo24.Text))
                     truong24 = double.Parse(txt_TruongSo24.Text.Replace(",", ""));
                 _totalTruong11 = truong08 + truong09 + truong16 + truong17 + truong23 + truong24;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-
+                // ignored
+            }
+            try
+            {
+                _totalTruong11 = truong08 + truong09 + truong16 + truong17 + truong23 + truong24;
+            }
+            catch (Exception)
+            {
+                // ignored
             }
 
         }
-
+        private void Total_Truong11_2()
+        {
+            double truong10 = 0, truong18 = 0, truong25 = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo10.Text))
+                    truong10 = double.Parse(txt_TruongSo10.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo18.Text))
+                    truong18 = double.Parse(txt_TruongSo18.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo25.Text))
+                    truong25 = double.Parse(txt_TruongSo25.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+            try
+            {
+                _totalTruong11_2 = truong10 + truong18 + truong25;
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
         private void Total_Truong19()
         {
             try
@@ -420,11 +517,11 @@ namespace Natsu.MyUserControl
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
                     _totalTruong19 = int.Parse(txt_TruongSo11.Text.Replace(",", "")) / 3;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-              
+                // ignored
             }
-           
+
         }
 
         private void txt_TruongSo01_EditValueChanged(object sender, EventArgs e)
@@ -537,24 +634,51 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Changed?.Invoke(sender, e);
-        }
 
-        private void txt_TruongSo11_EditValueChanged(object sender, EventArgs e)
-        {
-            DoiMauTextBox((TextEdit)sender, 0, 10);
+            Total_Truong11_2();
 
-            double truong11 = 0;
+            double truong11_2 = 0;
             try
             {
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
             }
             catch (Exception exception)
             {
 
             }
 
-            if (truong11 != _totalTruong11)
+            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            {
+                txt_TruongSo11.BackColor = Color.Red;
+                txt_TruongSo11.ForeColor = Color.White;
+                txt_TruongSo11.Tag = "1";
+            }
+            else
+            {
+                txt_TruongSo11.BackColor = Color.White;
+                txt_TruongSo11.ForeColor = Color.Black;
+                txt_TruongSo11.Tag = "0";
+            }
+        }
+
+        private void txt_TruongSo11_EditValueChanged(object sender, EventArgs e)
+        {
+            DoiMauTextBox((TextEdit)sender, 0, 10);
+
+            Total_Truong11_2();
+            double truong11 = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
+                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -662,9 +786,9 @@ namespace Natsu.MyUserControl
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
                     truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-
+                // ignored
             }
 
             if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
@@ -687,6 +811,31 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
 
+            Total_Truong11_2();
+
+            double truong11_2 = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
+                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            {
+                txt_TruongSo11.BackColor = Color.Red;
+                txt_TruongSo11.ForeColor = Color.White;
+                txt_TruongSo11.Tag = "1";
+            }
+            else
+            {
+                txt_TruongSo11.BackColor = Color.White;
+                txt_TruongSo11.ForeColor = Color.Black;
+                txt_TruongSo11.Tag = "0";
+            }
             Changed?.Invoke(sender, e);
         }
 
@@ -804,6 +953,31 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo25_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
+            Total_Truong11_2();
+
+            double truong11_2 = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
+                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            {
+                txt_TruongSo11.BackColor = Color.Red;
+                txt_TruongSo11.ForeColor = Color.White;
+                txt_TruongSo11.Tag = "1";
+            }
+            else
+            {
+                txt_TruongSo11.BackColor = Color.White;
+                txt_TruongSo11.ForeColor = Color.Black;
+                txt_TruongSo11.Tag = "0";
+            }
             Changed?.Invoke(sender, e);
         }
 

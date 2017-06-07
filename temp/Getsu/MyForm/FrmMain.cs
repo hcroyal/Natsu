@@ -172,7 +172,8 @@ namespace Natsu.MyForm
                 }
                 else
                 {
-                    Global.FlagTong = false;btn_Start_Submit.Enabled = false;
+                    Global.FlagTong = false;
+                    btn_Start_Submit.Enabled = false;
                     btn_Submit_Logout.Enabled = false;
                     bar_Manager.Enabled = true;
                 }
@@ -394,6 +395,7 @@ namespace Natsu.MyForm
         private void btn_Check_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             new FrmCheckDeSo().ShowDialog();
+
         }
 
         private void btn_Progress_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

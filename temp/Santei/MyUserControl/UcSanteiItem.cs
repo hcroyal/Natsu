@@ -958,7 +958,7 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo23_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
-            Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
+           Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
             Total_Truong11();
 
             double truong11 = 0;

@@ -39,10 +39,10 @@ namespace Natsu.MyForm
             var idimage =(from w in (Global.Db.GetImageFail_Getsu(NameUserChecker, cbb_batch.Text)) select w.IdImage).ToList();
             lb_soloi.Text = idimage.Count.ToString();
 
-            if ((n + 20) < idimage.Count && n >= 0)
+            if ((n + 8) < idimage.Count && n >= 0)
             {
                 btn_next.Enabled = true;
-                for (int j = n; j <= n + 19; j++)
+                for (int j = n; j <= n + 7; j++)
                 {
                     string id = idimage[j];
                     uc_Santei_Feedback ucF = new uc_Santei_Feedback();
@@ -62,7 +62,7 @@ namespace Natsu.MyForm
                     pnl_Mainfeedback1.Controls.Add(ucF);
                 }
             }
-            else if ((n + 20) >= idimage.Count && n >= 0)
+            else if ((n + 8) >= idimage.Count && n >= 0)
             {
                 btn_next.Enabled = false;
                 for (int j = n; j <= idimage.Count - 1; j++)
@@ -92,10 +92,10 @@ namespace Natsu.MyForm
 
             var idimage =(from w in (Global.Db.GetImageFailUserDeSo_Getsu(cbb_username.Text, cbb_batch.Text)) select w.IdImage).ToList();
             lb_soloi.Text = idimage.Count.ToString();
-            if ((n + 20) < idimage.Count && n >= 0)
+            if ((n + 8) < idimage.Count && n >= 0)
             {
                 btn_next.Enabled = true;
-                for (int j = n; j <= n + 19; j++)
+                for (int j = n; j <= n + 7; j++)
                 {
                     string id = idimage[j];
                     uc_Santei_Feedback ucF = new uc_Santei_Feedback();
@@ -117,7 +117,7 @@ namespace Natsu.MyForm
                     pnl_Mainfeedback1.Controls.Add(ucF);
                 }
             }
-            else if ((n + 20) >= idimage.Count && n >= 0)
+            else if ((n + 8) >= idimage.Count && n >= 0)
             {
                 btn_next.Enabled = false;
                 for (int j = n; j <= idimage.Count - 1; j++)
@@ -194,8 +194,8 @@ namespace Natsu.MyForm
         {
             try
             {
-                Num += 20;
-                if (Num < 20)
+                Num += 8;
+                if (Num < 8)
                 {
                     btn_back.Enabled = false;
                 }
@@ -222,8 +222,8 @@ namespace Natsu.MyForm
         {
             try
             {
-                Num -= 20;
-                if (Num < 20)
+                Num -= 8;
+                if (Num < 8)
                 {
                     btn_back.Enabled = false;
                 }

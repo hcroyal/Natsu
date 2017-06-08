@@ -639,6 +639,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo08, txt_TruongSo09, txt_TruongSo10);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -651,7 +652,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -672,6 +673,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo08, txt_TruongSo09, txt_TruongSo10);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -684,7 +686,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -704,19 +706,20 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
 
+            Total_Truong11();
             Total_Truong11_2();
-            double truong11_2 = 0;
+            double truong11 = 0;
             try
             {
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
             }
             catch (Exception)
             {
                 // ignored
             }
 
-            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -734,7 +737,7 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo11_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
-
+            Total_Truong11();
             Total_Truong11_2();
             double truong11 = 0;
             try
@@ -816,6 +819,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo16, txt_TruongSo17, txt_TruongSo18);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -828,7 +832,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -849,6 +853,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo16, txt_TruongSo17, txt_TruongSo18);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -861,7 +866,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -880,20 +885,21 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo18_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
+            Total_Truong11();
             Total_Truong11_2();
 
-            double truong11_2 = 0;
+            double truong11 = 0;
             try
             {
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
             }
             catch (Exception exception)
             {
 
             }
 
-            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -926,13 +932,13 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo19.BackColor = Color.Red;
                 txt_TruongSo19.ForeColor = Color.White;
-                txt_TruongSo11.Tag = "1";
+                txt_TruongSo19.Tag = "1";
             }
             else
             {
                 txt_TruongSo19.BackColor = Color.White;
                 txt_TruongSo19.ForeColor = Color.Black;
-                txt_TruongSo11.Tag = "0";
+                txt_TruongSo19.Tag = "0";
             }
             Changed?.Invoke(sender, e);
         }
@@ -958,8 +964,9 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo23_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
-           Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
+            Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -972,7 +979,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -993,6 +1000,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
             Total_Truong11();
+            Total_Truong11_2();
 
             double truong11 = 0;
             try
@@ -1005,7 +1013,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -1025,20 +1033,21 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
 
+            Total_Truong11();
             Total_Truong11_2();
 
-            double truong11_2 = 0;
+            double truong11 = 0;
             try
             {
                 if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11_2 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
+                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
             }
             catch (Exception exception)
             {
 
             }
 
-            if (truong11_2 != _totalTruong11_2 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -1066,14 +1075,7 @@ namespace Natsu.MyUserControl
             {
                 SendKeys.Send("{Tab}");
             }
-            else if (e.KeyCode == Keys.Right)
-            {
-                SendKeys.Send("{Tab}");
-            }
-            else if (e.KeyCode == Keys.Left)
-            {
-                SendKeys.Send("+{Tab}");
-            }
+           
         }
 
         private void txt_TruongSo01_KeyUp(object sender, KeyEventArgs e)
@@ -1082,6 +1084,15 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo07.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+              
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo02.Focus();
+            }
+           
         }
 
         private void txt_TruongSo02_KeyUp(object sender, KeyEventArgs e)
@@ -1090,6 +1101,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo07.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo01.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo03.Focus();
+            }
         }
 
         private void txt_TruongSo03_KeyUp(object sender, KeyEventArgs e)
@@ -1097,6 +1116,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Down)
             {
                 txt_TruongSo08.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo02.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo07.Focus();
             }
         }
         private void txt_TruongSo07_KeyUp(object sender, KeyEventArgs e)
@@ -1109,6 +1136,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo01.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo03.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo08.Focus();
+            }
         }
         private void txt_TruongSo08_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1119,6 +1154,14 @@ namespace Natsu.MyUserControl
             else if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo03.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo07.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo09.Focus();
             }
             try
             {
@@ -1136,6 +1179,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo17.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo08.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo10.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1151,6 +1202,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Down)
             {
                 txt_TruongSo18.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo09.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo11.Focus();
             }
             try
             {
@@ -1168,6 +1227,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo19.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo10.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo12.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1184,14 +1251,15 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo20.Focus();
             }
-            try
+            else if (e.KeyCode == Keys.Left)
             {
-                curency((TextEdit)sender);
+                txt_TruongSo11.Focus();
             }
-            catch
+            else if (e.KeyCode == Keys.Right)
             {
-                // ignored
+                txt_TruongSo15.Focus();
             }
+
         }
 
         private void txt_TruongSo15_KeyUp(object sender, KeyEventArgs e)
@@ -1204,7 +1272,15 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo07.Focus();
             }
-          
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo12.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo16.Focus();
+            }
+
         }
 
         private void txt_TruongSo16_KeyUp(object sender, KeyEventArgs e)
@@ -1216,6 +1292,14 @@ namespace Natsu.MyUserControl
             else if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo08.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo15.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo17.Focus();
             }
             try
             {
@@ -1237,6 +1321,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo09.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo16.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo18.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1256,6 +1348,14 @@ namespace Natsu.MyUserControl
             else if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo10.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo17.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo19.Focus();
             }
             try
             {
@@ -1277,6 +1377,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo11.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo18.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo20.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1297,6 +1405,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo14.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo19.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo22.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1312,6 +1428,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo15.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo20.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo23.Focus();
             }
             try
             {
@@ -1329,6 +1453,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo16.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo22.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo24.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1344,6 +1476,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo17.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo23.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo25.Focus();
             }
             try
             {
@@ -1361,6 +1501,14 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo18.Focus();
             }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo24.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo13.Focus();
+            }
             try
             {
                 curency((TextEdit)sender);
@@ -1376,6 +1524,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo19.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo25.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo14.Focus();
             }
             try
             {
@@ -1393,7 +1549,15 @@ namespace Natsu.MyUserControl
             {
                 txt_TruongSo20.Focus();
             }
-           
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo13.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo21.Focus();
+            }
+
         }
 
         private void txt_TruongSo21_KeyUp(object sender, KeyEventArgs e)
@@ -1401,6 +1565,14 @@ namespace Natsu.MyUserControl
             if (e.KeyCode == Keys.Up)
             {
                 txt_TruongSo20.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo14.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                SendKeys.Send("{TAB}");
             }
         }
 
@@ -1414,6 +1586,7 @@ namespace Natsu.MyUserControl
                     {
                         ((TextEdit)sender).BackColor = Color.Red;
                         ((TextEdit)sender).ForeColor = Color.White;
+                        ((TextEdit)sender).Tag = "1";
                     }
                     else
                     {

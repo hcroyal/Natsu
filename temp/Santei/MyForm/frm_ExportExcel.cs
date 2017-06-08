@@ -78,6 +78,7 @@ namespace Natsu.MyForm
             dataGridView1.DataSource = Global.Db.ExportExcel_Getsu(cbb_Batch.Text);
             TableToExcel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx",dataGridView1);
 
+
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
             {
                 File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx");
@@ -89,9 +90,13 @@ namespace Natsu.MyForm
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Global.Db.ExportExcel_Getsu_Error(cbb_Batch.Text);
-            if (dataGridView1.RowCount>0)
+            if (dataGridView1.RowCount > 0)
             {
-                TableToExcelError(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx",dataGridView1);
+                TableToExcelError(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx", dataGridView1);
+            }
+            else
+            {
+                MessageBox.Show("No Error");
             }
         }
 
@@ -139,6 +144,12 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 5] = (dr.Cells[3].Value?.ToString() ?? "").Substring(2, 2);
                         wrksheet.Cells[h, 6] = (dr.Cells[3].Value?.ToString() ?? "").Substring(4, 2);
                     }
+                    else if ((dr.Cells[3].Value + "") == "*")
+                    {
+                        wrksheet.Cells[h, 4] = "*";
+                        wrksheet.Cells[h, 5] = "*";
+                        wrksheet.Cells[h, 6] = "*";
+                    }
                     else
                     {
                         wrksheet.Cells[h, 4] = "";  
@@ -159,6 +170,11 @@ namespace Natsu.MyForm
                     {
                         wrksheet.Cells[h, 15] = (dr.Cells[12].Value?.ToString() ?? "").Substring(0, 2);
                         wrksheet.Cells[h, 16] = (dr.Cells[12].Value?.ToString() ?? "").Substring(2, 2);
+                    }
+                    else if ((dr.Cells[12].Value + "") == "*")
+                    {
+                        wrksheet.Cells[h, 15] = "*";
+                        wrksheet.Cells[h, 16] = "*";
                     }
                     else
                     {
@@ -255,12 +271,19 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 5] = (dr.Cells[3].Value?.ToString() ?? "").Substring(2, 2);
                         wrksheet.Cells[h, 6] = (dr.Cells[3].Value?.ToString() ?? "").Substring(4, 2);
                     }
+                    else if ((dr.Cells[3].Value + "") == "*")
+                    {
+                        wrksheet.Cells[h, 4] = "*";
+                        wrksheet.Cells[h, 5] = "*";
+                        wrksheet.Cells[h, 6] = "*";
+                    }
                     else
                     {
                         wrksheet.Cells[h, 4] = "";
                         wrksheet.Cells[h, 5] = "";
                         wrksheet.Cells[h, 6] = dr.Cells[3].Value?.ToString() ?? "";
                     }
+
                     if (dr.Cells[29].Value + "" == "1")
                     {
                         lRowerror.Add("D" + h);
@@ -477,6 +500,77 @@ namespace Natsu.MyForm
             }
 
             return true;
+        }
+
+        private void btnExportError_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbb_Batch.Text))
+            {
+                MessageBox.Show(@"Batch not selected.");
+                return;
+            }
+
+            var result = Global.Db.InputFinish(cbb_Batch.Text);
+            if (result == 1)
+            {
+                MessageBox.Show(@"This batch has not been imported yet. Please enter it first.");
+                return;
+            }
+            var userMissimage = (from w in Global.Db.MissImage_DESO(cbb_Batch.Text) select w.username).ToList();
+            string sss = "";
+            foreach (var item in userMissimage)
+            {
+                sss += item + "\r\n";
+            }
+
+            if (userMissimage.Count > 0)
+            {
+                MessageBox.Show(@"The user took the picture but did not enter: \r\n" + sss);
+                return;
+            }
+
+            //Kiểm tra check xong chưa
+            var xyz = Global.Db.CheckerFinish(cbb_Batch.Text);
+            if (xyz != 0)
+            {
+                MessageBox.Show(@"Not finished check or have user get but not check. Please check first");
+
+                var u = (from w in Global.Db.UserMissImagecheck(cbb_Batch.Text)
+                         select w.username).ToList();
+                string sssss = "";
+                foreach (var item in u)
+                {
+                    sssss += item + "\r\n";
+                }
+
+                if (u.Count > 0)
+                {
+                    MessageBox.Show(@"Checker checklist to check but not check: \r\n" + sssss);
+                }
+
+                return;
+            }
+           
+
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
+            {
+                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx");
+                File.WriteAllBytes((Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ErrorSantei.xlsx"), Properties.Resources.ErrorSantei);
+            }
+            else
+            {
+                File.WriteAllBytes((Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ErrorSantei.xlsx"), Properties.Resources.ErrorSantei);
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = Global.Db.ExportExcel_Getsu_Error(cbb_Batch.Text);
+            if (dataGridView1.RowCount > 0)
+            {
+                TableToExcelError(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx", dataGridView1);
+            }
+            else
+            {
+                MessageBox.Show("No Error");
+            }
         }
     }
 

@@ -36,6 +36,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.btnExportError = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnExportError);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.btn_Export);
             this.panelControl1.Controls.Add(this.cbb_Batch);
@@ -64,7 +66,7 @@
             // 
             // btn_Export
             // 
-            this.btn_Export.Location = new System.Drawing.Point(349, 24);
+            this.btn_Export.Location = new System.Drawing.Point(349, 22);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(99, 23);
             this.btn_Export.TabIndex = 3;
@@ -83,7 +85,7 @@
             // lb_SoDong
             // 
             this.lb_SoDong.AutoSize = true;
-            this.lb_SoDong.Location = new System.Drawing.Point(470, 32);
+            this.lb_SoDong.Location = new System.Drawing.Point(559, 27);
             this.lb_SoDong.Name = "lb_SoDong";
             this.lb_SoDong.Size = new System.Drawing.Size(19, 13);
             this.lb_SoDong.TabIndex = 5;
@@ -111,6 +113,16 @@
             this.progressBarControl1.ShowProgressInTaskBar = true;
             this.progressBarControl1.Size = new System.Drawing.Size(1038, 27);
             this.progressBarControl1.TabIndex = 11;
+            // 
+            // btnExportError
+            // 
+            this.btnExportError.Location = new System.Drawing.Point(458, 22);
+            this.btnExportError.Name = "btnExportError";
+            this.btnExportError.Size = new System.Drawing.Size(84, 23);
+            this.btnExportError.TabIndex = 7;
+            this.btnExportError.Text = "Export Error";
+            this.btnExportError.UseVisualStyleBackColor = true;
+            this.btnExportError.Click += new System.EventHandler(this.btnExportError_Click);
             // 
             // FrmExportExcel
             // 
@@ -143,5 +155,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private System.Windows.Forms.Button btnExportError;
     }
 }

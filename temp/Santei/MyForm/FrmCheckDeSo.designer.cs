@@ -281,17 +281,18 @@
             this.cbb_Batch_Check.FormattingEnabled = true;
             this.cbb_Batch_Check.Location = new System.Drawing.Point(45, 5);
             this.cbb_Batch_Check.Name = "cbb_Batch_Check";
-            this.cbb_Batch_Check.Size = new System.Drawing.Size(141, 21);
+            this.cbb_Batch_Check.Size = new System.Drawing.Size(248, 21);
             this.cbb_Batch_Check.TabIndex = 12;
             this.cbb_Batch_Check.SelectedIndexChanged += new System.EventHandler(this.cbb_Batch_Check_SelectedIndexChanged);
             // 
             // lb_Loi
             // 
+            this.lb_Loi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lb_Loi.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_Loi.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lb_Loi.Appearance.Options.UseFont = true;
             this.lb_Loi.Appearance.Options.UseForeColor = true;
-            this.lb_Loi.Location = new System.Drawing.Point(453, 10);
+            this.lb_Loi.Location = new System.Drawing.Point(560, 11);
             this.lb_Loi.Name = "lb_Loi";
             this.lb_Loi.Size = new System.Drawing.Size(7, 13);
             this.lb_Loi.TabIndex = 11;
@@ -299,7 +300,7 @@
             // 
             // lb_Image
             // 
-            this.lb_Image.Location = new System.Drawing.Point(253, 10);
+            this.lb_Image.Location = new System.Drawing.Point(339, 10);
             this.lb_Image.Name = "lb_Image";
             this.lb_Image.Size = new System.Drawing.Size(6, 13);
             this.lb_Image.TabIndex = 10;
@@ -308,7 +309,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(213, 10);
+            this.labelControl2.Location = new System.Drawing.Point(299, 10);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(34, 13);
             this.labelControl2.TabIndex = 9;

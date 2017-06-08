@@ -30,6 +30,7 @@
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnExportError = new System.Windows.Forms.Button();
             this.btn_Export = new System.Windows.Forms.Button();
             this.cbb_Batch = new System.Windows.Forms.ComboBox();
             this.lb_SoDong = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Controls.Add(this.btnExportError);
             this.panelControl1.Controls.Add(this.btn_Export);
             this.panelControl1.Controls.Add(this.cbb_Batch);
             this.panelControl1.Controls.Add(this.lb_SoDong);
@@ -53,6 +55,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1038, 61);
             this.panelControl1.TabIndex = 10;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // labelControl1
             // 
@@ -61,6 +64,16 @@
             this.labelControl1.Size = new System.Drawing.Size(31, 13);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Batch:";
+            // 
+            // btnExportError
+            // 
+            this.btnExportError.Location = new System.Drawing.Point(468, 24);
+            this.btnExportError.Name = "btnExportError";
+            this.btnExportError.Size = new System.Drawing.Size(84, 23);
+            this.btnExportError.TabIndex = 3;
+            this.btnExportError.Text = "Export Error";
+            this.btnExportError.UseVisualStyleBackColor = true;
+            this.btnExportError.Click += new System.EventHandler(this.btnExportError_Click);
             // 
             // btn_Export
             // 
@@ -83,7 +96,7 @@
             // lb_SoDong
             // 
             this.lb_SoDong.AutoSize = true;
-            this.lb_SoDong.Location = new System.Drawing.Point(470, 32);
+            this.lb_SoDong.Location = new System.Drawing.Point(571, 32);
             this.lb_SoDong.Name = "lb_SoDong";
             this.lb_SoDong.Size = new System.Drawing.Size(19, 13);
             this.lb_SoDong.TabIndex = 5;
@@ -143,5 +156,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private System.Windows.Forms.Button btnExportError;
     }
 }

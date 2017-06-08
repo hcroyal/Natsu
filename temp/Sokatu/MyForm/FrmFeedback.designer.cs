@@ -65,7 +65,7 @@
             // btn_next
             // 
             this.btn_next.Enabled = false;
-            this.btn_next.Location = new System.Drawing.Point(726, 6);
+            this.btn_next.Location = new System.Drawing.Point(872, 6);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(55, 23);
             this.btn_next.TabIndex = 16;
@@ -76,7 +76,7 @@
             // btn_back
             // 
             this.btn_back.Enabled = false;
-            this.btn_back.Location = new System.Drawing.Point(665, 6);
+            this.btn_back.Location = new System.Drawing.Point(811, 6);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(55, 23);
             this.btn_back.TabIndex = 15;
@@ -88,7 +88,7 @@
             // 
             this.lb_soloi.AutoSize = true;
             this.lb_soloi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lb_soloi.Location = new System.Drawing.Point(601, 11);
+            this.lb_soloi.Location = new System.Drawing.Point(747, 11);
             this.lb_soloi.Name = "lb_soloi";
             this.lb_soloi.Size = new System.Drawing.Size(13, 13);
             this.lb_soloi.TabIndex = 14;
@@ -97,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(519, 11);
+            this.label2.Location = new System.Drawing.Point(665, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 14;
@@ -106,7 +106,7 @@
             // chb_User
             // 
             this.chb_User.AutoSize = true;
-            this.chb_User.Location = new System.Drawing.Point(217, 10);
+            this.chb_User.Location = new System.Drawing.Point(363, 10);
             this.chb_User.Name = "chb_User";
             this.chb_User.Size = new System.Drawing.Size(79, 17);
             this.chb_User.TabIndex = 12;
@@ -118,7 +118,7 @@
             // cbb_username
             // 
             this.cbb_username.FormattingEnabled = true;
-            this.cbb_username.Location = new System.Drawing.Point(299, 8);
+            this.cbb_username.Location = new System.Drawing.Point(445, 8);
             this.cbb_username.Name = "cbb_username";
             this.cbb_username.Size = new System.Drawing.Size(128, 21);
             this.cbb_username.TabIndex = 11;
@@ -130,13 +130,13 @@
             this.cbb_batch.FormattingEnabled = true;
             this.cbb_batch.Location = new System.Drawing.Point(58, 8);
             this.cbb_batch.Name = "cbb_batch";
-            this.cbb_batch.Size = new System.Drawing.Size(151, 21);
+            this.cbb_batch.Size = new System.Drawing.Size(299, 21);
             this.cbb_batch.TabIndex = 10;
             this.cbb_batch.TextChanged += new System.EventHandler(this.cbb_batch_TextChanged);
             // 
             // btn_hienthi
             // 
-            this.btn_hienthi.Location = new System.Drawing.Point(432, 6);
+            this.btn_hienthi.Location = new System.Drawing.Point(578, 6);
             this.btn_hienthi.Name = "btn_hienthi";
             this.btn_hienthi.Size = new System.Drawing.Size(75, 23);
             this.btn_hienthi.TabIndex = 9;

@@ -434,11 +434,18 @@ namespace Natsu.MyForm
                     {
                         lRowerror.Add("AC" + h);
                     }
+                    wrksheet.Cells[h, 30] = dr.Cells[52].Value?.ToString() ?? ""; //00
+                    if (dr.Cells[52].Value + "" == "2")
+                    {
+                        lRowerror.Add("AD" + h);
+                    }
 
-                    wrksheet.Cells[h, 30] = dr.Cells[26].Value?.ToString() ?? "";
+                    wrksheet.Cells[h, 31] = dr.Cells[26].Value?.ToString() ?? "";
+
+                    
 
                     lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count;
-                    Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "AD" + h);
+                    Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "AE" + h);
                     rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                     i++;
                     h++;

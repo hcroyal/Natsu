@@ -36,17 +36,17 @@
             // ucNatsuItemFeedback_23
             // 
             this.ucNatsuItemFeedback_23.AutoSize = true;
-            this.ucNatsuItemFeedback_23.Location = new System.Drawing.Point(353, 3);
+            this.ucNatsuItemFeedback_23.Location = new System.Drawing.Point(509, 3);
             this.ucNatsuItemFeedback_23.Name = "ucNatsuItemFeedback_23";
-            this.ucNatsuItemFeedback_23.Size = new System.Drawing.Size(180, 1415);
+            this.ucNatsuItemFeedback_23.Size = new System.Drawing.Size(257, 1415);
             this.ucNatsuItemFeedback_23.TabIndex = 2;
             // 
             // ucNatsuItemFeedback_22
             // 
             this.ucNatsuItemFeedback_22.AutoSize = true;
-            this.ucNatsuItemFeedback_22.Location = new System.Drawing.Point(178, 3);
+            this.ucNatsuItemFeedback_22.Location = new System.Drawing.Point(256, 3);
             this.ucNatsuItemFeedback_22.Name = "ucNatsuItemFeedback_22";
-            this.ucNatsuItemFeedback_22.Size = new System.Drawing.Size(180, 1415);
+            this.ucNatsuItemFeedback_22.Size = new System.Drawing.Size(257, 1415);
             this.ucNatsuItemFeedback_22.TabIndex = 1;
             // 
             // ucNatsuItemFeedback_21
@@ -54,7 +54,7 @@
             this.ucNatsuItemFeedback_21.AutoSize = true;
             this.ucNatsuItemFeedback_21.Location = new System.Drawing.Point(3, 3);
             this.ucNatsuItemFeedback_21.Name = "ucNatsuItemFeedback_21";
-            this.ucNatsuItemFeedback_21.Size = new System.Drawing.Size(180, 1415);
+            this.ucNatsuItemFeedback_21.Size = new System.Drawing.Size(257, 1415);
             this.ucNatsuItemFeedback_21.TabIndex = 0;
             // 
             // UcNatsuItemFeedback3
@@ -68,7 +68,7 @@
             this.Controls.Add(this.ucNatsuItemFeedback_22);
             this.Controls.Add(this.ucNatsuItemFeedback_21);
             this.Name = "UcNatsuItemFeedback3";
-            this.Size = new System.Drawing.Size(536, 1421);
+            this.Size = new System.Drawing.Size(769, 1421);
             this.ResumeLayout(false);
             this.PerformLayout();
 

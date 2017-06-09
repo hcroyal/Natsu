@@ -105,7 +105,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(144, 1394);
+            this.labelControl6.Location = new System.Drawing.Point(144, 1367);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(10, 18);
             this.labelControl6.TabIndex = 2;
@@ -117,7 +117,7 @@
             this.ucNatsuItemFeedback5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucNatsuItemFeedback5.Location = new System.Drawing.Point(2, 1117);
             this.ucNatsuItemFeedback5.Name = "ucNatsuItemFeedback5";
-            this.ucNatsuItemFeedback5.Size = new System.Drawing.Size(173, 274);
+            this.ucNatsuItemFeedback5.Size = new System.Drawing.Size(252, 274);
             this.ucNatsuItemFeedback5.TabIndex = 0;
             // 
             // ucNatsuItemFeedback4
@@ -126,7 +126,7 @@
             this.ucNatsuItemFeedback4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucNatsuItemFeedback4.Location = new System.Drawing.Point(2, 844);
             this.ucNatsuItemFeedback4.Name = "ucNatsuItemFeedback4";
-            this.ucNatsuItemFeedback4.Size = new System.Drawing.Size(173, 274);
+            this.ucNatsuItemFeedback4.Size = new System.Drawing.Size(252, 274);
             this.ucNatsuItemFeedback4.TabIndex = 0;
             // 
             // ucNatsuItemFeedback3
@@ -135,7 +135,7 @@
             this.ucNatsuItemFeedback3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucNatsuItemFeedback3.Location = new System.Drawing.Point(2, 571);
             this.ucNatsuItemFeedback3.Name = "ucNatsuItemFeedback3";
-            this.ucNatsuItemFeedback3.Size = new System.Drawing.Size(173, 274);
+            this.ucNatsuItemFeedback3.Size = new System.Drawing.Size(252, 274);
             this.ucNatsuItemFeedback3.TabIndex = 0;
             // 
             // ucNatsuItemFeedback2
@@ -144,7 +144,7 @@
             this.ucNatsuItemFeedback2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucNatsuItemFeedback2.Location = new System.Drawing.Point(2, 298);
             this.ucNatsuItemFeedback2.Name = "ucNatsuItemFeedback2";
-            this.ucNatsuItemFeedback2.Size = new System.Drawing.Size(173, 274);
+            this.ucNatsuItemFeedback2.Size = new System.Drawing.Size(252, 274);
             this.ucNatsuItemFeedback2.TabIndex = 0;
             // 
             // ucNatsuItemFeedback1
@@ -153,7 +153,7 @@
             this.ucNatsuItemFeedback1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucNatsuItemFeedback1.Location = new System.Drawing.Point(2, 25);
             this.ucNatsuItemFeedback1.Name = "ucNatsuItemFeedback1";
-            this.ucNatsuItemFeedback1.Size = new System.Drawing.Size(173, 274);
+            this.ucNatsuItemFeedback1.Size = new System.Drawing.Size(252, 274);
             this.ucNatsuItemFeedback1.TabIndex = 0;
             // 
             // UcNatsuItemFeedback_2
@@ -173,7 +173,7 @@
             this.Controls.Add(this.ucNatsuItemFeedback2);
             this.Controls.Add(this.ucNatsuItemFeedback1);
             this.Name = "UcNatsuItemFeedback_2";
-            this.Size = new System.Drawing.Size(180, 1505);
+            this.Size = new System.Drawing.Size(257, 1505);
             this.ResumeLayout(false);
             this.PerformLayout();
 

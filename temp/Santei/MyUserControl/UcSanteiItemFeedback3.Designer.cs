@@ -38,26 +38,26 @@
             this.ucNatsuItemFeedback_21.AutoSize = true;
             this.ucNatsuItemFeedback_21.Location = new System.Drawing.Point(0, 3);
             this.ucNatsuItemFeedback_21.Name = "ucNatsuItemFeedback_21";
-            this.ucNatsuItemFeedback_21.Size = new System.Drawing.Size(188, 1174);
+            this.ucNatsuItemFeedback_21.Size = new System.Drawing.Size(258, 1390);
             this.ucNatsuItemFeedback_21.TabIndex = 0;
             // 
             // ucNatsuItemFeedback_22
             // 
             this.ucNatsuItemFeedback_22.AutoSize = true;
-            this.ucNatsuItemFeedback_22.Location = new System.Drawing.Point(185, 3);
+            this.ucNatsuItemFeedback_22.Location = new System.Drawing.Point(254, 3);
             this.ucNatsuItemFeedback_22.Name = "ucNatsuItemFeedback_22";
-            this.ucNatsuItemFeedback_22.Size = new System.Drawing.Size(188, 1174);
+            this.ucNatsuItemFeedback_22.Size = new System.Drawing.Size(258, 1390);
             this.ucNatsuItemFeedback_22.TabIndex = 0;
             // 
             // ucNatsuItemFeedback_23
             // 
             this.ucNatsuItemFeedback_23.AutoSize = true;
-            this.ucNatsuItemFeedback_23.Location = new System.Drawing.Point(370, 3);
+            this.ucNatsuItemFeedback_23.Location = new System.Drawing.Point(508, 3);
             this.ucNatsuItemFeedback_23.Name = "ucNatsuItemFeedback_23";
-            this.ucNatsuItemFeedback_23.Size = new System.Drawing.Size(188, 1174);
+            this.ucNatsuItemFeedback_23.Size = new System.Drawing.Size(258, 1390);
             this.ucNatsuItemFeedback_23.TabIndex = 0;
             // 
-            // UcNatsuItemFeedback3
+            // UcSanteiItemFeedback3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,8 +67,8 @@
             this.Controls.Add(this.ucNatsuItemFeedback_23);
             this.Controls.Add(this.ucNatsuItemFeedback_22);
             this.Controls.Add(this.ucNatsuItemFeedback_21);
-            this.Name = "UcNatsuItemFeedback3";
-            this.Size = new System.Drawing.Size(561, 1180);
+            this.Name = "UcSanteiItemFeedback3";
+            this.Size = new System.Drawing.Size(769, 1421);
             this.ResumeLayout(false);
             this.PerformLayout();
 

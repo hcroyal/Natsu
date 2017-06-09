@@ -198,6 +198,7 @@ namespace Natsu.MyForm
                                 w.Truong_08,
                                 w.Truong_09,
                                 w.Truong_10,
+                                w.Truong_00,
                                 w.Truong_11,
                                 w.Truong_12,
                                 w.Truong_13,
@@ -227,6 +228,7 @@ namespace Natsu.MyForm
                 ucNatsu1.UcNatsuItem1.txt_TruongSo08.Text = deso[0].Truong_08;
                 ucNatsu1.UcNatsuItem1.txt_TruongSo09.Text = deso[0].Truong_09;
                 ucNatsu1.UcNatsuItem1.txt_TruongSo10.Text = deso[0].Truong_10;
+                ucNatsu1.UcNatsuItem1.txt_TruongSo00.Text = deso[0].Truong_00;
                 ucNatsu1.UcNatsuItem1.txt_TruongSo11.Text = deso[0].Truong_11;
                 ucNatsu1.UcNatsuItem1.txt_TruongSo12.Text = deso[0].Truong_12;
                 ucNatsu1.UcNatsuItem1.txt_TruongSo13.Text = deso[0].Truong_13;
@@ -253,6 +255,7 @@ namespace Natsu.MyForm
                 ucNatsu1.UcNatsuItem2.txt_TruongSo08.Text = deso[1].Truong_08;
                 ucNatsu1.UcNatsuItem2.txt_TruongSo09.Text = deso[1].Truong_09;
                 ucNatsu1.UcNatsuItem2.txt_TruongSo10.Text = deso[1].Truong_10;
+                ucNatsu1.UcNatsuItem2.txt_TruongSo00.Text = deso[1].Truong_00;
                 ucNatsu1.UcNatsuItem2.txt_TruongSo11.Text = deso[1].Truong_11;
                 ucNatsu1.UcNatsuItem2.txt_TruongSo12.Text = deso[1].Truong_12;
                 ucNatsu1.UcNatsuItem2.txt_TruongSo13.Text = deso[1].Truong_13;
@@ -279,6 +282,7 @@ namespace Natsu.MyForm
                 ucNatsu1.UcNatsuItem3.txt_TruongSo08.Text = deso[2].Truong_08;
                 ucNatsu1.UcNatsuItem3.txt_TruongSo09.Text = deso[2].Truong_09;
                 ucNatsu1.UcNatsuItem3.txt_TruongSo10.Text = deso[2].Truong_10;
+                ucNatsu1.UcNatsuItem3.txt_TruongSo00.Text = deso[2].Truong_00;
                 ucNatsu1.UcNatsuItem3.txt_TruongSo11.Text = deso[2].Truong_11;
                 ucNatsu1.UcNatsuItem3.txt_TruongSo12.Text = deso[2].Truong_12;
                 ucNatsu1.UcNatsuItem3.txt_TruongSo13.Text = deso[2].Truong_13;
@@ -305,6 +309,7 @@ namespace Natsu.MyForm
                 ucNatsu1.UcNatsuItem4.txt_TruongSo08.Text = deso[3].Truong_08;
                 ucNatsu1.UcNatsuItem4.txt_TruongSo09.Text = deso[3].Truong_09;
                 ucNatsu1.UcNatsuItem4.txt_TruongSo10.Text = deso[3].Truong_10;
+                ucNatsu1.UcNatsuItem4.txt_TruongSo00.Text = deso[3].Truong_00;
                 ucNatsu1.UcNatsuItem4.txt_TruongSo11.Text = deso[3].Truong_11;
                 ucNatsu1.UcNatsuItem4.txt_TruongSo12.Text = deso[3].Truong_12;
                 ucNatsu1.UcNatsuItem4.txt_TruongSo13.Text = deso[3].Truong_13;
@@ -331,6 +336,7 @@ namespace Natsu.MyForm
                 ucNatsu1.UcNatsuItem5.txt_TruongSo08.Text = deso[4].Truong_08;
                 ucNatsu1.UcNatsuItem5.txt_TruongSo09.Text = deso[4].Truong_09;
                 ucNatsu1.UcNatsuItem5.txt_TruongSo10.Text = deso[4].Truong_10;
+                ucNatsu1.UcNatsuItem5.txt_TruongSo00.Text = deso[4].Truong_00;
                 ucNatsu1.UcNatsuItem5.txt_TruongSo11.Text = deso[4].Truong_11;
                 ucNatsu1.UcNatsuItem5.txt_TruongSo12.Text = deso[4].Truong_12;
                 ucNatsu1.UcNatsuItem5.txt_TruongSo13.Text = deso[4].Truong_13;
@@ -357,6 +363,7 @@ namespace Natsu.MyForm
                 ucNatsu2.UcNatsuItem1.txt_TruongSo08.Text = deso[5].Truong_08;
                 ucNatsu2.UcNatsuItem1.txt_TruongSo09.Text = deso[5].Truong_09;
                 ucNatsu2.UcNatsuItem1.txt_TruongSo10.Text = deso[5].Truong_10;
+                ucNatsu2.UcNatsuItem1.txt_TruongSo00.Text = deso[5].Truong_00;
                 ucNatsu2.UcNatsuItem1.txt_TruongSo11.Text = deso[5].Truong_11;
                 ucNatsu2.UcNatsuItem1.txt_TruongSo12.Text = deso[5].Truong_12;
                 ucNatsu2.UcNatsuItem1.txt_TruongSo13.Text = deso[5].Truong_13;
@@ -383,6 +390,7 @@ namespace Natsu.MyForm
                 ucNatsu2.UcNatsuItem2.txt_TruongSo08.Text = deso[6].Truong_08;
                 ucNatsu2.UcNatsuItem2.txt_TruongSo09.Text = deso[6].Truong_09;
                 ucNatsu2.UcNatsuItem2.txt_TruongSo10.Text = deso[6].Truong_10;
+                ucNatsu2.UcNatsuItem2.txt_TruongSo00.Text = deso[6].Truong_00;
                 ucNatsu2.UcNatsuItem2.txt_TruongSo11.Text = deso[6].Truong_11;
                 ucNatsu2.UcNatsuItem2.txt_TruongSo12.Text = deso[6].Truong_12;
                 ucNatsu2.UcNatsuItem2.txt_TruongSo13.Text = deso[6].Truong_13;
@@ -409,6 +417,7 @@ namespace Natsu.MyForm
                 ucNatsu2.UcNatsuItem3.txt_TruongSo08.Text = deso[7].Truong_08;
                 ucNatsu2.UcNatsuItem3.txt_TruongSo09.Text = deso[7].Truong_09;
                 ucNatsu2.UcNatsuItem3.txt_TruongSo10.Text = deso[7].Truong_10;
+                ucNatsu2.UcNatsuItem3.txt_TruongSo00.Text = deso[7].Truong_00;
                 ucNatsu2.UcNatsuItem3.txt_TruongSo11.Text = deso[7].Truong_11;
                 ucNatsu2.UcNatsuItem3.txt_TruongSo12.Text = deso[7].Truong_12;
                 ucNatsu2.UcNatsuItem3.txt_TruongSo13.Text = deso[7].Truong_13;
@@ -435,6 +444,7 @@ namespace Natsu.MyForm
                 ucNatsu2.UcNatsuItem4.txt_TruongSo08.Text = deso[8].Truong_08;
                 ucNatsu2.UcNatsuItem4.txt_TruongSo09.Text = deso[8].Truong_09;
                 ucNatsu2.UcNatsuItem4.txt_TruongSo10.Text = deso[8].Truong_10;
+                ucNatsu2.UcNatsuItem4.txt_TruongSo00.Text = deso[8].Truong_00;
                 ucNatsu2.UcNatsuItem4.txt_TruongSo11.Text = deso[8].Truong_11;
                 ucNatsu2.UcNatsuItem4.txt_TruongSo12.Text = deso[8].Truong_12;
                 ucNatsu2.UcNatsuItem4.txt_TruongSo13.Text = deso[8].Truong_13;
@@ -461,6 +471,7 @@ namespace Natsu.MyForm
                 ucNatsu2.UcNatsuItem5.txt_TruongSo08.Text = deso[9].Truong_08;
                 ucNatsu2.UcNatsuItem5.txt_TruongSo09.Text = deso[9].Truong_09;
                 ucNatsu2.UcNatsuItem5.txt_TruongSo10.Text = deso[9].Truong_10;
+                ucNatsu2.UcNatsuItem5.txt_TruongSo00.Text = deso[9].Truong_00;
                 ucNatsu2.UcNatsuItem5.txt_TruongSo11.Text = deso[9].Truong_11;
                 ucNatsu2.UcNatsuItem5.txt_TruongSo12.Text = deso[9].Truong_12;
                 ucNatsu2.UcNatsuItem5.txt_TruongSo13.Text = deso[9].Truong_13;
@@ -489,6 +500,7 @@ namespace Natsu.MyForm
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo08, ucNatsu2.UcNatsuItem1.txt_TruongSo08);
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo09, ucNatsu2.UcNatsuItem1.txt_TruongSo09);
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo10, ucNatsu2.UcNatsuItem1.txt_TruongSo10);
+                Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo00, ucNatsu2.UcNatsuItem1.txt_TruongSo00);
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo11, ucNatsu2.UcNatsuItem1.txt_TruongSo11);
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo12, ucNatsu2.UcNatsuItem1.txt_TruongSo12);
                 Compare_TextBox(ucNatsu1.UcNatsuItem1.txt_TruongSo13, ucNatsu2.UcNatsuItem1.txt_TruongSo13);
@@ -515,6 +527,7 @@ namespace Natsu.MyForm
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo08, ucNatsu2.UcNatsuItem2.txt_TruongSo08);
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo09, ucNatsu2.UcNatsuItem2.txt_TruongSo09);
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo10, ucNatsu2.UcNatsuItem2.txt_TruongSo10);
+                Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo00, ucNatsu2.UcNatsuItem2.txt_TruongSo00);
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo11, ucNatsu2.UcNatsuItem2.txt_TruongSo11);
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo12, ucNatsu2.UcNatsuItem2.txt_TruongSo12);
                 Compare_TextBox(ucNatsu1.UcNatsuItem2.txt_TruongSo13, ucNatsu2.UcNatsuItem2.txt_TruongSo13);
@@ -541,6 +554,7 @@ namespace Natsu.MyForm
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo08, ucNatsu2.UcNatsuItem3.txt_TruongSo08);
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo09, ucNatsu2.UcNatsuItem3.txt_TruongSo09);
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo10, ucNatsu2.UcNatsuItem3.txt_TruongSo10);
+                Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo00, ucNatsu2.UcNatsuItem3.txt_TruongSo00);
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo11, ucNatsu2.UcNatsuItem3.txt_TruongSo11);
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo12, ucNatsu2.UcNatsuItem3.txt_TruongSo12);
                 Compare_TextBox(ucNatsu1.UcNatsuItem3.txt_TruongSo13, ucNatsu2.UcNatsuItem3.txt_TruongSo13);
@@ -567,6 +581,7 @@ namespace Natsu.MyForm
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo08, ucNatsu2.UcNatsuItem4.txt_TruongSo08);
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo09, ucNatsu2.UcNatsuItem4.txt_TruongSo09);
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo10, ucNatsu2.UcNatsuItem4.txt_TruongSo10);
+                Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo00, ucNatsu2.UcNatsuItem4.txt_TruongSo00);
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo11, ucNatsu2.UcNatsuItem4.txt_TruongSo11);
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo12, ucNatsu2.UcNatsuItem4.txt_TruongSo12);
                 Compare_TextBox(ucNatsu1.UcNatsuItem4.txt_TruongSo13, ucNatsu2.UcNatsuItem4.txt_TruongSo13);
@@ -593,6 +608,7 @@ namespace Natsu.MyForm
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo08, ucNatsu2.UcNatsuItem5.txt_TruongSo08);
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo09, ucNatsu2.UcNatsuItem5.txt_TruongSo09);
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo10, ucNatsu2.UcNatsuItem5.txt_TruongSo10);
+                Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo00, ucNatsu2.UcNatsuItem5.txt_TruongSo00);
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo11, ucNatsu2.UcNatsuItem5.txt_TruongSo11);
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo12, ucNatsu2.UcNatsuItem5.txt_TruongSo12);
                 Compare_TextBox(ucNatsu1.UcNatsuItem5.txt_TruongSo13, ucNatsu2.UcNatsuItem5.txt_TruongSo13);
@@ -914,6 +930,11 @@ namespace Natsu.MyForm
         {
             try
             {
+                if (ucNatsu1.IsEmptyTruong00())
+                {
+                    MessageBox.Show(@"Field 00 is empty");
+                    return;
+                }
                 Global.DbBpo.UpdateTimeLastRequest(Global.StrToken);
                 ucNatsu1.SuaVaLuu(lb_username1.Text, lb_username2.Text, lb_Image.Text);
                 ResetData();
@@ -943,6 +964,11 @@ namespace Natsu.MyForm
         {
             try
             {
+                if (ucNatsu2.IsEmptyTruong00())
+                {
+                    MessageBox.Show(@"Field 00 is empty");
+                    return;
+                }
                 Global.DbBpo.UpdateTimeLastRequest(Global.StrToken);
                 ucNatsu2.SuaVaLuu(lb_username2.Text, lb_username1.Text, lb_Image.Text);
 

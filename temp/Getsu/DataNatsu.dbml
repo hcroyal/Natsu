@@ -39,6 +39,7 @@
       <Column Name="Truong_08" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_09" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_10" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_00" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_11" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_12" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_13" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -105,6 +106,7 @@
       <Column Name="Truong_08" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_09" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_10" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_00" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_11" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_12" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Truong_13" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -285,63 +287,6 @@
       <Column Name="idphieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.ExportExcel_Getsu_Error" Method="ExportExcel_Getsu_Error">
-    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(250)" />
-    <ElementType Name="ExportExcel_Getsu_ErrorResult">
-      <Column Name="Batch" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
-      <Column Name="Truong_01" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_02" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_03" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_04" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_05" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_06" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_07" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_08" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_09" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_10" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_11" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_12" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_13" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_14" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_15" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_16" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_17" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_18" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_19" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_20" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_21" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_22" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_23" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_24" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truong_25" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="idphieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Truong_01_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_02_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_03_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_04_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_05_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_06_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_07_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_08_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_09_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_10_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_11_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_12_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_13_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_14_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_15_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_16_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_17_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_18_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_19_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_20_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_21_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_22_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_23_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_24_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truong_25_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.GetBatch" Method="GetBatch">
     <ElementType Name="GetBatchResult">
       <Column Name="fBatchName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
@@ -519,6 +464,7 @@
     <Parameter Name="Truong_08" Parameter="truong_08" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_09" Parameter="truong_09" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_10" Parameter="truong_10" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Truong_00" Parameter="truong_00" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_11" Parameter="truong_11" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_12" Parameter="truong_12" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_13" Parameter="truong_13" Type="System.String" DbType="NVarChar(255)" />
@@ -687,6 +633,7 @@
     <Parameter Name="Truong_08" Parameter="truong_08" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_09" Parameter="truong_09" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_10" Parameter="truong_10" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Truong_00" Parameter="truong_00" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_11" Parameter="truong_11" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_12" Parameter="truong_12" Type="System.String" DbType="NVarChar(255)" />
     <Parameter Name="Truong_13" Parameter="truong_13" Type="System.String" DbType="NVarChar(255)" />
@@ -761,6 +708,64 @@
     <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(250)" />
     <ElementType Name="UserMissImagecheckResult">
       <Column Name="username" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ExportExcel_Getsu_Error" Method="ExportExcel_Getsu_Error">
+    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(250)" />
+    <ElementType Name="ExportExcel_Getsu_ErrorResult">
+      <Column Name="Batch" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="Truong_01" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_02" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_03" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_04" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_05" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_06" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_07" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_08" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_09" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_10" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_11" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_12" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_13" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_14" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_15" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_16" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_17" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_18" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_19" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_20" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_21" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_22" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_23" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_24" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Truong_25" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="idphieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Truong_01_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_02_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_03_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_04_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_05_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_06_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_07_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_08_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_09_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_10_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_11_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_12_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_13_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_14_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_15_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_16_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_17_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_18_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_19_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_20_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_21_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_22_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_23_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_24_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_25_Error" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Truong_00" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -33,6 +33,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.Text = "";
             txt_TruongSo09.Text = "";
             txt_TruongSo10.Text = "";
+            txt_TruongSo00.Text = "";
             txt_TruongSo11.Text = "";
             txt_TruongSo12.Text = "";
             txt_TruongSo13.Text = "";
@@ -59,6 +60,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.BackColor = Color.White;
             txt_TruongSo09.BackColor = Color.White;
             txt_TruongSo10.BackColor = Color.White;
+            txt_TruongSo00.BackColor = Color.White;
             txt_TruongSo11.BackColor = Color.White;
             txt_TruongSo12.BackColor = Color.White;
             txt_TruongSo13.BackColor = Color.White;
@@ -85,6 +87,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.ForeColor = Color.Black;
             txt_TruongSo09.ForeColor = Color.Black;
             txt_TruongSo10.ForeColor = Color.Black;
+            txt_TruongSo00.ForeColor = Color.Black;
             txt_TruongSo11.ForeColor = Color.Black;
             txt_TruongSo12.ForeColor = Color.Black;
             txt_TruongSo13.ForeColor = Color.Black;
@@ -170,6 +173,7 @@ namespace Natsu.MyUserControl
                 txt_TruongSo08.Text?.Replace(",", ""),
                 txt_TruongSo09.Text?.Replace(",", ""),
                 txt_TruongSo10.Text?.Replace(",", ""),
+                txt_TruongSo00.Text,
                 txt_TruongSo11.Text?.Replace(",", ""),
                 txt_TruongSo12.Text,
                 txt_TruongSo13.Text?.Replace(",", ""),
@@ -216,58 +220,59 @@ namespace Natsu.MyUserControl
         public void SaveData_SuaVaLuu(string usersaiit, string usersainhieu, string idimage, string idphieu)
         {
             Global.Db.SuaVaLuu_deso_Error(usersaiit, usersainhieu, idimage, Global.StrBatch, Global.StrUsername,
-                                    idphieu,
-                                    txt_TruongSo01.Text,
-                                    txt_TruongSo02.Text,
-                                    txt_TruongSo03.Text,
-                                    txt_TruongSo04.Text,
-                                    txt_TruongSo05.Text,
-                                    txt_TruongSo06.Text,
-                                    txt_TruongSo07.Text,
-                                    txt_TruongSo08.Text?.Replace(",", ""),
-                                    txt_TruongSo09.Text?.Replace(",", ""),
-                                    txt_TruongSo10.Text?.Replace(",", ""),
-                                    txt_TruongSo11.Text?.Replace(",", ""),
-                                    txt_TruongSo12.Text,
-                                    txt_TruongSo13.Text?.Replace(",", ""),
-                                    txt_TruongSo14.Text,
-                                    txt_TruongSo15.Text,
-                                    txt_TruongSo16.Text?.Replace(",", ""),
-                                    txt_TruongSo17.Text?.Replace(",", ""),
-                                    txt_TruongSo18.Text?.Replace(",", ""),
-                                    txt_TruongSo19.Text?.Replace(",", ""),
-                                    txt_TruongSo20.Text?.Replace(",", ""),
-                                    txt_TruongSo21.Text,
-                                    txt_TruongSo22.Text,
-                                    txt_TruongSo23.Text?.Replace(",", ""),
-                                    txt_TruongSo24.Text?.Replace(",", ""),
-                                    txt_TruongSo25.Text?.Replace(",", ""),
-                                    txt_TruongSo01.Tag+"",
-                                    txt_TruongSo02.Tag + "",
-                                    txt_TruongSo03.Tag + "",
-                                    txt_TruongSo04.Tag + "",
-                                    txt_TruongSo05.Tag + "",
-                                    txt_TruongSo06.Tag + "",
-                                    txt_TruongSo07.Tag + "",
-                                    txt_TruongSo08.Tag + "",
-                                    txt_TruongSo09.Tag + "",
-                                    txt_TruongSo10.Tag + "",
-                                    txt_TruongSo11.Tag + "",
-                                    txt_TruongSo12.Tag + "",
-                                    txt_TruongSo13.Tag + "",
-                                    txt_TruongSo14.Tag + "",
-                                    txt_TruongSo15.Tag + "",
-                                    txt_TruongSo16.Tag + "",
-                                    txt_TruongSo17.Tag + "",
-                                    txt_TruongSo18.Tag + "",
-                                    txt_TruongSo19.Tag + "",
-                                    txt_TruongSo20.Tag + "",
-                                    txt_TruongSo21.Tag + "",
-                                    txt_TruongSo22.Tag + "",
-                                    txt_TruongSo23.Tag + "",
-                                    txt_TruongSo24.Tag + "",
-                                    txt_TruongSo25.Tag + ""
-                                        );
+                idphieu,
+                txt_TruongSo01.Text,
+                txt_TruongSo02.Text,
+                txt_TruongSo03.Text,
+                txt_TruongSo04.Text,
+                txt_TruongSo05.Text,
+                txt_TruongSo06.Text,
+                txt_TruongSo07.Text,
+                txt_TruongSo08.Text?.Replace(",", ""),
+                txt_TruongSo09.Text?.Replace(",", ""),
+                txt_TruongSo10.Text?.Replace(",", ""),
+                txt_TruongSo00.Text,
+                txt_TruongSo11.Text?.Replace(",", ""),
+                txt_TruongSo12.Text,
+                txt_TruongSo13.Text?.Replace(",", ""),
+                txt_TruongSo14.Text,
+                txt_TruongSo15.Text,
+                txt_TruongSo16.Text?.Replace(",", ""),
+                txt_TruongSo17.Text?.Replace(",", ""),
+                txt_TruongSo18.Text?.Replace(",", ""),
+                txt_TruongSo19.Text?.Replace(",", ""),
+                txt_TruongSo20.Text?.Replace(",", ""),
+                txt_TruongSo21.Text,
+                txt_TruongSo22.Text,
+                txt_TruongSo23.Text?.Replace(",", ""),
+                txt_TruongSo24.Text?.Replace(",", ""),
+                txt_TruongSo25.Text?.Replace(",", ""),
+                txt_TruongSo01.Tag + "",
+                txt_TruongSo02.Tag + "",
+                txt_TruongSo03.Tag + "",
+                txt_TruongSo04.Tag + "",
+                txt_TruongSo05.Tag + "",
+                txt_TruongSo06.Tag + "",
+                txt_TruongSo07.Tag + "",
+                txt_TruongSo08.Tag + "",
+                txt_TruongSo09.Tag + "",
+                txt_TruongSo10.Tag + "",
+                txt_TruongSo11.Tag + "",
+                txt_TruongSo12.Tag + "",
+                txt_TruongSo13.Tag + "",
+                txt_TruongSo14.Tag + "",
+                txt_TruongSo15.Tag + "",
+                txt_TruongSo16.Tag + "",
+                txt_TruongSo17.Tag + "",
+                txt_TruongSo18.Tag + "",
+                txt_TruongSo19.Tag + "",
+                txt_TruongSo20.Tag + "",
+                txt_TruongSo21.Tag + "",
+                txt_TruongSo22.Tag + "",
+                txt_TruongSo23.Tag + "",
+                txt_TruongSo24.Tag + "",
+                txt_TruongSo25.Tag + ""
+            );
         }
 
         public void DoiMauTextBox(TextEdit txt, int sobytenho, int sobytelon)
@@ -570,7 +575,7 @@ namespace Natsu.MyUserControl
             Total_Truong10(txt_TruongSo08, txt_TruongSo09, txt_TruongSo10);
 
             Total_Truong11();
-            Total_Truong11_2();
+            
 
             double truong11 = 0;
             try
@@ -583,7 +588,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -604,7 +609,7 @@ namespace Natsu.MyUserControl
             Total_Truong10(txt_TruongSo08, txt_TruongSo09, txt_TruongSo10);
 
             Total_Truong11();
-            Total_Truong11_2();
+           
 
             double truong11 = 0;
             try
@@ -617,7 +622,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -634,35 +639,11 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo10_EditValueChanged(object sender, EventArgs e)
         {
+            if (Global.StrRole == "DESO")
+                txt_TruongSo00.Text = "";
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Changed?.Invoke(sender, e);
-
-            Total_Truong11();
-            Total_Truong11_2();
-
-            double truong11 = 0;
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
-            }
-            catch (Exception exception)
-            {
-
-            }
-
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
-            {
-                txt_TruongSo11.BackColor = Color.Red;
-                txt_TruongSo11.ForeColor = Color.White;
-                txt_TruongSo11.Tag = "1";
-            }
-            else
-            {
-                txt_TruongSo11.BackColor = Color.White;
-                txt_TruongSo11.ForeColor = Color.Black;
-                txt_TruongSo11.Tag = "0";
-            }
+            
         }
 
         private void txt_TruongSo11_EditValueChanged(object sender, EventArgs e)
@@ -670,7 +651,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
 
             Total_Truong11();
-            Total_Truong11_2();
+            
             double truong11 = 0;
             try
             {
@@ -682,7 +663,7 @@ namespace Natsu.MyUserControl
                 // ignored
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -751,7 +732,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo16, txt_TruongSo17, txt_TruongSo18);
             Total_Truong11();
-            Total_Truong11_2();
+            
 
             double truong11 = 0;
             try
@@ -764,7 +745,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -784,7 +765,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo16, txt_TruongSo17, txt_TruongSo18);
             Total_Truong11();
-            Total_Truong11_2();
+           
 
             double truong11 = 0;
             try
@@ -797,7 +778,7 @@ namespace Natsu.MyUserControl
                 // ignored
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -815,34 +796,9 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo18_EditValueChanged(object sender, EventArgs e)
         {
+            if (Global.StrRole == "DESO")
+                txt_TruongSo00.Text = "";
             DoiMauTextBox((TextEdit)sender, 0, 10);
-
-            Total_Truong11();
-            Total_Truong11_2();
-
-            double truong11 = 0;
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
-            }
-            catch (Exception exception)
-            {
-
-            }
-
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
-            {
-                txt_TruongSo11.BackColor = Color.Red;
-                txt_TruongSo11.ForeColor = Color.White;
-                txt_TruongSo11.Tag = "1";
-            }
-            else
-            {
-                txt_TruongSo11.BackColor = Color.White;
-                txt_TruongSo11.ForeColor = Color.Black;
-                txt_TruongSo11.Tag = "0";
-            }
             Changed?.Invoke(sender, e);
         }
 
@@ -898,7 +854,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
             Total_Truong11();
-            Total_Truong11_2();
+           
 
             double truong11 = 0;
             try
@@ -911,7 +867,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -931,7 +887,7 @@ namespace Natsu.MyUserControl
             DoiMauTextBox((TextEdit)sender, 0, 10);
             Total_Truong10(txt_TruongSo23, txt_TruongSo24, txt_TruongSo25);
             Total_Truong11();
-            Total_Truong11_2();
+           
 
             double truong11 = 0;
             try
@@ -944,7 +900,7 @@ namespace Natsu.MyUserControl
 
             }
 
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
+            if (truong11 != _totalTruong11 && !string.IsNullOrEmpty(txt_TruongSo11.Text))
             {
                 txt_TruongSo11.BackColor = Color.Red;
                 txt_TruongSo11.ForeColor = Color.White;
@@ -961,33 +917,9 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo25_EditValueChanged(object sender, EventArgs e)
         {
+            if (Global.StrRole == "DESO")
+                txt_TruongSo00.Text = "";
             DoiMauTextBox((TextEdit)sender, 0, 10);
-            Total_Truong11();
-            Total_Truong11_2();
-
-            double truong11 = 0;
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_TruongSo11.Text))
-                    truong11 = double.Parse(txt_TruongSo11.Text.Replace(",", ""));
-            }
-            catch (Exception exception)
-            {
-
-            }
-
-            if ((truong11 != _totalTruong11 || truong11 != _totalTruong11_2) && !string.IsNullOrEmpty(txt_TruongSo11.Text))
-            {
-                txt_TruongSo11.BackColor = Color.Red;
-                txt_TruongSo11.ForeColor = Color.White;
-                txt_TruongSo11.Tag = "1";
-            }
-            else
-            {
-                txt_TruongSo11.BackColor = Color.White;
-                txt_TruongSo11.ForeColor = Color.Black;
-                txt_TruongSo11.Tag = "0";
-            }
             Changed?.Invoke(sender, e);
         }
 
@@ -1195,7 +1127,7 @@ namespace Natsu.MyUserControl
             }
             else if (e.KeyCode == Keys.Right)
             {
-                txt_TruongSo11.Focus();
+                txt_TruongSo00.Focus();
             }
             try
             {
@@ -1206,7 +1138,21 @@ namespace Natsu.MyUserControl
                 // ignored
             }
         }
-
+        private void txt_TruongSo00_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                txt_TruongSo19.Focus();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                txt_TruongSo10.Focus();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                txt_TruongSo11.Focus();
+            }
+        }
         private void txt_TruongSo11_KeyUp(object sender, KeyEventArgs e)
         {
             
@@ -1216,7 +1162,7 @@ namespace Natsu.MyUserControl
             }
             else if (e.KeyCode == Keys.Left)
             {
-                txt_TruongSo10.Focus();
+                txt_TruongSo00.Focus();
             }
             else if (e.KeyCode == Keys.Right)
             {
@@ -2143,5 +2089,7 @@ namespace Natsu.MyUserControl
 
             }
         }
+
+       
     }
 }

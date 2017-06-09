@@ -251,6 +251,11 @@ namespace Natsu.MyForm
                 {
                     if (Global.StrRole == "DESO")
                     {
+                        if (UcNatsu1.IsEmptyTruong00())
+                        {
+                            MessageBox.Show(@"Field 00 is empty");
+                            return;
+                        }
                         if (UcNatsu1.IsEmpty())
                         {
                             if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
@@ -319,6 +324,11 @@ namespace Natsu.MyForm
                 }
                 if (Global.StrRole == "DESO")
                 {
+                    if (UcNatsu1.IsEmptyTruong00())
+                    {
+                        MessageBox.Show(@"Field 00 is empty");
+                        return;
+                    }
                     if (UcNatsu1.IsEmpty())
                     {
                         if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)

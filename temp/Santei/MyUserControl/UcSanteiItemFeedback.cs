@@ -32,6 +32,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.Text = "";
             txt_TruongSo09.Text = "";
             txt_TruongSo10.Text = "";
+            txt_TruongSo00.Text = "";
             txt_TruongSo11.Text = "";
             txt_TruongSo12.Text = "";
             txt_TruongSo13.Text = "";
@@ -58,6 +59,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.BackColor = Color.White;
             txt_TruongSo09.BackColor = Color.White;
             txt_TruongSo10.BackColor = Color.White;
+            txt_TruongSo00.BackColor = Color.White;
             txt_TruongSo11.BackColor = Color.White;
             txt_TruongSo12.BackColor = Color.White;
             txt_TruongSo13.BackColor = Color.White;
@@ -84,6 +86,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.ForeColor = Color.Black;
             txt_TruongSo09.ForeColor = Color.Black;
             txt_TruongSo10.ForeColor = Color.Black;
+            txt_TruongSo00.ForeColor = Color.Black;
             txt_TruongSo11.ForeColor = Color.Black;
             txt_TruongSo12.ForeColor = Color.Black;
             txt_TruongSo13.ForeColor = Color.Black;
@@ -1014,6 +1017,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.Text = data.Truong_08;
             txt_TruongSo09.Text = data.Truong_09;
             txt_TruongSo10.Text = data.Truong_10;
+            txt_TruongSo00.Text = data.Truong_00;
             txt_TruongSo11.Text = data.Truong_11;
             txt_TruongSo12.Text = data.Truong_12;
             txt_TruongSo13.Text = data.Truong_13;
@@ -1043,6 +1047,7 @@ namespace Natsu.MyUserControl
             txt_TruongSo08.Text = data.Truong_08;
             txt_TruongSo09.Text = data.Truong_09;
             txt_TruongSo10.Text = data.Truong_10;
+            txt_TruongSo00.Text = data.Truong_00;
             txt_TruongSo11.Text = data.Truong_11;
             txt_TruongSo12.Text = data.Truong_12;
             txt_TruongSo13.Text = data.Truong_13;

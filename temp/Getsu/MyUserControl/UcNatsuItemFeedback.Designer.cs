@@ -78,6 +78,8 @@
             this.txt_TruongSo24 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.txt_TruongSo25 = new DevExpress.XtraEditors.TextEdit();
+            this.txt_TruongSo00 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo01.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo02.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo03.Properties)).BeginInit();
@@ -103,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo23.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo24.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo25.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo00.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -120,7 +123,7 @@
             // txt_TruongSo01
             // 
             this.txt_TruongSo01.EditValue = "";
-            this.txt_TruongSo01.Location = new System.Drawing.Point(17, 2);
+            this.txt_TruongSo01.Location = new System.Drawing.Point(16, 2);
             this.txt_TruongSo01.Name = "txt_TruongSo01";
             this.txt_TruongSo01.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo01.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -136,7 +139,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(7, 27);
+            this.labelControl2.Location = new System.Drawing.Point(68, 5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(7, 13);
             this.labelControl2.TabIndex = 0;
@@ -145,7 +148,7 @@
             // txt_TruongSo02
             // 
             this.txt_TruongSo02.EditValue = "";
-            this.txt_TruongSo02.Location = new System.Drawing.Point(17, 24);
+            this.txt_TruongSo02.Location = new System.Drawing.Point(77, 2);
             this.txt_TruongSo02.Name = "txt_TruongSo02";
             this.txt_TruongSo02.Properties.Mask.EditMask = "[1357*?]+";
             this.txt_TruongSo02.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -161,7 +164,7 @@
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(6, 50);
+            this.labelControl3.Location = new System.Drawing.Point(104, 5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(7, 13);
             this.labelControl3.TabIndex = 0;
@@ -169,7 +172,7 @@
             // 
             // txt_TruongSo03
             // 
-            this.txt_TruongSo03.Location = new System.Drawing.Point(17, 47);
+            this.txt_TruongSo03.Location = new System.Drawing.Point(113, 2);
             this.txt_TruongSo03.Name = "txt_TruongSo03";
             this.txt_TruongSo03.Properties.Mask.EditMask = "[0-9*? ]+";
             this.txt_TruongSo03.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -185,7 +188,7 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(6, 73);
+            this.labelControl4.Location = new System.Drawing.Point(5, 31);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(7, 13);
             this.labelControl4.TabIndex = 0;
@@ -193,7 +196,7 @@
             // 
             // txt_TruongSo04
             // 
-            this.txt_TruongSo04.Location = new System.Drawing.Point(17, 70);
+            this.txt_TruongSo04.Location = new System.Drawing.Point(16, 28);
             this.txt_TruongSo04.Name = "txt_TruongSo04";
             this.txt_TruongSo04.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo04.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -209,7 +212,7 @@
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(7, 96);
+            this.labelControl5.Location = new System.Drawing.Point(68, 31);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(7, 13);
             this.labelControl5.TabIndex = 0;
@@ -218,7 +221,7 @@
             // txt_TruongSo05
             // 
             this.txt_TruongSo05.EditValue = "";
-            this.txt_TruongSo05.Location = new System.Drawing.Point(17, 93);
+            this.txt_TruongSo05.Location = new System.Drawing.Point(77, 28);
             this.txt_TruongSo05.Name = "txt_TruongSo05";
             this.txt_TruongSo05.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo05.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -234,7 +237,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(8, 119);
+            this.labelControl6.Location = new System.Drawing.Point(6, 57);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(7, 13);
             this.labelControl6.TabIndex = 0;
@@ -243,7 +246,7 @@
             // txt_TruongSo06
             // 
             this.txt_TruongSo06.EditValue = "";
-            this.txt_TruongSo06.Location = new System.Drawing.Point(18, 116);
+            this.txt_TruongSo06.Location = new System.Drawing.Point(16, 54);
             this.txt_TruongSo06.Name = "txt_TruongSo06";
             this.txt_TruongSo06.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo06.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -259,7 +262,7 @@
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Appearance.Options.UseForeColor = true;
-            this.labelControl7.Location = new System.Drawing.Point(6, 142);
+            this.labelControl7.Location = new System.Drawing.Point(42, 57);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(7, 13);
             this.labelControl7.TabIndex = 0;
@@ -267,7 +270,7 @@
             // 
             // txt_TruongSo07
             // 
-            this.txt_TruongSo07.Location = new System.Drawing.Point(17, 139);
+            this.txt_TruongSo07.Location = new System.Drawing.Point(51, 54);
             this.txt_TruongSo07.Name = "txt_TruongSo07";
             this.txt_TruongSo07.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo07.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -283,7 +286,7 @@
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Appearance.Options.UseForeColor = true;
-            this.labelControl8.Location = new System.Drawing.Point(77, 5);
+            this.labelControl8.Location = new System.Drawing.Point(6, 83);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(7, 13);
             this.labelControl8.TabIndex = 0;
@@ -292,7 +295,7 @@
             // txt_TruongSo08
             // 
             this.txt_TruongSo08.EditValue = "";
-            this.txt_TruongSo08.Location = new System.Drawing.Point(86, 2);
+            this.txt_TruongSo08.Location = new System.Drawing.Point(16, 80);
             this.txt_TruongSo08.Name = "txt_TruongSo08";
             this.txt_TruongSo08.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo08.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -309,7 +312,7 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(77, 29);
+            this.labelControl9.Location = new System.Drawing.Point(86, 83);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(7, 13);
             this.labelControl9.TabIndex = 0;
@@ -317,7 +320,7 @@
             // 
             // txt_TruongSo09
             // 
-            this.txt_TruongSo09.Location = new System.Drawing.Point(86, 26);
+            this.txt_TruongSo09.Location = new System.Drawing.Point(99, 80);
             this.txt_TruongSo09.Name = "txt_TruongSo09";
             this.txt_TruongSo09.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo09.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -334,7 +337,7 @@
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(69, 52);
+            this.labelControl10.Location = new System.Drawing.Point(166, 83);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(14, 13);
             this.labelControl10.TabIndex = 0;
@@ -343,7 +346,7 @@
             // txt_TruongSo10
             // 
             this.txt_TruongSo10.EditValue = "";
-            this.txt_TruongSo10.Location = new System.Drawing.Point(86, 49);
+            this.txt_TruongSo10.Location = new System.Drawing.Point(182, 80);
             this.txt_TruongSo10.Name = "txt_TruongSo10";
             this.txt_TruongSo10.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo10.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -360,7 +363,7 @@
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(70, 74);
+            this.labelControl11.Location = new System.Drawing.Point(84, 161);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(14, 13);
             this.labelControl11.TabIndex = 0;
@@ -368,7 +371,7 @@
             // 
             // txt_TruongSo11
             // 
-            this.txt_TruongSo11.Location = new System.Drawing.Point(86, 71);
+            this.txt_TruongSo11.Location = new System.Drawing.Point(99, 158);
             this.txt_TruongSo11.Name = "txt_TruongSo11";
             this.txt_TruongSo11.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo11.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -385,7 +388,7 @@
             this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Appearance.Options.UseForeColor = true;
-            this.labelControl12.Location = new System.Drawing.Point(43, 120);
+            this.labelControl12.Location = new System.Drawing.Point(1, 187);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(14, 13);
             this.labelControl12.TabIndex = 0;
@@ -395,7 +398,7 @@
             // txt_TruongSo12
             // 
             this.txt_TruongSo12.EditValue = "";
-            this.txt_TruongSo12.Location = new System.Drawing.Point(60, 117);
+            this.txt_TruongSo12.Location = new System.Drawing.Point(16, 184);
             this.txt_TruongSo12.Name = "txt_TruongSo12";
             this.txt_TruongSo12.Properties.Mask.EditMask = "[0-9*? ]+";
             this.txt_TruongSo12.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -411,7 +414,7 @@
             this.labelControl13.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl13.Appearance.Options.UseFont = true;
             this.labelControl13.Appearance.Options.UseForeColor = true;
-            this.labelControl13.Location = new System.Drawing.Point(70, 96);
+            this.labelControl13.Location = new System.Drawing.Point(1, 213);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(14, 13);
             this.labelControl13.TabIndex = 0;
@@ -420,7 +423,7 @@
             // txt_TruongSo13
             // 
             this.txt_TruongSo13.EditValue = "";
-            this.txt_TruongSo13.Location = new System.Drawing.Point(86, 93);
+            this.txt_TruongSo13.Location = new System.Drawing.Point(16, 210);
             this.txt_TruongSo13.Name = "txt_TruongSo13";
             this.txt_TruongSo13.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo13.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -437,7 +440,7 @@
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl14.Appearance.Options.UseFont = true;
             this.labelControl14.Appearance.Options.UseForeColor = true;
-            this.labelControl14.Location = new System.Drawing.Point(109, 120);
+            this.labelControl14.Location = new System.Drawing.Point(83, 214);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(14, 13);
             this.labelControl14.TabIndex = 0;
@@ -445,7 +448,7 @@
             // 
             // txt_TruongSo14
             // 
-            this.txt_TruongSo14.Location = new System.Drawing.Point(126, 116);
+            this.txt_TruongSo14.Location = new System.Drawing.Point(99, 210);
             this.txt_TruongSo14.Name = "txt_TruongSo14";
             this.txt_TruongSo14.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo14.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -461,7 +464,7 @@
             this.labelControl15.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl15.Appearance.Options.UseFont = true;
             this.labelControl15.Appearance.Options.UseForeColor = true;
-            this.labelControl15.Location = new System.Drawing.Point(44, 143);
+            this.labelControl15.Location = new System.Drawing.Point(78, 57);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(14, 13);
             this.labelControl15.TabIndex = 0;
@@ -469,7 +472,7 @@
             // 
             // txt_TruongSo15
             // 
-            this.txt_TruongSo15.Location = new System.Drawing.Point(60, 139);
+            this.txt_TruongSo15.Location = new System.Drawing.Point(95, 54);
             this.txt_TruongSo15.Name = "txt_TruongSo15";
             this.txt_TruongSo15.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo15.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -485,7 +488,7 @@
             this.labelControl16.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl16.Appearance.Options.UseFont = true;
             this.labelControl16.Appearance.Options.UseForeColor = true;
-            this.labelControl16.Location = new System.Drawing.Point(0, 165);
+            this.labelControl16.Location = new System.Drawing.Point(1, 109);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(14, 13);
             this.labelControl16.TabIndex = 0;
@@ -493,7 +496,7 @@
             // 
             // txt_TruongSo16
             // 
-            this.txt_TruongSo16.Location = new System.Drawing.Point(17, 162);
+            this.txt_TruongSo16.Location = new System.Drawing.Point(16, 106);
             this.txt_TruongSo16.Name = "txt_TruongSo16";
             this.txt_TruongSo16.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo16.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -510,7 +513,7 @@
             this.labelControl17.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl17.Appearance.Options.UseFont = true;
             this.labelControl17.Appearance.Options.UseForeColor = true;
-            this.labelControl17.Location = new System.Drawing.Point(0, 187);
+            this.labelControl17.Location = new System.Drawing.Point(83, 109);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(14, 13);
             this.labelControl17.TabIndex = 0;
@@ -518,7 +521,7 @@
             // 
             // txt_TruongSo17
             // 
-            this.txt_TruongSo17.Location = new System.Drawing.Point(17, 184);
+            this.txt_TruongSo17.Location = new System.Drawing.Point(99, 106);
             this.txt_TruongSo17.Name = "txt_TruongSo17";
             this.txt_TruongSo17.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo17.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -535,7 +538,7 @@
             this.labelControl18.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl18.Appearance.Options.UseFont = true;
             this.labelControl18.Appearance.Options.UseForeColor = true;
-            this.labelControl18.Location = new System.Drawing.Point(0, 209);
+            this.labelControl18.Location = new System.Drawing.Point(166, 109);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(14, 13);
             this.labelControl18.TabIndex = 0;
@@ -543,7 +546,7 @@
             // 
             // txt_TruongSo18
             // 
-            this.txt_TruongSo18.Location = new System.Drawing.Point(17, 206);
+            this.txt_TruongSo18.Location = new System.Drawing.Point(182, 106);
             this.txt_TruongSo18.Name = "txt_TruongSo18";
             this.txt_TruongSo18.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo18.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -560,7 +563,7 @@
             this.labelControl19.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl19.Appearance.Options.UseFont = true;
             this.labelControl19.Appearance.Options.UseForeColor = true;
-            this.labelControl19.Location = new System.Drawing.Point(1, 231);
+            this.labelControl19.Location = new System.Drawing.Point(166, 161);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(14, 13);
             this.labelControl19.TabIndex = 0;
@@ -572,7 +575,7 @@
             this.labelControl20.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl20.Appearance.Options.UseFont = true;
             this.labelControl20.Appearance.Options.UseForeColor = true;
-            this.labelControl20.Location = new System.Drawing.Point(88, 143);
+            this.labelControl20.Location = new System.Drawing.Point(83, 187);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(14, 13);
             this.labelControl20.TabIndex = 0;
@@ -580,7 +583,7 @@
             // 
             // txt_TruongSo19
             // 
-            this.txt_TruongSo19.Location = new System.Drawing.Point(18, 228);
+            this.txt_TruongSo19.Location = new System.Drawing.Point(182, 158);
             this.txt_TruongSo19.Name = "txt_TruongSo19";
             this.txt_TruongSo19.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo19.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -593,7 +596,7 @@
             // 
             // txt_TruongSo20
             // 
-            this.txt_TruongSo20.Location = new System.Drawing.Point(103, 140);
+            this.txt_TruongSo20.Location = new System.Drawing.Point(99, 184);
             this.txt_TruongSo20.Name = "txt_TruongSo20";
             this.txt_TruongSo20.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo20.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -610,7 +613,7 @@
             this.labelControl21.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl21.Appearance.Options.UseFont = true;
             this.labelControl21.Appearance.Options.UseForeColor = true;
-            this.labelControl21.Location = new System.Drawing.Point(87, 165);
+            this.labelControl21.Location = new System.Drawing.Point(129, 213);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(14, 13);
             this.labelControl21.TabIndex = 0;
@@ -618,7 +621,7 @@
             // 
             // txt_TruongSo21
             // 
-            this.txt_TruongSo21.Location = new System.Drawing.Point(103, 162);
+            this.txt_TruongSo21.Location = new System.Drawing.Point(144, 210);
             this.txt_TruongSo21.Name = "txt_TruongSo21";
             this.txt_TruongSo21.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo21.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -634,7 +637,7 @@
             this.labelControl22.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl22.Appearance.Options.UseFont = true;
             this.labelControl22.Appearance.Options.UseForeColor = true;
-            this.labelControl22.Location = new System.Drawing.Point(126, 167);
+            this.labelControl22.Location = new System.Drawing.Point(122, 57);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(14, 13);
             this.labelControl22.TabIndex = 0;
@@ -642,7 +645,7 @@
             // 
             // txt_TruongSo22
             // 
-            this.txt_TruongSo22.Location = new System.Drawing.Point(143, 162);
+            this.txt_TruongSo22.Location = new System.Drawing.Point(138, 54);
             this.txt_TruongSo22.Name = "txt_TruongSo22";
             this.txt_TruongSo22.Properties.Mask.EditMask = "[0-9*?]+";
             this.txt_TruongSo22.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -658,7 +661,7 @@
             this.labelControl23.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl23.Appearance.Options.UseFont = true;
             this.labelControl23.Appearance.Options.UseForeColor = true;
-            this.labelControl23.Location = new System.Drawing.Point(86, 187);
+            this.labelControl23.Location = new System.Drawing.Point(1, 135);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(14, 13);
             this.labelControl23.TabIndex = 0;
@@ -670,7 +673,7 @@
             this.labelControl24.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl24.Appearance.Options.UseFont = true;
             this.labelControl24.Appearance.Options.UseForeColor = true;
-            this.labelControl24.Location = new System.Drawing.Point(86, 210);
+            this.labelControl24.Location = new System.Drawing.Point(83, 135);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(14, 13);
             this.labelControl24.TabIndex = 0;
@@ -678,7 +681,7 @@
             // 
             // txt_TruongSo23
             // 
-            this.txt_TruongSo23.Location = new System.Drawing.Point(102, 184);
+            this.txt_TruongSo23.Location = new System.Drawing.Point(16, 132);
             this.txt_TruongSo23.Name = "txt_TruongSo23";
             this.txt_TruongSo23.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo23.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -691,7 +694,7 @@
             // 
             // txt_TruongSo24
             // 
-            this.txt_TruongSo24.Location = new System.Drawing.Point(103, 207);
+            this.txt_TruongSo24.Location = new System.Drawing.Point(99, 132);
             this.txt_TruongSo24.Name = "txt_TruongSo24";
             this.txt_TruongSo24.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo24.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -708,7 +711,7 @@
             this.labelControl25.Appearance.ForeColor = System.Drawing.Color.Green;
             this.labelControl25.Appearance.Options.UseFont = true;
             this.labelControl25.Appearance.Options.UseForeColor = true;
-            this.labelControl25.Location = new System.Drawing.Point(86, 232);
+            this.labelControl25.Location = new System.Drawing.Point(166, 135);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(14, 13);
             this.labelControl25.TabIndex = 0;
@@ -716,7 +719,7 @@
             // 
             // txt_TruongSo25
             // 
-            this.txt_TruongSo25.Location = new System.Drawing.Point(103, 229);
+            this.txt_TruongSo25.Location = new System.Drawing.Point(182, 132);
             this.txt_TruongSo25.Name = "txt_TruongSo25";
             this.txt_TruongSo25.Properties.Mask.EditMask = "[0-9*?-,]+";
             this.txt_TruongSo25.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
@@ -727,12 +730,35 @@
             this.txt_TruongSo25.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo01_KeyDown);
             this.txt_TruongSo25.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo25_KeyUp);
             // 
+            // txt_TruongSo00
+            // 
+            this.txt_TruongSo00.Location = new System.Drawing.Point(16, 158);
+            this.txt_TruongSo00.Name = "txt_TruongSo00";
+            this.txt_TruongSo00.Properties.Mask.EditMask = "[0-9*?]+";
+            this.txt_TruongSo00.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txt_TruongSo00.Size = new System.Drawing.Size(20, 20);
+            this.txt_TruongSo00.TabIndex = 27;
+            // 
+            // labelControl26
+            // 
+            this.labelControl26.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl26.Appearance.Options.UseFont = true;
+            this.labelControl26.Appearance.Options.UseForeColor = true;
+            this.labelControl26.Location = new System.Drawing.Point(1, 161);
+            this.labelControl26.Name = "labelControl26";
+            this.labelControl26.Size = new System.Drawing.Size(14, 13);
+            this.labelControl26.TabIndex = 26;
+            this.labelControl26.Text = "00";
+            // 
             // UcNatsuItemFeedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.txt_TruongSo00);
+            this.Controls.Add(this.labelControl26);
             this.Controls.Add(this.txt_TruongSo25);
             this.Controls.Add(this.txt_TruongSo21);
             this.Controls.Add(this.txt_TruongSo10);
@@ -784,7 +810,7 @@
             this.Controls.Add(this.txt_TruongSo01);
             this.Controls.Add(this.labelControl1);
             this.Name = "UcNatsuItemFeedback";
-            this.Size = new System.Drawing.Size(171, 274);
+            this.Size = new System.Drawing.Size(250, 233);
             this.Load += new System.EventHandler(this.UcNatsuItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo01.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo02.Properties)).EndInit();
@@ -811,6 +837,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo23.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo24.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo25.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_TruongSo00.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -868,5 +895,7 @@
         public DevExpress.XtraEditors.TextEdit txt_TruongSo24;
         public DevExpress.XtraEditors.LabelControl labelControl25;
         public DevExpress.XtraEditors.TextEdit txt_TruongSo25;
+        public DevExpress.XtraEditors.TextEdit txt_TruongSo00;
+        public DevExpress.XtraEditors.LabelControl labelControl26;
     }
 }

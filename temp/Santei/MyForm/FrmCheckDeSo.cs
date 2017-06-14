@@ -930,7 +930,7 @@ namespace Natsu.MyForm
         {
             try
             {
-                if (ucNatsu1.IsEmptyTruong00())
+                if (ucNatsu1.IsEmptyTruong00(ucNatsu1.UcNatsuItem1) || ucNatsu1.IsEmptyTruong00(ucNatsu1.UcNatsuItem2) || ucNatsu1.IsEmptyTruong00(ucNatsu1.UcNatsuItem3) || ucNatsu1.IsEmptyTruong00(ucNatsu1.UcNatsuItem4) || ucNatsu1.IsEmptyTruong00(ucNatsu1.UcNatsuItem5))
                 {
                     MessageBox.Show(@"Field 00 is empty");
                     return;
@@ -964,7 +964,7 @@ namespace Natsu.MyForm
         {
             try
             {
-                if (ucNatsu2.IsEmptyTruong00())
+                if (ucNatsu2.IsEmptyTruong00(ucNatsu2.UcNatsuItem1) || ucNatsu2.IsEmptyTruong00(ucNatsu2.UcNatsuItem2) || ucNatsu2.IsEmptyTruong00(ucNatsu2.UcNatsuItem3) || ucNatsu2.IsEmptyTruong00(ucNatsu2.UcNatsuItem4) || ucNatsu2.IsEmptyTruong00(ucNatsu2.UcNatsuItem5))
                 {
                     MessageBox.Show(@"Field 00 is empty");
                     return;

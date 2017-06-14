@@ -33,29 +33,16 @@ namespace Natsu.MyUserControl
             return empty;
         }
 
-        public bool IsEmptyTruong00()
+        public bool IsEmptyTruong00(UcNatsuItem uc)
         {
-            bool kq = false;
+            bool kq;
             if (!UcNatsuItem1.IsEmpty())
             {
-                kq = string.IsNullOrEmpty(UcNatsuItem1.txt_TruongSo00.Text);
+                kq = uc.txt_TruongSo00.Text=="";
             }
-            if (!UcNatsuItem2.IsEmpty())
+            else
             {
-                kq = string.IsNullOrEmpty(UcNatsuItem2.txt_TruongSo00.Text);
-            }
-            if (!UcNatsuItem3.IsEmpty())
-            {
-                kq = string.IsNullOrEmpty(UcNatsuItem3.txt_TruongSo00.Text);
-            }
-            if (!UcNatsuItem4.IsEmpty())
-            {
-                kq = string.IsNullOrEmpty(UcNatsuItem4.txt_TruongSo00.Text);
-            }
-            if (!UcNatsuItem5.IsEmpty())
-            {
-                kq = string.IsNullOrEmpty(UcNatsuItem5.txt_TruongSo00.Text);
-                return kq;
+                kq = false;
             }
             return kq;
         }

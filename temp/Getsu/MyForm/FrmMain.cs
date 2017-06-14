@@ -251,7 +251,7 @@ namespace Natsu.MyForm
                 {
                     if (Global.StrRole == "DESO")
                     {
-                        if (UcNatsu1.IsEmptyTruong00())
+                        if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                         {
                             MessageBox.Show(@"Field 00 is empty");
                             return;
@@ -324,7 +324,7 @@ namespace Natsu.MyForm
                 }
                 if (Global.StrRole == "DESO")
                 {
-                    if (UcNatsu1.IsEmptyTruong00())
+                    if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                     {
                         MessageBox.Show(@"Field 00 is empty");
                         return;

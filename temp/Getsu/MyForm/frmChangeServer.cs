@@ -34,17 +34,18 @@ namespace Natsu.MyForm
                         rb_Khac.Checked = true;
                         break;
                 }
-                string s = GetLocalIpAddress();
-                if (s.Substring(0,3)=="10.")
-                {
-                    rb_DaNang.Checked = true;
-                    btn_Save_Click(null,null);
-                }
-                else
-                {
-                    rb_Khac.Checked = true;
-                    btn_Save_Click(null, null);
-                }
+                //string s = GetLocalIpAddress();
+                //string[] ip = s.Split('.');
+                //if ((s.Substring(0,3)=="10.")||(ip[0]=="192"&&ip[1]))
+                //{
+                //    rb_DaNang.Checked = true;
+                //    btn_Save_Click(null,null);
+                //}
+                //else
+                //{
+                //    rb_Khac.Checked = true;
+                //    btn_Save_Click(null, null);
+                //}
             }
             catch (Exception)
             {

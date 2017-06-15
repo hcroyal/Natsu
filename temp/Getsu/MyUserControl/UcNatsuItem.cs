@@ -1527,9 +1527,9 @@ namespace Natsu.MyUserControl
                                 int kytudau = int.Parse(s.Substring(0, 2));
                                 int kytugiua = int.Parse(s.Substring(2, 2));
                                 int kytucuoi = int.Parse(s.Substring(4, 2));
-                                if (kytudau==1)
+                                if (newValue >= 010101 && newValue <= 450730)
                                 {
-                                    if (kytugiua<1 || kytucuoi<1)
+                                    if (kytugiua < 1 || kytugiua > 12 || kytucuoi < 1 || kytucuoi > 31)
                                     {
                                         ((TextEdit)sender).BackColor = Color.Red;
                                         ((TextEdit)sender).ForeColor = Color.White;
@@ -1541,35 +1541,12 @@ namespace Natsu.MyUserControl
                                         ((TextEdit)sender).ForeColor = Color.Black;
                                         ((TextEdit)sender).Tag = "0";
                                     }
-                                    
-                                }
-                                else if (kytudau==45)
-                                {
-                                    if (kytugiua >7 || kytucuoi > 30)
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.Red;
-                                        ((TextEdit)sender).ForeColor = Color.White;
-                                        ((TextEdit)sender).Tag = "1";
-                                    }
-                                    else
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.White;
-                                        ((TextEdit)sender).ForeColor = Color.Black;
-                                        ((TextEdit)sender).Tag = "0";
-                                    }
-                                }
-                                else if (kytudau < 1 || kytudau > 45 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
-                                {
-                                    //e.Cancel = true;
-                                    ((TextEdit)sender).BackColor = Color.Red;
-                                    ((TextEdit)sender).ForeColor = Color.White;
-                                    ((TextEdit)sender).Tag = "1";
                                 }
                                 else
                                 {
-                                    ((TextEdit)sender).BackColor = Color.White;
-                                    ((TextEdit)sender).ForeColor = Color.Black;
-                                    ((TextEdit)sender).Tag = "0";
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
                                 }
 
                             }
@@ -1583,9 +1560,9 @@ namespace Natsu.MyUserControl
                                 int kytudau = int.Parse(s.Substring(0, 2));
                                 int kytugiua = int.Parse(s.Substring(2, 2));
                                 int kytucuoi = int.Parse(s.Substring(4, 2));
-                                if (kytudau == 1)
+                                if (newValue >= 010731 && newValue <= 151225)
                                 {
-                                    if (kytugiua < 7 || kytucuoi < 31)
+                                    if (kytugiua < 1 || kytugiua > 12 || kytucuoi < 1 || kytucuoi > 31)
                                     {
                                         ((TextEdit)sender).BackColor = Color.Red;
                                         ((TextEdit)sender).ForeColor = Color.White;
@@ -1597,35 +1574,12 @@ namespace Natsu.MyUserControl
                                         ((TextEdit)sender).ForeColor = Color.Black;
                                         ((TextEdit)sender).Tag = "0";
                                     }
-
-                                }
-                                else if (kytudau == 15)
-                                {
-                                    if (kytugiua > 12 || kytucuoi > 25)
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.Red;
-                                        ((TextEdit)sender).ForeColor = Color.White;
-                                        ((TextEdit)sender).Tag = "1";
-                                    }
-                                    else
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.White;
-                                        ((TextEdit)sender).ForeColor = Color.Black;
-                                        ((TextEdit)sender).Tag = "0";
-                                    }
-                                }
-                                else if (kytudau < 1 || kytudau > 15 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
-                                {
-                                    //e.Cancel = true;
-                                    ((TextEdit)sender).BackColor = Color.Red;
-                                    ((TextEdit)sender).ForeColor = Color.White;
-                                    ((TextEdit)sender).Tag = "1";
                                 }
                                 else
                                 {
-                                    ((TextEdit)sender).BackColor = Color.White;
-                                    ((TextEdit)sender).ForeColor = Color.Black;
-                                    ((TextEdit)sender).Tag = "0";
+                                    ((TextEdit)sender).BackColor = Color.Red;
+                                    ((TextEdit)sender).ForeColor = Color.White;
+                                    ((TextEdit)sender).Tag = "1";
                                 }
 
                             }
@@ -1639,25 +1593,9 @@ namespace Natsu.MyUserControl
                                 int kytudau = int.Parse(s.Substring(0, 2));
                                 int kytugiua = int.Parse(s.Substring(2, 2));
                                 int kytucuoi = int.Parse(s.Substring(4, 2));
-                                if (kytudau == 1)
+                                if (newValue >= 011226 && newValue <= 640102)
                                 {
-                                    if (kytugiua < 12 || kytucuoi < 26)
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.Red;
-                                        ((TextEdit)sender).ForeColor = Color.White;
-                                        ((TextEdit)sender).Tag = "1";
-                                    }
-                                    else
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.White;
-                                        ((TextEdit)sender).ForeColor = Color.Black;
-                                        ((TextEdit)sender).Tag = "0";
-                                    }
-
-                                }
-                                else if (kytudau == 64)
-                                {
-                                    if (kytugiua > 1 || kytucuoi > 2)
+                                    if (kytugiua < 1 || kytugiua > 12 || kytucuoi < 1 || kytucuoi > 31)
                                     {
                                         ((TextEdit)sender).BackColor = Color.Red;
                                         ((TextEdit)sender).ForeColor = Color.White;
@@ -1670,20 +1608,12 @@ namespace Natsu.MyUserControl
                                         ((TextEdit)sender).Tag = "0";
                                     }
                                 }
-                                else if (kytudau < 1 || kytudau > 64 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                else
                                 {
-                                    //e.Cancel = true;
                                     ((TextEdit)sender).BackColor = Color.Red;
                                     ((TextEdit)sender).ForeColor = Color.White;
                                     ((TextEdit)sender).Tag = "1";
                                 }
-                                else
-                                {
-                                    ((TextEdit)sender).BackColor = Color.White;
-                                    ((TextEdit)sender).ForeColor = Color.Black;
-                                    ((TextEdit)sender).Tag = "0";
-                                }
-
                             }
                         }
                         else if (txt_TruongSo02.Text == "7")
@@ -1695,25 +1625,10 @@ namespace Natsu.MyUserControl
                                 int kytudau = int.Parse(s.Substring(0, 2));
                                 int kytugiua = int.Parse(s.Substring(2, 2));
                                 int kytucuoi = int.Parse(s.Substring(4, 2));
-                                if (kytudau == 1)
-                                {
-                                    if (kytugiua < 1 || kytucuoi < 8)
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.Red;
-                                        ((TextEdit)sender).ForeColor = Color.White;
-                                        ((TextEdit)sender).Tag = "1";
-                                    }
-                                    else
-                                    {
-                                        ((TextEdit)sender).BackColor = Color.White;
-                                        ((TextEdit)sender).ForeColor = Color.Black;
-                                        ((TextEdit)sender).Tag = "0";
-                                    }
 
-                                }
-                                else if (kytudau == 29)
+                                if (newValue >= 010108 && newValue <= 290601)
                                 {
-                                    if (kytugiua > 6 || kytucuoi > 1)
+                                    if (kytugiua<1 || kytugiua>12 || kytucuoi<1 || kytucuoi>31)
                                     {
                                         ((TextEdit)sender).BackColor = Color.Red;
                                         ((TextEdit)sender).ForeColor = Color.White;
@@ -1726,20 +1641,12 @@ namespace Natsu.MyUserControl
                                         ((TextEdit)sender).Tag = "0";
                                     }
                                 }
-                                else if (kytudau < 1 || kytudau > 29 || kytugiua < 0 || kytugiua > 12 || kytucuoi < 0 || kytucuoi > 31)
+                                else
                                 {
-                                    //e.Cancel = true;
                                     ((TextEdit)sender).BackColor = Color.Red;
                                     ((TextEdit)sender).ForeColor = Color.White;
                                     ((TextEdit)sender).Tag = "1";
                                 }
-                                else
-                                {
-                                    ((TextEdit)sender).BackColor = Color.White;
-                                    ((TextEdit)sender).ForeColor = Color.Black;
-                                    ((TextEdit)sender).Tag = "0";
-                                }
-
                             }
                         }
                         else

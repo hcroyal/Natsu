@@ -35,7 +35,7 @@ namespace Natsu.MyUserControl
         public bool IsEmptyTruong00(UcSanteiItem uc)
         {
             bool kq;
-            if (!UcNatsuItem1.IsEmpty())
+            if (!uc.IsEmpty())
             {
                 kq = uc.txt_TruongSo00.Text == "";
             }

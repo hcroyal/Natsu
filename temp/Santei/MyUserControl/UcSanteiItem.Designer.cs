@@ -749,11 +749,11 @@
             this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl26.Appearance.Options.UseFont = true;
             this.labelControl26.Appearance.Options.UseForeColor = true;
-            this.labelControl26.Location = new System.Drawing.Point(339, 4);
+            this.labelControl26.Location = new System.Drawing.Point(329, 4);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(136, 18);
+            this.labelControl26.Size = new System.Drawing.Size(172, 18);
             this.labelControl26.TabIndex = 27;
-            this.labelControl26.Text = "21.  短  /  パート = 7";
+            this.labelControl26.Text = "21. 「短」= 6 | 「パート」= 7";
             // 
             // txt_TruongSo00
             // 

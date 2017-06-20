@@ -765,6 +765,7 @@
             this.txt_TruongSo00.Properties.MaxLength = 1;
             this.txt_TruongSo00.Size = new System.Drawing.Size(15, 20);
             this.txt_TruongSo00.TabIndex = 18;
+            this.txt_TruongSo00.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo01_KeyDown);
             this.txt_TruongSo00.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo00_KeyUp);
             // 
             // labelControl27

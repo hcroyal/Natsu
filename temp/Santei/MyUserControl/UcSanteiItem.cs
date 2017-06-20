@@ -1000,16 +1000,17 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo01_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Add)
+            
+            if (!e.Control && e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{Tab}");
+            }
+            else if (e.KeyCode == Keys.Add)
             {
                 ((TextEdit)sender).Text = ((TextEdit)sender).Text + "000";
                 ((TextEdit)sender).Select(((TextEdit)sender).Text.Length, 0);
             }
-            else if (!e.Control && e.KeyCode == Keys.Enter)
-            {
-                SendKeys.Send("{Tab}");
-            }
-           
+
         }
 
         private void txt_TruongSo01_KeyUp(object sender, KeyEventArgs e)

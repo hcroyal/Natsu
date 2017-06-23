@@ -583,4 +583,12 @@
       <Column Name="username" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.UpdateBatchChiaUser" Method="UpdateBatchChiaUser">
+    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateBatchKhongChiaUser" Method="UpdateBatchKhongChiaUser">
+    <Parameter Name="fbatchname" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

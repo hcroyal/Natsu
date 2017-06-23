@@ -49,14 +49,15 @@ namespace Natsu
                     a.btn_thoat.Text = @"Exit";
                     a.chb_hienthi.Text = @"Show";
                     a.chb_luu.Text = @"Save";
-                    a.lb_version.Text = @"1.3.6";
-                    a.UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
+                    a.lb_version.Text = Global.Version;
+                    a.UrlUpdateVersion = Global.UrlUpdateVersion;
                     a.LoginEvent += a_LoginEvent;
                     a.ButtonLoginEven += a_ButtonLoginEven;
                     if (a.ShowDialog() == DialogResult.OK)
                     {
                         Global.StrMachine = a.StrMachine;
-                        Global.StrUserWindow = a.StrUserWindow; Global.StrIpAddress = a.StrIpAddress;
+                        Global.StrUserWindow = a.StrUserWindow;
+                        Global.StrIpAddress = a.StrIpAddress;
                         Global.StrUsername = a.StrUserName;
                         Global.StrBatch = a.StrBatch;
                         Global.StrRole = a.StrRole;

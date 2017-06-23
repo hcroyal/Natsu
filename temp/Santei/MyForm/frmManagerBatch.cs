@@ -82,22 +82,34 @@ namespace Natsu.MyForm
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             string batchname = gridView1.GetFocusedRowCellValue("fBatchName") + "";
-            if (e.Column.FieldName == "ChiaUser")
+            var kt = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == batchname select w.IdImage).ToList();
+            if (kt.Count > 0)
             {
-                bool check = (bool)e.Value;
-                if (check)
+                MessageBox.Show("Batch này đã được nhập!");
+            }
+            else
+            {
+                if (e.Column.FieldName == "ChiaUser")
                 {
-                    var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
-                    batch.ChiaUser = true;
-                    Global.Db.SubmitChanges();
-                }
-                else
-                {
-                    var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
-                    batch.ChiaUser = false;
-                    Global.Db.SubmitChanges();
+                    bool check = (bool)e.Value;
+                    if (check)
+                    {
+                        var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
+                        batch.ChiaUser = true;
+                        Global.Db.SubmitChanges();
+                        Global.Db.UpdateBatchChiaUser(batchname);
+                    }
+                    else
+                    {
+                        var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
+                        batch.ChiaUser = false;
+                        Global.Db.SubmitChanges();
+                        Global.Db.UpdateBatchKhongChiaUser(batchname);
+
+                    }
                 }
             }
+
             RefreshBatch();
         }
     }

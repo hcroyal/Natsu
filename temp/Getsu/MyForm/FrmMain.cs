@@ -1,6 +1,7 @@
 ﻿using Natsu.MyClass;
 using Natsu.Properties;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
@@ -299,6 +300,13 @@ namespace Natsu.MyForm
                         }
                         UcNatsu1.SaveData(lb_IdImage.Text);
                         UcNatsu1.ResetData();
+                        var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
+                        if (version != Global.Version)
+                        {
+                            MessageBox.Show(@"The current version is out of date, please update to the new version!");
+                            Process.Start(Global.UrlUpdateVersion);
+                            Application.Exit();
+                        }
                         string temp = GetImage();
                         if (temp == "NULL")
                         {

@@ -50,7 +50,7 @@
             this.txt_PathFolder = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.ck_ChiaUser = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_SoFolder = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txt_DateCreate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ImagePath.Properties)).BeginInit();
@@ -237,20 +237,19 @@
             this.ck_ChiaUser.Size = new System.Drawing.Size(75, 19);
             this.ck_ChiaUser.TabIndex = 49;
             // 
-            // labelControl9
+            // lbl_SoFolder
             // 
-            this.labelControl9.Location = new System.Drawing.Point(45, 384);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(63, 13);
-            this.labelControl9.TabIndex = 50;
-            this.labelControl9.Text = "labelControl9";
+            this.lbl_SoFolder.Location = new System.Drawing.Point(45, 384);
+            this.lbl_SoFolder.Name = "lbl_SoFolder";
+            this.lbl_SoFolder.Size = new System.Drawing.Size(0, 13);
+            this.lbl_SoFolder.TabIndex = 50;
             // 
             // FrmCreateBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 443);
-            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.lbl_SoFolder);
             this.Controls.Add(this.ck_ChiaUser);
             this.Controls.Add(this.btn_Browser);
             this.Controls.Add(this.txt_PathFolder);
@@ -311,6 +310,6 @@
         private DevExpress.XtraEditors.TextEdit txt_PathFolder;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.CheckEdit ck_ChiaUser;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl lbl_SoFolder;
     }
 }

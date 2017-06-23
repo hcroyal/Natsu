@@ -105,18 +105,36 @@ namespace Natsu.MyForm
             {
                 FileInfo fi = new FileInfo(i);
 
-                tbl_Image tempImage = new tbl_Image
+                if (ck_ChiaUser.Checked)
                 {
-                    fbatchname = txt_BatchName.Text,
-                    idimage = Path.GetFileName(fi.ToString()),
-                    ReadImageDESo = 0,
-                    CheckedDESo = 0,
-                    TienDoDESO = "Hình chưa nhập",
-                    ReadImageDESO_Good = 0,
-                    ReadImageDESO_NotGood = 0
-                };
-                Global.Db.tbl_Images.InsertOnSubmit(tempImage);
-                Global.Db.SubmitChanges();
+                    tbl_Image tempImage = new tbl_Image
+                    {
+                        fbatchname = batch,
+                        idimage = Path.GetFileName(fi.ToString()),
+                        ReadImageDESo = 0,
+                        CheckedDESo = 0,
+                        TienDoDESO = "Hình chưa nhập",
+                        ReadImageDESO_Good = 0,
+                        ReadImageDESO_NotGood = 0
+                    };
+                    Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                    Global.Db.SubmitChanges();
+                }
+                else
+                {
+                    tbl_Image tempImage = new tbl_Image
+                    {
+                        fbatchname = batch,
+                        idimage = Path.GetFileName(fi.ToString()),
+                        ReadImageDESo = 0,
+                        CheckedDESo = 0,
+                        TienDoDESO = "Hình chưa nhập",
+                        ReadImageDESO_Good = 1,
+                        ReadImageDESO_NotGood = 1
+                    };
+                    Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                    Global.Db.SubmitChanges();
+                }
 
                 string des = temp + @"\" + Path.GetFileName(fi.ToString());
                 fi.CopyTo(des);
@@ -197,17 +215,15 @@ namespace Natsu.MyForm
             List<string> lStrBath3 = new List<string>();
             List<string> lStrBath4 = new List<string>();
             lStrBath1.AddRange(Directory.GetDirectories(txt_PathFolder.Text));
-            progressBarControl1.EditValue = 0;
-            progressBarControl1.Properties.Step = 1;
-            progressBarControl1.Properties.PercentView = true;
-            progressBarControl1.Properties.Maximum = lStrBath1.Count;
-            progressBarControl1.Properties.Minimum = 0;
-            
+
+            int k = 0;
+            int total = lStrBath1.Count;
             string pathexcel = @"X:\" + new DirectoryInfo(txt_PathFolder.Text).Name;
             string s = new DirectoryInfo(txt_PathFolder.Text).Name;
             createFolder(s);
             foreach (string item1 in lStrBath1)
             {
+                lbl_SoFolder.Text = k + @"/" + total;
                 string pathexcel1 = pathexcel + @"\" + new DirectoryInfo(item1).Name;
                 string litem1 = s + @"\" + new DirectoryInfo(item1).Name;
                 createFolder(litem1);
@@ -246,25 +262,20 @@ namespace Natsu.MyForm
                                             createFolder(litem4);
 
                                             createBatch(item4, Global.StrPath + @"\" + litem4, litem4, pathexcel3);
-                                            progressBarControl1.PerformStep();
-                                            progressBarControl1.Update();
+                                            
                                         }
 
                                     }
-                                    progressBarControl1.PerformStep();
-                                    progressBarControl1.Update();
+                                    
                                 }
                             }
-                            progressBarControl1.PerformStep();
-                            progressBarControl1.Update();
+                           
                         }
                     }
-                    progressBarControl1.PerformStep();
-                    progressBarControl1.Update();
+                    
                 }
+                k++;
 
-                progressBarControl1.PerformStep();
-                progressBarControl1.Update();
 
 
 
@@ -341,24 +352,48 @@ namespace Natsu.MyForm
 
             var filters1 = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
             string[] tmp1 = GetFilesFrom(location, filters1, false);
+            progressBarControl1.EditValue = 0;
+            progressBarControl1.Properties.Step = 1;
+            progressBarControl1.Properties.PercentView = true;
+            progressBarControl1.Properties.Maximum = tmp1.Length;
+            progressBarControl1.Properties.Minimum = 0;
             foreach (string s in tmp1)
             {
                 FileInfo fi = new FileInfo(s);
-                tbl_Image tempImage = new tbl_Image
+                if (ck_ChiaUser.Checked)
                 {
-                    fbatchname = batch,
-                    idimage = Path.GetFileName(fi.ToString()),
-                    ReadImageDESo = 0,
-                    CheckedDESo = 0,
-                    TienDoDESO = "Hình chưa nhập",
-                    ReadImageDESO_Good = 0,
-                    ReadImageDESO_NotGood = 0
-                };
-                Global.Db.tbl_Images.InsertOnSubmit(tempImage);
-                Global.Db.SubmitChanges();
+                    tbl_Image tempImage = new tbl_Image
+                    {
+                        fbatchname = batch,
+                        idimage = Path.GetFileName(fi.ToString()),
+                        ReadImageDESo = 0,
+                        CheckedDESo = 0,
+                        TienDoDESO = "Hình chưa nhập",
+                        ReadImageDESO_Good = 0,
+                        ReadImageDESO_NotGood = 0
+                    };
+                    Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                    Global.Db.SubmitChanges();
+                }
+                else
+                {
+                    tbl_Image tempImage = new tbl_Image
+                    {
+                        fbatchname = batch,
+                        idimage = Path.GetFileName(fi.ToString()),
+                        ReadImageDESo = 0,
+                        CheckedDESo = 0,
+                        TienDoDESO = "Hình chưa nhập",
+                        ReadImageDESO_Good = 1,
+                        ReadImageDESO_NotGood = 1
+                    };
+                    Global.Db.tbl_Images.InsertOnSubmit(tempImage);
+                    Global.Db.SubmitChanges();
+                }
                 string des = server + @"\" + Path.GetFileName(fi.ToString());
                 fi.CopyTo(des);
-               
+                progressBarControl1.PerformStep();
+                progressBarControl1.Update();
             }
         }
 

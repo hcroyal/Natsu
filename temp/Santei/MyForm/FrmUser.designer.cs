@@ -236,6 +236,8 @@
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.Wheat;
             this.gridView1.Appearance.OddRow.BackColor2 = System.Drawing.Color.FloralWhite;
             this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
@@ -326,7 +328,7 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "NotGoodUser";
+            this.gridColumn7.Caption = "Note";
             this.gridColumn7.FieldName = "NotGoodUser";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;

@@ -50,6 +50,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.ck_ChiaUser = new DevExpress.XtraEditors.CheckEdit();
+            this.lbl_SoFolder = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txt_PathFolder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_DateCreate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
@@ -111,7 +112,7 @@
             // progressBarControl1
             // 
             this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBarControl1.Location = new System.Drawing.Point(0, 373);
+            this.progressBarControl1.Location = new System.Drawing.Point(0, 398);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.Step = 1;
             this.progressBarControl1.Size = new System.Drawing.Size(632, 40);
@@ -196,7 +197,7 @@
             this.labelControl3.Appearance.Options.UseForeColor = true;
             this.labelControl3.Location = new System.Drawing.Point(137, 195);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(33, 13);
+            this.labelControl3.Size = new System.Drawing.Size(31, 13);
             this.labelControl3.TabIndex = 51;
             this.labelControl3.Text = "Z:\\abc";
             // 
@@ -236,11 +237,19 @@
             this.ck_ChiaUser.Size = new System.Drawing.Size(75, 19);
             this.ck_ChiaUser.TabIndex = 68;
             // 
+            // lbl_SoFolder
+            // 
+            this.lbl_SoFolder.Location = new System.Drawing.Point(63, 379);
+            this.lbl_SoFolder.Name = "lbl_SoFolder";
+            this.lbl_SoFolder.Size = new System.Drawing.Size(0, 13);
+            this.lbl_SoFolder.TabIndex = 69;
+            // 
             // FrmCreateBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 413);
+            this.ClientSize = new System.Drawing.Size(632, 438);
+            this.Controls.Add(this.lbl_SoFolder);
             this.Controls.Add(this.ck_ChiaUser);
             this.Controls.Add(this.btn_Browser);
             this.Controls.Add(this.labelControl8);
@@ -302,5 +311,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.CheckEdit ck_ChiaUser;
+        private DevExpress.XtraEditors.LabelControl lbl_SoFolder;
     }
 }

@@ -1822,7 +1822,7 @@ namespace Natsu.MyUserControl
             {
                 if (!string.IsNullOrEmpty(e.NewValue + ""))
                 {
-                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 4 || e.NewValue.ToString().Length < 0)
+                    if (e.NewValue.ToString().IndexOf('?') < 0 && e.NewValue.ToString().Length > 4 || e.NewValue.ToString().Length < 4)
                     {
                         ((TextEdit)sender).BackColor = Color.Red;
                         ((TextEdit)sender).ForeColor = Color.White;
@@ -1836,7 +1836,7 @@ namespace Natsu.MyUserControl
                             string s = newValue + "";
                             int kytudau = int.Parse(s.Substring(0, 2));
                             int kytucuoi = int.Parse(s.Substring(2, 2));
-                            if (kytudau < 25 || kytudau > 29 || kytucuoi < 0 || kytucuoi > 31)
+                            if (newValue<2906||newValue>2909)
                             {
                                 //e.Cancel = true;
                                 ((TextEdit)sender).BackColor = Color.Red;

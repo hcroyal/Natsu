@@ -366,7 +366,7 @@ namespace Natsu.MyForm
                         h++;
                     }
 
-                    lb_SoDong.Text = (h - 1) + @"/" + dataGridView1.Rows.Count;
+                    lb_SoDong.Text = (h - 1) + @"/" + dataGridView1.Rows.Count/2;
                     Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "AO" + (h-1));
                     rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                     i++;

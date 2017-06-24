@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnExportError = new System.Windows.Forms.Button();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btn_Export = new System.Windows.Forms.Button();
             this.cbb_Batch = new System.Windows.Forms.ComboBox();
@@ -36,7 +37,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.btnExportError = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -56,9 +56,19 @@
             this.panelControl1.Size = new System.Drawing.Size(1038, 61);
             this.panelControl1.TabIndex = 10;
             // 
+            // btnExportError
+            // 
+            this.btnExportError.Location = new System.Drawing.Point(810, 22);
+            this.btnExportError.Name = "btnExportError";
+            this.btnExportError.Size = new System.Drawing.Size(84, 23);
+            this.btnExportError.TabIndex = 7;
+            this.btnExportError.Text = "Export Error";
+            this.btnExportError.UseVisualStyleBackColor = true;
+            this.btnExportError.Click += new System.EventHandler(this.btnExportError_Click);
+            // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(71, 27);
+            this.labelControl1.Location = new System.Drawing.Point(5, 27);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(31, 13);
             this.labelControl1.TabIndex = 6;
@@ -66,7 +76,7 @@
             // 
             // btn_Export
             // 
-            this.btn_Export.Location = new System.Drawing.Point(349, 22);
+            this.btn_Export.Location = new System.Drawing.Point(701, 22);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(99, 23);
             this.btn_Export.TabIndex = 3;
@@ -77,15 +87,15 @@
             // cbb_Batch
             // 
             this.cbb_Batch.FormattingEnabled = true;
-            this.cbb_Batch.Location = new System.Drawing.Point(108, 24);
+            this.cbb_Batch.Location = new System.Drawing.Point(42, 24);
             this.cbb_Batch.Name = "cbb_Batch";
-            this.cbb_Batch.Size = new System.Drawing.Size(235, 21);
+            this.cbb_Batch.Size = new System.Drawing.Size(653, 21);
             this.cbb_Batch.TabIndex = 0;
             // 
             // lb_SoDong
             // 
             this.lb_SoDong.AutoSize = true;
-            this.lb_SoDong.Location = new System.Drawing.Point(559, 27);
+            this.lb_SoDong.Location = new System.Drawing.Point(911, 27);
             this.lb_SoDong.Name = "lb_SoDong";
             this.lb_SoDong.Size = new System.Drawing.Size(19, 13);
             this.lb_SoDong.TabIndex = 5;
@@ -113,16 +123,6 @@
             this.progressBarControl1.ShowProgressInTaskBar = true;
             this.progressBarControl1.Size = new System.Drawing.Size(1038, 27);
             this.progressBarControl1.TabIndex = 11;
-            // 
-            // btnExportError
-            // 
-            this.btnExportError.Location = new System.Drawing.Point(458, 22);
-            this.btnExportError.Name = "btnExportError";
-            this.btnExportError.Size = new System.Drawing.Size(84, 23);
-            this.btnExportError.TabIndex = 7;
-            this.btnExportError.Text = "Export Error";
-            this.btnExportError.UseVisualStyleBackColor = true;
-            this.btnExportError.Click += new System.EventHandler(this.btnExportError_Click);
             // 
             // FrmExportExcel
             // 

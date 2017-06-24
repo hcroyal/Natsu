@@ -749,11 +749,11 @@
             this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl26.Appearance.Options.UseFont = true;
             this.labelControl26.Appearance.Options.UseForeColor = true;
-            this.labelControl26.Location = new System.Drawing.Point(180, 3);
+            this.labelControl26.Location = new System.Drawing.Point(319, 1);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(324, 18);
+            this.labelControl26.Size = new System.Drawing.Size(185, 18);
             this.labelControl26.TabIndex = 27;
-            this.labelControl26.Text = "21. 日給 hay 時給 = * | 短= 6 | パート= 7 | Số 9";
+            this.labelControl26.Text = "21. 短= 6 | パート= 7 | Số 9";
             // 
             // txt_TruongSo00
             // 

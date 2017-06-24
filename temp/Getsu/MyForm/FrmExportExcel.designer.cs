@@ -59,7 +59,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(71, 27);
+            this.labelControl1.Location = new System.Drawing.Point(12, 27);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(31, 13);
             this.labelControl1.TabIndex = 6;
@@ -67,7 +67,7 @@
             // 
             // btnExportError
             // 
-            this.btnExportError.Location = new System.Drawing.Point(468, 24);
+            this.btnExportError.Location = new System.Drawing.Point(845, 22);
             this.btnExportError.Name = "btnExportError";
             this.btnExportError.Size = new System.Drawing.Size(84, 23);
             this.btnExportError.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // btn_Export
             // 
-            this.btn_Export.Location = new System.Drawing.Point(349, 24);
+            this.btn_Export.Location = new System.Drawing.Point(726, 22);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(99, 23);
             this.btn_Export.TabIndex = 3;
@@ -88,15 +88,15 @@
             // cbb_Batch
             // 
             this.cbb_Batch.FormattingEnabled = true;
-            this.cbb_Batch.Location = new System.Drawing.Point(108, 24);
+            this.cbb_Batch.Location = new System.Drawing.Point(49, 24);
             this.cbb_Batch.Name = "cbb_Batch";
-            this.cbb_Batch.Size = new System.Drawing.Size(235, 21);
+            this.cbb_Batch.Size = new System.Drawing.Size(671, 21);
             this.cbb_Batch.TabIndex = 0;
             // 
             // lb_SoDong
             // 
             this.lb_SoDong.AutoSize = true;
-            this.lb_SoDong.Location = new System.Drawing.Point(571, 32);
+            this.lb_SoDong.Location = new System.Drawing.Point(948, 30);
             this.lb_SoDong.Name = "lb_SoDong";
             this.lb_SoDong.Size = new System.Drawing.Size(19, 13);
             this.lb_SoDong.TabIndex = 5;

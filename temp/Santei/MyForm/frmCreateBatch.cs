@@ -51,6 +51,7 @@ namespace Natsu.MyForm
         private void btn_CreateBatch_Click(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
+            
         }
 
         private void UpLoadSingle()
@@ -109,7 +110,7 @@ namespace Natsu.MyForm
                 {
                     tbl_Image tempImage = new tbl_Image
                     {
-                        fbatchname = batch,
+                        fbatchname = txt_BatchName.Text,
                         idimage = Path.GetFileName(fi.ToString()),
                         ReadImageDESo = 0,
                         CheckedDESo = 0,
@@ -124,7 +125,7 @@ namespace Natsu.MyForm
                 {
                     tbl_Image tempImage = new tbl_Image
                     {
-                        fbatchname = batch,
+                        fbatchname = txt_BatchName.Text,
                         idimage = Path.GetFileName(fi.ToString()),
                         ReadImageDESo = 0,
                         CheckedDESo = 0,

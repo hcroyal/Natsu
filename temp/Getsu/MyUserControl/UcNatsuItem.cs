@@ -324,41 +324,71 @@ namespace Natsu.MyUserControl
         {
             ((TextEdit)sender).SelectAll();
         }
-
-        private void curency(TextEdit txt)
+        public void curency(TextEdit luong)
         {
+
+            //luong.Select(luong.Text.Length, 0);
+            //luong.SelectionStart = luong.Text.Length;
+
             try
             {
                 string t;
-                if (txt.Text.Length > 0)
+                string txt, txt1;
+                txt1 = luong.Text.Replace(",", "");
+                txt = "";
+                int n = txt1.Length;
+                int dem = 0;
+
+                if (luong.Text.Length > 0)
                 {
-                    if (txt.Text.Substring(0, 1) == "-")
+                    if (luong.Text.Substring(0, 1) == "-")
                     {
-                        if (txt.Text.Length > 1)
+                        if (luong.Text.Length > 1)
                         {
-                            t = txt.Text.Substring(1, txt.Text.Length - 1);
-                            if (txt.SelectionLength != txt.Text.Length)
+                            if (luong.SelectionLength != luong.Text.Length)
                             {
-                                if (txt.Text != "?")
+                                if (luong.Text != "?")
                                 {
-                                    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                    int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
-                                    txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
-                                    txt.Select(txt.Text.Length, 0);
+                                    for (int i = n - 1; i >= 0; i--)
+                                    {
+                                        if (dem == 2 && i != 0)
+                                        {
+                                            txt = "," + txt1.Substring(i, 1) + txt;
+                                            dem = 0;
+                                        }
+                                        else
+                                        {
+                                            txt = txt1.Substring(i, 1) + txt;
+                                            dem += 1;
+                                        }
+                                    }
+                                    luong.Text = txt;
+                                    luong.Select(luong.Text.Length, 0);
                                 }
                             }
                         }
                     }
                     else
                     {
-                        if (txt.SelectionLength != txt.Text.Length)
+                        if (luong.SelectionLength != luong.Text.Length)
                         {
-                            if (txt.Text != "?")
+                            if (luong.Text != "?")
                             {
-                                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
-                                txt.Text = string.Format(culture, "{0:N0}", valueBefore);
-                                txt.Select(txt.Text.Length, 0);
+                                for (int i = n - 1; i >= 0; i--)
+                                {
+                                    if (dem == 2 && i != 0)
+                                    {
+                                        txt = "," + txt1.Substring(i, 1) + txt;
+                                        dem = 0;
+                                    }
+                                    else
+                                    {
+                                        txt = txt1.Substring(i, 1) + txt;
+                                        dem += 1;
+                                    }
+                                }
+                                luong.Text = txt;
+                                luong.Select(luong.Text.Length, 0);
                             }
                         }
                     }
@@ -366,10 +396,55 @@ namespace Natsu.MyUserControl
             }
             catch (Exception e)
             {
-                //MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
-           
+
         }
+        //private void curency(TextEdit txt)
+        //{
+        //    try
+        //    {
+        //        string t;
+        //        if (txt.Text.Length > 0)
+        //        {
+        //            if (txt.Text.Substring(0, 1) == "-")
+        //            {
+        //                if (txt.Text.Length > 1)
+        //                {
+        //                    t = txt.Text.Substring(1, txt.Text.Length - 1);
+        //                    if (txt.SelectionLength != txt.Text.Length)
+        //                    {
+        //                        if (txt.Text != "?")
+        //                        {
+        //                            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+        //                            int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
+        //                            txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
+        //                            txt.Select(txt.Text.Length, 0);
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (txt.SelectionLength != txt.Text.Length)
+        //                {
+        //                    if (txt.Text != "?")
+        //                    {
+        //                        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+        //                        int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
+        //                        txt.Text = string.Format(culture, "{0:N0}", valueBefore);
+        //                        txt.Select(txt.Text.Length, 0);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        //MessageBox.Show(e.Message);
+        //    }
+
+        //}
 
         private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
         {

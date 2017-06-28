@@ -32,13 +32,13 @@
             DevExpress.XtraCharts.PieSeriesView pieSeriesView1 = new DevExpress.XtraCharts.PieSeriesView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTienDo));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lb_TongSoHinh = new DevExpress.XtraEditors.LabelControl();
             this.ck_All = new DevExpress.XtraEditors.CheckEdit();
             this.btn_ChiTiet = new DevExpress.XtraEditors.SimpleButton();
             this.cbb_Batch = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.lb_TongSoHinh = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ck_All.Properties)).BeginInit();
@@ -62,10 +62,34 @@
             this.panelControl1.Size = new System.Drawing.Size(1082, 82);
             this.panelControl1.TabIndex = 1;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(920, 63);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(74, 13);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Tổng số hình:";
+            // 
+            // lb_TongSoHinh
+            // 
+            this.lb_TongSoHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_TongSoHinh.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.lb_TongSoHinh.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lb_TongSoHinh.Appearance.Options.UseFont = true;
+            this.lb_TongSoHinh.Appearance.Options.UseForeColor = true;
+            this.lb_TongSoHinh.Location = new System.Drawing.Point(1000, 58);
+            this.lb_TongSoHinh.Name = "lb_TongSoHinh";
+            this.lb_TongSoHinh.Size = new System.Drawing.Size(40, 19);
+            this.lb_TongSoHinh.TabIndex = 6;
+            this.lb_TongSoHinh.Text = "1000";
+            // 
             // ck_All
             // 
             this.ck_All.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ck_All.Location = new System.Drawing.Point(572, 32);
+            this.ck_All.Location = new System.Drawing.Point(742, 32);
             this.ck_All.Name = "ck_All";
             this.ck_All.Properties.Caption = "All";
             this.ck_All.Size = new System.Drawing.Size(31, 19);
@@ -75,7 +99,7 @@
             // btn_ChiTiet
             // 
             this.btn_ChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ChiTiet.Location = new System.Drawing.Point(618, 30);
+            this.btn_ChiTiet.Location = new System.Drawing.Point(788, 30);
             this.btn_ChiTiet.Name = "btn_ChiTiet";
             this.btn_ChiTiet.Size = new System.Drawing.Size(75, 23);
             this.btn_ChiTiet.TabIndex = 2;
@@ -90,7 +114,7 @@
             this.cbb_Batch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbb_Batch.Properties.NullText = "No batch";
-            this.cbb_Batch.Size = new System.Drawing.Size(306, 20);
+            this.cbb_Batch.Size = new System.Drawing.Size(473, 20);
             this.cbb_Batch.TabIndex = 1;
             this.cbb_Batch.EditValueChanged += new System.EventHandler(this.cbb_Batch_EditValueChanged);
             // 
@@ -125,30 +149,6 @@
             this.chartControl1.Size = new System.Drawing.Size(1082, 596);
             this.chartControl1.TabIndex = 2;
             this.chartControl1.CustomDrawSeriesPoint += new DevExpress.XtraCharts.CustomDrawSeriesPointEventHandler(this.chartControl1_CustomDrawSeriesPoint);
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(920, 63);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(74, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Tổng số hình:";
-            // 
-            // lb_TongSoHinh
-            // 
-            this.lb_TongSoHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_TongSoHinh.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.lb_TongSoHinh.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lb_TongSoHinh.Appearance.Options.UseFont = true;
-            this.lb_TongSoHinh.Appearance.Options.UseForeColor = true;
-            this.lb_TongSoHinh.Location = new System.Drawing.Point(1000, 58);
-            this.lb_TongSoHinh.Name = "lb_TongSoHinh";
-            this.lb_TongSoHinh.Size = new System.Drawing.Size(40, 19);
-            this.lb_TongSoHinh.TabIndex = 6;
-            this.lb_TongSoHinh.Text = "1000";
             // 
             // FrmTienDo
             // 

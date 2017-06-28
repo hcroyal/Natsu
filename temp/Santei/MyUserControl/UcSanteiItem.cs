@@ -325,41 +325,71 @@ namespace Natsu.MyUserControl
         {
             ((TextEdit)sender).SelectAll();
         }
-
-        private void curency(TextEdit txt)
+        public void curency(TextEdit luong)
         {
+           
+            //luong.Select(luong.Text.Length, 0);
+            //luong.SelectionStart = luong.Text.Length;
+
             try
             {
                 string t;
-                if (txt.Text.Length > 0)
+                string txt, txt1;
+                txt1 = luong.Text.Replace(",", "");
+                txt = "";
+                int n = txt1.Length;
+                int dem = 0;
+
+                if (luong.Text.Length > 0)
                 {
-                    if (txt.Text.Substring(0, 1) == "-")
+                    if (luong.Text.Substring(0, 1) == "-")
                     {
-                        if (txt.Text.Length > 1)
+                        if (luong.Text.Length > 1)
                         {
-                            t = txt.Text.Substring(1, txt.Text.Length - 1);
-                            if (txt.SelectionLength != txt.Text.Length)
+                            if (luong.SelectionLength != luong.Text.Length)
                             {
-                                if (txt.Text != "?")
+                                if (luong.Text != "?")
                                 {
-                                    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                    int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
-                                    txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
-                                    txt.Select(txt.Text.Length, 0);
+                                    for (int i = n - 1; i >= 0; i--)
+                                    {
+                                        if (dem == 2 && i != 0)
+                                        {
+                                            txt = "," + txt1.Substring(i, 1) + txt;
+                                            dem = 0;
+                                        }
+                                        else
+                                        {
+                                            txt = txt1.Substring(i, 1) + txt;
+                                            dem += 1;
+                                        }
+                                    }
+                                    luong.Text = txt;
+                                    luong.Select(luong.Text.Length, 0);
                                 }
                             }
                         }
                     }
                     else
                     {
-                        if (txt.SelectionLength != txt.Text.Length)
+                        if (luong.SelectionLength != luong.Text.Length)
                         {
-                            if (txt.Text != "?")
+                            if (luong.Text != "?")
                             {
-                                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
-                                txt.Text = string.Format(culture, "{0:N0}", valueBefore);
-                                txt.Select(txt.Text.Length, 0);
+                                for (int i = n - 1; i >= 0; i--)
+                                {
+                                    if (dem == 2 && i != 0)
+                                    {
+                                        txt = "," + txt1.Substring(i, 1) + txt;
+                                        dem = 0;
+                                    }
+                                    else
+                                    {
+                                        txt = txt1.Substring(i, 1) + txt;
+                                        dem += 1;
+                                    }
+                                }
+                                luong.Text = txt;
+                                luong.Select(luong.Text.Length, 0);
                             }
                         }
                     }
@@ -367,77 +397,123 @@ namespace Natsu.MyUserControl
             }
             catch (Exception e)
             {
-                //MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
-           
+
         }
-
-        //private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
+        //private void curency(TextEdit txt)
         //{
-        //    if (Global.FlagTong)
-        //    {
-        //        try
-        //        {
-        //            double x1 = 0, x2 = 0;
-        //            if (!string.IsNullOrEmpty(txt1.Text))
-        //                x1 = double.Parse(txt1.Text.Replace(",", ""));
-        //            if (!string.IsNullOrEmpty(txt2.Text))
-        //                x2 = double.Parse(txt2.Text.Replace(",", ""));
-        //            txt3.Text = x1 + x2 + "";
-        //            curency(txt3);
-        //        }
-        //        catch (Exception e)
-        //        {
 
-        //        }
-        //    }
+            //    try
+            //    {
+            //        string t;
+            //        if (txt.Text.Length > 0)
+            //        {
+            //            if (txt.Text.Substring(0, 1) == "-")
+            //            {
+            //                if (txt.Text.Length > 1)
+            //                {
+            //                    t = txt.Text.Substring(1, txt.Text.Length - 1);
+            //                    if (txt.SelectionLength != txt.Text.Length)
+            //                    {
+            //                        if (txt.Text != "?")
+            //                        {
+            //                            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+            //                            int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
+            //                            txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
+            //                            txt.Select(txt.Text.Length, 0);
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //            else
+            //            {
+            //                if (txt.SelectionLength != txt.Text.Length)
+            //                {
+            //                    if (txt.Text != "?")
+            //                    {
+            //                        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+            //                        int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
+            //                        txt.Text = string.Format(culture, "{0:N0}", valueBefore);
+            //                        txt.Select(txt.Text.Length, 0);
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        MessageBox.Show(e.Message);
+            //    }
 
-        //}
+            //}
 
-        //private void Total_Truong11()
-        //{
-        //    try
-        //    {
-        //        double truong08 = 0, truong09 = 0, truong16 = 0, truong17 = 0, truong23 = 0, truong24 = 0;
-        //        if (!string.IsNullOrEmpty(txt_TruongSo08.Text))
-        //            truong08 = double.Parse(txt_TruongSo08.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo09.Text))
-        //            truong09 = double.Parse(txt_TruongSo09.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo16.Text))
-        //            truong16 = double.Parse(txt_TruongSo16.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo17.Text))
-        //            truong17 = double.Parse(txt_TruongSo17.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo23.Text))
-        //            truong23 = double.Parse(txt_TruongSo23.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo24.Text))
-        //            truong24 = double.Parse(txt_TruongSo24.Text.Replace(",", ""));
-        //        _totalTruong11 = truong08 + truong09 + truong16 + truong17 + truong23 + truong24;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        // ignored
-        //    }
-        //}
-        //private void Total_Truong11_2()
-        //{
-        //    try
-        //    {
-        //        double truong10 = 0, truong18 = 0, truong25 = 0;
-        //        if (!string.IsNullOrEmpty(txt_TruongSo10.Text))
-        //            truong10 = double.Parse(txt_TruongSo10.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo18.Text))
-        //            truong18 = double.Parse(txt_TruongSo18.Text.Replace(",", ""));
-        //        if (!string.IsNullOrEmpty(txt_TruongSo25.Text))
-        //            truong25 = double.Parse(txt_TruongSo25.Text.Replace(",", ""));
-        //        _totalTruong11_2 = truong10 + truong18 + truong25;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        // ignored
-        //    }
-        //}
+            //private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
+            //{
+            //    if (Global.FlagTong)
+            //    {
+            //        try
+            //        {
+            //            double x1 = 0, x2 = 0;
+            //            if (!string.IsNullOrEmpty(txt1.Text))
+            //                x1 = double.Parse(txt1.Text.Replace(",", ""));
+            //            if (!string.IsNullOrEmpty(txt2.Text))
+            //                x2 = double.Parse(txt2.Text.Replace(",", ""));
+            //            txt3.Text = x1 + x2 + "";
+            //            curency(txt3);
+            //        }
+            //        catch (Exception e)
+            //        {
 
-        private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
+            //        }
+            //    }
+
+            //}
+
+            //private void Total_Truong11()
+            //{
+            //    try
+            //    {
+            //        double truong08 = 0, truong09 = 0, truong16 = 0, truong17 = 0, truong23 = 0, truong24 = 0;
+            //        if (!string.IsNullOrEmpty(txt_TruongSo08.Text))
+            //            truong08 = double.Parse(txt_TruongSo08.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo09.Text))
+            //            truong09 = double.Parse(txt_TruongSo09.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo16.Text))
+            //            truong16 = double.Parse(txt_TruongSo16.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo17.Text))
+            //            truong17 = double.Parse(txt_TruongSo17.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo23.Text))
+            //            truong23 = double.Parse(txt_TruongSo23.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo24.Text))
+            //            truong24 = double.Parse(txt_TruongSo24.Text.Replace(",", ""));
+            //        _totalTruong11 = truong08 + truong09 + truong16 + truong17 + truong23 + truong24;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        // ignored
+            //    }
+            //}
+            //private void Total_Truong11_2()
+            //{
+            //    try
+            //    {
+            //        double truong10 = 0, truong18 = 0, truong25 = 0;
+            //        if (!string.IsNullOrEmpty(txt_TruongSo10.Text))
+            //            truong10 = double.Parse(txt_TruongSo10.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo18.Text))
+            //            truong18 = double.Parse(txt_TruongSo18.Text.Replace(",", ""));
+            //        if (!string.IsNullOrEmpty(txt_TruongSo25.Text))
+            //            truong25 = double.Parse(txt_TruongSo25.Text.Replace(",", ""));
+            //        _totalTruong11_2 = truong10 + truong18 + truong25;
+            //    }
+            //    catch (Exception)
+            //    {
+            //        // ignored
+            //    }
+            //}
+
+            private void Total_Truong10(TextEdit txt1, TextEdit txt2, TextEdit txt3)
         {
             if (Global.FlagTong)
             {
@@ -669,7 +745,7 @@ namespace Natsu.MyUserControl
                 txt_TruongSo11.ForeColor = Color.Black;
                 txt_TruongSo11.Tag = "0";
             }
-
+           
             Changed?.Invoke(sender, e);
         }
 

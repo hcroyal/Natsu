@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar_System = new DevExpress.XtraBars.BarSubItem();
             this.btn_Logout = new DevExpress.XtraBars.BarButtonItem();
@@ -116,6 +115,7 @@
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_System),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_Manager),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ZoomImage),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_feedback)});
             this.bar2.OptionsBar.DrawBorder = false;
@@ -153,7 +153,6 @@
             this.bar_Manager.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Batch),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_User),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Progress),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Productivity),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ExportExcel)});

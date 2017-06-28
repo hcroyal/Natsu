@@ -43,12 +43,12 @@
             this.btn_ExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ZoomImage = new DevExpress.XtraBars.BarButtonItem();
             this.btn_FeedBack = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Start_Performance_Test = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Stop_Performance_Test = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btn_Start_Performance_Test = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Stop_Performance_Test = new DevExpress.XtraBars.BarButtonItem();
             this.pn_Top = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lb_SoHinhLamDuoc = new DevExpress.XtraEditors.LabelControl();
@@ -119,6 +119,7 @@
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_System),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_Manager),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ZoomImage),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_FeedBack)});
             this.bar2.OptionsBar.DrawBorder = false;
@@ -156,7 +157,6 @@
             this.bar_Manager.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Batch),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_User),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Progress),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Productivity),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ExportExcel)});
@@ -218,18 +218,6 @@
             this.btn_FeedBack.Name = "btn_FeedBack";
             this.btn_FeedBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_FeedBack_ItemClick);
             // 
-            // btn_Start_Performance_Test
-            // 
-            this.btn_Start_Performance_Test.Caption = "Start";
-            this.btn_Start_Performance_Test.Id = 14;
-            this.btn_Start_Performance_Test.Name = "btn_Start_Performance_Test";
-            // 
-            // btn_Stop_Performance_Test
-            // 
-            this.btn_Stop_Performance_Test.Caption = "Stop";
-            this.btn_Stop_Performance_Test.Id = 15;
-            this.btn_Stop_Performance_Test.Name = "btn_Stop_Performance_Test";
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -261,6 +249,18 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1264, 20);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 626);
+            // 
+            // btn_Start_Performance_Test
+            // 
+            this.btn_Start_Performance_Test.Caption = "Start";
+            this.btn_Start_Performance_Test.Id = 14;
+            this.btn_Start_Performance_Test.Name = "btn_Start_Performance_Test";
+            // 
+            // btn_Stop_Performance_Test
+            // 
+            this.btn_Stop_Performance_Test.Caption = "Stop";
+            this.btn_Stop_Performance_Test.Id = 15;
+            this.btn_Stop_Performance_Test.Name = "btn_Stop_Performance_Test";
             // 
             // pn_Top
             // 

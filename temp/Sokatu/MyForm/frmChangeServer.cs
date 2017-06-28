@@ -60,6 +60,7 @@ namespace Natsu.MyForm
                 Settings.Default.Save();
                 Global.Webservice = "http://10.10.10.248:8888/Natsu_Sokatu/";
                 Global.Db = new DataNatsuDataContext(@"Data Source=10.10.10.248;Initial Catalog=Sokatu;Persist Security Info=True;User ID=sa;Password=BPO@DN#2013");
+                Global.Db.CommandTimeout = 5 * 60;
                 Global.DbBpo = new DataBPODataContext(@"Data Source=10.10.10.248;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;User ID=sa;Password=BPO@DN#2013");
             }
             else if (rb_Khac.Checked)
@@ -68,6 +69,7 @@ namespace Natsu.MyForm
                 Settings.Default.Save();
                 Global.Webservice = "http://117.2.142.10:3602/Natsu_Sokatu/";
                 Global.Db = new DataNatsuDataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=Sokatu;Persist Security Info=True;User ID=sa;Password=BPO@DN#2013");
+                Global.Db.CommandTimeout = 5 * 60;
                 Global.DbBpo = new DataBPODataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;User ID=sa;Password=BPO@DN#2013");
                 //Data Source = 10.10.10.248\BPOSERVER; Initial Catalog = TimeCard2017; Persist Security Info = True; User ID = sa
             }

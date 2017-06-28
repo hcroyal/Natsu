@@ -166,17 +166,29 @@ namespace Natsu.MyForm
 
                 bar_Manager.Enabled = false;
                 btn_Stop_Performance_Test.Enabled = false;
-                if (Global.StrRole == "DESO")
+                bar_Manager.Enabled = false;
+                if (Global.StrRole == "DESO" || Global.StrRole == "DEJP")
                 {
                     Global.FlagTong = true;
+                    bar_Manager.Enabled = false;
+                    btn_Check.Enabled = false;
                     UcNatsu1.ResetData();
                 }
-                else
+                else if (Global.StrRole == "ADMIN")
                 {
                     Global.FlagTong = false;
                     btn_Start_Submit.Enabled = false;
                     btn_Submit_Logout.Enabled = false;
                     bar_Manager.Enabled = true;
+                    btn_Check.Enabled = true;
+                }
+                else if (Global.StrRole == "CHECKERDESO" || Global.StrRole == "CHECKERDEJP" || Global.StrRole == "CHECKERDECHU")
+                {
+                    Global.FlagTong = false;
+                    btn_Start_Submit.Enabled = false;
+                    btn_Submit_Logout.Enabled = false;
+                    bar_Manager.Enabled = false;
+                    btn_Check.Enabled = true;
                 }
                 SetValue();
             }

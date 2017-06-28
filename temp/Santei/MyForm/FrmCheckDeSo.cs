@@ -2,6 +2,7 @@
 using Natsu.MyClass;
 using Natsu.Properties;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -772,40 +773,71 @@ namespace Natsu.MyForm
             curency(ucNatsu2.UcNatsuItem5.txt_TruongSo25);
 
         }
-        private void curency(TextEdit txt)
+        public void curency(TextEdit luong)
         {
+
+            //luong.Select(luong.Text.Length, 0);
+            //luong.SelectionStart = luong.Text.Length;
+
             try
             {
                 string t;
-                if (txt.Text.Length > 0)
+                string txt, txt1;
+                txt1 = luong.Text.Replace(",", "");
+                txt = "";
+                int n = txt1.Length;
+                int dem = 0;
+
+                if (luong.Text.Length > 0)
                 {
-                    if (txt.Text.Substring(0, 1) == "-")
+                    if (luong.Text.Substring(0, 1) == "-")
                     {
-                        if (txt.Text.Length > 1)
+                        if (luong.Text.Length > 1)
                         {
-                            t = txt.Text.Substring(1, txt.Text.Length - 1);
-                            if (txt.SelectionLength != txt.Text.Length)
+                            if (luong.SelectionLength != luong.Text.Length)
                             {
-                                if (txt.Text != "?")
+                                if (luong.Text != "?")
                                 {
-                                    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                    int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
-                                    txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
-                                    txt.Select(txt.Text.Length, 0);
+                                    for (int i = n - 1; i >= 0; i--)
+                                    {
+                                        if (dem == 2 && i != 0)
+                                        {
+                                            txt = "," + txt1.Substring(i, 1) + txt;
+                                            dem = 0;
+                                        }
+                                        else
+                                        {
+                                            txt = txt1.Substring(i, 1) + txt;
+                                            dem += 1;
+                                        }
+                                    }
+                                    luong.Text = txt;
+                                    luong.Select(luong.Text.Length, 0);
                                 }
                             }
                         }
                     }
                     else
                     {
-                        if (txt.SelectionLength != txt.Text.Length)
+                        if (luong.SelectionLength != luong.Text.Length)
                         {
-                            if (txt.Text != "?")
+                            if (luong.Text != "?")
                             {
-                                System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
-                                int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
-                                txt.Text = string.Format(culture, "{0:N0}", valueBefore);
-                                txt.Select(txt.Text.Length, 0);
+                                for (int i = n - 1; i >= 0; i--)
+                                {
+                                    if (dem == 2 && i != 0)
+                                    {
+                                        txt = "," + txt1.Substring(i, 1) + txt;
+                                        dem = 0;
+                                    }
+                                    else
+                                    {
+                                        txt = txt1.Substring(i, 1) + txt;
+                                        dem += 1;
+                                    }
+                                }
+                                luong.Text = txt;
+                                luong.Select(luong.Text.Length, 0);
                             }
                         }
                     }
@@ -813,10 +845,55 @@ namespace Natsu.MyForm
             }
             catch (Exception e)
             {
-                //MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
 
         }
+        //private void curency(TextEdit txt)
+        //{
+        //    try
+        //    {
+        //        string t;
+        //        if (txt.Text.Length > 0)
+        //        {
+        //            if (txt.Text.Substring(0, 1) == "-")
+        //            {
+        //                if (txt.Text.Length > 1)
+        //                {
+        //                    t = txt.Text.Substring(1, txt.Text.Length - 1);
+        //                    if (txt.SelectionLength != txt.Text.Length)
+        //                    {
+        //                        if (txt.Text != "?")
+        //                        {
+        //                            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+        //                            int valueBefore = Int32.Parse(t, System.Globalization.NumberStyles.AllowThousands);
+        //                            txt.Text = "-" + String.Format(culture, "{0:N0}", valueBefore);
+        //                            txt.Select(txt.Text.Length, 0);
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (txt.SelectionLength != txt.Text.Length)
+        //                {
+        //                    if (txt.Text != "?")
+        //                    {
+        //                        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+        //                        int valueBefore = Int32.Parse(txt.Text, System.Globalization.NumberStyles.AllowThousands);
+        //                        txt.Text = string.Format(culture, "{0:N0}", valueBefore);
+        //                        txt.Select(txt.Text.Length, 0);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        //MessageBox.Show(e.Message);
+        //    }
+
+        //}
         private string GetImage_DeSo()
         {
             var temp = (from w in Global.Db.tbl_MissCheck_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
@@ -856,6 +933,13 @@ namespace Natsu.MyForm
 
                 var soloi = (from w in Global.Db.GetSoLoi_CheckDeSo(Global.StrBatch) select w.Column1).FirstOrDefault();
                 lb_Loi.Text = soloi + @" Error";
+                var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
+                if (version != Global.Version)
+                {
+                    MessageBox.Show(@"The current version is out of date, please update to the new version!");
+                    Process.Start(Global.UrlUpdateVersion);
+                    Application.Exit();
+                }
                 string temp = GetImage_DeSo();
 
                 if (temp == "NULL")
@@ -896,6 +980,13 @@ namespace Natsu.MyForm
                 var soloi = (from w in Global.Db.GetSoLoi_CheckDeSo(Global.StrBatch) select w.Column1).FirstOrDefault();
                 lb_Loi.Text = soloi + @" Error";
                 ResetData();
+                var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
+                if (version != Global.Version)
+                {
+                    MessageBox.Show(@"The current version is out of date, please update to the new version!");
+                    Process.Start(Global.UrlUpdateVersion);
+                    Application.Exit();
+                }
                 string temp = GetImage_DeSo();
 
                 if (temp == "NULL")
@@ -941,6 +1032,13 @@ namespace Natsu.MyForm
 
                 var soloi = (from w in Global.Db.GetSoLoi_CheckDeSo(Global.StrBatch) select w.Column1).FirstOrDefault();
                 lb_Loi.Text = soloi + @" Error";
+                var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
+                if (version != Global.Version)
+                {
+                    MessageBox.Show(@"The current version is out of date, please update to the new version!");
+                    Process.Start(Global.UrlUpdateVersion);
+                    Application.Exit();
+                }
                 if (GetImage_DeSo() == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;
@@ -976,6 +1074,13 @@ namespace Natsu.MyForm
 
                 var soloi = (from w in Global.Db.GetSoLoi_CheckDeSo(Global.StrBatch) select w.Column1).FirstOrDefault();
                 lb_Loi.Text = soloi + @" Error";
+                var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
+                if (version != Global.Version)
+                {
+                    MessageBox.Show(@"The current version is out of date, please update to the new version!");
+                    Process.Start(Global.UrlUpdateVersion);
+                    Application.Exit();
+                }
                 if (GetImage_DeSo() == "NULL")
                 {
                     ucPictureBox1.imageBox1.Image = null;

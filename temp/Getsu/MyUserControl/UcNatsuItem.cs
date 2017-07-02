@@ -720,7 +720,10 @@ namespace Natsu.MyUserControl
             Changed?.Invoke(sender, e);
             
         }
-
+        private void txt_TruongSo00_EditValueChanged(object sender, EventArgs e)
+        {
+            Changed?.Invoke(sender, e);
+        }
         private void txt_TruongSo11_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 10);
@@ -1253,7 +1256,7 @@ namespace Natsu.MyUserControl
                 // ignored
             }
         }
-
+        
         private void txt_TruongSo12_KeyUp(object sender, KeyEventArgs e)
         {
            

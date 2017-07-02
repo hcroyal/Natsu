@@ -749,11 +749,11 @@
             this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl26.Appearance.Options.UseFont = true;
             this.labelControl26.Appearance.Options.UseForeColor = true;
-            this.labelControl26.Location = new System.Drawing.Point(319, 1);
+            this.labelControl26.Location = new System.Drawing.Point(246, 4);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(185, 18);
+            this.labelControl26.Size = new System.Drawing.Size(258, 18);
             this.labelControl26.TabIndex = 27;
-            this.labelControl26.Text = "21. 短= 6 | パート= 7 | Số 9";
+            this.labelControl26.Text = "21. 短 or 短時間 = 6 | パート= 7 | Số 9";
             // 
             // txt_TruongSo00
             // 
@@ -765,6 +765,7 @@
             this.txt_TruongSo00.Properties.MaxLength = 1;
             this.txt_TruongSo00.Size = new System.Drawing.Size(15, 20);
             this.txt_TruongSo00.TabIndex = 18;
+            this.txt_TruongSo00.EditValueChanged += new System.EventHandler(this.txt_TruongSo00_EditValueChanged);
             this.txt_TruongSo00.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo01_KeyDown);
             this.txt_TruongSo00.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo00_KeyUp);
             // 

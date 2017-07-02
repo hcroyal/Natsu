@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.components = new System.ComponentModel.Container();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar_System = new DevExpress.XtraBars.BarSubItem();
             this.btn_Logout = new DevExpress.XtraBars.BarButtonItem();
@@ -36,12 +37,13 @@
             this.bar_Manager = new DevExpress.XtraBars.BarSubItem();
             this.btn_Batch = new DevExpress.XtraBars.BarButtonItem();
             this.btn_User = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Check = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Progress = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Productivity = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ExportExcel = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Check = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ZoomImage = new DevExpress.XtraBars.BarButtonItem();
             this.btn_feedback = new DevExpress.XtraBars.BarButtonItem();
+            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -100,9 +102,10 @@
             this.btn_Productivity,
             this.btn_ExportExcel,
             this.btn_ZoomImage,
-            this.btn_feedback});
+            this.btn_feedback,
+            this.skinBarSubItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 12;
+            this.barManager1.MaxItemId = 15;
             // 
             // bar2
             // 
@@ -117,7 +120,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_Manager),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ZoomImage),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_feedback)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_feedback),
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinBarSubItem1)});
             this.bar2.OptionsBar.DrawBorder = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -172,13 +176,6 @@
             this.btn_User.Name = "btn_User";
             this.btn_User.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_User_ItemClick);
             // 
-            // btn_Check
-            // 
-            this.btn_Check.Caption = "&Check";
-            this.btn_Check.Id = 6;
-            this.btn_Check.Name = "btn_Check";
-            this.btn_Check.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Check_ItemClick);
-            // 
             // btn_Progress
             // 
             this.btn_Progress.Caption = "&Progress";
@@ -200,6 +197,13 @@
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ExportExcel_ItemClick);
             // 
+            // btn_Check
+            // 
+            this.btn_Check.Caption = "&Check";
+            this.btn_Check.Id = 6;
+            this.btn_Check.Name = "btn_Check";
+            this.btn_Check.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Check_ItemClick);
+            // 
             // btn_ZoomImage
             // 
             this.btn_ZoomImage.Caption = "Zoom Image";
@@ -213,6 +217,12 @@
             this.btn_feedback.Id = 11;
             this.btn_feedback.Name = "btn_feedback";
             this.btn_feedback.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_feedback_ItemClick);
+            // 
+            // skinBarSubItem1
+            // 
+            this.skinBarSubItem1.Caption = "Themes";
+            this.skinBarSubItem1.Id = 14;
+            this.skinBarSubItem1.Name = "skinBarSubItem1";
             // 
             // barDockControlTop
             // 
@@ -532,6 +542,7 @@
         private MyUserControl.UcNatsu UcNatsu1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.BarButtonItem btn_feedback;
+        private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
     }
 }
 

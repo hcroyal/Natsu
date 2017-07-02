@@ -14,9 +14,9 @@
         public static string StrIdimage = "";
         public static string StrCheck = "";
         public static string StrPath = @"\\10.10.10.248\Natsu_Santei$";
-        public static string Webservice = "http://10.10.10.248:8888/Natsu_Santei/";
+        public static string Webservice;
         public static string StrIdProject = "Santei";
-        public static string Version = "1.4.7";
+        public static string Version = "1.4.9";
         public static string UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
         public static int FreeTime = 0;
         public static bool NotGoodUser;

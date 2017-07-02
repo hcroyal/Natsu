@@ -156,6 +156,7 @@ namespace Natsu.MyForm
         {
             try
             {
+                UserLookAndFeel.Default.SkinName = Settings.Default.ApplicationSkinName;
                 var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
                 Global.BatchChiaUser = ktBatch == true;
                 lb_IdImage.Text = "";
@@ -420,6 +421,7 @@ namespace Natsu.MyForm
             Global.DbBpo.UpdateTimeLastRequest(Global.StrToken);
             Global.DbBpo.UpdateTimeLogout(Global.StrToken);
             Global.DbBpo.ResetToken(Global.StrUsername, Global.StrIdProject, Global.StrToken);
+            Settings.Default.ApplicationSkinName = UserLookAndFeel.Default.SkinName;
             Settings.Default.Save();
             Global.FlagTong = false;
         }

@@ -7,6 +7,7 @@ using Natsu.MyForm;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using Natsu.Properties;
 
 namespace Natsu
 {
@@ -23,7 +24,7 @@ namespace Natsu
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+            UserLookAndFeel.Default.SetSkinStyle(Settings.Default.ApplicationSkinName);
             //Application.Run(new Form1());
             if (new frm_ChangeServer().ShowDialog() == DialogResult.OK)
             {

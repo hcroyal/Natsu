@@ -127,5 +127,16 @@ namespace Natsu.Properties {
                 this["ApplicationSkinName"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.10.248;Initial Catalog=DatabaseDataEntryBPO;Persist Security In" +
+            "fo=True;User ID=bpoentry;Password=123@123a")]
+        public string DatabaseDataEntryBPOConnectionString2 {
+            get {
+                return ((string)(this["DatabaseDataEntryBPOConnectionString2"]));
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@
         public static string StrPath = @"\\10.10.10.248\Natsu_Santei$";
         public static string Webservice;
         public static string StrIdProject = "Santei";
-        public static string Version = "1.5.0";
+        public static string Version = "1.5.1";
         public static string UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
         public static int FreeTime = 0;
         public static bool NotGoodUser;

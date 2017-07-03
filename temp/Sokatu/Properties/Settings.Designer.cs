@@ -126,5 +126,16 @@ namespace Natsu.Properties {
                 return ((string)(this["DatabaseDataEntryBPOConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=117.2.142.10,3601;Initial Catalog=Sokatu;Persist Security Info=True;U" +
+            "ser ID=sa;Password=BPO@DN#2013")]
+        public string SokatuConnectionString1 {
+            get {
+                return ((string)(this["SokatuConnectionString1"]));
+            }
+        }
     }
 }

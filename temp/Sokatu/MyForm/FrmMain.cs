@@ -303,32 +303,67 @@ namespace Natsu.MyForm
                         string temp = GetImage();
                         if (temp == "NULL")
                         {
-                            var listResult = Global.Db.GetBatNotFinishDeSo(Global.StrUsername).ToList();
-                            if (listResult.Count > 0)
+                            if (Global.NotGoodUser)
                             {
-                                if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                var listResult = Global.Db.GetBatNotFinishDeSo_NotGood(Global.StrUsername).ToList();
+                                if (listResult.Count > 0)
                                 {
-                                    Global.StrBatch = listResult[0].fbatchname;
-                                    lb_fBatchName.Text = Global.StrBatch;
-                                    lb_IdImage.Text = "";
-                                    lb_TongSoHinh.Text =
-                                    (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch select w.idimage).Count().ToString();
-                                    lb_SoHinhConLai.Text = (from w in Global.Db.tbl_Images where w.ReadImageDESo < 2 && w.fbatchname == Global.StrBatch && (w.UserNameDESo != Global.StrUsername || w.UserNameDESo == null || w.UserNameDESo == "") select w.idimage).Count().ToString();
-                                    lb_SoHinhLamDuoc.Text = (from w in Global.Db.tbl_MissImage_DESOs where w.UserName == Global.StrUsername && w.fBatchName == Global.StrBatch select w.IdImage).Count().ToString();
+                                    if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        Global.StrBatch = listResult[0].fbatchname;
+                                        lb_fBatchName.Text = Global.StrBatch;
+                                        lb_IdImage.Text = "";
+                                        lb_TongSoHinh.Text =
+                                            (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch select w.idimage).Count().ToString();
+                                        lb_SoHinhConLai.Text = (from w in Global.Db.tbl_Images where w.ReadImageDESo < 2 && w.fbatchname == Global.StrBatch && (w.UserNameDESo != Global.StrUsername || w.UserNameDESo == null || w.UserNameDESo == "") select w.idimage).Count().ToString();
+                                        lb_SoHinhLamDuoc.Text = (from w in Global.Db.tbl_MissImage_DESOs where w.UserName == Global.StrUsername && w.fBatchName == Global.StrBatch select w.IdImage).Count().ToString();
 
-                                    SetValue();
-                                    btn_Start_Submit.Text = @"Start";
-                                    btn_Start_Submit_Click(null, null);
+                                        SetValue();
+                                        btn_Start_Submit.Text = @"Start";
+                                        btn_Start_Submit_Click(null, null);
+                                    }
+                                    else
+                                    {
+                                        btn_Logout_ItemClick(null, null);
+                                    }
                                 }
                                 else
                                 {
+                                    MessageBox.Show(@"Finished batch '" + lb_fBatchName.Text + "'");
                                     btn_Logout_ItemClick(null, null);
                                 }
+
                             }
                             else
                             {
-                                MessageBox.Show(@"Finished batch '" + lb_fBatchName.Text + "'");
-                                btn_Logout_ItemClick(null, null);
+                                var listResult = Global.Db.GetBatNotFinishDeSo_Good(Global.StrUsername).ToList();
+                                if (listResult.Count > 0)
+                                {
+                                    if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        Global.StrBatch = listResult[0].fbatchname;
+                                        lb_fBatchName.Text = Global.StrBatch;
+                                        lb_IdImage.Text = "";
+                                        lb_TongSoHinh.Text =
+                                            (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch select w.idimage).Count().ToString();
+                                        lb_SoHinhConLai.Text = (from w in Global.Db.tbl_Images where w.ReadImageDESo < 2 && w.fbatchname == Global.StrBatch && (w.UserNameDESo != Global.StrUsername || w.UserNameDESo == null || w.UserNameDESo == "") select w.idimage).Count().ToString();
+                                        lb_SoHinhLamDuoc.Text = (from w in Global.Db.tbl_MissImage_DESOs where w.UserName == Global.StrUsername && w.fBatchName == Global.StrBatch select w.IdImage).Count().ToString();
+
+                                        SetValue();
+                                        btn_Start_Submit.Text = @"Start";
+                                        btn_Start_Submit_Click(null, null);
+                                    }
+                                    else
+                                    {
+                                        btn_Logout_ItemClick(null, null);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show(@"Finished batch '" + lb_fBatchName.Text + "'");
+                                    btn_Logout_ItemClick(null, null);
+                                }
+
                             }
                         }
                         else if (temp == "Error")

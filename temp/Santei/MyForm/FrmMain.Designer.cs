@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.components = new System.ComponentModel.Container();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar_System = new DevExpress.XtraBars.BarSubItem();
             this.btn_Logout = new DevExpress.XtraBars.BarButtonItem();
@@ -71,6 +72,7 @@
             this.btn_Start_Submit = new DevExpress.XtraEditors.SimpleButton();
             this.pn_Image = new DevExpress.XtraEditors.PanelControl();
             this.UcPictureBox1 = new Natsu.MyUserControl.UcPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pn_Top)).BeginInit();
             this.pn_Top.SuspendLayout();
@@ -480,6 +482,11 @@
             this.UcPictureBox1.Size = new System.Drawing.Size(745, 597);
             this.UcPictureBox1.TabIndex = 0;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,6 +566,7 @@
         private DevExpress.XtraBars.BarButtonItem btn_Start_Performance_Test;
         private DevExpress.XtraBars.BarButtonItem btn_Stop_Performance_Test;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

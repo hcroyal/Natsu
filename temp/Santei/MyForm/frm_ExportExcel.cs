@@ -137,6 +137,10 @@ namespace Natsu.MyForm
 
                 foreach (DataGridViewRow dr in dataGrid.Rows)
                 {
+                    if (h==243)
+                    {
+                        MessageBox.Show("ok");
+                    }
                     if (i % 2 == 0)
                     {
                         temp.Clear();

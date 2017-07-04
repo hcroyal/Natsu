@@ -150,7 +150,8 @@ namespace Natsu.MyForm
                 }
                 UcNatsu1.UcNatsuItem1.txt_TruongSo01.Focus();
             }
-            LockControl(false);
+            timer1.Enabled = true;
+            
             return "OK";
         }
 
@@ -158,7 +159,7 @@ namespace Natsu.MyForm
         {
             try
             {
-                _lock = true;
+                _lock = false;
                 UserLookAndFeel.Default.SkinName = Settings.Default.ApplicationSkinName;
                 var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
                 if (ktBatch==true)
@@ -230,7 +231,15 @@ namespace Natsu.MyForm
                         MessageBox.Show(@"Please log in again and select Batch!");
                         return;
                     }
-
+                    var ktBatch1 = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                    if (ktBatch1 == true)
+                    {
+                        Global.BatchChiaUser = true;
+                    }
+                    else
+                    {
+                        Global.BatchChiaUser = false;
+                    }
                     string temp = GetImage();
                     if (temp == "NULL")
                     {
@@ -595,6 +604,12 @@ namespace Natsu.MyForm
                 btn_Start_Submit.Enabled = true;
                 btn_Submit_Logout.Enabled = true;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LockControl(false);
+            timer1.Enabled = false;
         }
     }
 }

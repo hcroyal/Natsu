@@ -953,36 +953,130 @@ namespace Natsu.MyUserControl
 
         private void txt_TruongSo19_EditValueChanged(object sender, EventArgs e)
         {
-            double truong19 = 0;
-            try
+            if (!string.IsNullOrEmpty(txt_TruongSo19.Text))
             {
-                if (!string.IsNullOrEmpty(txt_TruongSo19.Text))
-                    truong19 = double.Parse(txt_TruongSo19.Text.Replace(",", ""));
-            }
-            catch (Exception exception)
-            {
+                if (string.IsNullOrEmpty(txt_TruongSo20.Text))
+                {
+                    txt_TruongSo19.BackColor = Color.OrangeRed;
+                    txt_TruongSo19.ForeColor = Color.White;
+                    txt_TruongSo20.BackColor = Color.OrangeRed;
+                    txt_TruongSo20.ForeColor = Color.White;
+                }
+                else
+                {
+                    txt_TruongSo19.BackColor = Color.White;
+                    txt_TruongSo19.ForeColor = Color.Black;
+                    txt_TruongSo20.BackColor = Color.White;
+                    txt_TruongSo20.ForeColor = Color.Black;
+                    double truong19 = 0;
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(txt_TruongSo19.Text))
+                            truong19 = double.Parse(txt_TruongSo19.Text.Replace(",", ""));
+                    }
+                    catch (Exception exception)
+                    {
+
+                    }
+
+                    DoiMauTextBox((TextEdit)sender, 0, 10);
+                    if (truong19 != _totalTruong19)
+                    {
+                        txt_TruongSo19.BackColor = Color.Red;
+                        txt_TruongSo19.ForeColor = Color.White;
+                        txt_TruongSo19.Tag = "1";
+                    }
+                    else
+                    {
+                        txt_TruongSo19.BackColor = Color.White;
+                        txt_TruongSo19.ForeColor = Color.Black;
+                        txt_TruongSo19.Tag = "0";
+                    }
+                }
                 
-            }
-            
-            DoiMauTextBox((TextEdit)sender, 0, 10);
-            if (truong19 != _totalTruong19)
-            {
-                txt_TruongSo19.BackColor = Color.Red;
-                txt_TruongSo19.ForeColor = Color.White;
-                txt_TruongSo19.Tag = "1";
             }
             else
             {
-                txt_TruongSo19.BackColor = Color.White;
-                txt_TruongSo19.ForeColor = Color.Black;
-                txt_TruongSo19.Tag = "0";
+                if (!string.IsNullOrEmpty(txt_TruongSo20.Text))
+                {
+                    txt_TruongSo19.BackColor = Color.OrangeRed;
+                    txt_TruongSo19.ForeColor = Color.White;
+                    txt_TruongSo20.BackColor = Color.OrangeRed;
+                    txt_TruongSo20.ForeColor = Color.White;
+                }
+                else
+                {
+                    txt_TruongSo19.BackColor = Color.White;
+                    txt_TruongSo19.ForeColor = Color.Black;
+                    txt_TruongSo20.BackColor = Color.White;
+                    txt_TruongSo20.ForeColor = Color.Black;
+                    double truong19 = 0;
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(txt_TruongSo19.Text))
+                            truong19 = double.Parse(txt_TruongSo19.Text.Replace(",", ""));
+                    }
+                    catch (Exception exception)
+                    {
+
+                    }
+
+                    DoiMauTextBox((TextEdit)sender, 0, 10);
+                    if (truong19 != _totalTruong19)
+                    {
+                        txt_TruongSo19.BackColor = Color.Red;
+                        txt_TruongSo19.ForeColor = Color.White;
+                        txt_TruongSo19.Tag = "1";
+                    }
+                    else
+                    {
+                        txt_TruongSo19.BackColor = Color.White;
+                        txt_TruongSo19.ForeColor = Color.Black;
+                        txt_TruongSo19.Tag = "0";
+                    }
+                }
             }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo20_EditValueChanged(object sender, EventArgs e)
         {
-            DoiMauTextBox((TextEdit)sender, 0, 10);
+            if (string.IsNullOrEmpty(txt_TruongSo20.Text))
+            {
+                if (!string.IsNullOrEmpty(txt_TruongSo19.Text))
+                {
+                    txt_TruongSo19.BackColor = Color.OrangeRed;
+                    txt_TruongSo19.ForeColor = Color.White;
+                    txt_TruongSo20.BackColor = Color.OrangeRed;
+                    txt_TruongSo20.ForeColor = Color.White;
+                }
+                else
+                {
+                    txt_TruongSo19.BackColor = Color.White;
+                    txt_TruongSo19.ForeColor = Color.Black;
+                    txt_TruongSo20.BackColor = Color.White;
+                    txt_TruongSo20.ForeColor = Color.Black;
+                    DoiMauTextBox((TextEdit)sender, 0, 10);
+                }
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txt_TruongSo19.Text))
+                {
+                    txt_TruongSo19.BackColor = Color.OrangeRed;
+                    txt_TruongSo19.ForeColor = Color.White;
+                    txt_TruongSo20.BackColor = Color.OrangeRed;
+                    txt_TruongSo20.ForeColor = Color.White;
+                }
+                else
+                {
+                    txt_TruongSo19.BackColor = Color.White;
+                    txt_TruongSo19.ForeColor = Color.Black;
+                    txt_TruongSo20.BackColor = Color.White;
+                    txt_TruongSo20.ForeColor = Color.Black;
+                    DoiMauTextBox((TextEdit)sender, 0, 10);
+                }
+            }
             Changed?.Invoke(sender, e);
         }
 
@@ -2064,6 +2158,12 @@ namespace Natsu.MyUserControl
             }
         }
 
-        
+        private void txt_TruongSo00_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control && e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{Tab}");
+            }
+        }
     }
 }

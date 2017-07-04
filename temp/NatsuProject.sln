@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getsu", "Getsu\Getsu.csproj", "{5790ACC5-62B1-40AD-A09C-3335AC487CE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santei", "Santei\Santei.csproj", "{E25785AB-18FE-46E9-9C61-E5C4B9E3F209}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sokatu", "Sokatu\Sokatu.csproj", "{23DE71CE-8081-403D-B1AB-916D6DA59DF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update", "Update\Update.csproj", "{467FB297-9AFF-44A6-92D9-362B89765E37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{23DE71CE-8081-403D-B1AB-916D6DA59DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23DE71CE-8081-403D-B1AB-916D6DA59DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23DE71CE-8081-403D-B1AB-916D6DA59DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{467FB297-9AFF-44A6-92D9-362B89765E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467FB297-9AFF-44A6-92D9-362B89765E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467FB297-9AFF-44A6-92D9-362B89765E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467FB297-9AFF-44A6-92D9-362B89765E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

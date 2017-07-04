@@ -42,6 +42,12 @@ namespace Natsu
     partial void Inserttbl_DESO_Backup(tbl_DESO_Backup instance);
     partial void Updatetbl_DESO_Backup(tbl_DESO_Backup instance);
     partial void Deletetbl_DESO_Backup(tbl_DESO_Backup instance);
+    partial void Inserttbl_DESO_Backup_copy(tbl_DESO_Backup_copy instance);
+    partial void Updatetbl_DESO_Backup_copy(tbl_DESO_Backup_copy instance);
+    partial void Deletetbl_DESO_Backup_copy(tbl_DESO_Backup_copy instance);
+    partial void Inserttbl_DESO_copy(tbl_DESO_copy instance);
+    partial void Updatetbl_DESO_copy(tbl_DESO_copy instance);
+    partial void Deletetbl_DESO_copy(tbl_DESO_copy instance);
     partial void Inserttbl_Image(tbl_Image instance);
     partial void Updatetbl_Image(tbl_Image instance);
     partial void Deletetbl_Image(tbl_Image instance);
@@ -109,6 +115,22 @@ namespace Natsu
 			get
 			{
 				return this.GetTable<tbl_DESO_Backup>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_DESO_Backup_copy> tbl_DESO_Backup_copies
+		{
+			get
+			{
+				return this.GetTable<tbl_DESO_Backup_copy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_DESO_copy> tbl_DESO_copies
+		{
+			get
+			{
+				return this.GetTable<tbl_DESO_copy>();
 			}
 		}
 		
@@ -240,11 +262,25 @@ namespace Natsu
 			return ((ISingleResult<GetBatNotFinishDeSo_GoodResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetBatNotFinishDeSo_Good_New")]
+		public ISingleResult<GetBatNotFinishDeSo_Good_NewResult> GetBatNotFinishDeSo_Good_New([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username);
+			return ((ISingleResult<GetBatNotFinishDeSo_Good_NewResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetBatNotFinishDeSo_NotGood")]
 		public ISingleResult<GetBatNotFinishDeSo_NotGoodResult> GetBatNotFinishDeSo_NotGood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string username)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username);
 			return ((ISingleResult<GetBatNotFinishDeSo_NotGoodResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetBatNotFinishDeSo_NotGood_New")]
+		public ISingleResult<GetBatNotFinishDeSo_NotGood_NewResult> GetBatNotFinishDeSo_NotGood_New([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(200)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username);
+			return ((ISingleResult<GetBatNotFinishDeSo_NotGood_NewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage")]
@@ -261,11 +297,25 @@ namespace Natsu
 			return ((ISingleResult<GetImage_Group_GoodResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage_Group_Good_New")]
+		public ISingleResult<GetImage_Group_Good_NewResult> GetImage_Group_Good_New([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
+			return ((ISingleResult<GetImage_Group_Good_NewResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage_Group_Notgood")]
 		public ISingleResult<GetImage_Group_NotgoodResult> GetImage_Group_Notgood([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
 			return ((ISingleResult<GetImage_Group_NotgoodResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImage_Group_Notgood_New")]
+		public ISingleResult<GetImage_Group_Notgood_NewResult> GetImage_Group_Notgood_New([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string fbatchname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string username)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fbatchname, username);
+			return ((ISingleResult<GetImage_Group_Notgood_NewResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetImageCheck_DeSo")]
@@ -4152,6 +4202,3106 @@ namespace Natsu
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DESO_Backup_copy")]
+	public partial class tbl_DESO_Backup_copy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private string _IdImage;
+		
+		private string _fBatchName;
+		
+		private string _UserName;
+		
+		private string _Truong_01;
+		
+		private string _Truong_02;
+		
+		private string _Truong_03;
+		
+		private string _Truong_04;
+		
+		private string _Truong_05;
+		
+		private string _Truong_06;
+		
+		private string _Truong_07;
+		
+		private string _Truong_08;
+		
+		private string _Truong_09;
+		
+		private string _Truong_10;
+		
+		private string _Truong_00;
+		
+		private string _Truong_11;
+		
+		private string _Truong_12;
+		
+		private string _Truong_13;
+		
+		private string _Truong_14;
+		
+		private string _Truong_15;
+		
+		private string _Truong_16;
+		
+		private string _Truong_17;
+		
+		private string _Truong_18;
+		
+		private string _Truong_19;
+		
+		private string _Truong_20;
+		
+		private string _Truong_21;
+		
+		private string _Truong_22;
+		
+		private string _Truong_23;
+		
+		private string _Truong_24;
+		
+		private string _Truong_25;
+		
+		private int _IdPhieu;
+		
+		private System.Nullable<int> _Dem;
+		
+		private System.Nullable<int> _Error;
+		
+		private System.Nullable<int> _True;
+		
+		private System.Nullable<System.DateTime> _DateInput;
+		
+		private string _STT;
+		
+		private string _Date;
+		
+		private string _LoaiBatch;
+		
+		private string _Truong_01_Error;
+		
+		private string _Truong_02_Error;
+		
+		private string _Truong_03_Error;
+		
+		private string _Truong_04_Error;
+		
+		private string _Truong_05_Error;
+		
+		private string _Truong_06_Error;
+		
+		private string _Truong_07_Error;
+		
+		private string _Truong_08_Error;
+		
+		private string _Truong_09_Error;
+		
+		private string _Truong_10_Error;
+		
+		private string _Truong_11_Error;
+		
+		private string _Truong_12_Error;
+		
+		private string _Truong_13_Error;
+		
+		private string _Truong_14_Error;
+		
+		private string _Truong_15_Error;
+		
+		private string _Truong_16_Error;
+		
+		private string _Truong_17_Error;
+		
+		private string _Truong_18_Error;
+		
+		private string _Truong_19_Error;
+		
+		private string _Truong_20_Error;
+		
+		private string _Truong_21_Error;
+		
+		private string _Truong_22_Error;
+		
+		private string _Truong_23_Error;
+		
+		private string _Truong_24_Error;
+		
+		private string _Truong_25_Error;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnIdImageChanging(string value);
+    partial void OnIdImageChanged();
+    partial void OnfBatchNameChanging(string value);
+    partial void OnfBatchNameChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnTruong_01Changing(string value);
+    partial void OnTruong_01Changed();
+    partial void OnTruong_02Changing(string value);
+    partial void OnTruong_02Changed();
+    partial void OnTruong_03Changing(string value);
+    partial void OnTruong_03Changed();
+    partial void OnTruong_04Changing(string value);
+    partial void OnTruong_04Changed();
+    partial void OnTruong_05Changing(string value);
+    partial void OnTruong_05Changed();
+    partial void OnTruong_06Changing(string value);
+    partial void OnTruong_06Changed();
+    partial void OnTruong_07Changing(string value);
+    partial void OnTruong_07Changed();
+    partial void OnTruong_08Changing(string value);
+    partial void OnTruong_08Changed();
+    partial void OnTruong_09Changing(string value);
+    partial void OnTruong_09Changed();
+    partial void OnTruong_10Changing(string value);
+    partial void OnTruong_10Changed();
+    partial void OnTruong_00Changing(string value);
+    partial void OnTruong_00Changed();
+    partial void OnTruong_11Changing(string value);
+    partial void OnTruong_11Changed();
+    partial void OnTruong_12Changing(string value);
+    partial void OnTruong_12Changed();
+    partial void OnTruong_13Changing(string value);
+    partial void OnTruong_13Changed();
+    partial void OnTruong_14Changing(string value);
+    partial void OnTruong_14Changed();
+    partial void OnTruong_15Changing(string value);
+    partial void OnTruong_15Changed();
+    partial void OnTruong_16Changing(string value);
+    partial void OnTruong_16Changed();
+    partial void OnTruong_17Changing(string value);
+    partial void OnTruong_17Changed();
+    partial void OnTruong_18Changing(string value);
+    partial void OnTruong_18Changed();
+    partial void OnTruong_19Changing(string value);
+    partial void OnTruong_19Changed();
+    partial void OnTruong_20Changing(string value);
+    partial void OnTruong_20Changed();
+    partial void OnTruong_21Changing(string value);
+    partial void OnTruong_21Changed();
+    partial void OnTruong_22Changing(string value);
+    partial void OnTruong_22Changed();
+    partial void OnTruong_23Changing(string value);
+    partial void OnTruong_23Changed();
+    partial void OnTruong_24Changing(string value);
+    partial void OnTruong_24Changed();
+    partial void OnTruong_25Changing(string value);
+    partial void OnTruong_25Changed();
+    partial void OnIdPhieuChanging(int value);
+    partial void OnIdPhieuChanged();
+    partial void OnDemChanging(System.Nullable<int> value);
+    partial void OnDemChanged();
+    partial void OnErrorChanging(System.Nullable<int> value);
+    partial void OnErrorChanged();
+    partial void OnTrueChanging(System.Nullable<int> value);
+    partial void OnTrueChanged();
+    partial void OnDateInputChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateInputChanged();
+    partial void OnSTTChanging(string value);
+    partial void OnSTTChanged();
+    partial void OnDateChanging(string value);
+    partial void OnDateChanged();
+    partial void OnLoaiBatchChanging(string value);
+    partial void OnLoaiBatchChanged();
+    partial void OnTruong_01_ErrorChanging(string value);
+    partial void OnTruong_01_ErrorChanged();
+    partial void OnTruong_02_ErrorChanging(string value);
+    partial void OnTruong_02_ErrorChanged();
+    partial void OnTruong_03_ErrorChanging(string value);
+    partial void OnTruong_03_ErrorChanged();
+    partial void OnTruong_04_ErrorChanging(string value);
+    partial void OnTruong_04_ErrorChanged();
+    partial void OnTruong_05_ErrorChanging(string value);
+    partial void OnTruong_05_ErrorChanged();
+    partial void OnTruong_06_ErrorChanging(string value);
+    partial void OnTruong_06_ErrorChanged();
+    partial void OnTruong_07_ErrorChanging(string value);
+    partial void OnTruong_07_ErrorChanged();
+    partial void OnTruong_08_ErrorChanging(string value);
+    partial void OnTruong_08_ErrorChanged();
+    partial void OnTruong_09_ErrorChanging(string value);
+    partial void OnTruong_09_ErrorChanged();
+    partial void OnTruong_10_ErrorChanging(string value);
+    partial void OnTruong_10_ErrorChanged();
+    partial void OnTruong_11_ErrorChanging(string value);
+    partial void OnTruong_11_ErrorChanged();
+    partial void OnTruong_12_ErrorChanging(string value);
+    partial void OnTruong_12_ErrorChanged();
+    partial void OnTruong_13_ErrorChanging(string value);
+    partial void OnTruong_13_ErrorChanged();
+    partial void OnTruong_14_ErrorChanging(string value);
+    partial void OnTruong_14_ErrorChanged();
+    partial void OnTruong_15_ErrorChanging(string value);
+    partial void OnTruong_15_ErrorChanged();
+    partial void OnTruong_16_ErrorChanging(string value);
+    partial void OnTruong_16_ErrorChanged();
+    partial void OnTruong_17_ErrorChanging(string value);
+    partial void OnTruong_17_ErrorChanged();
+    partial void OnTruong_18_ErrorChanging(string value);
+    partial void OnTruong_18_ErrorChanged();
+    partial void OnTruong_19_ErrorChanging(string value);
+    partial void OnTruong_19_ErrorChanged();
+    partial void OnTruong_20_ErrorChanging(string value);
+    partial void OnTruong_20_ErrorChanged();
+    partial void OnTruong_21_ErrorChanging(string value);
+    partial void OnTruong_21_ErrorChanged();
+    partial void OnTruong_22_ErrorChanging(string value);
+    partial void OnTruong_22_ErrorChanged();
+    partial void OnTruong_23_ErrorChanging(string value);
+    partial void OnTruong_23_ErrorChanged();
+    partial void OnTruong_24_ErrorChanging(string value);
+    partial void OnTruong_24_ErrorChanged();
+    partial void OnTruong_25_ErrorChanging(string value);
+    partial void OnTruong_25_ErrorChanged();
+    #endregion
+		
+		public tbl_DESO_Backup_copy()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="BigInt NOT NULL IDENTITY", IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImage", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IdImage
+		{
+			get
+			{
+				return this._IdImage;
+			}
+			set
+			{
+				if ((this._IdImage != value))
+				{
+					this.OnIdImageChanging(value);
+					this.SendPropertyChanging();
+					this._IdImage = value;
+					this.SendPropertyChanged("IdImage");
+					this.OnIdImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fBatchName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string fBatchName
+		{
+			get
+			{
+				return this._fBatchName;
+			}
+			set
+			{
+				if ((this._fBatchName != value))
+				{
+					this.OnfBatchNameChanging(value);
+					this.SendPropertyChanging();
+					this._fBatchName = value;
+					this.SendPropertyChanged("fBatchName");
+					this.OnfBatchNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_01", DbType="NVarChar(255)")]
+		public string Truong_01
+		{
+			get
+			{
+				return this._Truong_01;
+			}
+			set
+			{
+				if ((this._Truong_01 != value))
+				{
+					this.OnTruong_01Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_01 = value;
+					this.SendPropertyChanged("Truong_01");
+					this.OnTruong_01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_02", DbType="NVarChar(255)")]
+		public string Truong_02
+		{
+			get
+			{
+				return this._Truong_02;
+			}
+			set
+			{
+				if ((this._Truong_02 != value))
+				{
+					this.OnTruong_02Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_02 = value;
+					this.SendPropertyChanged("Truong_02");
+					this.OnTruong_02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_03", DbType="NVarChar(255)")]
+		public string Truong_03
+		{
+			get
+			{
+				return this._Truong_03;
+			}
+			set
+			{
+				if ((this._Truong_03 != value))
+				{
+					this.OnTruong_03Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_03 = value;
+					this.SendPropertyChanged("Truong_03");
+					this.OnTruong_03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_04", DbType="NVarChar(255)")]
+		public string Truong_04
+		{
+			get
+			{
+				return this._Truong_04;
+			}
+			set
+			{
+				if ((this._Truong_04 != value))
+				{
+					this.OnTruong_04Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_04 = value;
+					this.SendPropertyChanged("Truong_04");
+					this.OnTruong_04Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_05", DbType="NVarChar(255)")]
+		public string Truong_05
+		{
+			get
+			{
+				return this._Truong_05;
+			}
+			set
+			{
+				if ((this._Truong_05 != value))
+				{
+					this.OnTruong_05Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_05 = value;
+					this.SendPropertyChanged("Truong_05");
+					this.OnTruong_05Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_06", DbType="NVarChar(255)")]
+		public string Truong_06
+		{
+			get
+			{
+				return this._Truong_06;
+			}
+			set
+			{
+				if ((this._Truong_06 != value))
+				{
+					this.OnTruong_06Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_06 = value;
+					this.SendPropertyChanged("Truong_06");
+					this.OnTruong_06Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_07", DbType="NVarChar(255)")]
+		public string Truong_07
+		{
+			get
+			{
+				return this._Truong_07;
+			}
+			set
+			{
+				if ((this._Truong_07 != value))
+				{
+					this.OnTruong_07Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_07 = value;
+					this.SendPropertyChanged("Truong_07");
+					this.OnTruong_07Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_08", DbType="NVarChar(255)")]
+		public string Truong_08
+		{
+			get
+			{
+				return this._Truong_08;
+			}
+			set
+			{
+				if ((this._Truong_08 != value))
+				{
+					this.OnTruong_08Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_08 = value;
+					this.SendPropertyChanged("Truong_08");
+					this.OnTruong_08Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_09", DbType="NVarChar(255)")]
+		public string Truong_09
+		{
+			get
+			{
+				return this._Truong_09;
+			}
+			set
+			{
+				if ((this._Truong_09 != value))
+				{
+					this.OnTruong_09Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_09 = value;
+					this.SendPropertyChanged("Truong_09");
+					this.OnTruong_09Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_10", DbType="NVarChar(255)")]
+		public string Truong_10
+		{
+			get
+			{
+				return this._Truong_10;
+			}
+			set
+			{
+				if ((this._Truong_10 != value))
+				{
+					this.OnTruong_10Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_10 = value;
+					this.SendPropertyChanged("Truong_10");
+					this.OnTruong_10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_00", DbType="NVarChar(255)")]
+		public string Truong_00
+		{
+			get
+			{
+				return this._Truong_00;
+			}
+			set
+			{
+				if ((this._Truong_00 != value))
+				{
+					this.OnTruong_00Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_00 = value;
+					this.SendPropertyChanged("Truong_00");
+					this.OnTruong_00Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_11", DbType="NVarChar(255)")]
+		public string Truong_11
+		{
+			get
+			{
+				return this._Truong_11;
+			}
+			set
+			{
+				if ((this._Truong_11 != value))
+				{
+					this.OnTruong_11Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_11 = value;
+					this.SendPropertyChanged("Truong_11");
+					this.OnTruong_11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_12", DbType="NVarChar(255)")]
+		public string Truong_12
+		{
+			get
+			{
+				return this._Truong_12;
+			}
+			set
+			{
+				if ((this._Truong_12 != value))
+				{
+					this.OnTruong_12Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_12 = value;
+					this.SendPropertyChanged("Truong_12");
+					this.OnTruong_12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_13", DbType="NVarChar(255)")]
+		public string Truong_13
+		{
+			get
+			{
+				return this._Truong_13;
+			}
+			set
+			{
+				if ((this._Truong_13 != value))
+				{
+					this.OnTruong_13Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_13 = value;
+					this.SendPropertyChanged("Truong_13");
+					this.OnTruong_13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_14", DbType="NVarChar(255)")]
+		public string Truong_14
+		{
+			get
+			{
+				return this._Truong_14;
+			}
+			set
+			{
+				if ((this._Truong_14 != value))
+				{
+					this.OnTruong_14Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_14 = value;
+					this.SendPropertyChanged("Truong_14");
+					this.OnTruong_14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_15", DbType="NVarChar(255)")]
+		public string Truong_15
+		{
+			get
+			{
+				return this._Truong_15;
+			}
+			set
+			{
+				if ((this._Truong_15 != value))
+				{
+					this.OnTruong_15Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_15 = value;
+					this.SendPropertyChanged("Truong_15");
+					this.OnTruong_15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_16", DbType="NVarChar(255)")]
+		public string Truong_16
+		{
+			get
+			{
+				return this._Truong_16;
+			}
+			set
+			{
+				if ((this._Truong_16 != value))
+				{
+					this.OnTruong_16Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_16 = value;
+					this.SendPropertyChanged("Truong_16");
+					this.OnTruong_16Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_17", DbType="NVarChar(255)")]
+		public string Truong_17
+		{
+			get
+			{
+				return this._Truong_17;
+			}
+			set
+			{
+				if ((this._Truong_17 != value))
+				{
+					this.OnTruong_17Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_17 = value;
+					this.SendPropertyChanged("Truong_17");
+					this.OnTruong_17Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_18", DbType="NVarChar(255)")]
+		public string Truong_18
+		{
+			get
+			{
+				return this._Truong_18;
+			}
+			set
+			{
+				if ((this._Truong_18 != value))
+				{
+					this.OnTruong_18Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_18 = value;
+					this.SendPropertyChanged("Truong_18");
+					this.OnTruong_18Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_19", DbType="NVarChar(255)")]
+		public string Truong_19
+		{
+			get
+			{
+				return this._Truong_19;
+			}
+			set
+			{
+				if ((this._Truong_19 != value))
+				{
+					this.OnTruong_19Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_19 = value;
+					this.SendPropertyChanged("Truong_19");
+					this.OnTruong_19Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_20", DbType="NVarChar(255)")]
+		public string Truong_20
+		{
+			get
+			{
+				return this._Truong_20;
+			}
+			set
+			{
+				if ((this._Truong_20 != value))
+				{
+					this.OnTruong_20Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_20 = value;
+					this.SendPropertyChanged("Truong_20");
+					this.OnTruong_20Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_21", DbType="NVarChar(255)")]
+		public string Truong_21
+		{
+			get
+			{
+				return this._Truong_21;
+			}
+			set
+			{
+				if ((this._Truong_21 != value))
+				{
+					this.OnTruong_21Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_21 = value;
+					this.SendPropertyChanged("Truong_21");
+					this.OnTruong_21Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_22", DbType="NVarChar(255)")]
+		public string Truong_22
+		{
+			get
+			{
+				return this._Truong_22;
+			}
+			set
+			{
+				if ((this._Truong_22 != value))
+				{
+					this.OnTruong_22Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_22 = value;
+					this.SendPropertyChanged("Truong_22");
+					this.OnTruong_22Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_23", DbType="NVarChar(255)")]
+		public string Truong_23
+		{
+			get
+			{
+				return this._Truong_23;
+			}
+			set
+			{
+				if ((this._Truong_23 != value))
+				{
+					this.OnTruong_23Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_23 = value;
+					this.SendPropertyChanged("Truong_23");
+					this.OnTruong_23Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_24", DbType="NVarChar(255)")]
+		public string Truong_24
+		{
+			get
+			{
+				return this._Truong_24;
+			}
+			set
+			{
+				if ((this._Truong_24 != value))
+				{
+					this.OnTruong_24Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_24 = value;
+					this.SendPropertyChanged("Truong_24");
+					this.OnTruong_24Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_25", DbType="NVarChar(255)")]
+		public string Truong_25
+		{
+			get
+			{
+				return this._Truong_25;
+			}
+			set
+			{
+				if ((this._Truong_25 != value))
+				{
+					this.OnTruong_25Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_25 = value;
+					this.SendPropertyChanged("Truong_25");
+					this.OnTruong_25Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPhieu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdPhieu
+		{
+			get
+			{
+				return this._IdPhieu;
+			}
+			set
+			{
+				if ((this._IdPhieu != value))
+				{
+					this.OnIdPhieuChanging(value);
+					this.SendPropertyChanging();
+					this._IdPhieu = value;
+					this.SendPropertyChanged("IdPhieu");
+					this.OnIdPhieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dem", DbType="Int")]
+		public System.Nullable<int> Dem
+		{
+			get
+			{
+				return this._Dem;
+			}
+			set
+			{
+				if ((this._Dem != value))
+				{
+					this.OnDemChanging(value);
+					this.SendPropertyChanging();
+					this._Dem = value;
+					this.SendPropertyChanged("Dem");
+					this.OnDemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error", DbType="Int")]
+		public System.Nullable<int> Error
+		{
+			get
+			{
+				return this._Error;
+			}
+			set
+			{
+				if ((this._Error != value))
+				{
+					this.OnErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Error = value;
+					this.SendPropertyChanged("Error");
+					this.OnErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_True", DbType="Int")]
+		public System.Nullable<int> True
+		{
+			get
+			{
+				return this._True;
+			}
+			set
+			{
+				if ((this._True != value))
+				{
+					this.OnTrueChanging(value);
+					this.SendPropertyChanging();
+					this._True = value;
+					this.SendPropertyChanged("True");
+					this.OnTrueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateInput", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateInput
+		{
+			get
+			{
+				return this._DateInput;
+			}
+			set
+			{
+				if ((this._DateInput != value))
+				{
+					this.OnDateInputChanging(value);
+					this.SendPropertyChanging();
+					this._DateInput = value;
+					this.SendPropertyChanged("DateInput");
+					this.OnDateInputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STT", DbType="NVarChar(100)")]
+		public string STT
+		{
+			get
+			{
+				return this._STT;
+			}
+			set
+			{
+				if ((this._STT != value))
+				{
+					this.OnSTTChanging(value);
+					this.SendPropertyChanging();
+					this._STT = value;
+					this.SendPropertyChanged("STT");
+					this.OnSTTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="NVarChar(255)")]
+		public string Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiBatch", DbType="NVarChar(50)")]
+		public string LoaiBatch
+		{
+			get
+			{
+				return this._LoaiBatch;
+			}
+			set
+			{
+				if ((this._LoaiBatch != value))
+				{
+					this.OnLoaiBatchChanging(value);
+					this.SendPropertyChanging();
+					this._LoaiBatch = value;
+					this.SendPropertyChanged("LoaiBatch");
+					this.OnLoaiBatchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_01_Error", DbType="NVarChar(50)")]
+		public string Truong_01_Error
+		{
+			get
+			{
+				return this._Truong_01_Error;
+			}
+			set
+			{
+				if ((this._Truong_01_Error != value))
+				{
+					this.OnTruong_01_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_01_Error = value;
+					this.SendPropertyChanged("Truong_01_Error");
+					this.OnTruong_01_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_02_Error", DbType="NVarChar(50)")]
+		public string Truong_02_Error
+		{
+			get
+			{
+				return this._Truong_02_Error;
+			}
+			set
+			{
+				if ((this._Truong_02_Error != value))
+				{
+					this.OnTruong_02_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_02_Error = value;
+					this.SendPropertyChanged("Truong_02_Error");
+					this.OnTruong_02_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_03_Error", DbType="NVarChar(50)")]
+		public string Truong_03_Error
+		{
+			get
+			{
+				return this._Truong_03_Error;
+			}
+			set
+			{
+				if ((this._Truong_03_Error != value))
+				{
+					this.OnTruong_03_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_03_Error = value;
+					this.SendPropertyChanged("Truong_03_Error");
+					this.OnTruong_03_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_04_Error", DbType="NVarChar(50)")]
+		public string Truong_04_Error
+		{
+			get
+			{
+				return this._Truong_04_Error;
+			}
+			set
+			{
+				if ((this._Truong_04_Error != value))
+				{
+					this.OnTruong_04_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_04_Error = value;
+					this.SendPropertyChanged("Truong_04_Error");
+					this.OnTruong_04_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_05_Error", DbType="NVarChar(50)")]
+		public string Truong_05_Error
+		{
+			get
+			{
+				return this._Truong_05_Error;
+			}
+			set
+			{
+				if ((this._Truong_05_Error != value))
+				{
+					this.OnTruong_05_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_05_Error = value;
+					this.SendPropertyChanged("Truong_05_Error");
+					this.OnTruong_05_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_06_Error", DbType="NVarChar(50)")]
+		public string Truong_06_Error
+		{
+			get
+			{
+				return this._Truong_06_Error;
+			}
+			set
+			{
+				if ((this._Truong_06_Error != value))
+				{
+					this.OnTruong_06_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_06_Error = value;
+					this.SendPropertyChanged("Truong_06_Error");
+					this.OnTruong_06_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_07_Error", DbType="NVarChar(50)")]
+		public string Truong_07_Error
+		{
+			get
+			{
+				return this._Truong_07_Error;
+			}
+			set
+			{
+				if ((this._Truong_07_Error != value))
+				{
+					this.OnTruong_07_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_07_Error = value;
+					this.SendPropertyChanged("Truong_07_Error");
+					this.OnTruong_07_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_08_Error", DbType="NVarChar(50)")]
+		public string Truong_08_Error
+		{
+			get
+			{
+				return this._Truong_08_Error;
+			}
+			set
+			{
+				if ((this._Truong_08_Error != value))
+				{
+					this.OnTruong_08_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_08_Error = value;
+					this.SendPropertyChanged("Truong_08_Error");
+					this.OnTruong_08_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_09_Error", DbType="NVarChar(50)")]
+		public string Truong_09_Error
+		{
+			get
+			{
+				return this._Truong_09_Error;
+			}
+			set
+			{
+				if ((this._Truong_09_Error != value))
+				{
+					this.OnTruong_09_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_09_Error = value;
+					this.SendPropertyChanged("Truong_09_Error");
+					this.OnTruong_09_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_10_Error", DbType="NVarChar(50)")]
+		public string Truong_10_Error
+		{
+			get
+			{
+				return this._Truong_10_Error;
+			}
+			set
+			{
+				if ((this._Truong_10_Error != value))
+				{
+					this.OnTruong_10_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_10_Error = value;
+					this.SendPropertyChanged("Truong_10_Error");
+					this.OnTruong_10_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_11_Error", DbType="NVarChar(50)")]
+		public string Truong_11_Error
+		{
+			get
+			{
+				return this._Truong_11_Error;
+			}
+			set
+			{
+				if ((this._Truong_11_Error != value))
+				{
+					this.OnTruong_11_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_11_Error = value;
+					this.SendPropertyChanged("Truong_11_Error");
+					this.OnTruong_11_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_12_Error", DbType="NVarChar(50)")]
+		public string Truong_12_Error
+		{
+			get
+			{
+				return this._Truong_12_Error;
+			}
+			set
+			{
+				if ((this._Truong_12_Error != value))
+				{
+					this.OnTruong_12_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_12_Error = value;
+					this.SendPropertyChanged("Truong_12_Error");
+					this.OnTruong_12_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_13_Error", DbType="NVarChar(50)")]
+		public string Truong_13_Error
+		{
+			get
+			{
+				return this._Truong_13_Error;
+			}
+			set
+			{
+				if ((this._Truong_13_Error != value))
+				{
+					this.OnTruong_13_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_13_Error = value;
+					this.SendPropertyChanged("Truong_13_Error");
+					this.OnTruong_13_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_14_Error", DbType="NVarChar(50)")]
+		public string Truong_14_Error
+		{
+			get
+			{
+				return this._Truong_14_Error;
+			}
+			set
+			{
+				if ((this._Truong_14_Error != value))
+				{
+					this.OnTruong_14_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_14_Error = value;
+					this.SendPropertyChanged("Truong_14_Error");
+					this.OnTruong_14_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_15_Error", DbType="NVarChar(50)")]
+		public string Truong_15_Error
+		{
+			get
+			{
+				return this._Truong_15_Error;
+			}
+			set
+			{
+				if ((this._Truong_15_Error != value))
+				{
+					this.OnTruong_15_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_15_Error = value;
+					this.SendPropertyChanged("Truong_15_Error");
+					this.OnTruong_15_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_16_Error", DbType="NVarChar(50)")]
+		public string Truong_16_Error
+		{
+			get
+			{
+				return this._Truong_16_Error;
+			}
+			set
+			{
+				if ((this._Truong_16_Error != value))
+				{
+					this.OnTruong_16_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_16_Error = value;
+					this.SendPropertyChanged("Truong_16_Error");
+					this.OnTruong_16_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_17_Error", DbType="NVarChar(50)")]
+		public string Truong_17_Error
+		{
+			get
+			{
+				return this._Truong_17_Error;
+			}
+			set
+			{
+				if ((this._Truong_17_Error != value))
+				{
+					this.OnTruong_17_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_17_Error = value;
+					this.SendPropertyChanged("Truong_17_Error");
+					this.OnTruong_17_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_18_Error", DbType="NVarChar(50)")]
+		public string Truong_18_Error
+		{
+			get
+			{
+				return this._Truong_18_Error;
+			}
+			set
+			{
+				if ((this._Truong_18_Error != value))
+				{
+					this.OnTruong_18_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_18_Error = value;
+					this.SendPropertyChanged("Truong_18_Error");
+					this.OnTruong_18_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_19_Error", DbType="NVarChar(50)")]
+		public string Truong_19_Error
+		{
+			get
+			{
+				return this._Truong_19_Error;
+			}
+			set
+			{
+				if ((this._Truong_19_Error != value))
+				{
+					this.OnTruong_19_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_19_Error = value;
+					this.SendPropertyChanged("Truong_19_Error");
+					this.OnTruong_19_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_20_Error", DbType="NVarChar(50)")]
+		public string Truong_20_Error
+		{
+			get
+			{
+				return this._Truong_20_Error;
+			}
+			set
+			{
+				if ((this._Truong_20_Error != value))
+				{
+					this.OnTruong_20_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_20_Error = value;
+					this.SendPropertyChanged("Truong_20_Error");
+					this.OnTruong_20_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_21_Error", DbType="NVarChar(50)")]
+		public string Truong_21_Error
+		{
+			get
+			{
+				return this._Truong_21_Error;
+			}
+			set
+			{
+				if ((this._Truong_21_Error != value))
+				{
+					this.OnTruong_21_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_21_Error = value;
+					this.SendPropertyChanged("Truong_21_Error");
+					this.OnTruong_21_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_22_Error", DbType="NVarChar(50)")]
+		public string Truong_22_Error
+		{
+			get
+			{
+				return this._Truong_22_Error;
+			}
+			set
+			{
+				if ((this._Truong_22_Error != value))
+				{
+					this.OnTruong_22_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_22_Error = value;
+					this.SendPropertyChanged("Truong_22_Error");
+					this.OnTruong_22_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_23_Error", DbType="NVarChar(50)")]
+		public string Truong_23_Error
+		{
+			get
+			{
+				return this._Truong_23_Error;
+			}
+			set
+			{
+				if ((this._Truong_23_Error != value))
+				{
+					this.OnTruong_23_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_23_Error = value;
+					this.SendPropertyChanged("Truong_23_Error");
+					this.OnTruong_23_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_24_Error", DbType="NVarChar(50)")]
+		public string Truong_24_Error
+		{
+			get
+			{
+				return this._Truong_24_Error;
+			}
+			set
+			{
+				if ((this._Truong_24_Error != value))
+				{
+					this.OnTruong_24_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_24_Error = value;
+					this.SendPropertyChanged("Truong_24_Error");
+					this.OnTruong_24_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_25_Error", DbType="NVarChar(50)")]
+		public string Truong_25_Error
+		{
+			get
+			{
+				return this._Truong_25_Error;
+			}
+			set
+			{
+				if ((this._Truong_25_Error != value))
+				{
+					this.OnTruong_25_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_25_Error = value;
+					this.SendPropertyChanged("Truong_25_Error");
+					this.OnTruong_25_ErrorChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DESO_copy")]
+	public partial class tbl_DESO_copy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private string _IdImage;
+		
+		private string _fBatchName;
+		
+		private string _UserName;
+		
+		private string _Truong_01;
+		
+		private string _Truong_02;
+		
+		private string _Truong_03;
+		
+		private string _Truong_04;
+		
+		private string _Truong_05;
+		
+		private string _Truong_06;
+		
+		private string _Truong_07;
+		
+		private string _Truong_08;
+		
+		private string _Truong_09;
+		
+		private string _Truong_10;
+		
+		private string _Truong_00;
+		
+		private string _Truong_11;
+		
+		private string _Truong_12;
+		
+		private string _Truong_13;
+		
+		private string _Truong_14;
+		
+		private string _Truong_15;
+		
+		private string _Truong_16;
+		
+		private string _Truong_17;
+		
+		private string _Truong_18;
+		
+		private string _Truong_19;
+		
+		private string _Truong_20;
+		
+		private string _Truong_21;
+		
+		private string _Truong_22;
+		
+		private string _Truong_23;
+		
+		private string _Truong_24;
+		
+		private string _Truong_25;
+		
+		private int _IdPhieu;
+		
+		private System.Nullable<int> _Dem;
+		
+		private System.Nullable<int> _Error;
+		
+		private System.Nullable<int> _True;
+		
+		private System.Nullable<System.DateTime> _DateInput;
+		
+		private string _STT;
+		
+		private string _Date;
+		
+		private string _LoaiBatch;
+		
+		private string _Truong_01_Error;
+		
+		private string _Truong_02_Error;
+		
+		private string _Truong_03_Error;
+		
+		private string _Truong_04_Error;
+		
+		private string _Truong_05_Error;
+		
+		private string _Truong_06_Error;
+		
+		private string _Truong_07_Error;
+		
+		private string _Truong_08_Error;
+		
+		private string _Truong_09_Error;
+		
+		private string _Truong_10_Error;
+		
+		private string _Truong_11_Error;
+		
+		private string _Truong_12_Error;
+		
+		private string _Truong_13_Error;
+		
+		private string _Truong_14_Error;
+		
+		private string _Truong_15_Error;
+		
+		private string _Truong_16_Error;
+		
+		private string _Truong_17_Error;
+		
+		private string _Truong_18_Error;
+		
+		private string _Truong_19_Error;
+		
+		private string _Truong_20_Error;
+		
+		private string _Truong_21_Error;
+		
+		private string _Truong_22_Error;
+		
+		private string _Truong_23_Error;
+		
+		private string _Truong_24_Error;
+		
+		private string _Truong_25_Error;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnIdImageChanging(string value);
+    partial void OnIdImageChanged();
+    partial void OnfBatchNameChanging(string value);
+    partial void OnfBatchNameChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnTruong_01Changing(string value);
+    partial void OnTruong_01Changed();
+    partial void OnTruong_02Changing(string value);
+    partial void OnTruong_02Changed();
+    partial void OnTruong_03Changing(string value);
+    partial void OnTruong_03Changed();
+    partial void OnTruong_04Changing(string value);
+    partial void OnTruong_04Changed();
+    partial void OnTruong_05Changing(string value);
+    partial void OnTruong_05Changed();
+    partial void OnTruong_06Changing(string value);
+    partial void OnTruong_06Changed();
+    partial void OnTruong_07Changing(string value);
+    partial void OnTruong_07Changed();
+    partial void OnTruong_08Changing(string value);
+    partial void OnTruong_08Changed();
+    partial void OnTruong_09Changing(string value);
+    partial void OnTruong_09Changed();
+    partial void OnTruong_10Changing(string value);
+    partial void OnTruong_10Changed();
+    partial void OnTruong_00Changing(string value);
+    partial void OnTruong_00Changed();
+    partial void OnTruong_11Changing(string value);
+    partial void OnTruong_11Changed();
+    partial void OnTruong_12Changing(string value);
+    partial void OnTruong_12Changed();
+    partial void OnTruong_13Changing(string value);
+    partial void OnTruong_13Changed();
+    partial void OnTruong_14Changing(string value);
+    partial void OnTruong_14Changed();
+    partial void OnTruong_15Changing(string value);
+    partial void OnTruong_15Changed();
+    partial void OnTruong_16Changing(string value);
+    partial void OnTruong_16Changed();
+    partial void OnTruong_17Changing(string value);
+    partial void OnTruong_17Changed();
+    partial void OnTruong_18Changing(string value);
+    partial void OnTruong_18Changed();
+    partial void OnTruong_19Changing(string value);
+    partial void OnTruong_19Changed();
+    partial void OnTruong_20Changing(string value);
+    partial void OnTruong_20Changed();
+    partial void OnTruong_21Changing(string value);
+    partial void OnTruong_21Changed();
+    partial void OnTruong_22Changing(string value);
+    partial void OnTruong_22Changed();
+    partial void OnTruong_23Changing(string value);
+    partial void OnTruong_23Changed();
+    partial void OnTruong_24Changing(string value);
+    partial void OnTruong_24Changed();
+    partial void OnTruong_25Changing(string value);
+    partial void OnTruong_25Changed();
+    partial void OnIdPhieuChanging(int value);
+    partial void OnIdPhieuChanged();
+    partial void OnDemChanging(System.Nullable<int> value);
+    partial void OnDemChanged();
+    partial void OnErrorChanging(System.Nullable<int> value);
+    partial void OnErrorChanged();
+    partial void OnTrueChanging(System.Nullable<int> value);
+    partial void OnTrueChanged();
+    partial void OnDateInputChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateInputChanged();
+    partial void OnSTTChanging(string value);
+    partial void OnSTTChanged();
+    partial void OnDateChanging(string value);
+    partial void OnDateChanged();
+    partial void OnLoaiBatchChanging(string value);
+    partial void OnLoaiBatchChanged();
+    partial void OnTruong_01_ErrorChanging(string value);
+    partial void OnTruong_01_ErrorChanged();
+    partial void OnTruong_02_ErrorChanging(string value);
+    partial void OnTruong_02_ErrorChanged();
+    partial void OnTruong_03_ErrorChanging(string value);
+    partial void OnTruong_03_ErrorChanged();
+    partial void OnTruong_04_ErrorChanging(string value);
+    partial void OnTruong_04_ErrorChanged();
+    partial void OnTruong_05_ErrorChanging(string value);
+    partial void OnTruong_05_ErrorChanged();
+    partial void OnTruong_06_ErrorChanging(string value);
+    partial void OnTruong_06_ErrorChanged();
+    partial void OnTruong_07_ErrorChanging(string value);
+    partial void OnTruong_07_ErrorChanged();
+    partial void OnTruong_08_ErrorChanging(string value);
+    partial void OnTruong_08_ErrorChanged();
+    partial void OnTruong_09_ErrorChanging(string value);
+    partial void OnTruong_09_ErrorChanged();
+    partial void OnTruong_10_ErrorChanging(string value);
+    partial void OnTruong_10_ErrorChanged();
+    partial void OnTruong_11_ErrorChanging(string value);
+    partial void OnTruong_11_ErrorChanged();
+    partial void OnTruong_12_ErrorChanging(string value);
+    partial void OnTruong_12_ErrorChanged();
+    partial void OnTruong_13_ErrorChanging(string value);
+    partial void OnTruong_13_ErrorChanged();
+    partial void OnTruong_14_ErrorChanging(string value);
+    partial void OnTruong_14_ErrorChanged();
+    partial void OnTruong_15_ErrorChanging(string value);
+    partial void OnTruong_15_ErrorChanged();
+    partial void OnTruong_16_ErrorChanging(string value);
+    partial void OnTruong_16_ErrorChanged();
+    partial void OnTruong_17_ErrorChanging(string value);
+    partial void OnTruong_17_ErrorChanged();
+    partial void OnTruong_18_ErrorChanging(string value);
+    partial void OnTruong_18_ErrorChanged();
+    partial void OnTruong_19_ErrorChanging(string value);
+    partial void OnTruong_19_ErrorChanged();
+    partial void OnTruong_20_ErrorChanging(string value);
+    partial void OnTruong_20_ErrorChanged();
+    partial void OnTruong_21_ErrorChanging(string value);
+    partial void OnTruong_21_ErrorChanged();
+    partial void OnTruong_22_ErrorChanging(string value);
+    partial void OnTruong_22_ErrorChanged();
+    partial void OnTruong_23_ErrorChanging(string value);
+    partial void OnTruong_23_ErrorChanged();
+    partial void OnTruong_24_ErrorChanging(string value);
+    partial void OnTruong_24_ErrorChanged();
+    partial void OnTruong_25_ErrorChanging(string value);
+    partial void OnTruong_25_ErrorChanged();
+    #endregion
+		
+		public tbl_DESO_copy()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.Always, DbType="BigInt NOT NULL IDENTITY", IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImage", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IdImage
+		{
+			get
+			{
+				return this._IdImage;
+			}
+			set
+			{
+				if ((this._IdImage != value))
+				{
+					this.OnIdImageChanging(value);
+					this.SendPropertyChanging();
+					this._IdImage = value;
+					this.SendPropertyChanged("IdImage");
+					this.OnIdImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fBatchName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string fBatchName
+		{
+			get
+			{
+				return this._fBatchName;
+			}
+			set
+			{
+				if ((this._fBatchName != value))
+				{
+					this.OnfBatchNameChanging(value);
+					this.SendPropertyChanging();
+					this._fBatchName = value;
+					this.SendPropertyChanged("fBatchName");
+					this.OnfBatchNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(150) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_01", DbType="NVarChar(255)")]
+		public string Truong_01
+		{
+			get
+			{
+				return this._Truong_01;
+			}
+			set
+			{
+				if ((this._Truong_01 != value))
+				{
+					this.OnTruong_01Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_01 = value;
+					this.SendPropertyChanged("Truong_01");
+					this.OnTruong_01Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_02", DbType="NVarChar(255)")]
+		public string Truong_02
+		{
+			get
+			{
+				return this._Truong_02;
+			}
+			set
+			{
+				if ((this._Truong_02 != value))
+				{
+					this.OnTruong_02Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_02 = value;
+					this.SendPropertyChanged("Truong_02");
+					this.OnTruong_02Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_03", DbType="NVarChar(255)")]
+		public string Truong_03
+		{
+			get
+			{
+				return this._Truong_03;
+			}
+			set
+			{
+				if ((this._Truong_03 != value))
+				{
+					this.OnTruong_03Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_03 = value;
+					this.SendPropertyChanged("Truong_03");
+					this.OnTruong_03Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_04", DbType="NVarChar(255)")]
+		public string Truong_04
+		{
+			get
+			{
+				return this._Truong_04;
+			}
+			set
+			{
+				if ((this._Truong_04 != value))
+				{
+					this.OnTruong_04Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_04 = value;
+					this.SendPropertyChanged("Truong_04");
+					this.OnTruong_04Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_05", DbType="NVarChar(255)")]
+		public string Truong_05
+		{
+			get
+			{
+				return this._Truong_05;
+			}
+			set
+			{
+				if ((this._Truong_05 != value))
+				{
+					this.OnTruong_05Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_05 = value;
+					this.SendPropertyChanged("Truong_05");
+					this.OnTruong_05Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_06", DbType="NVarChar(255)")]
+		public string Truong_06
+		{
+			get
+			{
+				return this._Truong_06;
+			}
+			set
+			{
+				if ((this._Truong_06 != value))
+				{
+					this.OnTruong_06Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_06 = value;
+					this.SendPropertyChanged("Truong_06");
+					this.OnTruong_06Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_07", DbType="NVarChar(255)")]
+		public string Truong_07
+		{
+			get
+			{
+				return this._Truong_07;
+			}
+			set
+			{
+				if ((this._Truong_07 != value))
+				{
+					this.OnTruong_07Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_07 = value;
+					this.SendPropertyChanged("Truong_07");
+					this.OnTruong_07Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_08", DbType="NVarChar(255)")]
+		public string Truong_08
+		{
+			get
+			{
+				return this._Truong_08;
+			}
+			set
+			{
+				if ((this._Truong_08 != value))
+				{
+					this.OnTruong_08Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_08 = value;
+					this.SendPropertyChanged("Truong_08");
+					this.OnTruong_08Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_09", DbType="NVarChar(255)")]
+		public string Truong_09
+		{
+			get
+			{
+				return this._Truong_09;
+			}
+			set
+			{
+				if ((this._Truong_09 != value))
+				{
+					this.OnTruong_09Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_09 = value;
+					this.SendPropertyChanged("Truong_09");
+					this.OnTruong_09Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_10", DbType="NVarChar(255)")]
+		public string Truong_10
+		{
+			get
+			{
+				return this._Truong_10;
+			}
+			set
+			{
+				if ((this._Truong_10 != value))
+				{
+					this.OnTruong_10Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_10 = value;
+					this.SendPropertyChanged("Truong_10");
+					this.OnTruong_10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_00", DbType="NVarChar(255)")]
+		public string Truong_00
+		{
+			get
+			{
+				return this._Truong_00;
+			}
+			set
+			{
+				if ((this._Truong_00 != value))
+				{
+					this.OnTruong_00Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_00 = value;
+					this.SendPropertyChanged("Truong_00");
+					this.OnTruong_00Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_11", DbType="NVarChar(255)")]
+		public string Truong_11
+		{
+			get
+			{
+				return this._Truong_11;
+			}
+			set
+			{
+				if ((this._Truong_11 != value))
+				{
+					this.OnTruong_11Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_11 = value;
+					this.SendPropertyChanged("Truong_11");
+					this.OnTruong_11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_12", DbType="NVarChar(255)")]
+		public string Truong_12
+		{
+			get
+			{
+				return this._Truong_12;
+			}
+			set
+			{
+				if ((this._Truong_12 != value))
+				{
+					this.OnTruong_12Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_12 = value;
+					this.SendPropertyChanged("Truong_12");
+					this.OnTruong_12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_13", DbType="NVarChar(255)")]
+		public string Truong_13
+		{
+			get
+			{
+				return this._Truong_13;
+			}
+			set
+			{
+				if ((this._Truong_13 != value))
+				{
+					this.OnTruong_13Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_13 = value;
+					this.SendPropertyChanged("Truong_13");
+					this.OnTruong_13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_14", DbType="NVarChar(255)")]
+		public string Truong_14
+		{
+			get
+			{
+				return this._Truong_14;
+			}
+			set
+			{
+				if ((this._Truong_14 != value))
+				{
+					this.OnTruong_14Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_14 = value;
+					this.SendPropertyChanged("Truong_14");
+					this.OnTruong_14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_15", DbType="NVarChar(255)")]
+		public string Truong_15
+		{
+			get
+			{
+				return this._Truong_15;
+			}
+			set
+			{
+				if ((this._Truong_15 != value))
+				{
+					this.OnTruong_15Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_15 = value;
+					this.SendPropertyChanged("Truong_15");
+					this.OnTruong_15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_16", DbType="NVarChar(255)")]
+		public string Truong_16
+		{
+			get
+			{
+				return this._Truong_16;
+			}
+			set
+			{
+				if ((this._Truong_16 != value))
+				{
+					this.OnTruong_16Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_16 = value;
+					this.SendPropertyChanged("Truong_16");
+					this.OnTruong_16Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_17", DbType="NVarChar(255)")]
+		public string Truong_17
+		{
+			get
+			{
+				return this._Truong_17;
+			}
+			set
+			{
+				if ((this._Truong_17 != value))
+				{
+					this.OnTruong_17Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_17 = value;
+					this.SendPropertyChanged("Truong_17");
+					this.OnTruong_17Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_18", DbType="NVarChar(255)")]
+		public string Truong_18
+		{
+			get
+			{
+				return this._Truong_18;
+			}
+			set
+			{
+				if ((this._Truong_18 != value))
+				{
+					this.OnTruong_18Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_18 = value;
+					this.SendPropertyChanged("Truong_18");
+					this.OnTruong_18Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_19", DbType="NVarChar(255)")]
+		public string Truong_19
+		{
+			get
+			{
+				return this._Truong_19;
+			}
+			set
+			{
+				if ((this._Truong_19 != value))
+				{
+					this.OnTruong_19Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_19 = value;
+					this.SendPropertyChanged("Truong_19");
+					this.OnTruong_19Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_20", DbType="NVarChar(255)")]
+		public string Truong_20
+		{
+			get
+			{
+				return this._Truong_20;
+			}
+			set
+			{
+				if ((this._Truong_20 != value))
+				{
+					this.OnTruong_20Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_20 = value;
+					this.SendPropertyChanged("Truong_20");
+					this.OnTruong_20Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_21", DbType="NVarChar(255)")]
+		public string Truong_21
+		{
+			get
+			{
+				return this._Truong_21;
+			}
+			set
+			{
+				if ((this._Truong_21 != value))
+				{
+					this.OnTruong_21Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_21 = value;
+					this.SendPropertyChanged("Truong_21");
+					this.OnTruong_21Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_22", DbType="NVarChar(255)")]
+		public string Truong_22
+		{
+			get
+			{
+				return this._Truong_22;
+			}
+			set
+			{
+				if ((this._Truong_22 != value))
+				{
+					this.OnTruong_22Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_22 = value;
+					this.SendPropertyChanged("Truong_22");
+					this.OnTruong_22Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_23", DbType="NVarChar(255)")]
+		public string Truong_23
+		{
+			get
+			{
+				return this._Truong_23;
+			}
+			set
+			{
+				if ((this._Truong_23 != value))
+				{
+					this.OnTruong_23Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_23 = value;
+					this.SendPropertyChanged("Truong_23");
+					this.OnTruong_23Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_24", DbType="NVarChar(255)")]
+		public string Truong_24
+		{
+			get
+			{
+				return this._Truong_24;
+			}
+			set
+			{
+				if ((this._Truong_24 != value))
+				{
+					this.OnTruong_24Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_24 = value;
+					this.SendPropertyChanged("Truong_24");
+					this.OnTruong_24Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_25", DbType="NVarChar(255)")]
+		public string Truong_25
+		{
+			get
+			{
+				return this._Truong_25;
+			}
+			set
+			{
+				if ((this._Truong_25 != value))
+				{
+					this.OnTruong_25Changing(value);
+					this.SendPropertyChanging();
+					this._Truong_25 = value;
+					this.SendPropertyChanged("Truong_25");
+					this.OnTruong_25Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPhieu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdPhieu
+		{
+			get
+			{
+				return this._IdPhieu;
+			}
+			set
+			{
+				if ((this._IdPhieu != value))
+				{
+					this.OnIdPhieuChanging(value);
+					this.SendPropertyChanging();
+					this._IdPhieu = value;
+					this.SendPropertyChanged("IdPhieu");
+					this.OnIdPhieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dem", DbType="Int")]
+		public System.Nullable<int> Dem
+		{
+			get
+			{
+				return this._Dem;
+			}
+			set
+			{
+				if ((this._Dem != value))
+				{
+					this.OnDemChanging(value);
+					this.SendPropertyChanging();
+					this._Dem = value;
+					this.SendPropertyChanged("Dem");
+					this.OnDemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Error", DbType="Int")]
+		public System.Nullable<int> Error
+		{
+			get
+			{
+				return this._Error;
+			}
+			set
+			{
+				if ((this._Error != value))
+				{
+					this.OnErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Error = value;
+					this.SendPropertyChanged("Error");
+					this.OnErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_True", DbType="Int")]
+		public System.Nullable<int> True
+		{
+			get
+			{
+				return this._True;
+			}
+			set
+			{
+				if ((this._True != value))
+				{
+					this.OnTrueChanging(value);
+					this.SendPropertyChanging();
+					this._True = value;
+					this.SendPropertyChanged("True");
+					this.OnTrueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateInput", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateInput
+		{
+			get
+			{
+				return this._DateInput;
+			}
+			set
+			{
+				if ((this._DateInput != value))
+				{
+					this.OnDateInputChanging(value);
+					this.SendPropertyChanging();
+					this._DateInput = value;
+					this.SendPropertyChanged("DateInput");
+					this.OnDateInputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STT", DbType="NVarChar(100)")]
+		public string STT
+		{
+			get
+			{
+				return this._STT;
+			}
+			set
+			{
+				if ((this._STT != value))
+				{
+					this.OnSTTChanging(value);
+					this.SendPropertyChanging();
+					this._STT = value;
+					this.SendPropertyChanged("STT");
+					this.OnSTTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="NVarChar(255)")]
+		public string Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiBatch", DbType="NVarChar(50)")]
+		public string LoaiBatch
+		{
+			get
+			{
+				return this._LoaiBatch;
+			}
+			set
+			{
+				if ((this._LoaiBatch != value))
+				{
+					this.OnLoaiBatchChanging(value);
+					this.SendPropertyChanging();
+					this._LoaiBatch = value;
+					this.SendPropertyChanged("LoaiBatch");
+					this.OnLoaiBatchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_01_Error", DbType="NVarChar(50)")]
+		public string Truong_01_Error
+		{
+			get
+			{
+				return this._Truong_01_Error;
+			}
+			set
+			{
+				if ((this._Truong_01_Error != value))
+				{
+					this.OnTruong_01_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_01_Error = value;
+					this.SendPropertyChanged("Truong_01_Error");
+					this.OnTruong_01_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_02_Error", DbType="NVarChar(50)")]
+		public string Truong_02_Error
+		{
+			get
+			{
+				return this._Truong_02_Error;
+			}
+			set
+			{
+				if ((this._Truong_02_Error != value))
+				{
+					this.OnTruong_02_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_02_Error = value;
+					this.SendPropertyChanged("Truong_02_Error");
+					this.OnTruong_02_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_03_Error", DbType="NVarChar(50)")]
+		public string Truong_03_Error
+		{
+			get
+			{
+				return this._Truong_03_Error;
+			}
+			set
+			{
+				if ((this._Truong_03_Error != value))
+				{
+					this.OnTruong_03_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_03_Error = value;
+					this.SendPropertyChanged("Truong_03_Error");
+					this.OnTruong_03_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_04_Error", DbType="NVarChar(50)")]
+		public string Truong_04_Error
+		{
+			get
+			{
+				return this._Truong_04_Error;
+			}
+			set
+			{
+				if ((this._Truong_04_Error != value))
+				{
+					this.OnTruong_04_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_04_Error = value;
+					this.SendPropertyChanged("Truong_04_Error");
+					this.OnTruong_04_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_05_Error", DbType="NVarChar(50)")]
+		public string Truong_05_Error
+		{
+			get
+			{
+				return this._Truong_05_Error;
+			}
+			set
+			{
+				if ((this._Truong_05_Error != value))
+				{
+					this.OnTruong_05_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_05_Error = value;
+					this.SendPropertyChanged("Truong_05_Error");
+					this.OnTruong_05_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_06_Error", DbType="NVarChar(50)")]
+		public string Truong_06_Error
+		{
+			get
+			{
+				return this._Truong_06_Error;
+			}
+			set
+			{
+				if ((this._Truong_06_Error != value))
+				{
+					this.OnTruong_06_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_06_Error = value;
+					this.SendPropertyChanged("Truong_06_Error");
+					this.OnTruong_06_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_07_Error", DbType="NVarChar(50)")]
+		public string Truong_07_Error
+		{
+			get
+			{
+				return this._Truong_07_Error;
+			}
+			set
+			{
+				if ((this._Truong_07_Error != value))
+				{
+					this.OnTruong_07_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_07_Error = value;
+					this.SendPropertyChanged("Truong_07_Error");
+					this.OnTruong_07_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_08_Error", DbType="NVarChar(50)")]
+		public string Truong_08_Error
+		{
+			get
+			{
+				return this._Truong_08_Error;
+			}
+			set
+			{
+				if ((this._Truong_08_Error != value))
+				{
+					this.OnTruong_08_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_08_Error = value;
+					this.SendPropertyChanged("Truong_08_Error");
+					this.OnTruong_08_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_09_Error", DbType="NVarChar(50)")]
+		public string Truong_09_Error
+		{
+			get
+			{
+				return this._Truong_09_Error;
+			}
+			set
+			{
+				if ((this._Truong_09_Error != value))
+				{
+					this.OnTruong_09_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_09_Error = value;
+					this.SendPropertyChanged("Truong_09_Error");
+					this.OnTruong_09_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_10_Error", DbType="NVarChar(50)")]
+		public string Truong_10_Error
+		{
+			get
+			{
+				return this._Truong_10_Error;
+			}
+			set
+			{
+				if ((this._Truong_10_Error != value))
+				{
+					this.OnTruong_10_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_10_Error = value;
+					this.SendPropertyChanged("Truong_10_Error");
+					this.OnTruong_10_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_11_Error", DbType="NVarChar(50)")]
+		public string Truong_11_Error
+		{
+			get
+			{
+				return this._Truong_11_Error;
+			}
+			set
+			{
+				if ((this._Truong_11_Error != value))
+				{
+					this.OnTruong_11_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_11_Error = value;
+					this.SendPropertyChanged("Truong_11_Error");
+					this.OnTruong_11_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_12_Error", DbType="NVarChar(50)")]
+		public string Truong_12_Error
+		{
+			get
+			{
+				return this._Truong_12_Error;
+			}
+			set
+			{
+				if ((this._Truong_12_Error != value))
+				{
+					this.OnTruong_12_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_12_Error = value;
+					this.SendPropertyChanged("Truong_12_Error");
+					this.OnTruong_12_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_13_Error", DbType="NVarChar(50)")]
+		public string Truong_13_Error
+		{
+			get
+			{
+				return this._Truong_13_Error;
+			}
+			set
+			{
+				if ((this._Truong_13_Error != value))
+				{
+					this.OnTruong_13_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_13_Error = value;
+					this.SendPropertyChanged("Truong_13_Error");
+					this.OnTruong_13_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_14_Error", DbType="NVarChar(50)")]
+		public string Truong_14_Error
+		{
+			get
+			{
+				return this._Truong_14_Error;
+			}
+			set
+			{
+				if ((this._Truong_14_Error != value))
+				{
+					this.OnTruong_14_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_14_Error = value;
+					this.SendPropertyChanged("Truong_14_Error");
+					this.OnTruong_14_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_15_Error", DbType="NVarChar(50)")]
+		public string Truong_15_Error
+		{
+			get
+			{
+				return this._Truong_15_Error;
+			}
+			set
+			{
+				if ((this._Truong_15_Error != value))
+				{
+					this.OnTruong_15_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_15_Error = value;
+					this.SendPropertyChanged("Truong_15_Error");
+					this.OnTruong_15_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_16_Error", DbType="NVarChar(50)")]
+		public string Truong_16_Error
+		{
+			get
+			{
+				return this._Truong_16_Error;
+			}
+			set
+			{
+				if ((this._Truong_16_Error != value))
+				{
+					this.OnTruong_16_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_16_Error = value;
+					this.SendPropertyChanged("Truong_16_Error");
+					this.OnTruong_16_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_17_Error", DbType="NVarChar(50)")]
+		public string Truong_17_Error
+		{
+			get
+			{
+				return this._Truong_17_Error;
+			}
+			set
+			{
+				if ((this._Truong_17_Error != value))
+				{
+					this.OnTruong_17_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_17_Error = value;
+					this.SendPropertyChanged("Truong_17_Error");
+					this.OnTruong_17_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_18_Error", DbType="NVarChar(50)")]
+		public string Truong_18_Error
+		{
+			get
+			{
+				return this._Truong_18_Error;
+			}
+			set
+			{
+				if ((this._Truong_18_Error != value))
+				{
+					this.OnTruong_18_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_18_Error = value;
+					this.SendPropertyChanged("Truong_18_Error");
+					this.OnTruong_18_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_19_Error", DbType="NVarChar(50)")]
+		public string Truong_19_Error
+		{
+			get
+			{
+				return this._Truong_19_Error;
+			}
+			set
+			{
+				if ((this._Truong_19_Error != value))
+				{
+					this.OnTruong_19_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_19_Error = value;
+					this.SendPropertyChanged("Truong_19_Error");
+					this.OnTruong_19_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_20_Error", DbType="NVarChar(50)")]
+		public string Truong_20_Error
+		{
+			get
+			{
+				return this._Truong_20_Error;
+			}
+			set
+			{
+				if ((this._Truong_20_Error != value))
+				{
+					this.OnTruong_20_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_20_Error = value;
+					this.SendPropertyChanged("Truong_20_Error");
+					this.OnTruong_20_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_21_Error", DbType="NVarChar(50)")]
+		public string Truong_21_Error
+		{
+			get
+			{
+				return this._Truong_21_Error;
+			}
+			set
+			{
+				if ((this._Truong_21_Error != value))
+				{
+					this.OnTruong_21_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_21_Error = value;
+					this.SendPropertyChanged("Truong_21_Error");
+					this.OnTruong_21_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_22_Error", DbType="NVarChar(50)")]
+		public string Truong_22_Error
+		{
+			get
+			{
+				return this._Truong_22_Error;
+			}
+			set
+			{
+				if ((this._Truong_22_Error != value))
+				{
+					this.OnTruong_22_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_22_Error = value;
+					this.SendPropertyChanged("Truong_22_Error");
+					this.OnTruong_22_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_23_Error", DbType="NVarChar(50)")]
+		public string Truong_23_Error
+		{
+			get
+			{
+				return this._Truong_23_Error;
+			}
+			set
+			{
+				if ((this._Truong_23_Error != value))
+				{
+					this.OnTruong_23_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_23_Error = value;
+					this.SendPropertyChanged("Truong_23_Error");
+					this.OnTruong_23_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_24_Error", DbType="NVarChar(50)")]
+		public string Truong_24_Error
+		{
+			get
+			{
+				return this._Truong_24_Error;
+			}
+			set
+			{
+				if ((this._Truong_24_Error != value))
+				{
+					this.OnTruong_24_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_24_Error = value;
+					this.SendPropertyChanged("Truong_24_Error");
+					this.OnTruong_24_ErrorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truong_25_Error", DbType="NVarChar(50)")]
+		public string Truong_25_Error
+		{
+			get
+			{
+				return this._Truong_25_Error;
+			}
+			set
+			{
+				if ((this._Truong_25_Error != value))
+				{
+					this.OnTruong_25_ErrorChanging(value);
+					this.SendPropertyChanging();
+					this._Truong_25_Error = value;
+					this.SendPropertyChanged("Truong_25_Error");
+					this.OnTruong_25_ErrorChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Image")]
 	public partial class tbl_Image : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4176,6 +7326,10 @@ namespace Natsu
 		
 		private System.Nullable<int> _ReadImageDESO_Good;
 		
+		private string _UserNameGood;
+		
+		private string _UserNameNotGood;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4198,6 +7352,10 @@ namespace Natsu
     partial void OnReadImageDESO_NotGoodChanged();
     partial void OnReadImageDESO_GoodChanging(System.Nullable<int> value);
     partial void OnReadImageDESO_GoodChanged();
+    partial void OnUserNameGoodChanging(string value);
+    partial void OnUserNameGoodChanged();
+    partial void OnUserNameNotGoodChanging(string value);
+    partial void OnUserNameNotGoodChanged();
     #endregion
 		
 		public tbl_Image()
@@ -4381,6 +7539,46 @@ namespace Natsu
 					this._ReadImageDESO_Good = value;
 					this.SendPropertyChanged("ReadImageDESO_Good");
 					this.OnReadImageDESO_GoodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserNameGood", DbType="NVarChar(250)")]
+		public string UserNameGood
+		{
+			get
+			{
+				return this._UserNameGood;
+			}
+			set
+			{
+				if ((this._UserNameGood != value))
+				{
+					this.OnUserNameGoodChanging(value);
+					this.SendPropertyChanging();
+					this._UserNameGood = value;
+					this.SendPropertyChanged("UserNameGood");
+					this.OnUserNameGoodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserNameNotGood", DbType="NVarChar(250)")]
+		public string UserNameNotGood
+		{
+			get
+			{
+				return this._UserNameNotGood;
+			}
+			set
+			{
+				if ((this._UserNameNotGood != value))
+				{
+					this.OnUserNameNotGoodChanging(value);
+					this.SendPropertyChanging();
+					this._UserNameNotGood = value;
+					this.SendPropertyChanged("UserNameNotGood");
+					this.OnUserNameNotGoodChanged();
 				}
 			}
 		}
@@ -7166,12 +10364,64 @@ namespace Natsu
 		}
 	}
 	
+	public partial class GetBatNotFinishDeSo_Good_NewResult
+	{
+		
+		private string _fbatchname;
+		
+		public GetBatNotFinishDeSo_Good_NewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fbatchname", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string fbatchname
+		{
+			get
+			{
+				return this._fbatchname;
+			}
+			set
+			{
+				if ((this._fbatchname != value))
+				{
+					this._fbatchname = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetBatNotFinishDeSo_NotGoodResult
 	{
 		
 		private string _fbatchname;
 		
 		public GetBatNotFinishDeSo_NotGoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fbatchname", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string fbatchname
+		{
+			get
+			{
+				return this._fbatchname;
+			}
+			set
+			{
+				if ((this._fbatchname != value))
+				{
+					this._fbatchname = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetBatNotFinishDeSo_NotGood_NewResult
+	{
+		
+		private string _fbatchname;
+		
+		public GetBatNotFinishDeSo_NotGood_NewResult()
 		{
 		}
 		
@@ -7244,12 +10494,64 @@ namespace Natsu
 		}
 	}
 	
+	public partial class GetImage_Group_Good_NewResult
+	{
+		
+		private string _Column1;
+		
+		public GetImage_Group_Good_NewResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(255)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetImage_Group_NotgoodResult
 	{
 		
 		private string _Column1;
 		
 		public GetImage_Group_NotgoodResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(255)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetImage_Group_Notgood_NewResult
+	{
+		
+		private string _Column1;
+		
+		public GetImage_Group_Notgood_NewResult()
 		{
 		}
 		

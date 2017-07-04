@@ -11,6 +11,7 @@ namespace Natsu.MyForm
 {
     public partial class FrmMain : DevExpress.XtraEditors.XtraForm
     {
+        private bool _lock;
         public FrmMain()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace Natsu.MyForm
 
         public string GetImage()
         {
-
+            LockControl(true);
             if (Global.StrRole == "DESO")
             {
                 if (Global.BatchChiaUser)
@@ -40,6 +41,7 @@ namespace Natsu.MyForm
                             try
                             {
                                 var getFilename = (from w in Global.Db.GetImage_Group_Notgood(Global.StrBatch, Global.StrUsername) select w.Column1).FirstOrDefault();
+                               
                                 if (string.IsNullOrEmpty(getFilename))
                                 {
                                     return "NULL";
@@ -149,6 +151,7 @@ namespace Natsu.MyForm
                 }
                 UcNatsu1.UcNatsuItem1.txt_TruongSo01.Focus();
             }
+            LockControl(false);
             return "OK";
         }
 
@@ -156,9 +159,17 @@ namespace Natsu.MyForm
         {
             try
             {
+                _lock = true;
                 UserLookAndFeel.Default.SkinName = Settings.Default.ApplicationSkinName;
                 var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
-                Global.BatchChiaUser = ktBatch == true;
+                if (ktBatch == true)
+                {
+                    Global.BatchChiaUser = true;
+                }
+                else
+                {
+                    Global.BatchChiaUser = false;
+                }
                 lb_IdImage.Text = "";
                 lb_fBatchName.Text = Global.StrBatch;
                 lb_UserName.Text = Global.StrUsername;
@@ -230,6 +241,15 @@ namespace Natsu.MyForm
                                 if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", "Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     Global.StrBatch = listResult[0].fbatchname;
+                                    var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                                    if (ktBatch == true)
+                                    {
+                                        Global.BatchChiaUser = true;
+                                    }
+                                    else
+                                    {
+                                        Global.BatchChiaUser = false;
+                                    }
                                     lb_fBatchName.Text = Global.StrBatch;
                                     lb_IdImage.Text = "";
                                     lb_TongSoHinh.Text =
@@ -261,6 +281,15 @@ namespace Natsu.MyForm
                                 if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", "Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     Global.StrBatch = listResult[0].fbatchname;
+                                    var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                                    if (ktBatch == true)
+                                    {
+                                        Global.BatchChiaUser = true;
+                                    }
+                                    else
+                                    {
+                                        Global.BatchChiaUser = false;
+                                    }
                                     lb_fBatchName.Text = Global.StrBatch;
                                     lb_IdImage.Text = "";
                                     lb_TongSoHinh.Text =
@@ -330,6 +359,15 @@ namespace Natsu.MyForm
                                     if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         Global.StrBatch = listResult[0].fbatchname;
+                                        var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                                        if (ktBatch == true)
+                                        {
+                                            Global.BatchChiaUser = true;
+                                        }
+                                        else
+                                        {
+                                            Global.BatchChiaUser = false;
+                                        }
                                         lb_fBatchName.Text = Global.StrBatch;
                                         lb_IdImage.Text = "";
                                         lb_TongSoHinh.Text =
@@ -361,6 +399,15 @@ namespace Natsu.MyForm
                                     if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         Global.StrBatch = listResult[0].fbatchname;
+                                        var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
+                                        if (ktBatch == true)
+                                        {
+                                            Global.BatchChiaUser = true;
+                                        }
+                                        else
+                                        {
+                                            Global.BatchChiaUser = false;
+                                        }
                                         lb_fBatchName.Text = Global.StrBatch;
                                         lb_IdImage.Text = "";
                                         lb_TongSoHinh.Text =
@@ -437,16 +484,19 @@ namespace Natsu.MyForm
 
         private void FrmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.Enter)
-                btn_Start_Submit_Click(null, null);
-            if (e.Control && e.KeyCode == Keys.PageUp)
-                UcPictureBox1.btn_Xoaytrai_Click(null, null);
-            if (e.Control && e.KeyCode == Keys.PageDown)
-                UcPictureBox1.btn_xoayphai_Click(null, null);
-            if (e.KeyCode == Keys.Escape)
+            if (_lock==false)
             {
-                new FrmFreeTime().ShowDialog();
-                Global.DbBpo.UpdateTimeFree(Global.StrToken, Global.FreeTime);
+                if (e.Control && e.KeyCode == Keys.Enter)
+                    btn_Start_Submit_Click(null, null);
+                if (e.Control && e.KeyCode == Keys.PageUp)
+                    UcPictureBox1.btn_Xoaytrai_Click(null, null);
+                if (e.Control && e.KeyCode == Keys.PageDown)
+                    UcPictureBox1.btn_xoayphai_Click(null, null);
+                if (e.KeyCode == Keys.Escape)
+                {
+                    new FrmFreeTime().ShowDialog();
+                    Global.DbBpo.UpdateTimeFree(Global.StrToken, Global.FreeTime);
+                }
             }
             
         }
@@ -524,6 +574,21 @@ namespace Natsu.MyForm
         private void btn_feedback_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             new FrmFeedback().ShowDialog();
+        }
+        private void LockControl(bool kt)
+        {
+            if (kt)
+            {
+                _lock = true;
+                btn_Start_Submit.Enabled = false;
+                btn_Submit_Logout.Enabled = false;
+            }
+            else
+            {
+                _lock = false;
+                btn_Start_Submit.Enabled = true;
+                btn_Submit_Logout.Enabled = true;
+            }
         }
     }
 }

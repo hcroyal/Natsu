@@ -640,7 +640,7 @@
             this.txt_TruongSo21.Size = new System.Drawing.Size(24, 20);
             this.txt_TruongSo21.TabIndex = 25;
             this.txt_TruongSo21.EditValueChanged += new System.EventHandler(this.txt_TruongSo21_EditValueChanged);
-            this.txt_TruongSo21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo01_KeyDown);
+            this.txt_TruongSo21.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo21_KeyDown);
             this.txt_TruongSo21.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TruongSo21_KeyUp);
             // 
             // labelControl22

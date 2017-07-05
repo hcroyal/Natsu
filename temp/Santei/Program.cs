@@ -141,12 +141,12 @@ namespace Natsu
                 {
                     if (Global.NotGoodUser)
                     {
-                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_NotGood_New(username);
+                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_NotGood_New1(username);
                         cbb.DisplayMember = "fBatchName";
                     }
                     else
                     {
-                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_Good_New(username);
+                        cbb.DataSource = Global.Db.GetBatNotFinishDeSo_Good_New1(username);
                         cbb.DisplayMember = "fBatchName";
                     }
                 }

@@ -1,18 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sokatu" Class="DataNatsuDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=117.2.142.10,3601;Initial Catalog=Sokatu;Persist Security Info=True;User ID=sa" SettingsObjectName="Natsu.Properties.Settings" SettingsPropertyName="SokatuConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_Batch" Member="tbl_Batches">
-    <Type Name="tbl_Batch">
-      <Column Name="IDBatch" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fBatchName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="fdatecreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="fusercreate" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="fPathPicture" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="fLocation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="fSoLuongAnh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="LoaiBatch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ChiaUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.10.248;Initial Catalog=Sokatu;Persist Security Info=True;User ID=sa" SettingsObjectName="Natsu.Properties.Settings" SettingsPropertyName="SokatuConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_MissImage_DESO" Member="tbl_MissImage_DESOs">
     <Type Name="tbl_MissImage_DESO">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -126,6 +113,19 @@
       <Column Name="UserName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Submit" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DateCheck" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Batch" Member="tbl_Batches">
+    <Type Name="tbl_Batch">
+      <Column Name="IDBatch" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fBatchName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fdatecreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fusercreate" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="fPathPicture" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="fLocation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="fSoLuongAnh" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LoaiBatch" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ChiaUser" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CheckerFinish" Method="CheckerFinish">

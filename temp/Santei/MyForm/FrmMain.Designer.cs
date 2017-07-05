@@ -426,6 +426,7 @@
             this.UcNatsu1.Name = "UcNatsu1";
             this.UcNatsu1.Size = new System.Drawing.Size(511, 567);
             this.UcNatsu1.TabIndex = 8;
+            this.UcNatsu1.Load += new System.EventHandler(this.UcNatsu1_Load);
             // 
             // pn_Button
             // 

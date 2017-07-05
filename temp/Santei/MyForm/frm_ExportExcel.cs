@@ -105,7 +105,7 @@ namespace Natsu.MyForm
         private void frm_ExportExcel_Load(object sender, EventArgs e)
         {
             cbb_Batch.Items.Clear();
-            var result = from w in Global.Db.tbl_Batches select w.fBatchName;
+            var result = from w in Global.Db.tbl_Batches orderby w.fdatecreated select w.fBatchName;
 
             if (result.Count() > 0)
             {
@@ -137,10 +137,6 @@ namespace Natsu.MyForm
 
                 foreach (DataGridViewRow dr in dataGrid.Rows)
                 {
-                    if (h==243)
-                    {
-                        MessageBox.Show("ok");
-                    }
                     if (i % 2 == 0)
                     {
                         temp.Clear();

@@ -75,7 +75,8 @@ namespace Natsu.MyForm
                         fLocation = txt_Location.Text+"\\"+txt_BatchName.Text+"\\",
                         fSoLuongAnh = _soluonghinh.ToString(),
                         LoaiBatch = "Getsu",
-                        ChiaUser = ck_ChiaUser.Checked
+                        ChiaUser = ck_ChiaUser.Checked,
+                        CongKhaiBatch = false
                         //LoaiBatch = rg_LoaiBatch.Properties.Items[rg_LoaiBatch.SelectedIndex].Description
                     };
                     Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
@@ -345,7 +346,8 @@ namespace Natsu.MyForm
                 fLocation = excellocation,
                 fSoLuongAnh = Directory.GetFiles(location).Length.ToString(),
                 LoaiBatch = "Getsu",
-                ChiaUser = ck_ChiaUser.Checked
+                ChiaUser = ck_ChiaUser.Checked,
+                CongKhaiBatch = false
             };
             Global.Db.tbl_Batches.InsertOnSubmit(fBatch);
             Global.Db.SubmitChanges();

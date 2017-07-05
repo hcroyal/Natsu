@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 11.875" name="DataNatsu">
   <DataContextMoniker Name="/DataNatsuDataContext" />
   <nestedChildShapes>
-    <classShape Id="4585480a-5b3b-4ec7-aa87-403766a80785" absoluteBounds="0.75, 0.75, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/DataNatsuDataContext/tbl_Batch" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d74d86b4-3fca-4eb8-a71f-c3a53afd40e0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="4a5dd6bf-abbc-43f6-97fc-f4cb4d7ad92e" absoluteBounds="3.75, 0.75, 2, 1.9631982421875">
       <DataClassMoniker Name="/DataNatsuDataContext/tbl_MissImage_DESO" />
       <nestedChildShapes>
@@ -36,6 +30,12 @@
       <DataClassMoniker Name="/DataNatsuDataContext/tbl_MissCheck_DESO" />
       <nestedChildShapes>
         <elementListCompartment Id="fd7298df-88c4-4274-8225-4ae7530e243c" absoluteBounds="9.765, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="952015dc-3b8c-4f12-8e23-fdf5bd67123b" absoluteBounds="2.125, 2.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataNatsuDataContext/tbl_Batch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c75fa345-3209-4837-9f4a-483089279318" absoluteBounds="2.14, 3.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

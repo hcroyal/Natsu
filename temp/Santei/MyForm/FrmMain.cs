@@ -29,6 +29,8 @@ namespace Natsu.MyForm
         public string GetImage()
         {
             LockControl(true);
+            var ktUser = (from w in Global.DbBpo.tbl_Users where w.Username == Global.StrUsername select w.NotGoodUser).FirstOrDefault();
+            Global.NotGoodUser = ktUser == true;
             if (Global.StrRole == "DESO")
             {
                 if (Global.BatchChiaUser)
@@ -159,6 +161,7 @@ namespace Natsu.MyForm
         {
             try
             {
+                
                 _lock = false;
                 UserLookAndFeel.Default.SkinName = Settings.Default.ApplicationSkinName;
                 var ktBatch = (from w in Global.Db.tbl_Batches where w.fBatchName == Global.StrBatch select w.ChiaUser).FirstOrDefault();
@@ -184,6 +187,8 @@ namespace Natsu.MyForm
                 {
                     Global.FlagTong = true;
                     bar_Manager.Enabled = false;
+                    btn_Submit_Logout.Enabled = false;
+                    btn_ZoomImage.Enabled = false;
                     btn_Check.Enabled = false;
                     UcNatsu1.ResetData();
                 }
@@ -192,6 +197,7 @@ namespace Natsu.MyForm
                     Global.FlagTong = false;
                     btn_Start_Submit.Enabled = false;
                     btn_Submit_Logout.Enabled = false;
+                    btn_ZoomImage.Enabled = true;
                     bar_Manager.Enabled = true;
                     btn_Check.Enabled = true;
                 }
@@ -200,6 +206,7 @@ namespace Natsu.MyForm
                     Global.FlagTong = false;
                     btn_Start_Submit.Enabled = false;
                     btn_Submit_Logout.Enabled = false;
+                    btn_ZoomImage.Enabled = true;
                     bar_Manager.Enabled = false;
                     btn_Check.Enabled = true;
                 }
@@ -215,6 +222,7 @@ namespace Natsu.MyForm
         {
             try
             {
+                
                 Global.DbBpo.UpdateTimeLastRequest(Global.StrToken);
                 //Kiểm tra token
                 var token = (from w in Global.DbBpo.tbl_TokenLogins where w.UserName == Global.StrUsername && w.IDProject == Global.StrIdProject select w.Token).FirstOrDefault();
@@ -226,6 +234,7 @@ namespace Natsu.MyForm
                 }
                 if (btn_Start_Submit.Text == @"Start")
                 {
+                    
                     if (string.IsNullOrEmpty(Global.StrBatch))
                     {
                         MessageBox.Show(@"Please log in again and select Batch!");
@@ -245,7 +254,7 @@ namespace Natsu.MyForm
                     {
                         if (Global.NotGoodUser)
                         {
-                            var listResult = Global.Db.GetBatNotFinishDeSo_NotGood_New(Global.StrUsername).ToList();
+                            var listResult = Global.Db.GetBatNotFinishDeSo_NotGood_New1(Global.StrUsername).ToList();
                             if (listResult.Count > 0)
                             {
                                 if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", "Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -285,7 +294,7 @@ namespace Natsu.MyForm
                         }
                         else
                         {
-                            var listResult = Global.Db.GetBatNotFinishDeSo_Good_New(Global.StrUsername).ToList();
+                            var listResult = Global.Db.GetBatNotFinishDeSo_Good_New1(Global.StrUsername).ToList();
                             if (listResult.Count > 0)
                             {
                                 if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", "Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -330,10 +339,7 @@ namespace Natsu.MyForm
                         btn_Logout_ItemClick(null, null);
                     }
                     UcNatsu1.ResetData();
-
                     btn_Start_Submit.Text = @"Submit";
-                    btn_Submit_Logout.Enabled = true;
-                    btn_Submit_Logout.Visible = true;
 
                 }
                 else
@@ -347,7 +353,7 @@ namespace Natsu.MyForm
                         }
                         if (UcNatsu1.IsEmpty())
                         {
-                            if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                            if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2) == DialogResult.No)
                                 return;
                         }
                         UcNatsu1.SaveData(lb_IdImage.Text);
@@ -365,7 +371,7 @@ namespace Natsu.MyForm
                             
                             if (Global.NotGoodUser)
                             {
-                                var listResult = Global.Db.GetBatNotFinishDeSo_NotGood_New(Global.StrUsername).ToList();
+                                var listResult = Global.Db.GetBatNotFinishDeSo_NotGood_New1(Global.StrUsername).ToList();
                                 if (listResult.Count > 0)
                                 {
                                     if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -406,7 +412,7 @@ namespace Natsu.MyForm
                             }
                             else
                             {
-                                var listResult = Global.Db.GetBatNotFinishDeSo_Good_New(Global.StrUsername).ToList();
+                                var listResult = Global.Db.GetBatNotFinishDeSo_Good_New1(Global.StrUsername).ToList();
                                 if (listResult.Count > 0)
                                 {
                                     if (MessageBox.Show(@"Batch next is: " + listResult[0].fbatchname + "\nWould you like to continue??", @"Notification!", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -484,7 +490,7 @@ namespace Natsu.MyForm
                     }
                     if (UcNatsu1.IsEmpty())
                     {
-                        if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                        if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2) == DialogResult.No)
                             return;
                     }
                     UcNatsu1.SaveData(lb_IdImage.Text);
@@ -595,12 +601,14 @@ namespace Natsu.MyForm
             if (kt)
             {
                 _lock = true;
+                btn_ZoomImage.Enabled = false;
                 btn_Start_Submit.Enabled = false;
                 btn_Submit_Logout.Enabled = false;
             }
             else
             {
                 _lock = false;
+                btn_ZoomImage.Enabled = true;
                 btn_Start_Submit.Enabled = true;
                 btn_Submit_Logout.Enabled = true;
             }
@@ -610,6 +618,11 @@ namespace Natsu.MyForm
         {
             LockControl(false);
             timer1.Enabled = false;
+        }
+
+        private void UcNatsu1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -250,6 +250,7 @@
             this.btn_SuaVaLuu_User2.Size = new System.Drawing.Size(81, 21);
             this.btn_SuaVaLuu_User2.TabIndex = 2;
             this.btn_SuaVaLuu_User2.Text = "Edit  and Save";
+            this.btn_SuaVaLuu_User2.Visible = false;
             this.btn_SuaVaLuu_User2.Click += new System.EventHandler(this.btn_SuaVaLuu_User2_Click);
             // 
             // btn_Luu_DeSo2
@@ -259,6 +260,7 @@
             this.btn_Luu_DeSo2.Size = new System.Drawing.Size(81, 21);
             this.btn_Luu_DeSo2.TabIndex = 2;
             this.btn_Luu_DeSo2.Text = "Save";
+            this.btn_Luu_DeSo2.Visible = false;
             this.btn_Luu_DeSo2.Click += new System.EventHandler(this.btn_Luu_DeSo2_Click);
             // 
             // panelControl2

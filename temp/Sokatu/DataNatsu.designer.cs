@@ -30,9 +30,6 @@ namespace Natsu
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Inserttbl_Batch(tbl_Batch instance);
-    partial void Updatetbl_Batch(tbl_Batch instance);
-    partial void Deletetbl_Batch(tbl_Batch instance);
     partial void Inserttbl_MissImage_DESO(tbl_MissImage_DESO instance);
     partial void Updatetbl_MissImage_DESO(tbl_MissImage_DESO instance);
     partial void Deletetbl_MissImage_DESO(tbl_MissImage_DESO instance);
@@ -48,10 +45,13 @@ namespace Natsu
     partial void Inserttbl_MissCheck_DESO(tbl_MissCheck_DESO instance);
     partial void Updatetbl_MissCheck_DESO(tbl_MissCheck_DESO instance);
     partial void Deletetbl_MissCheck_DESO(tbl_MissCheck_DESO instance);
+    partial void Inserttbl_Batch(tbl_Batch instance);
+    partial void Updatetbl_Batch(tbl_Batch instance);
+    partial void Deletetbl_Batch(tbl_Batch instance);
     #endregion
 		
 		public DataNatsuDataContext() : 
-				base(global::Natsu.Properties.Settings.Default.SokatuConnectionString1, mappingSource)
+				base(global::Natsu.Properties.Settings.Default.SokatuConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -78,14 +78,6 @@ namespace Natsu
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<tbl_Batch> tbl_Batches
-		{
-			get
-			{
-				return this.GetTable<tbl_Batch>();
-			}
 		}
 		
 		public System.Data.Linq.Table<tbl_MissImage_DESO> tbl_MissImage_DESOs
@@ -125,6 +117,14 @@ namespace Natsu
 			get
 			{
 				return this.GetTable<tbl_MissCheck_DESO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Batch> tbl_Batches
+		{
+			get
+			{
+				return this.GetTable<tbl_Batch>();
 			}
 		}
 		
@@ -501,260 +501,6 @@ namespace Natsu
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fBatchName);
 			return ((ISingleResult<ExportExcel_GetsuResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Batch")]
-	public partial class tbl_Batch : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _IDBatch;
-		
-		private string _fBatchName;
-		
-		private System.Nullable<System.DateTime> _fdatecreated;
-		
-		private string _fusercreate;
-		
-		private string _fPathPicture;
-		
-		private string _fLocation;
-		
-		private string _fSoLuongAnh;
-		
-		private string _LoaiBatch;
-		
-		private System.Nullable<bool> _ChiaUser;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDBatchChanging(long value);
-    partial void OnIDBatchChanged();
-    partial void OnfBatchNameChanging(string value);
-    partial void OnfBatchNameChanged();
-    partial void OnfdatecreatedChanging(System.Nullable<System.DateTime> value);
-    partial void OnfdatecreatedChanged();
-    partial void OnfusercreateChanging(string value);
-    partial void OnfusercreateChanged();
-    partial void OnfPathPictureChanging(string value);
-    partial void OnfPathPictureChanged();
-    partial void OnfLocationChanging(string value);
-    partial void OnfLocationChanged();
-    partial void OnfSoLuongAnhChanging(string value);
-    partial void OnfSoLuongAnhChanged();
-    partial void OnLoaiBatchChanging(string value);
-    partial void OnLoaiBatchChanged();
-    partial void OnChiaUserChanging(System.Nullable<bool> value);
-    partial void OnChiaUserChanged();
-    #endregion
-		
-		public tbl_Batch()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDBatch", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long IDBatch
-		{
-			get
-			{
-				return this._IDBatch;
-			}
-			set
-			{
-				if ((this._IDBatch != value))
-				{
-					this.OnIDBatchChanging(value);
-					this.SendPropertyChanging();
-					this._IDBatch = value;
-					this.SendPropertyChanged("IDBatch");
-					this.OnIDBatchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fBatchName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string fBatchName
-		{
-			get
-			{
-				return this._fBatchName;
-			}
-			set
-			{
-				if ((this._fBatchName != value))
-				{
-					this.OnfBatchNameChanging(value);
-					this.SendPropertyChanging();
-					this._fBatchName = value;
-					this.SendPropertyChanged("fBatchName");
-					this.OnfBatchNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fdatecreated", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fdatecreated
-		{
-			get
-			{
-				return this._fdatecreated;
-			}
-			set
-			{
-				if ((this._fdatecreated != value))
-				{
-					this.OnfdatecreatedChanging(value);
-					this.SendPropertyChanging();
-					this._fdatecreated = value;
-					this.SendPropertyChanged("fdatecreated");
-					this.OnfdatecreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fusercreate", DbType="NVarChar(200)")]
-		public string fusercreate
-		{
-			get
-			{
-				return this._fusercreate;
-			}
-			set
-			{
-				if ((this._fusercreate != value))
-				{
-					this.OnfusercreateChanging(value);
-					this.SendPropertyChanging();
-					this._fusercreate = value;
-					this.SendPropertyChanged("fusercreate");
-					this.OnfusercreateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fPathPicture", DbType="NVarChar(200)")]
-		public string fPathPicture
-		{
-			get
-			{
-				return this._fPathPicture;
-			}
-			set
-			{
-				if ((this._fPathPicture != value))
-				{
-					this.OnfPathPictureChanging(value);
-					this.SendPropertyChanging();
-					this._fPathPicture = value;
-					this.SendPropertyChanged("fPathPicture");
-					this.OnfPathPictureChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fLocation", DbType="NVarChar(200)")]
-		public string fLocation
-		{
-			get
-			{
-				return this._fLocation;
-			}
-			set
-			{
-				if ((this._fLocation != value))
-				{
-					this.OnfLocationChanging(value);
-					this.SendPropertyChanging();
-					this._fLocation = value;
-					this.SendPropertyChanged("fLocation");
-					this.OnfLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fSoLuongAnh", DbType="NVarChar(200)")]
-		public string fSoLuongAnh
-		{
-			get
-			{
-				return this._fSoLuongAnh;
-			}
-			set
-			{
-				if ((this._fSoLuongAnh != value))
-				{
-					this.OnfSoLuongAnhChanging(value);
-					this.SendPropertyChanging();
-					this._fSoLuongAnh = value;
-					this.SendPropertyChanged("fSoLuongAnh");
-					this.OnfSoLuongAnhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiBatch", DbType="NVarChar(200)")]
-		public string LoaiBatch
-		{
-			get
-			{
-				return this._LoaiBatch;
-			}
-			set
-			{
-				if ((this._LoaiBatch != value))
-				{
-					this.OnLoaiBatchChanging(value);
-					this.SendPropertyChanging();
-					this._LoaiBatch = value;
-					this.SendPropertyChanged("LoaiBatch");
-					this.OnLoaiBatchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiaUser", DbType="Bit")]
-		public System.Nullable<bool> ChiaUser
-		{
-			get
-			{
-				return this._ChiaUser;
-			}
-			set
-			{
-				if ((this._ChiaUser != value))
-				{
-					this.OnChiaUserChanging(value);
-					this.SendPropertyChanging();
-					this._ChiaUser = value;
-					this.SendPropertyChanged("ChiaUser");
-					this.OnChiaUserChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -3203,6 +2949,260 @@ namespace Natsu
 					this._DateCheck = value;
 					this.SendPropertyChanged("DateCheck");
 					this.OnDateCheckChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Batch")]
+	public partial class tbl_Batch : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _IDBatch;
+		
+		private string _fBatchName;
+		
+		private System.Nullable<System.DateTime> _fdatecreated;
+		
+		private string _fusercreate;
+		
+		private string _fPathPicture;
+		
+		private string _fLocation;
+		
+		private string _fSoLuongAnh;
+		
+		private string _LoaiBatch;
+		
+		private System.Nullable<bool> _ChiaUser;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDBatchChanging(long value);
+    partial void OnIDBatchChanged();
+    partial void OnfBatchNameChanging(string value);
+    partial void OnfBatchNameChanged();
+    partial void OnfdatecreatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnfdatecreatedChanged();
+    partial void OnfusercreateChanging(string value);
+    partial void OnfusercreateChanged();
+    partial void OnfPathPictureChanging(string value);
+    partial void OnfPathPictureChanged();
+    partial void OnfLocationChanging(string value);
+    partial void OnfLocationChanged();
+    partial void OnfSoLuongAnhChanging(string value);
+    partial void OnfSoLuongAnhChanged();
+    partial void OnLoaiBatchChanging(string value);
+    partial void OnLoaiBatchChanged();
+    partial void OnChiaUserChanging(System.Nullable<bool> value);
+    partial void OnChiaUserChanged();
+    #endregion
+		
+		public tbl_Batch()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDBatch", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long IDBatch
+		{
+			get
+			{
+				return this._IDBatch;
+			}
+			set
+			{
+				if ((this._IDBatch != value))
+				{
+					this.OnIDBatchChanging(value);
+					this.SendPropertyChanging();
+					this._IDBatch = value;
+					this.SendPropertyChanged("IDBatch");
+					this.OnIDBatchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fBatchName", DbType="NVarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string fBatchName
+		{
+			get
+			{
+				return this._fBatchName;
+			}
+			set
+			{
+				if ((this._fBatchName != value))
+				{
+					this.OnfBatchNameChanging(value);
+					this.SendPropertyChanging();
+					this._fBatchName = value;
+					this.SendPropertyChanged("fBatchName");
+					this.OnfBatchNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fdatecreated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fdatecreated
+		{
+			get
+			{
+				return this._fdatecreated;
+			}
+			set
+			{
+				if ((this._fdatecreated != value))
+				{
+					this.OnfdatecreatedChanging(value);
+					this.SendPropertyChanging();
+					this._fdatecreated = value;
+					this.SendPropertyChanged("fdatecreated");
+					this.OnfdatecreatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fusercreate", DbType="NVarChar(200)")]
+		public string fusercreate
+		{
+			get
+			{
+				return this._fusercreate;
+			}
+			set
+			{
+				if ((this._fusercreate != value))
+				{
+					this.OnfusercreateChanging(value);
+					this.SendPropertyChanging();
+					this._fusercreate = value;
+					this.SendPropertyChanged("fusercreate");
+					this.OnfusercreateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fPathPicture", DbType="NVarChar(200)")]
+		public string fPathPicture
+		{
+			get
+			{
+				return this._fPathPicture;
+			}
+			set
+			{
+				if ((this._fPathPicture != value))
+				{
+					this.OnfPathPictureChanging(value);
+					this.SendPropertyChanging();
+					this._fPathPicture = value;
+					this.SendPropertyChanged("fPathPicture");
+					this.OnfPathPictureChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fLocation", DbType="NVarChar(200)")]
+		public string fLocation
+		{
+			get
+			{
+				return this._fLocation;
+			}
+			set
+			{
+				if ((this._fLocation != value))
+				{
+					this.OnfLocationChanging(value);
+					this.SendPropertyChanging();
+					this._fLocation = value;
+					this.SendPropertyChanged("fLocation");
+					this.OnfLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fSoLuongAnh", DbType="NVarChar(200)")]
+		public string fSoLuongAnh
+		{
+			get
+			{
+				return this._fSoLuongAnh;
+			}
+			set
+			{
+				if ((this._fSoLuongAnh != value))
+				{
+					this.OnfSoLuongAnhChanging(value);
+					this.SendPropertyChanging();
+					this._fSoLuongAnh = value;
+					this.SendPropertyChanged("fSoLuongAnh");
+					this.OnfSoLuongAnhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoaiBatch", DbType="NVarChar(200)")]
+		public string LoaiBatch
+		{
+			get
+			{
+				return this._LoaiBatch;
+			}
+			set
+			{
+				if ((this._LoaiBatch != value))
+				{
+					this.OnLoaiBatchChanging(value);
+					this.SendPropertyChanging();
+					this._LoaiBatch = value;
+					this.SendPropertyChanged("LoaiBatch");
+					this.OnLoaiBatchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiaUser", DbType="Bit")]
+		public System.Nullable<bool> ChiaUser
+		{
+			get
+			{
+				return this._ChiaUser;
+			}
+			set
+			{
+				if ((this._ChiaUser != value))
+				{
+					this.OnChiaUserChanging(value);
+					this.SendPropertyChanging();
+					this._ChiaUser = value;
+					this.SendPropertyChanged("ChiaUser");
+					this.OnChiaUserChanged();
 				}
 			}
 		}

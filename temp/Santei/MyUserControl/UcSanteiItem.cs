@@ -220,7 +220,7 @@ namespace Natsu.MyUserControl
 
         public void SaveData_SuaVaLuu(string usersaiit, string usersainhieu, string idimage, string idphieu)
         {
-            Global.Db.SuaVaLuu_deso_Error(usersaiit, usersainhieu, idimage, Global.StrBatch, Global.StrUsername,
+            Global.Db.SuaVaLuu_deso_Error_New(usersaiit, usersainhieu, idimage, Global.StrBatch, Global.StrUsername,
                 idphieu,
                 txt_TruongSo01.Text,
                 txt_TruongSo02.Text,
@@ -2136,6 +2136,14 @@ namespace Natsu.MyUserControl
         }
 
         private void txt_TruongSo00_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control && e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{Tab}");
+            }
+        }
+
+        private void txt_TruongSo21_KeyDown(object sender, KeyEventArgs e)
         {
             if (!e.Control && e.KeyCode == Keys.Enter)
             {

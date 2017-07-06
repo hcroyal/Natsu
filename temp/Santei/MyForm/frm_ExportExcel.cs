@@ -77,7 +77,7 @@ namespace Natsu.MyForm
                 File.WriteAllBytes((Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ExportExcel.xlsx"), Properties.Resources.ExportExcel);
             }
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = Global.Db.ExportExcel_Getsu(cbb_Batch.Text);
+            dataGridView1.DataSource = Global.Db.ExportExcel_Getsu_New(cbb_Batch.Text);
             TableToExcel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx",dataGridView1);
 
 

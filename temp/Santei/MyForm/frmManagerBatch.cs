@@ -90,14 +90,14 @@ namespace Natsu.MyForm
                     var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
                     batch.CongKhaiBatch = true;
                     Global.Db.SubmitChanges();
-                    Global.Db.UpdateBatchChiaUser(batchname);
+                    
                 }
                 else
                 {
                     var batch = (from w in Global.Db.tbl_Batches where w.fBatchName == batchname select w).Single();
                     batch.CongKhaiBatch = false;
                     Global.Db.SubmitChanges();
-                    Global.Db.UpdateBatchKhongChiaUser(batchname);
+                    
 
                 }
             }

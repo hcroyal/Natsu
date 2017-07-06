@@ -220,7 +220,7 @@ namespace Natsu.MyUserControl
 
         public void SaveData_SuaVaLuu(string usersaiit, string usersainhieu, string idimage, string idphieu)
         {
-            Global.Db.SuaVaLuu_deso_Error_New(usersaiit, usersainhieu, idimage, Global.StrBatch, Global.StrUsername,
+            Global.Db.SuaVaLuu_deso_Error(usersaiit, usersainhieu, idimage, Global.StrBatch, Global.StrUsername,
                 idphieu,
                 txt_TruongSo01.Text,
                 txt_TruongSo02.Text,

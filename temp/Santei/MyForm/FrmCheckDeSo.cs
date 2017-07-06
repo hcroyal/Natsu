@@ -117,7 +117,7 @@ namespace Natsu.MyForm
         private void UcNatsu2Item1_Changed(object sender, EventArgs e)
         {
             btn_Luu_DeSo2.Visible = false;
-            btn_SuaVaLuu_User2.Visible = true;
+            btn_SuaVaLuu_User2.Visible = false;
         }
 
         private void UcNatsu1Item1_Changed(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace Natsu.MyForm
                 }
                 Load_DeSo(Global.StrBatch, lb_Image.Text);
                 btn_Luu_DeSo1.Visible = true;
-                btn_Luu_DeSo2.Visible = true;
+                btn_Luu_DeSo2.Visible = false;
                 btn_SuaVaLuu_User1.Visible = false;
                 btn_SuaVaLuu_User2.Visible = false;
 
@@ -1246,7 +1246,7 @@ namespace Natsu.MyForm
                 }
                 Load_DeSo(Global.StrBatch, lb_Image.Text);
                 btn_Luu_DeSo1.Visible = true;
-                btn_Luu_DeSo2.Visible = true;
+                btn_Luu_DeSo2.Visible = false;
                 btn_SuaVaLuu_User1.Visible = false;
                 btn_SuaVaLuu_User2.Visible = false;
             }
@@ -1293,7 +1293,7 @@ namespace Natsu.MyForm
                 }
                 Load_DeSo(Global.StrBatch, lb_Image.Text);
                 btn_Luu_DeSo1.Visible = true;
-                btn_Luu_DeSo2.Visible = true;
+                btn_Luu_DeSo2.Visible = false;
                 btn_SuaVaLuu_User1.Visible = false;
                 btn_SuaVaLuu_User2.Visible = false;
             }
@@ -1334,7 +1334,7 @@ namespace Natsu.MyForm
                 }
                 Load_DeSo(Global.StrBatch, lb_Image.Text);
                 btn_Luu_DeSo1.Visible = true;
-                btn_Luu_DeSo2.Visible = true;
+                btn_Luu_DeSo2.Visible = false;
                 btn_SuaVaLuu_User1.Visible = false;
                 btn_SuaVaLuu_User2.Visible = false;
             }
@@ -1376,7 +1376,7 @@ namespace Natsu.MyForm
                 }
                 Load_DeSo(Global.StrBatch, lb_Image.Text);
                 btn_Luu_DeSo1.Visible = true;
-                btn_Luu_DeSo2.Visible = true;
+                btn_Luu_DeSo2.Visible = false;
                 btn_SuaVaLuu_User1.Visible = false;
                 btn_SuaVaLuu_User2.Visible = false;
             }

@@ -103,6 +103,12 @@
     <Compile Include="MyForm\FrmFeedback.designer.cs">
       <DependentUpon>FrmFeedback.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frm_ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frm_ChangePassword.Designer.cs">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\frm_ChangeServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\FrmTienDo.resx">
       <DependentUpon>FrmTienDo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frm_ChangePassword.resx">
+      <DependentUpon>frm_ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frm_ChangeServer.resx">
       <DependentUpon>frm_ChangeServer.cs</DependentUpon>

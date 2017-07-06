@@ -624,5 +624,10 @@ namespace Natsu.MyForm
         {
 
         }
+
+        private void btn_ChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            new frm_ChangePassword().ShowDialog();
+        }
     }
 }

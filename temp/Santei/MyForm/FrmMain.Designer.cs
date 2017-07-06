@@ -43,6 +43,7 @@
             this.btn_Check = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ZoomImage = new DevExpress.XtraBars.BarButtonItem();
             this.btn_FeedBack = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_ChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -108,9 +109,10 @@
             this.btn_FeedBack,
             this.btn_Start_Performance_Test,
             this.btn_Stop_Performance_Test,
-            this.skinBarSubItem1});
+            this.skinBarSubItem1,
+            this.btn_ChangePassword});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 17;
+            this.barManager1.MaxItemId = 18;
             // 
             // bar2
             // 
@@ -125,6 +127,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_Check),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_ZoomImage),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_FeedBack),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_ChangePassword),
             new DevExpress.XtraBars.LinkPersistInfo(this.skinBarSubItem1)});
             this.bar2.OptionsBar.DrawBorder = false;
             this.bar2.OptionsBar.MultiLine = true;
@@ -221,6 +224,13 @@
             this.btn_FeedBack.Id = 11;
             this.btn_FeedBack.Name = "btn_FeedBack";
             this.btn_FeedBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_FeedBack_ItemClick);
+            // 
+            // btn_ChangePassword
+            // 
+            this.btn_ChangePassword.Caption = "Change Password";
+            this.btn_ChangePassword.Id = 17;
+            this.btn_ChangePassword.Name = "btn_ChangePassword";
+            this.btn_ChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ChangePassword_ItemClick);
             // 
             // skinBarSubItem1
             // 
@@ -568,6 +578,7 @@
         private DevExpress.XtraBars.BarButtonItem btn_Stop_Performance_Test;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraBars.BarButtonItem btn_ChangePassword;
     }
 }
 

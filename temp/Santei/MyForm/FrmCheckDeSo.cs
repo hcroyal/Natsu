@@ -122,7 +122,7 @@ namespace Natsu.MyForm
 
         private void UcNatsu1Item1_Changed(object sender, EventArgs e)
         {
-            btn_Luu_DeSo1.Visible = false;
+            btn_Luu_DeSo1.Visible = true;
             btn_SuaVaLuu_User1.Visible = true;
         }
 

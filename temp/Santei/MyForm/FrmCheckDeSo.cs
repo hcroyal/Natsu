@@ -22,6 +22,8 @@ namespace Natsu.MyForm
         {
             ucNatsu2.ResetData();
             ucNatsu1.ResetData();
+            lb_username1.Text = "";
+            lb_username2.Text = "";
             ucPictureBox1.imageBox1.Image = null;
         }
 
@@ -48,13 +50,15 @@ namespace Natsu.MyForm
         {
             if (MessageBox.Show(@"You want to do the next batch?", @"Notification", MessageBoxButtons.YesNo) == DialogResult.No)
             {
-                ResetData();
-                btn_Luu_DeSo1.Visible = false;
-                btn_Luu_DeSo2.Visible = false;
-                btn_SuaVaLuu_User1.Visible = false;
-                btn_SuaVaLuu_User2.Visible = false;
-                cbb_Batch_Check.DataSource = (from w in Global.Db.GetBatNotFinishCheckerDeSo(Global.StrUsername) select w.fBatchName).ToList();
-                cbb_Batch_Check.DisplayMember = "fBatchName";
+                Close();
+                //ResetData();
+                //btn_Luu_DeSo1.Visible = false;
+                //btn_Luu_DeSo2.Visible = false;
+                //btn_SuaVaLuu_User1.Visible = false;
+                //btn_SuaVaLuu_User2.Visible = false;
+                //cbb_Batch_Check.DataSource = (from w in Global.Db.GetBatNotFinishCheckerDeSo(Global.StrUsername) select w.fBatchName).ToList();
+                //cbb_Batch_Check.DisplayMember = "fBatchName";
+                
             }
             else
             {

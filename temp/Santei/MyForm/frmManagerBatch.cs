@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Natsu.MyForm
 {
@@ -128,12 +129,13 @@ namespace Natsu.MyForm
 
                     }
 
-
                 }
             }
-            
 
             RefreshBatch();
+            int rowHandle = gridView1.LocateByValue("fBatchName", batchname);
+            if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                gridView1.FocusedRowHandle = rowHandle;
         }
     }
 }

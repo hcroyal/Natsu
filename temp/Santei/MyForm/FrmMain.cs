@@ -346,9 +346,19 @@ namespace Natsu.MyForm
                 {
                     if (Global.StrRole == "DESO")
                     {
+                        if (UcNatsu1.TrongTruongSo3())
+                        {
+                            MessageBox.Show(@"Vui lòng kiểm tra lại trường số 3");
+                            return;
+                        }
                         if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                         {
                             MessageBox.Show(@"Field 00 is empty");
+                            return;
+                        }
+                        if (UcNatsu1.TrongTruongSo12())
+                        {
+                            MessageBox.Show(@"Vui lòng kiểm tra lại trường số 12");
                             return;
                         }
                         if (UcNatsu1.IsEmpty())
@@ -356,6 +366,7 @@ namespace Natsu.MyForm
                             if (MessageBox.Show(@"A field(s) is empty. Do you want to continue ? \r\nYes = Submit and next Image < Press Enter >\r\nNo = Enter the blank field for this image. < Press N > ", @"Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2) == DialogResult.No)
                                 return;
                         }
+                      
                         UcNatsu1.SaveData(lb_IdImage.Text);
                         UcNatsu1.ResetData();
                         var version = (from w in Global.DbBpo.tbl_Versions where w.IDProject == Global.StrIdProject select w.IDVersion).FirstOrDefault();
@@ -483,9 +494,19 @@ namespace Natsu.MyForm
                 }
                 if (Global.StrRole == "DESO")
                 {
+                    if (UcNatsu1.TrongTruongSo3())
+                    {
+                        MessageBox.Show(@"Vui lòng kiểm tra lại trường số 3");
+                        return;
+                    }
                     if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                     {
                         MessageBox.Show(@"Field 00 is empty");
+                        return;
+                    }
+                    if (UcNatsu1.TrongTruongSo12())
+                    {
+                        MessageBox.Show(@"Vui lòng kiểm tra lại trường số 12");
                         return;
                     }
                     if (UcNatsu1.IsEmpty())

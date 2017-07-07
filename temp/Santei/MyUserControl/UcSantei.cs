@@ -79,5 +79,40 @@ namespace Natsu.MyUserControl
                 Changed?.Invoke(sender, e);
             }
         }
+
+        public bool TrongTruongSo3()
+        {
+            bool kq;
+            if (UcNatsuItem1.KiemTraTruongSo3() || 
+                UcNatsuItem2.KiemTraTruongSo3() || 
+                UcNatsuItem3.KiemTraTruongSo3() || 
+                UcNatsuItem4.KiemTraTruongSo3() ||
+                UcNatsuItem5.KiemTraTruongSo3())
+            {
+                kq = true;
+            }
+            else
+            {
+                kq = false;
+            }
+            return kq;
+        }
+        public bool TrongTruongSo12()
+        {
+            bool kq;
+            if (UcNatsuItem1.KiemTraTruongSo12() ||
+                UcNatsuItem2.KiemTraTruongSo12() ||
+                UcNatsuItem3.KiemTraTruongSo12() ||
+                UcNatsuItem4.KiemTraTruongSo12() ||
+                UcNatsuItem5.KiemTraTruongSo12())
+            {
+                kq = true;
+            }
+            else
+            {
+                kq = false;
+            }
+            return kq;
+        }
     }
 }

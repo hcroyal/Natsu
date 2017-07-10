@@ -346,9 +346,19 @@ namespace Natsu.MyForm
                 {
                     if (Global.StrRole == "DESO")
                     {
+                        if (UcNatsu1.TrongTruongSo3())
+                        {
+                            MessageBox.Show(@"Vui lòng kiểm tra lại trường số 3");
+                            return;
+                        }
                         if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                         {
                             MessageBox.Show(@"Field 00 is empty");
+                            return;
+                        }
+                        if (UcNatsu1.TrongTruongSo12())
+                        {
+                            MessageBox.Show(@"Vui lòng kiểm tra lại trường số 12");
                             return;
                         }
                         if (UcNatsu1.IsEmpty())
@@ -483,9 +493,19 @@ namespace Natsu.MyForm
                 }
                 if (Global.StrRole == "DESO")
                 {
+                    if (UcNatsu1.TrongTruongSo3())
+                    {
+                        MessageBox.Show(@"Vui lòng kiểm tra lại trường số 3");
+                        return;
+                    }
                     if (UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem1) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem2) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem3) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem4) || UcNatsu1.IsEmptyTruong00(UcNatsu1.UcNatsuItem5))
                     {
                         MessageBox.Show(@"Field 00 is empty");
+                        return;
+                    }
+                    if (UcNatsu1.TrongTruongSo12())
+                    {
+                        MessageBox.Show(@"Vui lòng kiểm tra lại trường số 12");
                         return;
                     }
                     if (UcNatsu1.IsEmpty())

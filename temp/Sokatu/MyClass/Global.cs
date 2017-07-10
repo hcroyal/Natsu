@@ -16,7 +16,7 @@
         public static string StrPath = @"\\10.10.10.248\Natsu_Sokatu$";
         public static string Webservice = "http://10.10.10.248:8888/Natsu_Sokatu/";
         public static string StrIdProject = "Sokatu";
-        public static string Version = "1.4.5";
+        public static string Version = "1.4.6";
         public static string UrlUpdateVersion = @"\\10.10.10.254\DE_Viet\2017\NATSU\Tools";
         public static int FreeTime = 0;
         public static bool NotGoodUser;

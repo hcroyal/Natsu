@@ -2134,59 +2134,21 @@ namespace Natsu.MyUserControl
 
             }
         }
-       
 
-        private void txt_TruongSo02_KeyDown(object sender, KeyEventArgs e)
+        private void txt_TruongSo00_KeyDown(object sender, KeyEventArgs e)
         {
             if (!e.Control && e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{Tab}");
             }
         }
-       
 
-        public bool KiemTraTruongSo3()
+        private void txt_TruongSo21_KeyDown(object sender, KeyEventArgs e)
         {
-            bool kq;
-            if (!string.IsNullOrEmpty(txt_TruongSo03.Text))
+            if (!e.Control && e.KeyCode == Keys.Enter)
             {
-                if (txt_TruongSo03.Text.Length < 6 || txt_TruongSo03.Text.Length > 6)
-                {
-                    kq = txt_TruongSo03.Text != "*";
-                }
-                else
-                {
-                    kq = false;
-                }
+                SendKeys.Send("{Tab}");
             }
-            else
-            {
-                kq = false;
-            }
-            return kq;
         }
-
-        public bool KiemTraTruongSo12()
-        {
-            bool kq;
-            if (!string.IsNullOrEmpty(txt_TruongSo12.Text))
-            {
-                if (txt_TruongSo12.Text.Length<4 || txt_TruongSo12.Text.Length>4)
-                {
-                    kq = txt_TruongSo12.Text != "*";
-                }
-                else
-                {
-                    kq = false;
-                }
-            }
-            else
-            {
-                kq = false;
-            }
-            return kq;
-        }
-
-        
     }
 }

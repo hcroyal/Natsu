@@ -1186,6 +1186,7 @@ namespace Natsu.MyForm
         //}
         private string GetImage_DeSo()
         {
+            LockControl(true);
             var temp = (from w in Global.Db.tbl_MissCheck_DESOs where w.fBatchName == Global.StrBatch && w.UserName == Global.StrUsername && w.Submit == 0 select w.IdImage).FirstOrDefault();
             if (string.IsNullOrEmpty(temp))
             {
@@ -1210,6 +1211,7 @@ namespace Natsu.MyForm
                     return "Error";
                 }
             }
+            timer1.Enabled = true;
             return "Ok";
         }
 
@@ -1439,6 +1441,26 @@ namespace Natsu.MyForm
         {
             Clipboard.SetText(lb_Image.Text);
             XtraMessageBox.Show("Copy Success!");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LockControl(false);
+            timer1.Enabled = false;
+        }
+        private void LockControl(bool kt)
+        {
+            if (kt)
+            {
+                btn_Luu_DeSo1.Enabled = false;
+                btn_Luu_DeSo2.Enabled = false;
+                
+            }
+            else
+            {
+                btn_Luu_DeSo1.Enabled = true;
+                btn_Luu_DeSo2.Enabled = true;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@
             this.labelb = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.ucPictureBox1 = new Natsu.MyUserControl.UcPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -395,6 +397,11 @@
             this.ucPictureBox1.Size = new System.Drawing.Size(691, 705);
             this.ucPictureBox1.TabIndex = 0;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmCheckDeSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,5 +477,6 @@
         private MyUserControl.UcPictureBox ucPictureBox1;
         private MyUserControl.UcSantei ucNatsu1;
         private MyUserControl.UcSantei ucNatsu2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

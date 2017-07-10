@@ -105,7 +105,7 @@ namespace Natsu.MyForm
         private void frm_ExportExcel_Load(object sender, EventArgs e)
         {
             cbb_Batch.Items.Clear();
-            var result = from w in Global.Db.tbl_Batches orderby w.fdatecreated select w.fBatchName;
+            var result = from w in Global.Db.tbl_Batches where w.CongKhaiBatch==true orderby w.fdatecreated select w.fBatchName;
 
             if (result.Count() > 0)
             {

@@ -68,9 +68,9 @@ namespace Natsu.MyForm
                 Settings.Default.Server = "Khác";
                 Settings.Default.Save();
                 Global.Webservice = "http://117.2.142.10:3602/Natsu_Santei/";
-                Global.Db = new DataSanteiDataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=Santei;Persist Security Info=True;User ID=santei;Password=123@123a");
+                Global.Db = new DataSanteiDataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=Santei;Persist Security Info=True;Network Library=DBMSSOCN;User ID=santei;Password=123@123a");
                 Global.Db.CommandTimeout = 5 * 60; // 5 Mins
-                Global.DbBpo = new DataBPODataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;User ID=bpoentry;Password=123@123a");
+                Global.DbBpo = new DataBPODataContext(@"Data Source=117.2.142.10,3601;Initial Catalog=DatabaseDataEntryBPO;Persist Security Info=True;Network Library=DBMSSOCN;User ID=bpoentry;Password=123@123a");
                 //Data Source = 10.10.10.248\BPOSERVER; Initial Catalog = TimeCard2017; Persist Security Info = True; User ID = sa
             }
             this.DialogResult = DialogResult.OK;

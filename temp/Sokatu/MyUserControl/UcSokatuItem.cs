@@ -230,15 +230,15 @@ namespace Natsu.MyUserControl
 
         private void UcNatsuItem_Load(object sender, EventArgs e)
         {
-            txt_TruongSo07.Enabled = false;
-            txt_TruongSo08.Enabled = false;
-            txt_TruongSo09.Enabled = false;
-            txt_TruongSo10.Enabled = false;
+            //txt_TruongSo07.Enabled = false;
+            //txt_TruongSo08.Enabled = false;
+            //txt_TruongSo09.Enabled = false;
+            //txt_TruongSo10.Enabled = false;
 
-            txt_TruongSo14.Enabled = false;
-            txt_TruongSo15.Enabled = false;
-            txt_TruongSo16.Enabled = false;
-            txt_TruongSo17.Enabled = false;
+            //txt_TruongSo14.Enabled = false;
+            //txt_TruongSo15.Enabled = false;
+            //txt_TruongSo16.Enabled = false;
+            //txt_TruongSo17.Enabled = false;
 
             txt_TruongSo01.GotFocus += Txt_GotFocus;
             txt_TruongSo02.GotFocus += Txt_GotFocus;
@@ -407,16 +407,16 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
 
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo07.Enabled = true;
-                txt_TruongSo07.Text = "";
-            }
-            else
-            {
-                txt_TruongSo07.Enabled = false;
-                txt_TruongSo07.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo07.Enabled = true;
+            //    txt_TruongSo07.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo07.Enabled = false;
+            //    txt_TruongSo07.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
@@ -424,48 +424,48 @@ namespace Natsu.MyUserControl
         {
 
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo08.Enabled = true;
-                txt_TruongSo08.Text = "";
-            }
-            else
-            {
-                txt_TruongSo08.Enabled = false;
-                txt_TruongSo08.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo08.Enabled = true;
+            //    txt_TruongSo08.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo08.Enabled = false;
+            //    txt_TruongSo08.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo08_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo09.Enabled = true;
-                txt_TruongSo09.Text = "";
-            }
-            else
-            {
-                txt_TruongSo09.Enabled = false;
-                txt_TruongSo09.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo09.Enabled = true;
+            //    txt_TruongSo09.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo09.Enabled = false;
+            //    txt_TruongSo09.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo09_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo10.Enabled = true;
-                txt_TruongSo10.Text = "";
-            }
-            else
-            {
-                txt_TruongSo10.Enabled = false;
-                txt_TruongSo10.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo10.Enabled = true;
+            //    txt_TruongSo10.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo10.Enabled = false;
+            //    txt_TruongSo10.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
@@ -490,64 +490,64 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo13_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo14.Enabled = true;
-                txt_TruongSo14.Text = "";
-            }
-            else
-            {
-                txt_TruongSo14.Enabled = false;
-                txt_TruongSo14.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo14.Enabled = true;
+            //    txt_TruongSo14.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo14.Enabled = false;
+            //    txt_TruongSo14.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo14_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo15.Enabled = true;
-                txt_TruongSo15.Text = "";
-            }
-            else
-            {
-                txt_TruongSo15.Enabled = false;
-                txt_TruongSo15.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo15.Enabled = true;
+            //    txt_TruongSo15.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo15.Enabled = false;
+            //    txt_TruongSo15.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo15_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo16.Enabled = true;
-                txt_TruongSo16.Text = "";
-            }
-            else
-            {
-                txt_TruongSo16.Enabled = false;
-                txt_TruongSo16.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo16.Enabled = true;
+            //    txt_TruongSo16.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo16.Enabled = false;
+            //    txt_TruongSo16.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo16_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            {
-                txt_TruongSo17.Enabled = true;
-                txt_TruongSo17.Text = "";
-            }
-            else
-            {
-                txt_TruongSo17.Enabled = false;
-                txt_TruongSo17.Text = "";
-            }
+            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            //{
+            //    txt_TruongSo17.Enabled = true;
+            //    txt_TruongSo17.Text = "";
+            //}
+            //else
+            //{
+            //    txt_TruongSo17.Enabled = false;
+            //    txt_TruongSo17.Text = "";
+            //}
             Changed?.Invoke(sender, e);
         }
 

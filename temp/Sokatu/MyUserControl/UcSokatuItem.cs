@@ -230,15 +230,25 @@ namespace Natsu.MyUserControl
 
         private void UcNatsuItem_Load(object sender, EventArgs e)
         {
-            //txt_TruongSo07.Enabled = false;
-            //txt_TruongSo08.Enabled = false;
-            //txt_TruongSo09.Enabled = false;
-            //txt_TruongSo10.Enabled = false;
+            txt_TruongSo07.ReadOnly = false;
+            txt_TruongSo08.ReadOnly = false;
+            txt_TruongSo09.ReadOnly = false;
+            txt_TruongSo10.ReadOnly = false;
 
-            //txt_TruongSo14.Enabled = false;
-            //txt_TruongSo15.Enabled = false;
-            //txt_TruongSo16.Enabled = false;
-            //txt_TruongSo17.Enabled = false;
+            txt_TruongSo14.ReadOnly = false;
+            txt_TruongSo15.ReadOnly = false;
+            txt_TruongSo16.ReadOnly = false;
+            txt_TruongSo17.ReadOnly = false;
+
+            txt_TruongSo07.TabStop = false;
+            txt_TruongSo08.TabStop = false;
+            txt_TruongSo09.TabStop = false;
+            txt_TruongSo10.TabStop = false;
+
+            txt_TruongSo14.TabStop = false;
+            txt_TruongSo15.TabStop = false;
+            txt_TruongSo16.TabStop = false;
+            txt_TruongSo17.TabStop = false;
 
             txt_TruongSo01.GotFocus += Txt_GotFocus;
             txt_TruongSo02.GotFocus += Txt_GotFocus;
@@ -407,16 +417,18 @@ namespace Natsu.MyUserControl
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
 
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo07.Enabled = true;
-            //    txt_TruongSo07.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo07.Enabled = false;
-            //    txt_TruongSo07.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo07.ReadOnly = false;
+                txt_TruongSo07.TabStop = true;
+                txt_TruongSo07.Text = "";
+            }
+            else
+            {
+                txt_TruongSo07.ReadOnly = true;
+                txt_TruongSo07.TabStop = false;
+                txt_TruongSo07.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
@@ -424,48 +436,55 @@ namespace Natsu.MyUserControl
         {
 
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo08.Enabled = true;
-            //    txt_TruongSo08.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo08.Enabled = false;
-            //    txt_TruongSo08.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo08.ReadOnly = false;
+                txt_TruongSo08.TabStop = true;
+                txt_TruongSo08.Text = "";
+            }
+            else
+            {
+                txt_TruongSo08.ReadOnly = true;
+                txt_TruongSo08.TabStop = false;
+                txt_TruongSo08.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo08_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo09.Enabled = true;
-            //    txt_TruongSo09.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo09.Enabled = false;
-            //    txt_TruongSo09.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo09.ReadOnly = false;
+                txt_TruongSo09.TabStop = true;
+                txt_TruongSo09.Text = "";
+            }
+            else
+            {
+                txt_TruongSo09.ReadOnly = true;
+                txt_TruongSo09.TabStop = false;
+                txt_TruongSo09.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo09_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo10.Enabled = true;
-            //    txt_TruongSo10.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo10.Enabled = false;
-            //    txt_TruongSo10.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+               
+                txt_TruongSo10.ReadOnly = false;
+                txt_TruongSo10.TabStop = true;
+                txt_TruongSo10.Text = "";
+            }
+            else
+            {
+                txt_TruongSo10.ReadOnly = true;
+                txt_TruongSo10.TabStop = false;
+                txt_TruongSo10.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
@@ -490,64 +509,72 @@ namespace Natsu.MyUserControl
         private void txt_TruongSo13_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo14.Enabled = true;
-            //    txt_TruongSo14.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo14.Enabled = false;
-            //    txt_TruongSo14.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo14.ReadOnly = false;
+                txt_TruongSo14.TabStop = true;
+                txt_TruongSo14.Text = "";
+            }
+            else
+            {
+                txt_TruongSo14.ReadOnly = true;
+                txt_TruongSo14.TabStop = false;
+                txt_TruongSo14.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo14_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo15.Enabled = true;
-            //    txt_TruongSo15.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo15.Enabled = false;
-            //    txt_TruongSo15.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo15.ReadOnly = false;
+                txt_TruongSo15.TabStop = true;
+                txt_TruongSo15.Text = "";
+            }
+            else
+            {
+                txt_TruongSo15.ReadOnly = true;
+                txt_TruongSo15.TabStop = false;
+                txt_TruongSo15.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo15_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo16.Enabled = true;
-            //    txt_TruongSo16.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo16.Enabled = false;
-            //    txt_TruongSo16.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo16.ReadOnly = false;
+                txt_TruongSo16.TabStop = true;
+                txt_TruongSo16.Text = "";
+            }
+            else
+            {
+                txt_TruongSo16.ReadOnly = true;
+                txt_TruongSo16.TabStop = false;
+                txt_TruongSo16.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
         private void txt_TruongSo16_EditValueChanged(object sender, EventArgs e)
         {
             DoiMauTextBox((TextEdit)sender, 0, 2);
-            //if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
-            //{
-            //    txt_TruongSo17.Enabled = true;
-            //    txt_TruongSo17.Text = "";
-            //}
-            //else
-            //{
-            //    txt_TruongSo17.Enabled = false;
-            //    txt_TruongSo17.Text = "";
-            //}
+            if (!string.IsNullOrEmpty(((TextEdit)sender).Text))
+            {
+                txt_TruongSo17.ReadOnly = false;
+                txt_TruongSo17.TabStop = true;
+                txt_TruongSo17.Text = "";
+            }
+            else
+            {
+                txt_TruongSo17.ReadOnly = true;
+                txt_TruongSo17.TabStop = false;
+                txt_TruongSo17.Text = "";
+            }
             Changed?.Invoke(sender, e);
         }
 
@@ -1001,6 +1028,51 @@ namespace Natsu.MyUserControl
                 txt_TruongSo20.Focus();
             }
          
+        }
+
+        private void txt_TruongSo07_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo07.ReadOnly = false;
+        }
+
+        private void txt_TruongSo08_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo08.ReadOnly = false;
+        }
+
+        private void txt_TruongSo09_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo09.ReadOnly = false;
+        }
+
+        private void txt_TruongSo10_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo10.ReadOnly = false;
+        }
+
+        private void txt_TruongSo14_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo14.ReadOnly = false;
+        }
+
+        private void txt_TruongSo15_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo15.ReadOnly = false;
+        }
+
+        private void txt_TruongSo16_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo16.ReadOnly = false;
+        }
+
+        private void txt_TruongSo17_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TruongSo17.ReadOnly = false;
+        }
+
+        private void txt_TruongSo07_Click(object sender, EventArgs e)
+        {
+            ((TextEdit) sender).ReadOnly = false;
         }
     }
 }

@@ -74,13 +74,12 @@ namespace Natsu.MyForm
             {
                 File.WriteAllBytes((Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ExportExcel.xlsx"), Properties.Resources.ExportExcel);
             }
+
             dataGridView1.DataSource = null;
             date1=DateTime.Now;
             dataGridView1.DataSource = Global.Db.ExportExcel_Getsu_New(cbb_Batch.Text);
             TableToExcel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx",dataGridView1);
 
-            date2 = DateTime.Now;
-            MessageBox.Show(date1 + @"   -   " + date2);
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
             {
                 File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx");
@@ -100,6 +99,9 @@ namespace Natsu.MyForm
             {
                 MessageBox.Show("No Error");
             }
+
+            date2 = DateTime.Now;
+            MessageBox.Show(@"Thời gian xuất : "+date1 + @"   -   " + date2);
         }
 
         private void frm_ExportExcel_Load(object sender, EventArgs e)
@@ -481,10 +483,8 @@ namespace Natsu.MyForm
             try
             {
                 Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Open(strfilename, 0, true, 5, "", "", false,
-                    Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
-                Microsoft.Office.Interop.Excel.Worksheet wrksheet =
-                    (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Open(strfilename, 0, true, 5, "", "", false,Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+                Microsoft.Office.Interop.Excel.Worksheet wrksheet = (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
                 int h = 2;
                 int i = 0;
                 progressBarControl1.EditValue = 0;
@@ -690,13 +690,13 @@ namespace Natsu.MyForm
                     
 
                     lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count;
-                    Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "AE" + h);
-                    rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                     i++;
                     h++;
                     progressBarControl1.PerformStep();
                     progressBarControl1.Update();
                 }
+                Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "AE" + h);
+                rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                 string savePath = "";
                 saveFileDialog1.Title = "Save Excel Files";
                 saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";

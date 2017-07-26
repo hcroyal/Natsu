@@ -123,7 +123,7 @@ namespace Natsu.MyForm
         {
             try
             {
-                var nhap = (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch && w.ReadImageDESo == 2 select w.idimage).Count();
+                var nhap = (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch && w.ReadImageDESo >= 2 select w.idimage).Count();
                 var sohinh = (from w in Global.Db.tbl_Images where w.fbatchname == Global.StrBatch select w.idimage).Count();
                 var check = (from w in Global.Db.tbl_MissImage_DESOs where w.fBatchName == Global.StrBatch && w.Submit == 0 select w.IdImage).Count();
                 if (sohinh > nhap)

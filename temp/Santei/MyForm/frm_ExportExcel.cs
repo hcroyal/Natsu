@@ -16,6 +16,7 @@ namespace Natsu.MyForm
             InitializeComponent();
         }
 
+        private int sodong = 0;
         public DateTime date1,date2;
         private void btn_Export_Click(object sender, EventArgs e)
         {
@@ -103,7 +104,7 @@ namespace Natsu.MyForm
             }
             
             date2 = DateTime.Now;
-            MessageBox.Show(@"Thời gian xuất : " + date1 + @"   -   " + date2);
+            MessageBox.Show(@"Thời gian xuất : " + date1 + @"   -   " + date2,sodong+"");
 
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx"))
             {
@@ -173,290 +174,722 @@ namespace Natsu.MyForm
                 string truong24 = "";
                 string truong25 = "";
 
-                for (int j = 0; j < dataGrid.RowCount; j += 2)
+                int TongSoLoi = (from w in Global.Db.tbl_DESOs where w.fBatchName == cbb_Batch.Text && w.UserName != "Checker" && w.Error == 1 select w).Count();
+                int TongSoDong = dataGrid.Rows.Count/2;
+                int PhanTramTongSoDong = TongSoDong / 100 * 4;
+                int SoLuongLapLai = TongSoLoi / PhanTramTongSoDong;
+                int k = 0;
+                if (TongSoLoi<PhanTramTongSoDong)
                 {
-
-                    wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
-                    wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
-                    wrksheet.Cells[h, 3] = truong2 = dataGrid[2, j].Value + ""; //2
-                    if ((dataGrid[3, j].Value + "").Length == 6) //3
+                    for (int j = 0; j < dataGrid.RowCount; j += 2)
                     {
-                        wrksheet.Cells[h, 4] = truong3_1 = (dataGrid[3, j].Value + "").Substring(0, 2);
-                        wrksheet.Cells[h, 5] = truong3_2 = (dataGrid[3, j].Value + "").Substring(2, 2);
-                        wrksheet.Cells[h, 6] = truong3_3 = (dataGrid[3, j].Value + "").Substring(4, 2);
-                    }
-                    else if ((dataGrid[3, j].Value + "") == "*")
-                    {
-                        wrksheet.Cells[h, 4] = truong3_1 = "*";
-                        wrksheet.Cells[h, 5] = truong3_2 = "*";
-                        wrksheet.Cells[h, 6] = truong3_3 = "*";
-                    }
-                    else
-                    {
-                        wrksheet.Cells[h, 4] = truong3_1 = "";
-                        wrksheet.Cells[h, 5] = truong3_2 = "";
-                        wrksheet.Cells[h, 6] = truong3_3 = dataGrid[3, j].Value + "";
-                    }
 
 
-                    wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
-                    wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
-                    wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
-                    wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
-                    wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
-                    wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
-                    wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
-                    wrksheet.Cells[h, 14] = truong11 = dataGrid[11, j].Value + ""; //11
-
-                    if ((dataGrid[12, j].Value + "").Length == 4) //12
-                    {
-                        wrksheet.Cells[h, 15] = truong12_1 = (dataGrid[12, j].Value + "").Substring(0, 2);
-                        wrksheet.Cells[h, 16] = truong12_2 = (dataGrid[12, j].Value + "").Substring(2, 2);
-                    }
-                    else if ((dataGrid[12, j].Value + "") == "*")
-                    {
-                        wrksheet.Cells[h, 15] = truong12_1 = "*";
-                        wrksheet.Cells[h, 16] = truong12_2 = "*";
-                    }
-                    else
-                    {
-                        wrksheet.Cells[h, 15] = truong12_1 = "";
-                        wrksheet.Cells[h, 16] = truong12_2 = dataGrid[12, j].Value + "";
-                    }
-
-                    wrksheet.Cells[h, 17] = truong13 = dataGrid[13, j].Value + ""; //13
-                    wrksheet.Cells[h, 18] = truong14 = dataGrid[14, j].Value + ""; //14
-                    wrksheet.Cells[h, 19] = truong15 = dataGrid[15, j].Value + ""; //15
-                    wrksheet.Cells[h, 20] = truong16 = dataGrid[16, j].Value + ""; //16
-                    wrksheet.Cells[h, 21] = truong17 = dataGrid[17, j].Value + ""; //17
-                    wrksheet.Cells[h, 22] = truong18 = dataGrid[18, j].Value + ""; //18
-                    wrksheet.Cells[h, 23] = truong19 = dataGrid[19, j].Value + ""; //19
-                    wrksheet.Cells[h, 24] = truong20 = dataGrid[20, j].Value + ""; //20
-                    wrksheet.Cells[h, 25] = truong21 = dataGrid[21, j].Value + ""; //21
-                    wrksheet.Cells[h, 26] = truong22 = dataGrid[22, j].Value + ""; //22
-                    wrksheet.Cells[h, 27] = truong23 = dataGrid[23, j].Value + ""; //23
-                    wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
-                    wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
-                    wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
+                        wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
+                        wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
+                        wrksheet.Cells[h, 3] = truong2 = dataGrid[2, j].Value + ""; //2
+                        if ((dataGrid[3, j].Value + "").Length == 6) //3
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = (dataGrid[3, j].Value + "").Substring(0, 2);
+                            wrksheet.Cells[h, 5] = truong3_2 = (dataGrid[3, j].Value + "").Substring(2, 2);
+                            wrksheet.Cells[h, 6] = truong3_3 = (dataGrid[3, j].Value + "").Substring(4, 2);
+                        }
+                        else if ((dataGrid[3, j].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = "*";
+                            wrksheet.Cells[h, 5] = truong3_2 = "*";
+                            wrksheet.Cells[h, 6] = truong3_3 = "*";
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = "";
+                            wrksheet.Cells[h, 5] = truong3_2 = "";
+                            wrksheet.Cells[h, 6] = truong3_3 = dataGrid[3, j].Value + "";
+                        }
 
 
-                    wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
-                    if (truong1 != dataGrid[1, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 31].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 32] = dataGrid[2, j + 1].Value + ""; //2
-                    if (truong2 != dataGrid[2, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 32].Interior.Color = Color.Red;
-                    }
-                    if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
-                    {
-                        wrksheet.Cells[h, 33] = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
-                        if (truong3_1 != (dataGrid[3, j + 1].Value + "").Substring(0, 2))
-                        {
-                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 34] = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
-                        if (truong3_2 != (dataGrid[3, j + 1].Value + "").Substring(2, 2))
-                        {
-                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 35] = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
-                        if (truong3_3 != (dataGrid[3, j + 1].Value + "").Substring(4, 2))
-                        {
-                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                        }
-                    }
-                    else if ((dataGrid[3, j + 1].Value + "") == "*")
-                    {
-                        wrksheet.Cells[h, 33] = "*";
-                        if (truong3_1 != "*")
-                        {
-                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 34] = "*";
-                        if (truong3_2 != "*")
-                        {
-                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 35] = "*";
-                        if (truong3_3 != "*")
-                        {
-                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                        }
-                    }
-                    else
-                    {
-                        wrksheet.Cells[h, 33] = "";
-                        if (truong3_1 != "")
-                        {
-                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 34] = "";
-                        if (truong3_2 != "")
-                        {
-                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 35] = dataGrid[3, j + 1].Value + "";
-                        if (truong3_3 != dataGrid[3, j + 1].Value + "")
-                        {
-                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                        }
-                    }
+                        wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
+                        wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
+                        wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
+                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
+                        wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
+                        wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
+                        wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
+                        wrksheet.Cells[h, 14] = truong11 = dataGrid[11, j].Value + ""; //11
 
-                    wrksheet.Cells[h, 36] = dataGrid[4, j + 1].Value + ""; //4
-                    if (truong4 != dataGrid[4, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 36].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 37] = dataGrid[5, j + 1].Value + ""; //5
-                    if (truong5 != dataGrid[5, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 37].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 38] = dataGrid[6, j + 1].Value + ""; //6
-                    if (truong6 != dataGrid[6, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 38].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 39] = dataGrid[7, j + 1].Value + ""; //7
-                    if (truong7 != dataGrid[7, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 39].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 40] = dataGrid[8, j + 1].Value + ""; //8
-                    if (truong8 != dataGrid[8, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 40].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 41] = dataGrid[9, j + 1].Value + ""; //9
-                    if (truong9 != dataGrid[9, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 41].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 42] = dataGrid[10, j + 1].Value + ""; //10
-                    if (truong10 != dataGrid[10, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 42].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 43] = dataGrid[11, j + 1].Value + ""; //11
-                    if (truong11 != dataGrid[11, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 43].Interior.Color = Color.Red;
-                    }
+                        if ((dataGrid[12, j].Value + "").Length == 4) //12
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = (dataGrid[12, j].Value + "").Substring(0, 2);
+                            wrksheet.Cells[h, 16] = truong12_2 = (dataGrid[12, j].Value + "").Substring(2, 2);
+                        }
+                        else if ((dataGrid[12, j].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = "*";
+                            wrksheet.Cells[h, 16] = truong12_2 = "*";
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = "";
+                            wrksheet.Cells[h, 16] = truong12_2 = dataGrid[12, j].Value + "";
+                        }
 
-                    if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
-                    {
-                        wrksheet.Cells[h, 44] = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
-                        if (truong12_1 != (dataGrid[12, j + 1].Value + "").Substring(0, 2))
-                        {
-                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 45] = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
-                        if (truong12_2 != (dataGrid[12, j + 1].Value + "").Substring(2, 2))
-                        {
-                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                        }
-                    }
-                    else if ((dataGrid[12, j + 1].Value + "") == "*")
-                    {
-                        wrksheet.Cells[h, 44] = "*";
-                        if (truong12_1 != "*")
-                        {
-                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 45] = "*";
-                        if (truong12_2 != "*")
-                        {
-                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                        }
-                    }
-                    else
-                    {
-                        wrksheet.Cells[h, 44] = "";
-                        if (truong12_1 != "")
-                        {
-                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                        }
-                        wrksheet.Cells[h, 45] = dataGrid[12, j + 1].Value + "";
-                        if (truong12_2 != dataGrid[12, j + 1].Value + "")
-                        {
-                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                        }
-                    }
+                        wrksheet.Cells[h, 17] = truong13 = dataGrid[13, j].Value + ""; //13
+                        wrksheet.Cells[h, 18] = truong14 = dataGrid[14, j].Value + ""; //14
+                        wrksheet.Cells[h, 19] = truong15 = dataGrid[15, j].Value + ""; //15
+                        wrksheet.Cells[h, 20] = truong16 = dataGrid[16, j].Value + ""; //16
+                        wrksheet.Cells[h, 21] = truong17 = dataGrid[17, j].Value + ""; //17
+                        wrksheet.Cells[h, 22] = truong18 = dataGrid[18, j].Value + ""; //18
+                        wrksheet.Cells[h, 23] = truong19 = dataGrid[19, j].Value + ""; //19
+                        wrksheet.Cells[h, 24] = truong20 = dataGrid[20, j].Value + ""; //20
+                        wrksheet.Cells[h, 25] = truong21 = dataGrid[21, j].Value + ""; //21
+                        wrksheet.Cells[h, 26] = truong22 = dataGrid[22, j].Value + ""; //22
+                        wrksheet.Cells[h, 27] = truong23 = dataGrid[23, j].Value + ""; //23
+                        wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
+                        wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
+                        wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
 
-                    wrksheet.Cells[h, 46] = dataGrid[13, j + 1].Value + ""; //13
-                    if (truong13 != dataGrid[13, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 46].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 47] = dataGrid[14, j + 1].Value + ""; //14
-                    if (truong14 != dataGrid[14, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 47].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 48] = dataGrid[15, j + 1].Value + ""; //15
-                    if (truong15 != dataGrid[15, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 48].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 49] = dataGrid[16, j + 1].Value + ""; //16
-                    if (truong16 != dataGrid[16, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 49].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 50] = dataGrid[17, j + 1].Value + ""; //17
-                    if (truong17 != dataGrid[17, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 50].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 51] = dataGrid[18, j + 1].Value + ""; //18
-                    if (truong18 != dataGrid[18, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 51].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 52] = dataGrid[19, j + 1].Value + ""; //19
-                    if (truong19 != dataGrid[19, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 52].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 53] = dataGrid[20, j + 1].Value + ""; //20
-                    if (truong20 != dataGrid[20, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 53].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 54] = dataGrid[21, j + 1].Value + ""; //21
-                    if (truong21 != dataGrid[21, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 54].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 55] = dataGrid[22, j + 1].Value + ""; //22
-                    if (truong22 != dataGrid[22, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 55].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 56] = dataGrid[23, j + 1].Value + ""; //23
-                    if (truong23 != dataGrid[23, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 56].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 57] = dataGrid[24, j + 1].Value + ""; //24
-                    if (truong24 != dataGrid[24, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 57].Interior.Color = Color.Red;
-                    }
-                    wrksheet.Cells[h, 58] = dataGrid[25, j + 1].Value + ""; //25
-                    if (truong25 != dataGrid[25, j + 1].Value + "")
-                    {
-                        wrksheet.Cells[h, 58].Interior.Color = Color.Red;
-                    }
-                    h++;
+                        wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
+                        if (truong1 != dataGrid[1, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 31].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 32] = dataGrid[2, j + 1].Value + ""; //2
+                        if (truong2 != dataGrid[2, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 32].Interior.Color = Color.Red;
+                        }
+                        if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
+                        {
+                            wrksheet.Cells[h, 33] = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
+                            if (truong3_1 != (dataGrid[3, j + 1].Value + "").Substring(0, 2))
+                            {
+                                wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 34] = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
+                            if (truong3_2 != (dataGrid[3, j + 1].Value + "").Substring(2, 2))
+                            {
+                                wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 35] = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
+                            if (truong3_3 != (dataGrid[3, j + 1].Value + "").Substring(4, 2))
+                            {
+                                wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                            }
+                        }
+                        else if ((dataGrid[3, j + 1].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 33] = "*";
+                            if (truong3_1 != "*")
+                            {
+                                wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 34] = "*";
+                            if (truong3_2 != "*")
+                            {
+                                wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 35] = "*";
+                            if (truong3_3 != "*")
+                            {
+                                wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                            }
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 33] = "";
+                            if (truong3_1 != "")
+                            {
+                                wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 34] = "";
+                            if (truong3_2 != "")
+                            {
+                                wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 35] = dataGrid[3, j + 1].Value + "";
+                            if (truong3_3 != dataGrid[3, j + 1].Value + "")
+                            {
+                                wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                            }
+                        }
 
-                    lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
-                    progressBarControl1.PerformStep();
-                    progressBarControl1.Update();
+                        wrksheet.Cells[h, 36] = dataGrid[4, j + 1].Value + ""; //4
+                        if (truong4 != dataGrid[4, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 36].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 37] = dataGrid[5, j + 1].Value + ""; //5
+                        if (truong5 != dataGrid[5, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 37].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 38] = dataGrid[6, j + 1].Value + ""; //6
+                        if (truong6 != dataGrid[6, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 38].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 39] = dataGrid[7, j + 1].Value + ""; //7
+                        if (truong7 != dataGrid[7, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 39].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 40] = dataGrid[8, j + 1].Value + ""; //8
+                        if (truong8 != dataGrid[8, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 40].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 41] = dataGrid[9, j + 1].Value + ""; //9
+                        if (truong9 != dataGrid[9, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 41].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 42] = dataGrid[10, j + 1].Value + ""; //10
+                        if (truong10 != dataGrid[10, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 42].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 43] = dataGrid[11, j + 1].Value + ""; //11
+                        if (truong11 != dataGrid[11, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 43].Interior.Color = Color.Red;
+                        }
+
+                        if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
+                        {
+                            wrksheet.Cells[h, 44] = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
+                            if (truong12_1 != (dataGrid[12, j + 1].Value + "").Substring(0, 2))
+                            {
+                                wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 45] = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
+                            if (truong12_2 != (dataGrid[12, j + 1].Value + "").Substring(2, 2))
+                            {
+                                wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                            }
+                        }
+                        else if ((dataGrid[12, j + 1].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 44] = "*";
+                            if (truong12_1 != "*")
+                            {
+                                wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 45] = "*";
+                            if (truong12_2 != "*")
+                            {
+                                wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                            }
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 44] = "";
+                            if (truong12_1 != "")
+                            {
+                                wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                            }
+                            wrksheet.Cells[h, 45] = dataGrid[12, j + 1].Value + "";
+                            if (truong12_2 != dataGrid[12, j + 1].Value + "")
+                            {
+                                wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                            }
+                        }
+
+                        wrksheet.Cells[h, 46] = dataGrid[13, j + 1].Value + ""; //13
+                        if (truong13 != dataGrid[13, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 46].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 47] = dataGrid[14, j + 1].Value + ""; //14
+                        if (truong14 != dataGrid[14, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 47].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 48] = dataGrid[15, j + 1].Value + ""; //15
+                        if (truong15 != dataGrid[15, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 48].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 49] = dataGrid[16, j + 1].Value + ""; //16
+                        if (truong16 != dataGrid[16, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 49].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 50] = dataGrid[17, j + 1].Value + ""; //17
+                        if (truong17 != dataGrid[17, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 50].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 51] = dataGrid[18, j + 1].Value + ""; //18
+                        if (truong18 != dataGrid[18, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 51].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 52] = dataGrid[19, j + 1].Value + ""; //19
+                        if (truong19 != dataGrid[19, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 52].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 53] = dataGrid[20, j + 1].Value + ""; //20
+                        if (truong20 != dataGrid[20, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 53].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 54] = dataGrid[21, j + 1].Value + ""; //21
+                        if (truong21 != dataGrid[21, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 54].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 55] = dataGrid[22, j + 1].Value + ""; //22
+                        if (truong22 != dataGrid[22, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 55].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 56] = dataGrid[23, j + 1].Value + ""; //23
+                        if (truong23 != dataGrid[23, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 56].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 57] = dataGrid[24, j + 1].Value + ""; //24
+                        if (truong24 != dataGrid[24, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 57].Interior.Color = Color.Red;
+                        }
+                        wrksheet.Cells[h, 58] = dataGrid[25, j + 1].Value + ""; //25
+                        if (truong25 != dataGrid[25, j + 1].Value + "")
+                        {
+                            wrksheet.Cells[h, 58].Interior.Color = Color.Red;
+                        }
+
+                        h++;
+
+                        lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
+                        progressBarControl1.PerformStep();
+                        progressBarControl1.Update();
+                    }
                 }
+                else
+                {
+                    for (int j = 0; j < dataGrid.RowCount; j += 2)
+                    {
+
+
+                        wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
+                        wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
+                        wrksheet.Cells[h, 3] = truong2 = dataGrid[2, j].Value + ""; //2
+                        if ((dataGrid[3, j].Value + "").Length == 6) //3
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = (dataGrid[3, j].Value + "").Substring(0, 2);
+                            wrksheet.Cells[h, 5] = truong3_2 = (dataGrid[3, j].Value + "").Substring(2, 2);
+                            wrksheet.Cells[h, 6] = truong3_3 = (dataGrid[3, j].Value + "").Substring(4, 2);
+                        }
+                        else if ((dataGrid[3, j].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = "*";
+                            wrksheet.Cells[h, 5] = truong3_2 = "*";
+                            wrksheet.Cells[h, 6] = truong3_3 = "*";
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 4] = truong3_1 = "";
+                            wrksheet.Cells[h, 5] = truong3_2 = "";
+                            wrksheet.Cells[h, 6] = truong3_3 = dataGrid[3, j].Value + "";
+                        }
+
+
+                        wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
+                        wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
+                        wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
+                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
+                        wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
+                        wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
+                        wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
+                        wrksheet.Cells[h, 14] = truong11 = dataGrid[11, j].Value + ""; //11
+
+                        if ((dataGrid[12, j].Value + "").Length == 4) //12
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = (dataGrid[12, j].Value + "").Substring(0, 2);
+                            wrksheet.Cells[h, 16] = truong12_2 = (dataGrid[12, j].Value + "").Substring(2, 2);
+                        }
+                        else if ((dataGrid[12, j].Value + "") == "*")
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = "*";
+                            wrksheet.Cells[h, 16] = truong12_2 = "*";
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 15] = truong12_1 = "";
+                            wrksheet.Cells[h, 16] = truong12_2 = dataGrid[12, j].Value + "";
+                        }
+
+                        wrksheet.Cells[h, 17] = truong13 = dataGrid[13, j].Value + ""; //13
+                        wrksheet.Cells[h, 18] = truong14 = dataGrid[14, j].Value + ""; //14
+                        wrksheet.Cells[h, 19] = truong15 = dataGrid[15, j].Value + ""; //15
+                        wrksheet.Cells[h, 20] = truong16 = dataGrid[16, j].Value + ""; //16
+                        wrksheet.Cells[h, 21] = truong17 = dataGrid[17, j].Value + ""; //17
+                        wrksheet.Cells[h, 22] = truong18 = dataGrid[18, j].Value + ""; //18
+                        wrksheet.Cells[h, 23] = truong19 = dataGrid[19, j].Value + ""; //19
+                        wrksheet.Cells[h, 24] = truong20 = dataGrid[20, j].Value + ""; //20
+                        wrksheet.Cells[h, 25] = truong21 = dataGrid[21, j].Value + ""; //21
+                        wrksheet.Cells[h, 26] = truong22 = dataGrid[22, j].Value + ""; //22
+                        wrksheet.Cells[h, 27] = truong23 = dataGrid[23, j].Value + ""; //23
+                        wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
+                        wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
+                        wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
+
+                        string temp = dataGrid[0, j].Value + "";
+                        string image = temp.Substring(temp.Length - 28, 28);
+                        int idPhieu = int.Parse(dataGrid[26, j].Value + "");
+                        var kt = (from w in Global.Db.tbl_DESOs where w.fBatchName == cbb_Batch.Text && w.IdImage == image && w.IdPhieu == idPhieu && w.Error == 1 && w.UserName != "Checker" select w.IdImage).FirstOrDefault();
+                        if (!string.IsNullOrEmpty(kt))
+                        {
+                            if (k == SoLuongLapLai)
+                            {
+                                k = 0;
+                                sodong += 1;
+                                wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
+                                if (truong1 != dataGrid[1, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 31].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 32] = dataGrid[2, j + 1].Value + ""; //2
+                                if (truong2 != dataGrid[2, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 32].Interior.Color = Color.Red;
+                                }
+                                if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
+                                {
+                                    wrksheet.Cells[h, 33] = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
+                                    if (truong3_1 != (dataGrid[3, j + 1].Value + "").Substring(0, 2))
+                                    {
+                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 34] = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
+                                    if (truong3_2 != (dataGrid[3, j + 1].Value + "").Substring(2, 2))
+                                    {
+                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 35] = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
+                                    if (truong3_3 != (dataGrid[3, j + 1].Value + "").Substring(4, 2))
+                                    {
+                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                                    }
+                                }
+                                else if ((dataGrid[3, j + 1].Value + "") == "*")
+                                {
+                                    wrksheet.Cells[h, 33] = "*";
+                                    if (truong3_1 != "*")
+                                    {
+                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 34] = "*";
+                                    if (truong3_2 != "*")
+                                    {
+                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 35] = "*";
+                                    if (truong3_3 != "*")
+                                    {
+                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                                    }
+                                }
+                                else
+                                {
+                                    wrksheet.Cells[h, 33] = "";
+                                    if (truong3_1 != "")
+                                    {
+                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 34] = "";
+                                    if (truong3_2 != "")
+                                    {
+                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 35] = dataGrid[3, j + 1].Value + "";
+                                    if (truong3_3 != dataGrid[3, j + 1].Value + "")
+                                    {
+                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+                                    }
+                                }
+
+                                wrksheet.Cells[h, 36] = dataGrid[4, j + 1].Value + ""; //4
+                                if (truong4 != dataGrid[4, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 36].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 37] = dataGrid[5, j + 1].Value + ""; //5
+                                if (truong5 != dataGrid[5, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 37].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 38] = dataGrid[6, j + 1].Value + ""; //6
+                                if (truong6 != dataGrid[6, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 38].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 39] = dataGrid[7, j + 1].Value + ""; //7
+                                if (truong7 != dataGrid[7, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 39].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 40] = dataGrid[8, j + 1].Value + ""; //8
+                                if (truong8 != dataGrid[8, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 40].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 41] = dataGrid[9, j + 1].Value + ""; //9
+                                if (truong9 != dataGrid[9, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 41].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 42] = dataGrid[10, j + 1].Value + ""; //10
+                                if (truong10 != dataGrid[10, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 42].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 43] = dataGrid[11, j + 1].Value + ""; //11
+                                if (truong11 != dataGrid[11, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 43].Interior.Color = Color.Red;
+                                }
+
+                                if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
+                                {
+                                    wrksheet.Cells[h, 44] = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
+                                    if (truong12_1 != (dataGrid[12, j + 1].Value + "").Substring(0, 2))
+                                    {
+                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 45] = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
+                                    if (truong12_2 != (dataGrid[12, j + 1].Value + "").Substring(2, 2))
+                                    {
+                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                                    }
+                                }
+                                else if ((dataGrid[12, j + 1].Value + "") == "*")
+                                {
+                                    wrksheet.Cells[h, 44] = "*";
+                                    if (truong12_1 != "*")
+                                    {
+                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 45] = "*";
+                                    if (truong12_2 != "*")
+                                    {
+                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                                    }
+                                }
+                                else
+                                {
+                                    wrksheet.Cells[h, 44] = "";
+                                    if (truong12_1 != "")
+                                    {
+                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+                                    }
+                                    wrksheet.Cells[h, 45] = dataGrid[12, j + 1].Value + "";
+                                    if (truong12_2 != dataGrid[12, j + 1].Value + "")
+                                    {
+                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+                                    }
+                                }
+
+                                wrksheet.Cells[h, 46] = dataGrid[13, j + 1].Value + ""; //13
+                                if (truong13 != dataGrid[13, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 46].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 47] = dataGrid[14, j + 1].Value + ""; //14
+                                if (truong14 != dataGrid[14, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 47].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 48] = dataGrid[15, j + 1].Value + ""; //15
+                                if (truong15 != dataGrid[15, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 48].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 49] = dataGrid[16, j + 1].Value + ""; //16
+                                if (truong16 != dataGrid[16, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 49].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 50] = dataGrid[17, j + 1].Value + ""; //17
+                                if (truong17 != dataGrid[17, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 50].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 51] = dataGrid[18, j + 1].Value + ""; //18
+                                if (truong18 != dataGrid[18, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 51].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 52] = dataGrid[19, j + 1].Value + ""; //19
+                                if (truong19 != dataGrid[19, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 52].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 53] = dataGrid[20, j + 1].Value + ""; //20
+                                if (truong20 != dataGrid[20, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 53].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 54] = dataGrid[21, j + 1].Value + ""; //21
+                                if (truong21 != dataGrid[21, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 54].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 55] = dataGrid[22, j + 1].Value + ""; //22
+                                if (truong22 != dataGrid[22, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 55].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 56] = dataGrid[23, j + 1].Value + ""; //23
+                                if (truong23 != dataGrid[23, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 56].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 57] = dataGrid[24, j + 1].Value + ""; //24
+                                if (truong24 != dataGrid[24, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 57].Interior.Color = Color.Red;
+                                }
+                                wrksheet.Cells[h, 58] = dataGrid[25, j + 1].Value + ""; //25
+                                if (truong25 != dataGrid[25, j + 1].Value + "")
+                                {
+                                    wrksheet.Cells[h, 58].Interior.Color = Color.Red;
+                                }
+                            }
+                            else
+                            {
+                                k = k + 1;
+                                wrksheet.Cells[h, 31] = dataGrid[1, j].Value + ""; //1
+                                wrksheet.Cells[h, 32] = dataGrid[2, j].Value + ""; //2
+                                if ((dataGrid[3, j].Value + "").Length == 6) //3
+                                {
+                                    wrksheet.Cells[h, 33] = (dataGrid[3, j].Value + "").Substring(0, 2);
+                                    wrksheet.Cells[h, 34] = (dataGrid[3, j].Value + "").Substring(2, 2);
+                                    wrksheet.Cells[h, 35] = (dataGrid[3, j].Value + "").Substring(4, 2);
+                                }
+                                else if ((dataGrid[3, j].Value + "") == "*")
+                                {
+                                    wrksheet.Cells[h, 33] = "*";
+                                    wrksheet.Cells[h, 34] = "*";
+                                    wrksheet.Cells[h, 35] = "*";
+                                }
+                                else
+                                {
+                                    wrksheet.Cells[h, 33] = "";
+                                    wrksheet.Cells[h, 34] = "";
+                                    wrksheet.Cells[h, 35] = dataGrid[3, j].Value + "";
+                                }
+
+                                wrksheet.Cells[h, 36] = dataGrid[4, j].Value + ""; //4
+                                wrksheet.Cells[h, 37] = dataGrid[5, j].Value + ""; //5
+                                wrksheet.Cells[h, 38] = dataGrid[6, j].Value + ""; //6
+                                wrksheet.Cells[h, 39] = dataGrid[7, j].Value + ""; //7
+                                wrksheet.Cells[h, 40] = dataGrid[8, j].Value + ""; //8
+                                wrksheet.Cells[h, 41] = dataGrid[9, j].Value + ""; //9
+                                wrksheet.Cells[h, 42] = dataGrid[10, j].Value + ""; //10
+                                wrksheet.Cells[h, 43] = dataGrid[11, j].Value + ""; //11
+                                if ((dataGrid[12, j].Value + "").Length == 4) //12
+                                {
+                                    wrksheet.Cells[h, 44] = (dataGrid[12, j].Value + "").Substring(0, 2);
+                                    wrksheet.Cells[h, 45] = (dataGrid[12, j].Value + "").Substring(2, 2);
+                                }
+                                else if ((dataGrid[12, j].Value + "") == "*")
+                                {
+                                    wrksheet.Cells[h, 44] = "*";
+                                    wrksheet.Cells[h, 45] = "*";
+                                }
+                                else
+                                {
+                                    wrksheet.Cells[h, 44] = "";
+                                    wrksheet.Cells[h, 45] = dataGrid[12, j].Value + "";
+                                }
+
+                                wrksheet.Cells[h, 46] = dataGrid[13, j].Value + ""; //13
+                                wrksheet.Cells[h, 47] = dataGrid[14, j].Value + ""; //14
+                                wrksheet.Cells[h, 48] = dataGrid[15, j].Value + ""; //15
+                                wrksheet.Cells[h, 49] = dataGrid[16, j].Value + ""; //16
+                                wrksheet.Cells[h, 50] = dataGrid[17, j].Value + ""; //17
+                                wrksheet.Cells[h, 51] = dataGrid[18, j].Value + ""; //18
+                                wrksheet.Cells[h, 52] = dataGrid[19, j].Value + ""; //19
+                                wrksheet.Cells[h, 53] = dataGrid[20, j].Value + ""; //20
+                                wrksheet.Cells[h, 54] = dataGrid[21, j].Value + ""; //21
+                                wrksheet.Cells[h, 55] = dataGrid[22, j].Value + ""; //22
+                                wrksheet.Cells[h, 56] = dataGrid[23, j].Value + ""; //23
+                                wrksheet.Cells[h, 57] = dataGrid[24, j].Value + ""; //24
+                                wrksheet.Cells[h, 58] = dataGrid[25, j].Value + ""; //25
+                            }
+                        }
+                        else
+                        {
+                            wrksheet.Cells[h, 31] = dataGrid[1, j].Value + ""; //1
+                            wrksheet.Cells[h, 32] = dataGrid[2, j].Value + ""; //2
+                            if ((dataGrid[3, j].Value + "").Length == 6) //3
+                            {
+                                wrksheet.Cells[h, 33] = (dataGrid[3, j].Value + "").Substring(0, 2);
+                                wrksheet.Cells[h, 34] = (dataGrid[3, j].Value + "").Substring(2, 2);
+                                wrksheet.Cells[h, 35] = (dataGrid[3, j].Value + "").Substring(4, 2);
+                            }
+                            else if ((dataGrid[3, j].Value + "") == "*")
+                            {
+                                wrksheet.Cells[h, 33] = "*";
+                                wrksheet.Cells[h, 34] = "*";
+                                wrksheet.Cells[h, 35] = "*";
+                            }
+                            else
+                            {
+                                wrksheet.Cells[h, 33] = "";
+                                wrksheet.Cells[h, 34] = "";
+                                wrksheet.Cells[h, 35] = dataGrid[3, j].Value + "";
+                            }
+
+                            wrksheet.Cells[h, 36] = dataGrid[4, j].Value + ""; //4
+                            wrksheet.Cells[h, 37] = dataGrid[5, j].Value + ""; //5
+                            wrksheet.Cells[h, 38] = dataGrid[6, j].Value + ""; //6
+                            wrksheet.Cells[h, 39] = dataGrid[7, j].Value + ""; //7
+                            wrksheet.Cells[h, 40] = dataGrid[8, j].Value + ""; //8
+                            wrksheet.Cells[h, 41] = dataGrid[9, j].Value + ""; //9
+                            wrksheet.Cells[h, 42] = dataGrid[10, j].Value + ""; //10
+                            wrksheet.Cells[h, 43] = dataGrid[11, j].Value + ""; //11
+                            if ((dataGrid[12, j].Value + "").Length == 4) //12
+                            {
+                                wrksheet.Cells[h, 44] = (dataGrid[12, j].Value + "").Substring(0, 2);
+                                wrksheet.Cells[h, 45] = (dataGrid[12, j].Value + "").Substring(2, 2);
+                            }
+                            else if ((dataGrid[12, j].Value + "") == "*")
+                            {
+                                wrksheet.Cells[h, 44] = "*";
+                                wrksheet.Cells[h, 45] = "*";
+                            }
+                            else
+                            {
+                                wrksheet.Cells[h, 44] = "";
+                                wrksheet.Cells[h, 45] = dataGrid[12, j].Value + "";
+                            }
+
+                            wrksheet.Cells[h, 46] = dataGrid[13, j].Value + ""; //13
+                            wrksheet.Cells[h, 47] = dataGrid[14, j].Value + ""; //14
+                            wrksheet.Cells[h, 48] = dataGrid[15, j].Value + ""; //15
+                            wrksheet.Cells[h, 49] = dataGrid[16, j].Value + ""; //16
+                            wrksheet.Cells[h, 50] = dataGrid[17, j].Value + ""; //17
+                            wrksheet.Cells[h, 51] = dataGrid[18, j].Value + ""; //18
+                            wrksheet.Cells[h, 52] = dataGrid[19, j].Value + ""; //19
+                            wrksheet.Cells[h, 53] = dataGrid[20, j].Value + ""; //20
+                            wrksheet.Cells[h, 54] = dataGrid[21, j].Value + ""; //21
+                            wrksheet.Cells[h, 55] = dataGrid[22, j].Value + ""; //22
+                            wrksheet.Cells[h, 56] = dataGrid[23, j].Value + ""; //23
+                            wrksheet.Cells[h, 57] = dataGrid[24, j].Value + ""; //24
+                            wrksheet.Cells[h, 58] = dataGrid[25, j].Value + ""; //25
+                        }
+                        h++;
+
+                        lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
+                        progressBarControl1.PerformStep();
+                        progressBarControl1.Update();
+                    }
+                }
+                
                 Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "BF" + (h - 1));
                 rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                 string savePath = "";

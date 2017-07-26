@@ -147,8 +147,6 @@
             this.txt_TruongSo02.EditValue = "";
             this.txt_TruongSo02.Location = new System.Drawing.Point(93, 7);
             this.txt_TruongSo02.Name = "txt_TruongSo02";
-            this.txt_TruongSo02.Properties.Mask.EditMask = "[0-9*?]+";
-            this.txt_TruongSo02.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_TruongSo02.Size = new System.Drawing.Size(91, 20);
             this.txt_TruongSo02.TabIndex = 1;
             this.txt_TruongSo02.EditValueChanged += new System.EventHandler(this.txt_TruongSo02_EditValueChanged);

@@ -16,8 +16,10 @@ namespace Natsu.MyForm
             InitializeComponent();
         }
 
-        private int sodong = 0;
-        public DateTime date1,date2;
+        public DateTime date1, date2;
+        private int soloisausua = 0;
+        private int soloi = 0;
+
         private void btn_Export_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbb_Batch.Text))
@@ -76,12 +78,12 @@ namespace Natsu.MyForm
                 File.WriteAllBytes((Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/ExportExcel.xlsx"), Properties.Resources.ExportExcel);
             }
 
-            date1=DateTime.Now;
+            date1 = DateTime.Now;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Global.Db.ExportExcel_Getsu_New(cbb_Batch.Text);
 
-            TableToExcel(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx",dataGridView1);
-            
+            TableToExcel_SuaTiLeLoi(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx", dataGridView1);
+
 
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
             {
@@ -102,24 +104,16 @@ namespace Natsu.MyForm
             {
                 MessageBox.Show("No Error");
             }
-            
-            date2 = DateTime.Now;
-            MessageBox.Show(@"Thời gian xuất : " + date1 + @"   -   " + date2,sodong+"");
 
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx"))
-            {
-                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ExportExcel.xlsx");
-            }
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
-            {
-                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx");
-            }
+            date2 = DateTime.Now;
+            MessageBox.Show(@"Thời gian xuất : " + date1 + @"   -   " + date2 + "\nSố dòng lỗi trước khi sửa: " + soloi + "\nSố dòng lỗi sau khi sửa: " + soloisausua);
+
         }
 
         private void frm_ExportExcel_Load(object sender, EventArgs e)
         {
             cbb_Batch.Items.Clear();
-            var result = from w in Global.Db.tbl_Batches where w.CongKhaiBatch==true orderby w.fdatecreated select w.fBatchName;
+            var result = from w in Global.Db.tbl_Batches where w.CongKhaiBatch == true orderby w.fdatecreated select w.fBatchName;
 
             if (result.Count() > 0)
             {
@@ -130,21 +124,392 @@ namespace Natsu.MyForm
             }
         }
 
-        public bool TableToExcel(string strfilename, DataGridView dataGrid)
+        //        public bool TableToExcel(string strfilename, DataGridView dataGrid)
+        //        {
+        //            try
+        //            {
+        //                Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
+        //                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Add(Type.Missing);
+        //                Microsoft.Office.Interop.Excel.Worksheet wrksheet =(Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+        //                int h = 2;
+        //                progressBarControl1.EditValue = 0;
+        //                progressBarControl1.Properties.Step = 1;
+        //                progressBarControl1.Properties.PercentView = true;
+        //                progressBarControl1.Properties.Maximum = dataGrid.Rows.Count/2;
+        //                progressBarControl1.Properties.Minimum = 0;
+        //                progressBarControl1.Properties.StartColor = Color.DarkRed; // choose the color
+        //                progressBarControl1.Properties.EndColor = Color.Green; // choose the color
+        //                string truong1 = "";
+        //                string truong2 = "";
+        //                string truong3_1 = "";
+        //                string truong3_2 = "";
+        //                string truong3_3 = "";
+        //                string truong4 = "";
+        //                string truong5 = "";
+        //                string truong6 = "";
+        //                string truong7 = "";
+        //                string truong8 = "";
+        //                string truong9 = "";
+        //                string truong10 = "";
+        //                string truong11 = "";
+        //                string truong12_1 = "";
+        //                string truong12_2 = "";
+        //                string truong13 = "";
+        //                string truong14 = "";
+        //                string truong15 = "";
+        //                string truong16 = "";
+        //                string truong17 = "";
+        //                string truong18 = "";
+        //                string truong19 = "";
+        //                string truong20 = "";
+        //                string truong21 = "";
+        //                string truong22 = "";
+        //                string truong23 = "";
+        //                string truong24 = "";
+        //                string truong25 = "";
+
+        //                for (int j = 0; j < dataGrid.RowCount; j += 2)
+        //                {
+
+        //                    wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
+        //                    wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
+        //                    wrksheet.Cells[h, 3] = truong2 = dataGrid[2, j].Value + ""; //2
+        //                    if ((dataGrid[3, j].Value + "").Length == 6) //3
+        //                    {
+        //                        wrksheet.Cells[h, 4] = truong3_1 = (dataGrid[3, j].Value + "").Substring(0, 2);
+        //                        wrksheet.Cells[h, 5] = truong3_2 = (dataGrid[3, j].Value + "").Substring(2, 2);
+        //                        wrksheet.Cells[h, 6] = truong3_3 = (dataGrid[3, j].Value + "").Substring(4, 2);
+        //                    }
+        //                    else if ((dataGrid[3, j].Value + "") == "*")
+        //                    {
+        //                        wrksheet.Cells[h, 4] = truong3_1 = "*";
+        //                        wrksheet.Cells[h, 5] = truong3_2 = "*";
+        //                        wrksheet.Cells[h, 6] = truong3_3 = "*";
+        //                    }
+        //                    else
+        //                    {
+        //                        wrksheet.Cells[h, 4] = truong3_1 = "";
+        //                        wrksheet.Cells[h, 5] = truong3_2 = "";
+        //                        wrksheet.Cells[h, 6] = truong3_3 = dataGrid[3, j].Value + "";
+        //                    }
+
+
+        //                    wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
+        //                    wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
+        //                    wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
+        //                    wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
+        //                    wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
+        //                    wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
+        //                    wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
+        //                    wrksheet.Cells[h, 14] = truong11 = dataGrid[11, j].Value + ""; //11
+
+        //                    if ((dataGrid[12, j].Value + "").Length == 4) //12
+        //                    {
+        //                        wrksheet.Cells[h, 15] = truong12_1 = (dataGrid[12, j].Value + "").Substring(0, 2);
+        //                        wrksheet.Cells[h, 16] = truong12_2 = (dataGrid[12, j].Value + "").Substring(2, 2);
+        //                    }
+        //                    else if ((dataGrid[12, j].Value + "") == "*")
+        //                    {
+        //                        wrksheet.Cells[h, 15] = truong12_1 = "*";
+        //                        wrksheet.Cells[h, 16] = truong12_2 = "*";
+        //                    }
+        //                    else
+        //                    {
+        //                        wrksheet.Cells[h, 15] = truong12_1 = "";
+        //                        wrksheet.Cells[h, 16] = truong12_2 = dataGrid[12, j].Value + "";
+        //                    }
+
+        //                    wrksheet.Cells[h, 17] = truong13 = dataGrid[13, j].Value + ""; //13
+        //                    wrksheet.Cells[h, 18] = truong14 = dataGrid[14, j].Value + ""; //14
+        //                    wrksheet.Cells[h, 19] = truong15 = dataGrid[15, j].Value + ""; //15
+        //                    wrksheet.Cells[h, 20] = truong16 = dataGrid[16, j].Value + ""; //16
+        //                    wrksheet.Cells[h, 21] = truong17 = dataGrid[17, j].Value + ""; //17
+        //                    wrksheet.Cells[h, 22] = truong18 = dataGrid[18, j].Value + ""; //18
+        //                    wrksheet.Cells[h, 23] = truong19 = dataGrid[19, j].Value + ""; //19
+        //                    wrksheet.Cells[h, 24] = truong20 = dataGrid[20, j].Value + ""; //20
+        //                    wrksheet.Cells[h, 25] = truong21 = dataGrid[21, j].Value + ""; //21
+        //                    wrksheet.Cells[h, 26] = truong22 = dataGrid[22, j].Value + ""; //22
+        //                    wrksheet.Cells[h, 27] = truong23 = dataGrid[23, j].Value + ""; //23
+        //                    wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
+        //                    wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
+        //                    wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
+
+
+        //                    wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
+        //                    if (truong1 != dataGrid[1, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 31].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 32] = dataGrid[2, j + 1].Value + ""; //2
+        //                    if (truong2 != dataGrid[2, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 32].Interior.Color = Color.Red;
+        //                    }
+        //                    if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
+        //                    {
+        //                        wrksheet.Cells[h, 33] = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
+        //                        if (truong3_1 != (dataGrid[3, j + 1].Value + "").Substring(0, 2))
+        //                        {
+        //                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 34] = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
+        //                        if (truong3_2 != (dataGrid[3, j + 1].Value + "").Substring(2, 2))
+        //                        {
+        //                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 35] = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
+        //                        if (truong3_3 != (dataGrid[3, j + 1].Value + "").Substring(4, 2))
+        //                        {
+        //                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+        //                    else if ((dataGrid[3, j + 1].Value + "") == "*")
+        //                    {
+        //                        wrksheet.Cells[h, 33] = "*";
+        //                        if (truong3_1 != "*")
+        //                        {
+        //                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 34] = "*";
+        //                        if (truong3_2 != "*")
+        //                        {
+        //                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 35] = "*";
+        //                        if (truong3_3 != "*")
+        //                        {
+        //                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        wrksheet.Cells[h, 33] = "";
+        //                        if (truong3_1 != "")
+        //                        {
+        //                            wrksheet.Cells[h, 33].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 34] = "";
+        //                        if (truong3_2 != "")
+        //                        {
+        //                            wrksheet.Cells[h, 34].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 35] = dataGrid[3, j + 1].Value + "";
+        //                        if (truong3_3 != dataGrid[3, j + 1].Value + "")
+        //                        {
+        //                            wrksheet.Cells[h, 35].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+
+        //                    wrksheet.Cells[h, 36] = dataGrid[4, j + 1].Value + ""; //4
+        //                    if (truong4 != dataGrid[4, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 36].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 37] = dataGrid[5, j + 1].Value + ""; //5
+        //                    if (truong5 != dataGrid[5, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 37].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 38] = dataGrid[6, j + 1].Value + ""; //6
+        //                    if (truong6 != dataGrid[6, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 38].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 39] = dataGrid[7, j + 1].Value + ""; //7
+        //                    if (truong7 != dataGrid[7, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 39].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 40] = dataGrid[8, j + 1].Value + ""; //8
+        //                    if (truong8 != dataGrid[8, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 40].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 41] = dataGrid[9, j + 1].Value + ""; //9
+        //                    if (truong9 != dataGrid[9, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 41].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 42] = dataGrid[10, j + 1].Value + ""; //10
+        //                    if (truong10 != dataGrid[10, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 42].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 43] = dataGrid[11, j + 1].Value + ""; //11
+        //                    if (truong11 != dataGrid[11, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 43].Interior.Color = Color.Red;
+        //                    }
+
+        //                    if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
+        //                    {
+        //                        wrksheet.Cells[h, 44] = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
+        //                        if (truong12_1 != (dataGrid[12, j + 1].Value + "").Substring(0, 2))
+        //                        {
+        //                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 45] = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
+        //                        if (truong12_2 != (dataGrid[12, j + 1].Value + "").Substring(2, 2))
+        //                        {
+        //                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+        //                    else if ((dataGrid[12, j + 1].Value + "") == "*")
+        //                    {
+        //                        wrksheet.Cells[h, 44] = "*";
+        //                        if (truong12_1 != "*")
+        //                        {
+        //                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 45] = "*";
+        //                        if (truong12_2 != "*")
+        //                        {
+        //                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        wrksheet.Cells[h, 44] = "";
+        //                        if (truong12_1 != "")
+        //                        {
+        //                            wrksheet.Cells[h, 44].Interior.Color = Color.Red;
+        //                        }
+        //                        wrksheet.Cells[h, 45] = dataGrid[12, j + 1].Value + "";
+        //                        if (truong12_2 != dataGrid[12, j + 1].Value + "")
+        //                        {
+        //                            wrksheet.Cells[h, 45].Interior.Color = Color.Red;
+        //                        }
+        //                    }
+
+        //                    wrksheet.Cells[h, 46] = dataGrid[13, j + 1].Value + ""; //13
+        //                    if (truong13 != dataGrid[13, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 46].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 47] = dataGrid[14, j + 1].Value + ""; //14
+        //                    if (truong14 != dataGrid[14, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 47].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 48] = dataGrid[15, j + 1].Value + ""; //15
+        //                    if (truong15 != dataGrid[15, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 48].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 49] = dataGrid[16, j + 1].Value + ""; //16
+        //                    if (truong16 != dataGrid[16, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 49].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 50] = dataGrid[17, j + 1].Value + ""; //17
+        //                    if (truong17 != dataGrid[17, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 50].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 51] = dataGrid[18, j + 1].Value + ""; //18
+        //                    if (truong18 != dataGrid[18, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 51].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 52] = dataGrid[19, j + 1].Value + ""; //19
+        //                    if (truong19 != dataGrid[19, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 52].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 53] = dataGrid[20, j + 1].Value + ""; //20
+        //                    if (truong20 != dataGrid[20, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 53].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 54] = dataGrid[21, j + 1].Value + ""; //21
+        //                    if (truong21 != dataGrid[21, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 54].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 55] = dataGrid[22, j + 1].Value + ""; //22
+        //                    if (truong22 != dataGrid[22, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 55].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 56] = dataGrid[23, j + 1].Value + ""; //23
+        //                    if (truong23 != dataGrid[23, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 56].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 57] = dataGrid[24, j + 1].Value + ""; //24
+        //                    if (truong24 != dataGrid[24, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 57].Interior.Color = Color.Red;
+        //                    }
+        //                    wrksheet.Cells[h, 58] = dataGrid[25, j + 1].Value + ""; //25
+        //                    if (truong25 != dataGrid[25, j + 1].Value + "")
+        //                    {
+        //                        wrksheet.Cells[h, 58].Interior.Color = Color.Red;
+        //                    }
+        //                    h++;
+
+        //                    lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
+        //                    progressBarControl1.PerformStep();
+        //                    progressBarControl1.Update();
+        //                }
+        //                Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "BF" + (h - 1));
+        //                rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+        //                string savePath = "";
+        //                saveFileDialog1.Title = "Save Excel Files";
+        //                saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
+        //                saveFileDialog1.FileName = cbb_Batch.Text.Replace(@"\", "_") + "_Santei";
+        //                saveFileDialog1.RestoreDirectory = true;
+        //                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        //                {
+        //                    //fillcolor(book, lLoi);
+        //                    book.SaveCopyAs(saveFileDialog1.FileName);
+        //                    book.Saved = true;
+        //                    savePath = Path.GetDirectoryName(saveFileDialog1.FileName);
+        //                    App.Quit();
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show(@"Error exporting excel!");
+        //                    return false;
+        //                }
+        //                Process.Start(savePath);
+        //                return true;
+        //        }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message);
+        //                return false;
+        //            }
+
+        //}
+
+
+        public bool TableToExcel_SuaTiLeLoi(string strfilename, DataGridView dataGrid)
         {
             try
             {
                 Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel.Worksheet wrksheet =(Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Open(strfilename, 0, true, 5, "", "", false,
+                    Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+                Microsoft.Office.Interop.Excel.Worksheet wrksheet =
+                    (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+                //Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
+                //Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Add(Type.Missing);
+                //Microsoft.Office.Interop.Excel.Worksheet wrksheet = (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
                 int h = 2;
                 progressBarControl1.EditValue = 0;
                 progressBarControl1.Properties.Step = 1;
                 progressBarControl1.Properties.PercentView = true;
-                progressBarControl1.Properties.Maximum = dataGrid.Rows.Count/2;
+                progressBarControl1.Properties.Maximum = dataGrid.Rows.Count / 2;
                 progressBarControl1.Properties.Minimum = 0;
                 progressBarControl1.Properties.StartColor = Color.DarkRed; // choose the color
                 progressBarControl1.Properties.EndColor = Color.Green; // choose the color
+
+                var totalImage = dataGrid.RowCount / 2;
+                var imageError = (from w in Global.Db.tbl_DESOs where w.fBatchName == cbb_Batch.Text && w.Error == 1 & w.UserName != "Checker" select w.IdImage).Count();
+                var soDongLoiChoPhep = 0.03 * totalImage;
+                int tileCanSua = (int)Math.Round(imageError / soDongLoiChoPhep,0);
+                int dem = 1;
                 string truong1 = "";
                 string truong2 = "";
                 string truong3_1 = "";
@@ -174,17 +539,15 @@ namespace Natsu.MyForm
                 string truong24 = "";
                 string truong25 = "";
 
-                int TongSoLoi = (from w in Global.Db.tbl_DESOs where w.fBatchName == cbb_Batch.Text && w.UserName != "Checker" && w.Error == 1 select w).Count();
-                int TongSoDong = dataGrid.Rows.Count/2;
-                int PhanTramTongSoDong = TongSoDong / 100 * 4;
-                int SoLuongLapLai = TongSoLoi / PhanTramTongSoDong;
-                int k = 0;
-                if (TongSoLoi<PhanTramTongSoDong)
+                string truong3_1_2 = "";
+                string truong3_2_2 = "";
+                string truong3_3_2 = "";
+                string truong12_1_2 = "";
+                string truong12_2_2 = "";
+                if (imageError <= soDongLoiChoPhep)
                 {
                     for (int j = 0; j < dataGrid.RowCount; j += 2)
                     {
-
-
                         wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
                         wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
                         wrksheet.Cells[h, 3] = truong2 = dataGrid[2, j].Value + ""; //2
@@ -211,7 +574,7 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
                         wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
                         wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
-                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
+                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + "";//7
                         wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
                         wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
                         wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
@@ -247,6 +610,7 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
                         wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
                         wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
+
 
                         wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
                         if (truong1 != dataGrid[1, j + 1].Value + "")
@@ -459,7 +823,6 @@ namespace Natsu.MyForm
                         {
                             wrksheet.Cells[h, 58].Interior.Color = Color.Red;
                         }
-
                         h++;
 
                         lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
@@ -471,7 +834,41 @@ namespace Natsu.MyForm
                 {
                     for (int j = 0; j < dataGrid.RowCount; j += 2)
                     {
+                        // Writer Data User1
+                        truong1 = "";
+                        truong2 = "";
+                        truong3_1 = "";
+                        truong3_2 = "";
+                        truong3_3 = "";
+                        truong4 = "";
+                        truong5 = "";
+                        truong6 = "";
+                        truong7 = "";
+                        truong8 = "";
+                        truong9 = "";
+                        truong10 = "";
+                        truong11 = "";
+                        truong12_1 = "";
+                        truong12_2 = "";
+                        truong13 = "";
+                        truong14 = "";
+                        truong15 = "";
+                        truong16 = "";
+                        truong17 = "";
+                        truong18 = "";
+                        truong19 = "";
+                        truong20 = "";
+                        truong21 = "";
+                        truong22 = "";
+                        truong23 = "";
+                        truong24 = "";
+                        truong25 = "";
 
+                        truong3_1_2 = "";
+                        truong3_2_2 = "";
+                        truong3_3_2 = "";
+                        truong12_1_2 = "";
+                        truong12_2_2 = "";
 
                         wrksheet.Cells[h, 1] = dataGrid[0, j].Value + ""; //tên image
                         wrksheet.Cells[h, 2] = truong1 = dataGrid[1, j].Value + ""; //1
@@ -499,7 +896,7 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 7] = truong4 = dataGrid[4, j].Value + ""; //4
                         wrksheet.Cells[h, 8] = truong5 = dataGrid[5, j].Value + ""; //5
                         wrksheet.Cells[h, 9] = truong6 = dataGrid[6, j].Value + ""; //6
-                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + ""; ; //7
+                        wrksheet.Cells[h, 10] = truong7 = dataGrid[7, j].Value + "";//7
                         wrksheet.Cells[h, 11] = truong8 = dataGrid[8, j].Value + ""; //8
                         wrksheet.Cells[h, 12] = truong9 = dataGrid[9, j].Value + ""; //9
                         wrksheet.Cells[h, 13] = truong10 = dataGrid[10, j].Value + ""; //10
@@ -535,17 +932,76 @@ namespace Natsu.MyForm
                         wrksheet.Cells[h, 28] = truong24 = dataGrid[24, j].Value + ""; //24
                         wrksheet.Cells[h, 29] = truong25 = dataGrid[25, j].Value + ""; //25
                         wrksheet.Cells[h, 30] = dataGrid[26, j].Value + ""; //ID
-
-                        string temp = dataGrid[0, j].Value + "";
-                        string image = temp.Substring(temp.Length - 28, 28);
-                        int idPhieu = int.Parse(dataGrid[26, j].Value + "");
-                        var kt = (from w in Global.Db.tbl_DESOs where w.fBatchName == cbb_Batch.Text && w.IdImage == image && w.IdPhieu == idPhieu && w.Error == 1 && w.UserName != "Checker" select w.IdImage).FirstOrDefault();
-                        if (!string.IsNullOrEmpty(kt))
+                        //Writer Data User 2
+                        //Set data fields 3
+                        if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
                         {
-                            if (k == SoLuongLapLai)
+                            truong3_1_2 = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
+                            truong3_2_2 = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
+                            truong3_3_2 = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
+                        }
+                        else if ((dataGrid[3, j + 1].Value + "") == "*")
+                        {
+                            truong3_1_2 = "*";
+                            truong3_2_2 = "*";
+                            truong3_3_2 = "*";
+                        }
+                        else
+                        {
+                            truong3_1_2 = "";
+                            truong3_2_2 = "";
+                            truong3_3_2 = dataGrid[3, j + 1].Value + "";
+                        }
+                        //Set data fields 12
+                        if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
+                        {
+                            truong12_1_2 = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
+                            truong12_2_2 = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
+                        }
+                        else if ((dataGrid[12, j + 1].Value + "") == "*")
+                        {
+                            truong12_1_2 = "*";
+                            truong12_2_2 = "*";
+                        }
+                        else
+                        {
+                            truong12_1_2 = "";
+                            truong12_2_2 = dataGrid[12, j + 1].Value + "";
+                        }
+
+                        if (truong1 != dataGrid[1, j + 1].Value + "" ||
+                             truong2 != dataGrid[2, j + 1].Value + "" ||
+                             truong3_1 != truong3_1_2 ||
+                             truong3_2 != truong3_2_2 ||
+                             truong3_3 != truong3_3_2 ||
+                             truong4 != dataGrid[4, j + 1].Value + "" ||
+                             truong5 != dataGrid[5, j + 1].Value + "" ||
+                             truong6 != dataGrid[6, j + 1].Value + "" ||
+                             truong7 != dataGrid[7, j + 1].Value + "" ||
+                             truong8 != dataGrid[8, j + 1].Value + "" ||
+                             truong9 != dataGrid[9, j + 1].Value + "" ||
+                             truong10 != dataGrid[10, j + 1].Value + "" ||
+                             truong11 != dataGrid[11, j + 1].Value + "" ||
+                             truong12_1 != truong12_1_2 ||
+                             truong12_2 != truong12_2_2 ||
+                             truong13 != dataGrid[13, j + 1].Value + "" ||
+                             truong14 != dataGrid[14, j + 1].Value + "" ||
+                             truong15 != dataGrid[15, j + 1].Value + "" ||
+                             truong16 != dataGrid[16, j + 1].Value + "" ||
+                             truong17 != dataGrid[17, j + 1].Value + "" ||
+                             truong18 != dataGrid[18, j + 1].Value + "" ||
+                             truong19 != dataGrid[19, j + 1].Value + "" ||
+                             truong20 != dataGrid[20, j + 1].Value + "" ||
+                             truong21 != dataGrid[21, j + 1].Value + "" ||
+                             truong22 != dataGrid[22, j + 1].Value + "" ||
+                             truong23 != dataGrid[23, j + 1].Value + "" ||
+                             truong24 != dataGrid[24, j + 1].Value + "" ||
+                             truong25 != dataGrid[25, j + 1].Value + "")
+                        {
+
+                            soloi += 1;
+                            if (dem == tileCanSua)
                             {
-                                k = 0;
-                                sodong += 1;
                                 wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
                                 if (truong1 != dataGrid[1, j + 1].Value + "")
                                 {
@@ -556,59 +1012,21 @@ namespace Natsu.MyForm
                                 {
                                     wrksheet.Cells[h, 32].Interior.Color = Color.Red;
                                 }
-                                if ((dataGrid[3, j + 1].Value + "").Length == 6) //3
+
+                                wrksheet.Cells[h, 33] = truong3_1_2; //3
+                                if (truong3_1 != truong3_1_2)
                                 {
-                                    wrksheet.Cells[h, 33] = (dataGrid[3, j + 1].Value + "").Substring(0, 2);
-                                    if (truong3_1 != (dataGrid[3, j + 1].Value + "").Substring(0, 2))
-                                    {
-                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 34] = (dataGrid[3, j + 1].Value + "").Substring(2, 2);
-                                    if (truong3_2 != (dataGrid[3, j + 1].Value + "").Substring(2, 2))
-                                    {
-                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 35] = (dataGrid[3, j + 1].Value + "").Substring(4, 2);
-                                    if (truong3_3 != (dataGrid[3, j + 1].Value + "").Substring(4, 2))
-                                    {
-                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                                    }
+                                    wrksheet.Cells[h, 33].Interior.Color = Color.Red;
                                 }
-                                else if ((dataGrid[3, j + 1].Value + "") == "*")
+                                wrksheet.Cells[h, 34] = truong3_2_2;
+                                if (truong3_2 != truong3_2_2)
                                 {
-                                    wrksheet.Cells[h, 33] = "*";
-                                    if (truong3_1 != "*")
-                                    {
-                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 34] = "*";
-                                    if (truong3_2 != "*")
-                                    {
-                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 35] = "*";
-                                    if (truong3_3 != "*")
-                                    {
-                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                                    }
+                                    wrksheet.Cells[h, 34].Interior.Color = Color.Red;
                                 }
-                                else
+                                wrksheet.Cells[h, 35] = truong3_3_2;
+                                if (truong3_3 != truong3_3_2)
                                 {
-                                    wrksheet.Cells[h, 33] = "";
-                                    if (truong3_1 != "")
-                                    {
-                                        wrksheet.Cells[h, 33].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 34] = "";
-                                    if (truong3_2 != "")
-                                    {
-                                        wrksheet.Cells[h, 34].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 35] = dataGrid[3, j + 1].Value + "";
-                                    if (truong3_3 != dataGrid[3, j + 1].Value + "")
-                                    {
-                                        wrksheet.Cells[h, 35].Interior.Color = Color.Red;
-                                    }
+                                    wrksheet.Cells[h, 35].Interior.Color = Color.Red;
                                 }
 
                                 wrksheet.Cells[h, 36] = dataGrid[4, j + 1].Value + ""; //4
@@ -652,46 +1070,16 @@ namespace Natsu.MyForm
                                     wrksheet.Cells[h, 43].Interior.Color = Color.Red;
                                 }
 
-                                if ((dataGrid[12, j + 1].Value + "").Length == 4) //12
+                                wrksheet.Cells[h, 44] = truong12_1_2; //12
+                                if (truong12_1 != truong12_1_2)
                                 {
-                                    wrksheet.Cells[h, 44] = (dataGrid[12, j + 1].Value + "").Substring(0, 2);
-                                    if (truong12_1 != (dataGrid[12, j + 1].Value + "").Substring(0, 2))
-                                    {
-                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 45] = (dataGrid[12, j + 1].Value + "").Substring(2, 2);
-                                    if (truong12_2 != (dataGrid[12, j + 1].Value + "").Substring(2, 2))
-                                    {
-                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                                    }
+                                    wrksheet.Cells[h, 44].Interior.Color = Color.Red;
                                 }
-                                else if ((dataGrid[12, j + 1].Value + "") == "*")
+                                wrksheet.Cells[h, 45] = truong12_2_2;
+                                if (truong12_2 != truong12_2_2)
                                 {
-                                    wrksheet.Cells[h, 44] = "*";
-                                    if (truong12_1 != "*")
-                                    {
-                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 45] = "*";
-                                    if (truong12_2 != "*")
-                                    {
-                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                                    }
+                                    wrksheet.Cells[h, 45].Interior.Color = Color.Red;
                                 }
-                                else
-                                {
-                                    wrksheet.Cells[h, 44] = "";
-                                    if (truong12_1 != "")
-                                    {
-                                        wrksheet.Cells[h, 44].Interior.Color = Color.Red;
-                                    }
-                                    wrksheet.Cells[h, 45] = dataGrid[12, j + 1].Value + "";
-                                    if (truong12_2 != dataGrid[12, j + 1].Value + "")
-                                    {
-                                        wrksheet.Cells[h, 45].Interior.Color = Color.Red;
-                                    }
-                                }
-
                                 wrksheet.Cells[h, 46] = dataGrid[13, j + 1].Value + ""; //13
                                 if (truong13 != dataGrid[13, j + 1].Value + "")
                                 {
@@ -757,130 +1145,72 @@ namespace Natsu.MyForm
                                 {
                                     wrksheet.Cells[h, 58].Interior.Color = Color.Red;
                                 }
+                                dem = 1;
+                                soloisausua += 1;
                             }
                             else
                             {
-                                k = k + 1;
-                                wrksheet.Cells[h, 31] = dataGrid[1, j].Value + ""; //1
-                                wrksheet.Cells[h, 32] = dataGrid[2, j].Value + ""; //2
-                                if ((dataGrid[3, j].Value + "").Length == 6) //3
-                                {
-                                    wrksheet.Cells[h, 33] = (dataGrid[3, j].Value + "").Substring(0, 2);
-                                    wrksheet.Cells[h, 34] = (dataGrid[3, j].Value + "").Substring(2, 2);
-                                    wrksheet.Cells[h, 35] = (dataGrid[3, j].Value + "").Substring(4, 2);
-                                }
-                                else if ((dataGrid[3, j].Value + "") == "*")
-                                {
-                                    wrksheet.Cells[h, 33] = "*";
-                                    wrksheet.Cells[h, 34] = "*";
-                                    wrksheet.Cells[h, 35] = "*";
-                                }
-                                else
-                                {
-                                    wrksheet.Cells[h, 33] = "";
-                                    wrksheet.Cells[h, 34] = "";
-                                    wrksheet.Cells[h, 35] = dataGrid[3, j].Value + "";
-                                }
-
-                                wrksheet.Cells[h, 36] = dataGrid[4, j].Value + ""; //4
-                                wrksheet.Cells[h, 37] = dataGrid[5, j].Value + ""; //5
-                                wrksheet.Cells[h, 38] = dataGrid[6, j].Value + ""; //6
-                                wrksheet.Cells[h, 39] = dataGrid[7, j].Value + ""; //7
-                                wrksheet.Cells[h, 40] = dataGrid[8, j].Value + ""; //8
-                                wrksheet.Cells[h, 41] = dataGrid[9, j].Value + ""; //9
-                                wrksheet.Cells[h, 42] = dataGrid[10, j].Value + ""; //10
-                                wrksheet.Cells[h, 43] = dataGrid[11, j].Value + ""; //11
-                                if ((dataGrid[12, j].Value + "").Length == 4) //12
-                                {
-                                    wrksheet.Cells[h, 44] = (dataGrid[12, j].Value + "").Substring(0, 2);
-                                    wrksheet.Cells[h, 45] = (dataGrid[12, j].Value + "").Substring(2, 2);
-                                }
-                                else if ((dataGrid[12, j].Value + "") == "*")
-                                {
-                                    wrksheet.Cells[h, 44] = "*";
-                                    wrksheet.Cells[h, 45] = "*";
-                                }
-                                else
-                                {
-                                    wrksheet.Cells[h, 44] = "";
-                                    wrksheet.Cells[h, 45] = dataGrid[12, j].Value + "";
-                                }
-
-                                wrksheet.Cells[h, 46] = dataGrid[13, j].Value + ""; //13
-                                wrksheet.Cells[h, 47] = dataGrid[14, j].Value + ""; //14
-                                wrksheet.Cells[h, 48] = dataGrid[15, j].Value + ""; //15
-                                wrksheet.Cells[h, 49] = dataGrid[16, j].Value + ""; //16
-                                wrksheet.Cells[h, 50] = dataGrid[17, j].Value + ""; //17
-                                wrksheet.Cells[h, 51] = dataGrid[18, j].Value + ""; //18
-                                wrksheet.Cells[h, 52] = dataGrid[19, j].Value + ""; //19
-                                wrksheet.Cells[h, 53] = dataGrid[20, j].Value + ""; //20
-                                wrksheet.Cells[h, 54] = dataGrid[21, j].Value + ""; //21
-                                wrksheet.Cells[h, 55] = dataGrid[22, j].Value + ""; //22
-                                wrksheet.Cells[h, 56] = dataGrid[23, j].Value + ""; //23
-                                wrksheet.Cells[h, 57] = dataGrid[24, j].Value + ""; //24
-                                wrksheet.Cells[h, 58] = dataGrid[25, j].Value + ""; //25
+                                wrksheet.Cells[h, 31] = truong1; //1
+                                wrksheet.Cells[h, 32] = truong2; //2
+                                wrksheet.Cells[h, 33] = truong3_1; //3
+                                wrksheet.Cells[h, 34] = truong3_2;
+                                wrksheet.Cells[h, 35] = truong3_3;
+                                wrksheet.Cells[h, 36] = truong4;
+                                wrksheet.Cells[h, 37] = truong5;
+                                wrksheet.Cells[h, 38] = truong6;
+                                wrksheet.Cells[h, 39] = truong7;
+                                wrksheet.Cells[h, 40] = truong8;
+                                wrksheet.Cells[h, 41] = truong9;
+                                wrksheet.Cells[h, 42] = truong10;
+                                wrksheet.Cells[h, 43] = truong11;
+                                wrksheet.Cells[h, 44] = truong12_1; //12
+                                wrksheet.Cells[h, 45] = truong12_2;
+                                wrksheet.Cells[h, 46] = truong13;
+                                wrksheet.Cells[h, 47] = truong14;
+                                wrksheet.Cells[h, 48] = truong15;
+                                wrksheet.Cells[h, 49] = truong16;
+                                wrksheet.Cells[h, 50] = truong17;
+                                wrksheet.Cells[h, 51] = truong18;
+                                wrksheet.Cells[h, 52] = truong19;
+                                wrksheet.Cells[h, 53] = truong20;
+                                wrksheet.Cells[h, 54] = truong21;
+                                wrksheet.Cells[h, 55] = truong22;
+                                wrksheet.Cells[h, 56] = truong23;
+                                wrksheet.Cells[h, 57] = truong24;
+                                wrksheet.Cells[h, 58] = truong25;
+                                dem += 1;
                             }
                         }
                         else
                         {
-                            wrksheet.Cells[h, 31] = dataGrid[1, j].Value + ""; //1
-                            wrksheet.Cells[h, 32] = dataGrid[2, j].Value + ""; //2
-                            if ((dataGrid[3, j].Value + "").Length == 6) //3
-                            {
-                                wrksheet.Cells[h, 33] = (dataGrid[3, j].Value + "").Substring(0, 2);
-                                wrksheet.Cells[h, 34] = (dataGrid[3, j].Value + "").Substring(2, 2);
-                                wrksheet.Cells[h, 35] = (dataGrid[3, j].Value + "").Substring(4, 2);
-                            }
-                            else if ((dataGrid[3, j].Value + "") == "*")
-                            {
-                                wrksheet.Cells[h, 33] = "*";
-                                wrksheet.Cells[h, 34] = "*";
-                                wrksheet.Cells[h, 35] = "*";
-                            }
-                            else
-                            {
-                                wrksheet.Cells[h, 33] = "";
-                                wrksheet.Cells[h, 34] = "";
-                                wrksheet.Cells[h, 35] = dataGrid[3, j].Value + "";
-                            }
-
-                            wrksheet.Cells[h, 36] = dataGrid[4, j].Value + ""; //4
-                            wrksheet.Cells[h, 37] = dataGrid[5, j].Value + ""; //5
-                            wrksheet.Cells[h, 38] = dataGrid[6, j].Value + ""; //6
-                            wrksheet.Cells[h, 39] = dataGrid[7, j].Value + ""; //7
-                            wrksheet.Cells[h, 40] = dataGrid[8, j].Value + ""; //8
-                            wrksheet.Cells[h, 41] = dataGrid[9, j].Value + ""; //9
-                            wrksheet.Cells[h, 42] = dataGrid[10, j].Value + ""; //10
-                            wrksheet.Cells[h, 43] = dataGrid[11, j].Value + ""; //11
-                            if ((dataGrid[12, j].Value + "").Length == 4) //12
-                            {
-                                wrksheet.Cells[h, 44] = (dataGrid[12, j].Value + "").Substring(0, 2);
-                                wrksheet.Cells[h, 45] = (dataGrid[12, j].Value + "").Substring(2, 2);
-                            }
-                            else if ((dataGrid[12, j].Value + "") == "*")
-                            {
-                                wrksheet.Cells[h, 44] = "*";
-                                wrksheet.Cells[h, 45] = "*";
-                            }
-                            else
-                            {
-                                wrksheet.Cells[h, 44] = "";
-                                wrksheet.Cells[h, 45] = dataGrid[12, j].Value + "";
-                            }
-
-                            wrksheet.Cells[h, 46] = dataGrid[13, j].Value + ""; //13
-                            wrksheet.Cells[h, 47] = dataGrid[14, j].Value + ""; //14
-                            wrksheet.Cells[h, 48] = dataGrid[15, j].Value + ""; //15
-                            wrksheet.Cells[h, 49] = dataGrid[16, j].Value + ""; //16
-                            wrksheet.Cells[h, 50] = dataGrid[17, j].Value + ""; //17
-                            wrksheet.Cells[h, 51] = dataGrid[18, j].Value + ""; //18
-                            wrksheet.Cells[h, 52] = dataGrid[19, j].Value + ""; //19
-                            wrksheet.Cells[h, 53] = dataGrid[20, j].Value + ""; //20
-                            wrksheet.Cells[h, 54] = dataGrid[21, j].Value + ""; //21
-                            wrksheet.Cells[h, 55] = dataGrid[22, j].Value + ""; //22
-                            wrksheet.Cells[h, 56] = dataGrid[23, j].Value + ""; //23
-                            wrksheet.Cells[h, 57] = dataGrid[24, j].Value + ""; //24
-                            wrksheet.Cells[h, 58] = dataGrid[25, j].Value + ""; //25
+                            wrksheet.Cells[h, 31] = truong1; //1
+                            wrksheet.Cells[h, 32] = truong2; //2
+                            wrksheet.Cells[h, 33] = truong3_1; //3
+                            wrksheet.Cells[h, 34] = truong3_2;
+                            wrksheet.Cells[h, 35] = truong3_3;
+                            wrksheet.Cells[h, 36] = truong4;
+                            wrksheet.Cells[h, 37] = truong5;
+                            wrksheet.Cells[h, 38] = truong6;
+                            wrksheet.Cells[h, 39] = truong7;
+                            wrksheet.Cells[h, 40] = truong8;
+                            wrksheet.Cells[h, 41] = truong9;
+                            wrksheet.Cells[h, 42] = truong10;
+                            wrksheet.Cells[h, 43] = truong11;
+                            wrksheet.Cells[h, 44] = truong12_1; //12
+                            wrksheet.Cells[h, 45] = truong12_2;
+                            wrksheet.Cells[h, 46] = truong13;
+                            wrksheet.Cells[h, 47] = truong14;
+                            wrksheet.Cells[h, 48] = truong15;
+                            wrksheet.Cells[h, 49] = truong16;
+                            wrksheet.Cells[h, 50] = truong17;
+                            wrksheet.Cells[h, 51] = truong18;
+                            wrksheet.Cells[h, 52] = truong19;
+                            wrksheet.Cells[h, 53] = truong20;
+                            wrksheet.Cells[h, 54] = truong21;
+                            wrksheet.Cells[h, 55] = truong22;
+                            wrksheet.Cells[h, 56] = truong23;
+                            wrksheet.Cells[h, 57] = truong24;
+                            wrksheet.Cells[h, 58] = truong25;
                         }
                         h++;
 
@@ -889,7 +1219,7 @@ namespace Natsu.MyForm
                         progressBarControl1.Update();
                     }
                 }
-                
+
                 Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "BF" + (h - 1));
                 rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
                 string savePath = "";
@@ -912,15 +1242,19 @@ namespace Natsu.MyForm
                 }
                 Process.Start(savePath);
                 return true;
-        }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
             }
 
-}
+        }
 
+        public void Test()
+        {
+
+        }
         //public bool TableToExcel(string strfilename, DataGridView dataGrid)
         //{
         //    try
@@ -938,7 +1272,7 @@ namespace Natsu.MyForm
         //        progressBarControl1.Properties.Minimum = 0;
         //        progressBarControl1.Properties.StartColor = Color.DarkRed; // choose the color
         //        progressBarControl1.Properties.EndColor = Color.Green; // choose the color
-                
+
         //        for (int j = 0; j < dataGrid.RowCount; j += 2)
         //        {
 
@@ -1007,7 +1341,7 @@ namespace Natsu.MyForm
 
 
         //            wrksheet.Cells[h, 31] = dataGrid[1, j + 1].Value + ""; //1
-                   
+
         //                //wrksheet.Cells[h, 31].Interior.Color = Color.Red;
 
         //            wrksheet.Cells[h, 32] = dataGrid[2, j + 1].Value + ""; //2
@@ -1072,7 +1406,7 @@ namespace Natsu.MyForm
         //            progressBarControl1.Update();
         //            lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count / 2;
         //        }
-                
+
 
         //        Microsoft.Office.Interop.Excel.Range rowHead = wrksheet.get_Range("A1", "BF" + (h - 1));
         //        rowHead.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
@@ -1205,7 +1539,7 @@ namespace Natsu.MyForm
         //            progressBarControl1.Update();
         //        }
 
-               
+
 
         //        string savePath = "";
         //        saveFileDialog1.Title = "Save Excel Files";
@@ -1240,8 +1574,13 @@ namespace Natsu.MyForm
             try
             {
                 Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel.Worksheet wrksheet = (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+                Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Open(strfilename, 0, true, 5, "", "", false,
+                    Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+                Microsoft.Office.Interop.Excel.Worksheet wrksheet =
+                    (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
+                //Microsoft.Office.Interop.Excel.Application App = new Microsoft.Office.Interop.Excel.Application();
+                //Microsoft.Office.Interop.Excel.Workbook book = App.Workbooks.Add(Type.Missing);
+                //Microsoft.Office.Interop.Excel.Worksheet wrksheet = (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
                 int h = 2;
                 int i = 0;
                 progressBarControl1.EditValue = 0;
@@ -1256,11 +1595,11 @@ namespace Natsu.MyForm
                 {
                     wrksheet.Cells[h, 1] = dr.Cells[0].Value + ""; //tên image
                     wrksheet.Cells[h, 2] = dr.Cells[1].Value + ""; //1
-                    if (dr.Cells[27].Value+""=="1")
+                    if (dr.Cells[27].Value + "" == "1")
                     {
                         wrksheet.Cells[h, 2].Interior.Color = Color.Red;
                     }
-               
+
                     wrksheet.Cells[h, 3] = dr.Cells[2].Value?.ToString() ?? ""; //2
                     if (dr.Cells[28].Value + "" == "1")
                     {
@@ -1444,7 +1783,7 @@ namespace Natsu.MyForm
 
                     wrksheet.Cells[h, 31] = dr.Cells[26].Value?.ToString() ?? "";
 
-                    
+
 
                     lb_SoDong.Text = (h - 1) + @"/" + dataGrid.Rows.Count;
                     i++;
@@ -1457,7 +1796,7 @@ namespace Natsu.MyForm
                 string savePath = "";
                 saveFileDialog1.Title = "Save Excel Files";
                 saveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx";
-                saveFileDialog1.FileName = cbb_Batch.Text.Replace(@"\","_") + "_Santei_Error";
+                saveFileDialog1.FileName = cbb_Batch.Text.Replace(@"\", "_") + "_Santei_Error";
                 saveFileDialog1.RestoreDirectory = true;
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -1559,7 +1898,7 @@ namespace Natsu.MyForm
 
                 return;
             }
-           
+
 
             if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ErrorSantei.xlsx"))
             {

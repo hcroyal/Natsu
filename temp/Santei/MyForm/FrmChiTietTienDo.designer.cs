@@ -55,6 +55,10 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.lb_SoHinhChuaNhapUserGood = new DevExpress.XtraEditors.LabelControl();
+            this.lb_SoHinhChuaNhapUserNotGood = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -68,6 +72,10 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lb_SoHinhChuaNhapUserNotGood);
+            this.panelControl1.Controls.Add(this.labelControl11);
+            this.panelControl1.Controls.Add(this.lb_SoHinhChuaNhapUserGood);
+            this.panelControl1.Controls.Add(this.labelControl10);
             this.panelControl1.Controls.Add(this.labelControl6);
             this.panelControl1.Controls.Add(this.labelControl5);
             this.panelControl1.Controls.Add(this.labelControl4);
@@ -90,6 +98,7 @@
             // 
             // labelControl6
             // 
+            this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl6.Location = new System.Drawing.Point(392, 109);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(97, 13);
@@ -98,6 +107,7 @@
             // 
             // labelControl5
             // 
+            this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl5.Location = new System.Drawing.Point(392, 90);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(96, 13);
@@ -106,6 +116,7 @@
             // 
             // labelControl4
             // 
+            this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl4.Location = new System.Drawing.Point(399, 71);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(89, 13);
@@ -114,6 +125,7 @@
             // 
             // labelControl3
             // 
+            this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl3.Location = new System.Drawing.Point(395, 52);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(93, 13);
@@ -122,6 +134,7 @@
             // 
             // labelControl2
             // 
+            this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl2.Location = new System.Drawing.Point(395, 33);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(93, 13);
@@ -130,6 +143,7 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelControl1.Location = new System.Drawing.Point(423, 12);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(65, 13);
@@ -138,6 +152,7 @@
             // 
             // lb_SoHinhHoanThanh
             // 
+            this.lb_SoHinhHoanThanh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_SoHinhHoanThanh.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_SoHinhHoanThanh.Appearance.ForeColor = System.Drawing.Color.Green;
             this.lb_SoHinhHoanThanh.Appearance.Options.UseFont = true;
@@ -150,6 +165,7 @@
             // 
             // lb_SoHinhDangCheck
             // 
+            this.lb_SoHinhDangCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_SoHinhDangCheck.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_SoHinhDangCheck.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lb_SoHinhDangCheck.Appearance.Options.UseFont = true;
@@ -162,6 +178,7 @@
             // 
             // lb_SoHinhChoCheck
             // 
+            this.lb_SoHinhChoCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_SoHinhChoCheck.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_SoHinhChoCheck.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
             this.lb_SoHinhChoCheck.Appearance.Options.UseFont = true;
@@ -174,6 +191,7 @@
             // 
             // lb_SoHinhDangNhap
             // 
+            this.lb_SoHinhDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_SoHinhDangNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_SoHinhDangNhap.Appearance.ForeColor = System.Drawing.Color.HotPink;
             this.lb_SoHinhDangNhap.Appearance.Options.UseFont = true;
@@ -186,6 +204,7 @@
             // 
             // lb_SoHinhChuaNhap
             // 
+            this.lb_SoHinhChuaNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_SoHinhChuaNhap.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lb_SoHinhChuaNhap.Appearance.Options.UseFont = true;
             this.lb_SoHinhChuaNhap.Location = new System.Drawing.Point(494, 33);
@@ -196,6 +215,7 @@
             // 
             // lb_TongSoHinh
             // 
+            this.lb_TongSoHinh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lb_TongSoHinh.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.lb_TongSoHinh.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lb_TongSoHinh.Appearance.Options.UseFont = true;
@@ -339,6 +359,50 @@
             this.gridColumn3.VisibleIndex = 3;
             this.gridColumn3.Width = 226;
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl10.Location = new System.Drawing.Point(678, 71);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(144, 13);
+            this.labelControl10.TabIndex = 5;
+            this.labelControl10.Text = "Số hình chưa nhập user good:";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl11.Location = new System.Drawing.Point(659, 90);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(163, 13);
+            this.labelControl11.TabIndex = 5;
+            this.labelControl11.Text = "Số hình chưa nhập user not good:";
+            // 
+            // lb_SoHinhChuaNhapUserGood
+            // 
+            this.lb_SoHinhChuaNhapUserGood.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lb_SoHinhChuaNhapUserGood.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lb_SoHinhChuaNhapUserGood.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lb_SoHinhChuaNhapUserGood.Appearance.Options.UseFont = true;
+            this.lb_SoHinhChuaNhapUserGood.Appearance.Options.UseForeColor = true;
+            this.lb_SoHinhChuaNhapUserGood.Location = new System.Drawing.Point(830, 71);
+            this.lb_SoHinhChuaNhapUserGood.Name = "lb_SoHinhChuaNhapUserGood";
+            this.lb_SoHinhChuaNhapUserGood.Size = new System.Drawing.Size(165, 13);
+            this.lb_SoHinhChuaNhapUserGood.TabIndex = 5;
+            this.lb_SoHinhChuaNhapUserGood.Text = "Số hình chưa nhập user good:";
+            // 
+            // lb_SoHinhChuaNhapUserNotGood
+            // 
+            this.lb_SoHinhChuaNhapUserNotGood.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lb_SoHinhChuaNhapUserNotGood.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lb_SoHinhChuaNhapUserNotGood.Appearance.ForeColor = System.Drawing.Color.Crimson;
+            this.lb_SoHinhChuaNhapUserNotGood.Appearance.Options.UseFont = true;
+            this.lb_SoHinhChuaNhapUserNotGood.Appearance.Options.UseForeColor = true;
+            this.lb_SoHinhChuaNhapUserNotGood.Location = new System.Drawing.Point(830, 90);
+            this.lb_SoHinhChuaNhapUserNotGood.Name = "lb_SoHinhChuaNhapUserNotGood";
+            this.lb_SoHinhChuaNhapUserNotGood.Size = new System.Drawing.Size(187, 13);
+            this.lb_SoHinhChuaNhapUserNotGood.TabIndex = 5;
+            this.lb_SoHinhChuaNhapUserNotGood.Text = "Số hình chưa nhập user not good:";
+            // 
             // FrmChiTietTienDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,5 +458,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.LabelControl lb_SoHinhChuaNhapUserNotGood;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lb_SoHinhChuaNhapUserGood;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

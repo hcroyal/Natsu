@@ -16,7 +16,7 @@ namespace Natsu.MyForm
         private void frm_TienDo_Load(object sender, EventArgs e)
         {
             
-            var fBatchName = (from w in Global.Db.tbl_Batches orderby w.IDBatch select new { w.fBatchName }).ToList();
+            var fBatchName = (from w in Global.Db.tbl_Batches where w.CongKhaiBatch==true orderby w.IDBatch select new { w.fBatchName }).ToList();
             cbb_Batch.Properties.DataSource = fBatchName;
             cbb_Batch.Properties.DisplayMember = "fBatchName";
             cbb_Batch.Properties.ValueMember = "fBatchName";

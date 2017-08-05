@@ -20,12 +20,13 @@ namespace Natsu.MyForm
             {
                 lb_TongSoHinh.Text = (from w in Global.Db.tbl_Images select w.idimage).Count().ToString();
 
-                lb_SoHinhChuaNhap.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình chưa nhập" select w.idimage).Count().ToString();
-                lb_SoHinhDangNhap.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình đang nhập" select w.idimage).Count().ToString();
-                lb_SoHinhChoCheck.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình chờ check" select w.idimage).Count().ToString();
-                lb_SoHinhDangCheck.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình đang check" select w.idimage).Count().ToString();
-                lb_SoHinhHoanThanh.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình hoàn thành" select w.idimage).Count().ToString();
-
+                lb_SoHinhChuaNhap.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình chưa nhập" select w.idimage).Count() + "";
+                lb_SoHinhDangNhap.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình đang nhập" select w.idimage).Count() + "";
+                lb_SoHinhChoCheck.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình chờ check" select w.idimage).Count() + "";
+                lb_SoHinhDangCheck.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình đang check" select w.idimage).Count() + "";
+                lb_SoHinhHoanThanh.Text = (from w in Global.Db.tbl_Images where w.TienDoDESO == "Hình hoàn thành" select w.idimage).Count() + "";
+                lb_SoHinhChuaNhapUserGood.Text = (from w in Global.Db.tbl_Images where w.ReadImageDESO_Good == 0 select w.idimage).Count() + "";
+                lb_SoHinhChuaNhapUserNotGood.Text = (from w in Global.Db.tbl_Images where w.ReadImageDESO_NotGood == 0 select w.idimage).Count() + "";
                 gridControl1.DataSource = null;
                 gridControl1.DataSource = Global.Db.ChiTietTienDo_All();
             }
@@ -33,12 +34,13 @@ namespace Natsu.MyForm
             {
                 lb_TongSoHinh.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text select w.idimage).Count().ToString();
 
-                lb_SoHinhChuaNhap.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình chưa nhập" select w.idimage).Count().ToString();
-                lb_SoHinhDangNhap.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình đang nhập" select w.idimage).Count().ToString();
-                lb_SoHinhChoCheck.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình chờ check" select w.idimage).Count().ToString();
-                lb_SoHinhDangCheck.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình đang check" select w.idimage).Count().ToString();
-                lb_SoHinhHoanThanh.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình hoàn thành" select w.idimage).Count().ToString();
-
+                lb_SoHinhChuaNhap.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình chưa nhập" select w.idimage).Count() + "";
+                lb_SoHinhDangNhap.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình đang nhập" select w.idimage).Count()+"";
+                lb_SoHinhChoCheck.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình chờ check" select w.idimage).Count()+"";
+                lb_SoHinhDangCheck.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình đang check" select w.idimage).Count()+"";
+                lb_SoHinhHoanThanh.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.TienDoDESO == "Hình hoàn thành" select w.idimage).Count()+"";
+                lb_SoHinhChuaNhapUserGood.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.ReadImageDESO_Good == 0 select w.idimage).Count() + "";
+                lb_SoHinhChuaNhapUserNotGood.Text = (from w in Global.Db.tbl_Images where w.fbatchname == lb_fBatchName.Text && w.ReadImageDESO_NotGood == 0 select w.idimage).Count() + "";
                 gridControl1.DataSource = null;
                 gridControl1.DataSource = Global.Db.ChiTietTienDo(lb_fBatchName.Text);
             }
